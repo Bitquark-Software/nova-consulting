@@ -8,6 +8,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+    font-family: 'Catenary';
+    src: url('/resources/fonts/Catenary-Stamp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.novaFont {
+    font-family: 'Catenary', sans-serif;
+}
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
@@ -59,6 +70,27 @@ input:focus[data-flux-control],
 textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    color: white;
+}
+
+.highlight::after {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -40px;
+    width: 330px;
+    height: 150px;
+    background-image: url('images/brush-stroke.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* transform: translateY(-50%) rotate(-2deg); */
+    z-index: -1;
 }
 
 /* \[:where(&)\]:size-4 {
