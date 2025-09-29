@@ -1,16 +1,7 @@
-import '../css/app.css';
-import "./modals";
+import './bootstrap';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const navButton = document.querySelector('#nav-btn');
+import Alpine from 'alpinejs';
 
-    if(!navButton) return;
+window.Alpine = Alpine;
 
-    navButton.addEventListener('click', () => {
-        const navWrapper = document.getElementById('mobile-nav-wrapper');
-
-        if(!navWrapper) return;
-
-        navWrapper.classList.toggle('hidden');
-    });
-});
+Alpine.start();

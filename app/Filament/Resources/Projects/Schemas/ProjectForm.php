@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use App\Models\User;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectForm
 {
@@ -13,35 +15,52 @@ class ProjectForm
     {
         return $schema
             ->components([
-                TextInput::make('code'),
-                TextInput::make('quote_id')
-                    ->numeric(),
-                TextInput::make('name')
+                TextInput::make('title')
+                    ->label('Nombre del proyecto')
                     ->required(),
-                Textarea::make('description')
-                    ->columnSpanFull(),
-                TextInput::make('budget')
-                    ->required()
-                    ->numeric()
-                    ->default(0.0),
-                TextInput::make('spent')
-                    ->required()
-                    ->numeric()
-                    ->default(0.0),
                 Select::make('status')
+                ->label('Estado del proyecto')
+                ->disabled(fn () => auth()->user()?->type === 'customer')
                     ->options([
-            'planned' => 'Planned',
-            'in_progress' => 'In progress',
-            'on_hold' => 'On hold',
-            'completed' => 'Completed',
-            'cancelled' => 'Cancelled',
-        ])
-                    ->default('planned')
+                        'draft' => 'Draft',
+                        'accepted' => 'Accepted',
+                        'in_progress' => 'In progress',
+                        'done' => 'Done',
+                        'cancelled' => 'Cancelled',
+                    ])
+                    ->default('draft')
                     ->required(),
-                TextInput::make('progress')
+                TextInput::make('company_name')
+                    ->label('Nombre de la empresa')
+                    ->required(),
+                Select::make('user_id')
+                    ->label('Cliente')
+                    ->options(
+                        User::where('type', 'customer')
+                            ->pluck('name', 'id')
+                    )
+                    ->searchable()
+                    ->visible(fn () => Auth::user()->type !== 'customer')
+                    ->required(fn () => Auth::user()->type !== 'customer'),
+                TextInput::make('budget')
+                    ->label('Presupuesto')
                     ->required()
                     ->numeric()
-                    ->default(0),
+                    ->default(0.0),
+                TextInput::make('budget_used')
+                    ->required()
+                    ->numeric()
+                    ->default(0.0)
+                    ->visible(fn () => Auth::user()->type !== 'customer'),
+                TextInput::make('progress')
+                    ->label('Progreso actual') 
+                    ->required()
+                    ->numeric()
+                    ->default(0)
+                    ->visible(fn () => Auth::user()->type !== 'customer'),
+                Textarea::make('notes')
+                    ->label('Notas Adicionales')
+                    ->columnSpanFull(),
             ]);
     }
 }

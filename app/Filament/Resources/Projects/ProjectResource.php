@@ -13,14 +13,16 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFolderOpen;
 
-    protected static ?string $recordTitleAttribute = 'projectResource';
+    protected static ?string $recordTitleAttribute = 'project';
 
     public static function form(Schema $schema): Schema
     {
@@ -46,5 +48,28 @@ class ProjectResource extends Resource
             'create' => CreateProject::route('/create'),
             'edit' => EditProject::route('/{record}/edit'),
         ];
+    }
+
+    protected static function mutateFormDataBeforeCreate(array $data): array
+    {
+        if (Auth::user()->type === 'customer') {
+            $data['user_id'] = Auth::id();
+        }
+
+        // por si el usuario se pasa de verdura y logra modificar el select
+        $data['status'] = 'draft';
+
+        return $data;
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        if (Auth::check() && Auth::user()->type === 'customer') {
+            $query->where('user_id', Auth::id());
+        }
+
+        return $query;
     }
 }

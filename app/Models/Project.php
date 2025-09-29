@@ -6,10 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['code','quote_id','name','description','budget','spent','status','progress'];
+    protected $fillable = [
+        'title',
+        'status',
+        'company_name',
+        'user_id',
+        'budget',
+        'budget_used',
+        'progress',
+        'notes',
+    ];
 
-    public function quote()
+    public function user()
     {
-        return $this->belongsTo(Quote::class);
+        return $this->belongsTo(User::class);
     }
 }
