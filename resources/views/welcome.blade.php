@@ -17,7 +17,7 @@
         <meta name="twitter:description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
         <link rel="canonical" href="{{ url()->current() }}">
 
-        <title>Nova Consulting</title>
+        <title>Nova Consulting | Digital Solutions for Business Growth</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -346,7 +346,7 @@
         </footer>
     
         <!-- modals -->
-        <div id="customSoftwareModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-xs z-50">
+        <div id="customSoftwareModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">
             <div class="w-10/12 bg-white rounded-2xl border shadow-2xl p-6">
                 <div class="flex flex-row w-full items-end justify-end">
                     <button class="close-modal" data-modalid="customSoftwareModal" class="p-4 text-accent border border-black rounded-2xl">X</button>
@@ -359,7 +359,7 @@
                 </div>
             </div>
         </div>
-        <div id="itStaffingModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-xs z-50">
+        <div id="itStaffingModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">
             <div class="w-10/12 bg-white rounded-2xl border shadow-2xl p-6">
                 <div class="flex flex-row w-full items-end justify-end">
                     <button class="close-modal" data-modalid="itStaffingModal" class="p-4 text-accent border border-black rounded-2xl">X</button>
@@ -372,7 +372,7 @@
                 </div>
             </div>
         </div>
-        <div id="cloudModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-xs z-50">
+        <div id="cloudModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">
             <div class="w-10/12 bg-white rounded-2xl border shadow-2xl p-6">
                 <div class="flex flex-row w-full items-end justify-end">
                     <button class="close-modal" data-modalid="cloudModal" class="p-4 text-accent border border-black rounded-2xl">X</button>
@@ -385,7 +385,7 @@
                 </div>
             </div>
         </div>
-        <div id="technicalConsultingModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-xs z-50">
+        <div id="technicalConsultingModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">
             <div class="w-10/12 bg-white rounded-2xl border shadow-2xl p-6">
                 <div class="flex flex-row w-full items-end justify-end">
                     <button class="close-modal" data-modalid="technicalConsultingModal" class="p-4 text-accent border border-black rounded-2xl">X</button>
@@ -398,7 +398,7 @@
                 </div>
             </div>
         </div>
-        <div id="qualityModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-xs z-50">
+        <div id="qualityModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">
             <div class="w-10/12 bg-white rounded-2xl border shadow-2xl p-6">
                 <div class="flex flex-row w-full items-end justify-end">
                     <button class="close-modal" data-modalid="qualityModal" class="p-4 text-accent border border-black rounded-2xl">X</button>
