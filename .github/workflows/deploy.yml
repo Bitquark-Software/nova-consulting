@@ -28,7 +28,7 @@ jobs:
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
-          passphrase: ${{ secrets.HOSTINGER_PASSWORD }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
           script: |
             cd ${{ secrets.HOSTINGER_TARGET_PATH }}
