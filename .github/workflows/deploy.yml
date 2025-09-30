@@ -23,12 +23,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install NPM dependencies
-        run: npm install
-
-      - name: Build assets
-        run: npm run build
-
       - name: Execute deployment commands on Hostinger via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
