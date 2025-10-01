@@ -1,102 +1,9 @@
+{{-- resources/views/partials/head.blade.php --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- How can I add INTL SEO??? -->
-        <meta name="description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-        <meta name="keywords" content="Nova Consulting, digital consulting, business solutions, services, pricing, about, customer portal, IT consulting, web development, software solutions, technology strategy, digital transformation, project management, SaaS, cloud services, enterprise solutions, innovation, tech support, business growth, online presence, digital marketing">
-        <meta name="author" content="Nova Consulting">
-        <meta name="robots" content="index, follow">
-        <meta property="og:title" content="Nova Consulting">
-        <meta property="og:description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Nova Consulting">
-        <meta name="twitter:description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-        <link rel="canonical" href="{{ url()->current() }}">
-
-        <title>Nova Consulting | Digital Solutions for Business Growth</title>
-
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-
-        @vite(['resources/css/app.css', 'resources/js/app.js']);
-
-        <!-- Seo tags -->
-    </head>
+    @include('layouts.global_header');
     <body class="bg-[#F2F2F2] text-[#2C2C2C]">
-        <header class="w-full text-sm mb-6 not-has-[nav]:hidden fixed top-0 left-0 bg-transparent z-20">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-around gap-4 py-4 px-3">
-                    <img class="w-60 h-auto" src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false">
-                    <div class="hidden rounded-2xl bg-transparent md:grid grid-cols-3 gap-1">
-                        <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
-                            <a href="#services">Services</a>
-                        </div>
-                        <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
-                            <a href="#pricing">Pricing</a>
-                        </div>
-                        <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
-                            <a href="#about">About</a>
-                        </div>
-                    </div>
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="hidden sm:inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            My Projects
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="hidden sm:inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Customer Portal
-                        </a>
-                        <button id="nav-btn" class="flex items-center justify-center bg-transparent text-4xl sm:hidden border-[#2C2C2C] rounded hover:bg-[#2C2C2C] hover:text-[#F2F2F2]">
-                            <p class="pb-2 px-2">☰</p>
-                        </button>
-                    @endauth
-                </nav>
-
-                <nav id="mobile-nav-wrapper" class="w-full hidden py-3 bg-white/5 backdrop-blur-3xl">
-                    <div class="flex flex-col items-center justify-around">
-                        <a href="#" class="text-[#2C2C2C]">Services</a>
-                        <a href="#" class="text-[#2C2C2C]">Pricing</a>
-                        <a href="#" class="text-[#2C2C2C]">About</a>
-                        <div class="w-full flex items-center justify-around">
-                            @auth
-                                <a
-                                    href="{{ url('/dashboard') }}"
-                                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                                >
-                                    My Projects
-                                </a>
-                            @else
-                                <a
-                                    href="{{ route('login') }}"
-                                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                                >
-                                    Customer Portal
-                                </a>
-                            @endauth
-                        </div>
-                    </div>
-                </div>
-            @endif
-        </header>
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-
+        @include('layouts.landing_navbar');
         <main class="block w-full">
             <div class="mt-44 w-6/12 sm:w-4/12 md:w-3/12 xl:w-2/12 mx-auto p-3 flex items-center justify-center">
                 <div class="rounded-full p-1 w-10/12 flex flex-row items-center justify-around bg-gray-300 shadow">
@@ -104,7 +11,7 @@
                     <h2 class="text-xs">Now accepting new IT projects</h2>
                 </div>
             </div>
-            <h1 class="text-[#2C2C2C] font-bold text-6xl text-center max-w-md md:max-w-2xl block mx-auto my-6 space-y-3">Custom &nbsp; &nbsp;<span class="highlight">software</span><br> & <span class="">IT solutions</span> for modern businesses</h1>
+            <h1 class="text-[#2C2C2C] font-bold text-6xl text-center max-w-md md:max-w-2xl block mx-auto my-6 space-y-3">Custom &nbsp;<span class="highlight">software</span><br> & <span class="">IT solutions</span> for modern businesses</h1>
             <h2 class="text-[#8d8d8d] text-xl text-center max-w-md md:max-w-2xl block mx-auto mb-6">
                 Transform your business with custom software development and expert IT staffing. We deliver scalable solutions and talented professionals to accelerate your growth.
             </h2>
@@ -283,67 +190,7 @@
             <h4 class="text-center text-md text-[#2C2C2C] my-12">Have questions? <a target="_blank" href="https://calendly.com/idsfernandomorales/30min" class="underline">Contact our sales team</a></h4>
         </div>
 
-        <footer class="w-full p-12 bg-[#e2e2e2] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center justify-center gap-1">
-            <div class="col-span-1">
-                <img src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" class="w-40 h-auto">
-                <div class="flex flex-row gap-2 items-center justify-start">
-                    <a href="#" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                        <x-ri-facebook-fill class="w-6 h-6" />
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                        <x-ri-instagram-fill class="w-6 h-6" />
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                        <x-ri-tiktok-fill class="w-6 h-6" />
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                        <x-ri-whatsapp-fill class="w-6 h-6" />
-                    </a>
-                </div>
-            </div>
-            <div class="col-span-1">
-                <h1 class="font-bold text-xl">Services</h1>
-                <ul>
-                    <li>
-                        <a href="#" class="underline">Custom Software</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">IT Staff Augmentation</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">Software Consulting</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h1 class="font-bold text-xl">Company</h1>
-                <ul>
-                    <li>
-                        <a href="#" class="underline">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">Carreers</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-span-1">
-                <h1 class="font-bold text-xl">Customer Portal</h1>
-                <ul>
-                    <li>
-                        <a href="#" class="underline">F.A.Q</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">My Projects</a>
-                    </li>
-                    <li>
-                        <a href="#" class="underline">Create An Account</a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
+        @include('layouts.footer');
     
         <!-- modals -->
         <div id="customSoftwareModal" class="hidden w-[100vw] h-[100vh] fixed flex items-center justify-center top-0 left-0 bg-white/25 backdrop-blur-sm z-50">

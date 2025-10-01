@@ -15,6 +15,14 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');
