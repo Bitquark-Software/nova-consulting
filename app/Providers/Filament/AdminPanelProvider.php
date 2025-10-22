@@ -39,7 +39,7 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->sidebarWidth('220px')
-            ->sidebarCollapsibleOnDesktop()
+            ->sidebarFullyCollapsibleOnDesktop()
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 DraftProjectsWidget::class,

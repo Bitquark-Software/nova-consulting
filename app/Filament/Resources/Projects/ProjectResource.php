@@ -26,7 +26,7 @@ class ProjectResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return ProjectForm::configure($schema);
+        return ProjectForm::configure($schema)->columns(1);
     }
 
     public static function table(Table $table): Table
@@ -55,9 +55,6 @@ class ProjectResource extends Resource
         if (Auth::user()->type === 'customer') {
             $data['user_id'] = Auth::id();
         }
-
-        // por si el usuario se pasa de verdura y logra modificar el select
-        $data['status'] = 'draft';
 
         return $data;
     }
