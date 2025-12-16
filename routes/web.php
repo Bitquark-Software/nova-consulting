@@ -7,6 +7,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Locale switcher route: sets the selected locale in session and redirects back
+Route::get('/locale/{locale}', function ($locale) {
+    $allowed = ['en', 'es'];
+    if (in_array($locale, $allowed)) {
+        session(['locale' => $locale]);
+        // also set a cookie so AppServiceProvider can read it before session middleware runs
+        return redirect()->back()->withCookie(cookie()->forever('locale', $locale));
+    }
+    return redirect()->back();
+})->name('locale.switch');
+
+Route::get('/hiring-services', function () {
+    return view('hiring_services');
+});
+
 Route::get('/services', function () {
     return view('services');
 })->name('services');
@@ -32,10 +47,10 @@ Route::get('/coming-soon', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

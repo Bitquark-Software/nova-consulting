@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header');
+@include('layouts.global_header')
 
 <body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar');
+    @include('layouts.landing_navbar')
     <!-- Hero Section -->
     <section class="relative pt-40 px-6 md:px-12 cosmic-grid">
         <div class="relative max-w-7xl mx-auto text-center space-y-6">
             <h1 class="text-4xl md:text-6xl font-bold tracking-tighter">
-                Services That Scale
+                {{ __('messages.services_page.hero_title') }}
                 <br />
-                <span class="text-[#242424]">With Your Business</span>
+                <span class="text-[#242424]">{{ __('messages.services_page.with_your_business') }}</span>
             </h1>
             <p class="text-lg md:text-xl text-[#0c0c0c] max-w-2xl mx-auto">
-                From custom software to elite tech talent, we provide comprehensive IT solutions
-                that help your business innovate faster and operate smarter.
+                {{ __('messages.services_page.hero_subtitle') }}
             </p>
         </div>
     </section>
@@ -37,21 +36,21 @@
                             </div>
                             <div>
                                 <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
-                                    Custom Software Development
+                                    {{ __('messages.services_page.custom_software_title') }}
                                 </h2>
                                 <p class="text-base text-[#a1a1a1]">
-                                    Tailored solutions for unique business challenges
+                                    {{ __('messages.services_page.custom_software_subtitle') }}
                                 </p>
                             </div>
                         </div>
 
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Transform your vision into reality with enterprise-grade applications built using cutting-edge technologies. Our team specializes in creating scalable, maintainable software that grows with your business.
+                            {{ __('messages.services_page.custom_software_description') }}
                         </p>
 
                         <div class="space-y-3">
                             <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">
-                                Technologies
+                                {{ __('messages.services_page.technologies') }}
                             </h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">React</span>
@@ -70,44 +69,44 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Full-stack web applications</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_full_stack') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Mobile apps (iOS & Android)</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_mobile_apps') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Progressive Web Apps (PWAs)</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_pwa') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">API development & integration</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_api_integration') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Legacy system modernization</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_legacy_modernization') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">MVP & prototype development</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_mvp') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +115,7 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                Key Benefits
+                                {{ __('messages.services_page.key_benefits') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
@@ -124,28 +123,28 @@
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Faster time to market</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_faster_time_to_market') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Scalable architecture</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_scalable_architecture') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Clean, maintainable code</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_clean_maintainable_code') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Ongoing support & maintenance</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_ongoing_support') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +152,7 @@
                         <!-- CTA -->
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Create your project
+                                {{ __('messages.services_page.cta_create_project') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -180,21 +179,21 @@
                             </div>
                             <div>
                                 <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">
-                                    IT Staffing Solutions
+                                    {{ __('messages.services_page.it_staffing_title') }}
                                 </h2>
                                 <p class="text-base text-[#a1a1a1]">
-                                    Elite tech talent, ready when you need them
+                                    {{ __('messages.services_page.it_staffing_subtitle') }}
                                 </p>
                             </div>
                         </div>
 
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Access a curated network of pre-vetted senior developers, architects, and tech specialists. Whether you need to scale your team temporarily or find permanent hires, we connect you with professionals who deliver.
+                            {{ __('messages.services_page.it_staffing_description') }}
                         </p>
 
                         <div class="space-y-3">
                             <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">
-                                Technologies
+                                {{ __('messages.services_page.technologies') }}
                             </h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">React</span>
@@ -213,90 +212,88 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Contract developers</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_contract_developers') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Permanent placements</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_permanent_placements') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Team augmentation</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_team_augmentation') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Dedicated development teams</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_dedicated_teams') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Tech lead & architects</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_tech_leads') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Specialized roles (DevOps, QA, etc.)</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.cloud_migration') }}</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Benefits -->
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-semibold flex items-center gap-2">
-                                <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                Key Benefits
-                            </h3>
-                            <div class="grid sm:grid-cols-2 gap-3">
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M5 12h14" />
-                                        <path d="m12 5 7 7-7 7" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Pre-vetted professionals</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M5 12h14" />
-                                        <path d="m12 5 7 7-7 7" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Flexible engagement models</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M5 12h14" />
-                                        <path d="m12 5 7 7-7 7" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Quick onboarding</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M5 12h14" />
-                                        <path d="m12 5 7 7-7 7" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Cultural fit guaranteed</span>
-                                </div>
+                        <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.cicd_pipeline') }}</span>
+                        <h3 class="text-lg font-semibold flex items-center gap-2">
+                            <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
+                            {{ __('messages.services_page.key_benefits') }}
+                        </h3>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.kubernetes_orchestration') }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                            <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_prevetted_professionals') }}</span>
+                            <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.iaas_terraform') }}</span>
+                            <div class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                                <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.monitoring_observability') }}</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.cost_optimization') }}</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_quick_onboarding') }}</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                                <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_cultural_fit') }}</span>
                             </div>
                         </div>
-
                         <!-- CTA -->
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Assemble your team
+                                {{ __('messages.services_page.cta_assemble_team') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -304,6 +301,7 @@
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -318,15 +316,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">Cloud Infrastructure & DevOps</h2>
-                                <p class="text-base text-[#a1a1a1]">Reliable, scalable, secure cloud solutions</p>
+                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">{{ __('messages.services_page.cloud_infra_title') }}</h2>
+                                <p class="text-base text-[#a1a1a1]">{{ __('messages.services_page.cloud_infra_subtitle') }}</p>
                             </div>
                         </div>
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Deploy and manage your applications with confidence. Our DevOps experts handle everything from initial cloud migration to ongoing optimization, ensuring your infrastructure is robust, cost-effective, and secure.
+                            {{ __('messages.services_page.cloud_infra_description') }}
                         </p>
                         <div class="space-y-3">
-                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">Technologies</h4>
+                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">{{ __('messages.services_page.technologies') }}</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">AWS</span>
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">Azure</span>
@@ -341,51 +339,35 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Cloud migration (AWS, Azure, GCP)</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.cloud_migration') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">CI/CD pipeline setup</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.cicd_pipeline') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Kubernetes & container orchestration</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M20 6 9 17l-5-5" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Infrastructure as Code (Terraform)</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M20 6 9 17l-5-5" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Monitoring & observability</span>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
-                                        <path d="M20 6 9 17l-5-5" />
-                                    </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Cost optimization</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.it_specialized_roles') }}</span>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Benefits -->
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                Key Benefits
+                                {{ __('messages.services_page.key_benefits') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
@@ -393,34 +375,43 @@
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">99.9% uptime guarantee</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_prevetted_professionals') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Auto-scaling capabilities</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_flexible_engagement') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">24/7 monitoring</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_quick_onboarding') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Reduced operational costs</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_cultural_fit') }}</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
+                                        <path d="M5 12h14" />
+                                        <path d="m12 5 7 7-7 7" />
+                                    </svg>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_reduced_operational_costs') }}</span>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- CTA -->
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Migrate to the Cloud
+                                {{ __('messages.services_page.cta_migrate_cloud') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -442,15 +433,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">Technical Consulting</h2>
-                                <p class="text-base text-[#a1a1a1]">Strategic guidance from industry veterans</p>
+                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">{{ __('messages.services_page.technical_consulting_title') }}</h2>
+                                <p class="text-base text-[#a1a1a1]">{{ __('messages.services_page.technical_consulting_subtitle') }}</p>
                             </div>
                         </div>
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Make informed technology decisions with expert guidance. Our senior architects and consultants bring decades of experience to help you choose the right tech stack, optimize processes, and plan your digital transformation.
+                            {{ __('messages.services_page.technical_consulting_description') }}
                         </p>
                         <div class="space-y-3">
-                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">Technologies</h4>
+                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">{{ __('messages.services_page.technologies') }}</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">Microservices</span>
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">Serverless</span>
@@ -461,51 +452,51 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Technology stack assessment</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_stack_assessment') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Architecture design & review</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_architecture_review') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Performance optimization</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_performance') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Security audits</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_security_audits') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Digital transformation roadmaps</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_transformation_roadmaps') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Technical due diligence</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.consulting_due_diligence') }}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                Key Benefits
+                                {{ __('messages.services_page.key_benefits') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
@@ -513,34 +504,34 @@
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Reduced technical debt</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_reduced_technical_debt') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Better technology decisions</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_better_technology_decisions') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Improved system performance</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_improved_system_performance') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Risk mitigation</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_risk_mitigation') }}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Book a Call
+                                {{ __('messages.services_page.cta_book_call') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -563,15 +554,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">Quality Assurance & Testing</h2>
-                                <p class="text-base text-[#a1a1a1]">Ship with confidence, every time</p>
+                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">{{ __('messages.services_page.qa_title') }}</h2>
+                                <p class="text-base text-[#a1a1a1]">{{ __('messages.services_page.qa_subtitle') }}</p>
                             </div>
                         </div>
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Ensure your software meets the highest quality standards before it reaches your users. Our QA engineers implement comprehensive testing strategies that catch bugs early and maintain code quality throughout development.
+                            {{ __('messages.services_page.qa_description') }}
                         </p>
                         <div class="space-y-3">
-                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">Technologies</h4>
+                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">{{ __('messages.services_page.technologies') }}</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">Selenium</span>
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">Cypress</span>
@@ -585,51 +576,51 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Automated testing frameworks</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_automated_testing_frameworks') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Manual QA & exploratory testing</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_manual_qa') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Performance & load testing</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_performance_load_testing') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Dependency audit</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_dependency_audit') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Mobile app testing</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_mobile_app_testing') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Regression testing</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_regression_testing') }}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                Key Benefits
+                                {{ __('messages.services_page.key_benefits') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
@@ -637,34 +628,35 @@
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Fewer production bugs</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_fewer_production_bugs') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Faster release cycles</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_faster_release_cycles') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Better user experience</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_better_user_experience') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M5 12h14" />
                                         <path d="m12 5 7 7-7 7" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Cost savings on fixes</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.benefit_cost_savings_on_fixes') }}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Protect your project
+                                {{ __('messages.services_page.cta_protect_project') }}
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -687,15 +679,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">System Integration</h2>
-                                <p class="text-base text-[#a1a1a1]">Connect everything, seamlessly</p>
+                                <h2 class="text-2xl md:text-3xl font-bold mb-2 tracking-tight">{{ __('messages.services_page.system_integration_title') }}</h2>
+                                <p class="text-base text-[#a1a1a1]">{{ __('messages.services_page.system_integration_subtitle') }}</p>
                             </div>
                         </div>
                         <p class="text-[#a1a1a1] leading-relaxed">
-                            Break down data silos and streamline workflows by connecting your existing systems. We build robust integrations that ensure data flows smoothly between your CRM, ERP, payment systems, and custom applications.
+                            {{ __('messages.services_page.system_integration_description') }}
                         </p>
                         <div class="space-y-3">
-                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">Technologies</h4>
+                            <h4 class="text-sm font-semibold uppercase tracking-wider text-[#a1a1a1]">{{ __('messages.services_page.technologies') }}</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">REST</span>
                                 <span class="px-3 py-1 text-xs rounded-md bg-[#1a1a1a] text-[#fafafa] border border-[#333]">GraphQL</span>
@@ -713,44 +705,44 @@
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold flex items-center gap-2">
                                 <span class="w-1 h-6 bg-[#2C2C2C] rounded-full"></span>
-                                What We Offer
+                                {{ __('messages.services_page.what_we_offer') }}
                             </h3>
                             <div class="grid sm:grid-cols-2 gap-3">
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">API development & integration</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_api_development_integration') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Third-party service connections</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_third_party_connections') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">ETL & data migration</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_etl_data_migration') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Webhook implementations</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_webhook_implementations') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Real-time data synchronization</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_real_time_sync') }}</span>
                                 </div>
                                 <div class="flex items-start gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5">
                                         <path d="M20 6 9 17l-5-5" />
                                     </svg>
-                                    <span class="text-sm text-[#a1a1a1]">Legacy system connectivity</span>
+                                    <span class="text-sm text-[#a1a1a1]">{{ __('messages.services_page.feature_legacy_connectivity') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -792,7 +784,7 @@
                         </div>
                         <div class="pt-6">
                             <button class="w-full px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors flex items-center justify-center gap-2 group">
-                                Hire our experts
+                                {{ __('messages.services_page.cta_hire_experts') }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                                     <path d="M5 12h14" />
                                     <path d="m12 5 7 7-7 7" />
@@ -809,14 +801,13 @@
     <section class="py-20 px-6 md:px-12">
         <div class="max-w-4xl mx-auto text-center space-y-8 cosmic-gradient rounded-3xl p-12">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
-                Ready to Transform Your Business?
+                {{ __('messages.services_page.bottom_cta_title') }}
             </h2>
             <p class="text-lg text-[#a1a1a1]">
-                Let's discuss how our services can help you achieve your goals.
-                Book a free consultation call with our team.
+                {{ __('messages.services_page.bottom_cta_subtitle') }}
             </p>
-            <button class="px-8 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors inline-flex items-center gap-2 text-lg" onclick="window.location = 'https://calendly.com/idsfernandomorales/30min'">
-                Schedule Free Consultation
+            <button class="px-8 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252] transition-colors inline-flex items-center gap-2 text-lg" onclick="window.location = 'https://calendar.app.google/b8nHVZEUCh1LdLcL8'">
+                {{ __('messages.services_page.cta_schedule_consultation') }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
@@ -824,7 +815,7 @@
             </button>
         </div>
     </section>
-    @include('layouts.footer');
+    @include('layouts.footer')
 
 </body>
 

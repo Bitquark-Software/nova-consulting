@@ -1,21 +1,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- How can I add INTL SEO??? -->
-    <meta name="description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-    <meta name="keywords" content="Nova Consulting, digital consulting, business solutions, services, pricing, about, customer portal, IT consulting, web development, software solutions, technology strategy, digital transformation, project management, SaaS, cloud services, enterprise solutions, innovation, tech support, business growth, online presence, digital marketing">
-    <meta name="author" content="Nova Consulting">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Nova Consulting">
-    <meta property="og:description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nova Consulting">
-    <meta name="twitter:description" content="Nova Consulting - Digital solutions for your business. Partner with us to streamline your operations, launch new digital products, and accelerate your business growth. Explore our services, transparent pricing, and discover how we help clients achieve their technology goals.">
-    <link rel="canonical" href="{{ url()->current() }}">
-
-    <title>Nova Consulting | Digital Solutions for Business Growth</title>
+    {{-- Render localized, optimized SEO tags (title, meta, og, json-ld) --}}
+    @include('partials.seo')
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">

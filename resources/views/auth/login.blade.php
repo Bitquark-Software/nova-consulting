@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header');
+@include('layouts.global_header')
 
 <body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
     <div class="w-screem h-screen bg-[#F2F2F2] text-[#2C2C2C] grid grid-cols-1 md:grid-cols-2 items-center justify-center content-center gap-4 md:gap-0">

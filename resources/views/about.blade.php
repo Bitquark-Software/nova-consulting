@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header');
+@include('layouts.global_header')
 
 <body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar');
+    @include('layouts.landing_navbar')
 
     <!-- About Section -->
     <section id="about" class="relative pt-44 px-4">
@@ -327,6 +327,6 @@
         </div>
     </section> -->
 
-    @include('layouts.footer');
+    @include('layouts.footer')
 </body>
 </html>

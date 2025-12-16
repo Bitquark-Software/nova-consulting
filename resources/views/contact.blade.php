@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header');
+@include('layouts.global_header')
 
 <body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar');
+    @include('layouts.landing_navbar')
 
     <!-- FAQ Section -->
     <!-- <section id="faq" class="relative py-20 px-4 bg-gray-900/30">
@@ -51,13 +51,13 @@
     <section id="contact" class="relative pt-40 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get in Touch</h2>
-                <p class="text-xl text-gray-600">Ready to start your project? Let's talk</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">{{ __('messages.contact.get_in_touch') }}</h2>
+                <p class="text-xl text-gray-600">{{ __('messages.contact.ready_start') }}</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 mb-20">
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-[#2C2C2C]">Contact Information</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-[#2C2C2C]">{{ __('messages.contact.contact_information') }}</h3>
                     
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
@@ -65,8 +65,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                             <div>
-                                <p class="font-semibold text-gray-700">Email</p>
-                                <a href="mailto:sales@novaconsulting.com.mx" class="text-gray-600">contact@itsolutions.com</a>
+                                <p class="font-semibold text-gray-700">{{ __('messages.contact.email') }}</p>
+                                <a href="mailto:sales@novaconsulting.com.mx" class="text-gray-600">sales@novaconsulting.com.mx</a>
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
                             <div>
-                                <p class="font-semibold text-gray-700">Phone</p>
+                                <p class="font-semibold text-gray-700">{{ __('messages.contact.phone') }}</p>
                                 <a href="tel:+529611003141" class="text-gray-600">+52 961 100 3141</a>
                             </div>
                         </div>
@@ -86,18 +86,18 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             <div>
-                                <p class="font-semibold text-gray-700">Address</p>
+                                <p class="font-semibold text-gray-700">{{ __('messages.contact.address') }}</p>
                                 <p class="text-gray-600">1067 Chihuahua Avenue, Tuxtla Gutierrez, Chiapas 29020</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-8">
-                        <h4 class="text-lg font-semibold mb-4 text-gray-600">Business Hours</h4>
+                        <h4 class="text-lg font-semibold mb-4 text-gray-600">{{ __('messages.contact.business_hours') }}</h4>
                         <div class="space-y-2 text-gray-700">
-                            <p>Monday - Friday: 11:00 AM - 4:00 PM</p>
-                            <p>Saturday: Closed</p>
-                            <p>Sunday: Closed</p>
+                            <p>{{ __('messages.contact.monday_friday') }}</p>
+                            <p>{{ __('messages.contact.saturday') }}</p>
+                            <p>{{ __('messages.contact.sunday') }}</p>
                         </div>
                     </div>
                 </div>
@@ -285,6 +285,6 @@
         </div>
     </section> -->
 
-    @include('layouts.footer');
+    @include('layouts.footer')
 </body>
 </html>

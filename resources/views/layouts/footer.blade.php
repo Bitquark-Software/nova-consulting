@@ -17,44 +17,44 @@
         </div>
     </div>
     <div class="col-span-1">
-        <h1 class="font-bold text-xl">Services</h1>
+        <h1 class="font-bold text-xl">{{ __('messages.footer.services') }}</h1>
         <ul>
             <li>
-                <a href="{{ route('services') }}" class="underline">Custom Software</a>
+                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.custom_software') }}</a>
             </li>
             <li>
-                <a href="{{ route('services') }}" class="underline">IT Staff Augmentation</a>
+                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.staff_augmentation') }}</a>
             </li>
             <li>
-                <a href="{{ route('services') }}" class="underline">Software Consulting</a>
+                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.software_consulting') }}</a>
             </li>
         </ul>
     </div>
     <div class="col-span-1">
-        <h1 class="font-bold text-xl">Company</h1>
+        <h1 class="font-bold text-xl">{{ __('messages.footer.company') }}</h1>
         <ul>
             <li>
-                <a href="{{ route('about') }}" class="underline">About</a>
+                <a href="{{ route('about') }}" class="underline">{{ __('messages.footer.about') }}</a>
             </li>
             <li>
-                <a href="#" class="underline">Carreers</a>
+                <a href="#" class="underline">{{ __('messages.footer.careers') }}</a>
             </li>
             <li>
-                <a href="{{ route('contact') }}" class="underline">Contact</a>
+                <a href="{{ route('contact') }}" class="underline">{{ __('messages.footer.contact') }}</a>
             </li>
         </ul>
     </div>
     <div class="col-span-1">
-        <h1 class="font-bold text-xl">Customer Portal</h1>
+        <h1 class="font-bold text-xl">{{ __('messages.footer.customer_portal') }}</h1>
         <ul>
             <li>
-                <a href="{{ route('faq') }}" class="underline">F.A.Q</a>
+                <a href="{{ route('faq') }}" class="underline">{{ __('messages.footer.faq') }}</a>
             </li>
             <li>
-                <a href="#" class="underline">My Projects</a>
+                <a href="#" class="underline">{{ __('messages.footer.my_projects') }}</a>
             </li>
             <li>
-                <a href="#" class="underline">Create An Account</a>
+                <a href="#" class="underline">{{ __('messages.footer.create_account') }}</a>
             </li>
         </ul>
     </div>
