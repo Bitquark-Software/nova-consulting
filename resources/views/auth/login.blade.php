@@ -29,7 +29,7 @@
         <form method="POST" action="{{ route('login') }}" class="block mx-auto w-8/12 shadow-md rounded-2xl bg-white transition-transform p-10">
             @csrf
 
-            <img class="w-80 h-auto block mx-auto" src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" onclick="window.location.pathname = '/'">
+            <img class="w-24 h-auto block mx-auto" src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" onclick="window.location.pathname = '/'">
 
             <!-- Email Address -->
             <div>

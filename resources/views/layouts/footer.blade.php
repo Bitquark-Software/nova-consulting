@@ -1,6 +1,6 @@
 <footer class="w-full p-12 bg-[#e2e2e2] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center justify-center gap-1">
     <div class="col-span-1">
-        <img src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" class="w-40 h-auto">
+        <img src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" class="w-24 h-auto">
         <div class="flex flex-row gap-2 items-center justify-start">
             <a href="#" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
                 <x-ri-facebook-fill class="w-6 h-6" />

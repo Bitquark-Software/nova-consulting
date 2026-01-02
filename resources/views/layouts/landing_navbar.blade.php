@@ -1,6 +1,6 @@
 <header class="w-full text-sm mb-6 not-has-[nav]:hidden fixed top-0 left-0 bg-transparent z-20">
     <nav class="flex items-center justify-around gap-4 py-4 px-3">
-        <img class="w-60 h-auto" src="{{asset('images/Web_inverted.svg')}}" alt="{{ __('messages.nav.brand') }}" draggable="false" onclick="window.location.pathname = '/'">
+        <img class="w-24 h-auto" src="{{asset('images/Web_inverted.svg')}}" alt="{{ __('messages.nav.brand') }}" draggable="false" onclick="window.location.pathname = '/'">
         <div class="hidden rounded-2xl bg-transparent md:grid grid-cols-3 gap-1">
             <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
                 <a href="{{ route('services') }}">{{ __('messages.nav.services') }}</a>
