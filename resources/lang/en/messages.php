@@ -267,4 +267,11 @@ return [
         'q6' => 'What is your pricing model?',
         'a6' => 'We offer flexible pricing models including fixed-price projects, time and materials, and dedicated team arrangements. Pricing is customized based on project requirements, and we provide transparent quotes upfront.',
     ],
+
+    'mail' => [
+        'welcome' => 'Welcome to Nova Consulting!',
+        'account_created' => 'your account has been created successfully. Please use the button below to access your account.',
+        'login' => 'Login',
+        'thanks' => 'Thanks'
+    ]
 ];

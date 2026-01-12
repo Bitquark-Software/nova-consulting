@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewUserQuotationMail;
 use App\Mail\QuotationRequestMail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class QuotationController extends Controller
@@ -16,7 +19,7 @@ class QuotationController extends Controller
             // Step 1: Personal Info
             'name' => 'required|string|max:255',
             'company' => 'nullable|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
             'phone' => 'nullable|string|max:20',
             'referral' => 'nullable|string',
             
@@ -46,6 +49,20 @@ class QuotationController extends Controller
             'create_nova' => 'boolean',
             'agree_contact' => 'accepted',
         ]);
+
+        if($validated['create_nova']) {
+            $password = Str::random(8);
+            User::create([
+                'name' => Str::title($validated['name']),
+                'email' => $validated['email'],
+                'password' => bcrypt($password),
+                'type' => 'customer',
+            ]);
+
+            Mail::to($validated['email'])->send(
+                new NewUserQuotationMail(Str::title($validated['name']), $validated['email'], $password)
+            );
+        }
 
         // 2. Send the Email
         // Replace 'admin@yourcompany.com' with your actual static email

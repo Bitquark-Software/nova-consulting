@@ -267,4 +267,10 @@ return [
         'q6' => '¿Cuál es su modelo de precios?',
         'a6' => 'Ofrecemos modelos flexibles como proyectos a precio fijo, tiempo y materiales, y equipos dedicados. El precio se personaliza según los requisitos del proyecto y proporcionamos cotizaciones transparentes.',
     ],
+    'mail' => [
+        'welcome' => 'Bienvenido a Nova Consulting!',
+        'account_created' => 'tu cuenta ha sido creada exitosamente. Por favor, usa el botón de abajo para acceder a tu cuenta.',
+        'login' => 'Iniciar sesión',
+        'thanks' => 'Gracias'
+    ]
 ];
