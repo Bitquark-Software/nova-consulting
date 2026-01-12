@@ -9,6 +9,7 @@ return [
         'about' => 'Acerca de',
         'my_projects' => 'Mis proyectos',
         'customer_portal' => 'Portal del cliente',
+        'quotation' => 'Cotiza tu proyecto',
     ],
     'seo' => [
         'title' => 'Nova Consulting — Software a medida y soluciones TI',

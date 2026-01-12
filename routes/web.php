@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/get-a-quote', function () {
+    return view('quotations');
+});
+
 // Locale switcher route: sets the selected locale in session and redirects back
 Route::get('/locale/{locale}', function ($locale) {
     $allowed = ['en', 'es'];

@@ -9,6 +9,7 @@ return [
         'about' => 'About',
         'my_projects' => 'My Projects',
         'customer_portal' => 'Customer Portal',
+        'quotation' => 'Get a Quote',
     ],
     'seo' => [
         'title' => 'Nova Consulting — Custom Software & IT Solutions',
