@@ -17,7 +17,7 @@
             </h2>
 
             <div class="max-w-md md:max-w-2xl flex flew-row items-center justify-center mx-auto gap-3 p-4">
-                <a href="{{ url('/') }}" class="p-4 bg-[#2C2C2C] text-[#F2F2F2] rounded-xl hover:shadow-2xl hover:bg-[#F2F2F2] hover:text-[#2C2C2C] hover:border-[#2C2C2C] hover:border-2 transition-all ease-in-out duration-200">{{ __('messages.welcome.start_for_free') }}</a>
+                <a href="{{ url('/dashboard/register') }}" class="p-4 bg-[#2C2C2C] text-[#F2F2F2] rounded-xl hover:shadow-2xl hover:bg-[#F2F2F2] hover:text-[#2C2C2C] hover:border-[#2C2C2C] hover:border-2 transition-all ease-in-out duration-200">{{ __('messages.welcome.start_for_free') }}</a>
                 <a target="_blank" href="https://calendar.app.google/b8nHVZEUCh1LdLcL8" class="p-4 bg-[#F2F2F2] text-[#2C2C2C] rounded-xl hover:shadow-2xl hover:bg-[#2C2C2C] hover:text-[#F2F2F2] border-[#2C2C2C] transition-all ease-in-out duration-200">{{ __('messages.welcome.book_a_call') }}</a>
             </div>
 

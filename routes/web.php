@@ -5,12 +5,13 @@ use App\Http\Controllers\QuotationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('new-home-page');
 });
 
 Route::get('/get-a-quote', function () {
     return view('quotations');
-});
+})->name('quotations');
 
 Route::post('/quotation', [QuotationController::class, 'store'])->name('quotation.store');
 

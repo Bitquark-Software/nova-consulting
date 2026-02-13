@@ -16,7 +16,17 @@ return [
         'description' => 'Nova Consulting provides custom software development, IT staffing, cloud infrastructure, and technical consulting to help modern businesses scale.',
         'keywords' => 'custom software, IT staffing, cloud, devops, software consulting, QA, system integration',
     ],
-
+    'new_branding' => [
+        'badge' => 'Software Consulting Services',
+        'headline_start' => 'Redefining',
+        'headline_highlight' => 'Corporate Strategy',
+        'subheadline' => 'We empower visionary leaders to transform organizations through data-driven solutions and sustainable future design.',
+        'cta_primary' => 'Let\'s Talk',
+        'cta_secondary' => 'Our Services',
+        'years_exp' => 'Years Exp.',
+        'projects_done' => 'Lines Of Code Deployed',
+        'value_generated' => 'Successful Projects',
+    ],
     'footer' => [
         'services' => 'Services',
         'company' => 'Company',
@@ -31,7 +41,6 @@ return [
         'my_projects' => 'My Projects',
         'create_account' => 'Create An Account',
     ],
-
     'contact' => [
         'get_in_touch' => 'Get in Touch',
         'ready_start' => "Ready to start your project? Let's talk",
@@ -273,5 +282,29 @@ return [
         'account_created' => 'your account has been created successfully. Please use the button below to access your account.',
         'login' => 'Login',
         'thanks' => 'Thanks'
+    ],
+    'why_us' => [
+        'headline' => 'Why Leaders Choose Nova',
+        'description' => 'We are not just consultants; we are architects of your next growth phase. We combine analytical rigor with strategic creativity to deliver measurable impact.',
+        'point_1_title' => 'Outcome-Based Approach',
+        'point_1_desc' => 'Our incentives are aligned with your success. We prioritize results over reports.',
+        'point_2_title' => 'Global Network',
+        'point_2_desc' => 'Exclusive access to key industry experts and partners around the world.',
+        'read_philosophy' => 'Learn More About Us',
+    ],
+    'testimonials' => [
+        'featured_quote' => 'Nova Consulting didn\'t just give us a plan; they gave us the future of our company.',
+    ],
+    'new_contact' => [
+        'pain_headline' => 'Your clients leave due to a lack of strategic clarity.',
+        'pain_subheadline' => 'The competition never sleeps. While you hesitate, they innovate. Stop the capital leak today by using our direct intervention channels.',
+        'phone_title' => 'Corporate Line',
+        'phone_desc' => 'Immediate attention for crisis and urgent inquiries.',
+        'whatsapp_title' => 'WhatsApp Support',
+        'whatsapp_desc' => 'Agility for leaders on the move. Response in < 1 hour.',
+        'whatsapp_action' => 'Start Secure Chat',
+        'email_title' => 'Formal Audit',
+        'email_desc' => 'Send your requirements for a detailed proposal.',
+        'recommended' => 'Recommended',
     ]
 ];
