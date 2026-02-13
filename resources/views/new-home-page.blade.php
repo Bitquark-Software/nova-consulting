@@ -176,7 +176,7 @@
                         </div>
 
                         <div class="mt-10">
-                            <a href="#about" class="text-black font-semibold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-all">
+                            <a href="{{url('about')}}" class="text-black font-semibold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-all">
                                 {{ __('messages.why_us.read_philosophy') }}
                             </a>
                         </div>
@@ -209,7 +209,7 @@
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.phone_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.phone_desc') }}</p>
                         <a href="tel:+1234567890" class="text-xl font-bold tracking-wide hover:text-gray-300 transition-colors">
-                            +52 (55) 1234-5678
+                            +52 (961) 100-3141
                         </a>
                     </div>
 
@@ -222,7 +222,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.whatsapp_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.whatsapp_desc') }}</p>
-                        <a href="https://wa.me/525512345678" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 font-medium text-sm">
+                        <a href="https://wa.me/message/H7C4TPUUXUYIF1" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 font-medium text-sm">
                             {{ __('messages.new_contact.whatsapp_action') }}
                         </a>
                     </div>
@@ -234,7 +234,7 @@
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.email_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.email_desc') }}</p>
                         <a href="mailto:contact@novaconsulting.com" class="text-lg font-medium border-b border-gray-600 pb-1 hover:text-gray-300 hover:border-gray-400 transition-all">
-                            contact@novaconsulting.com
+                            sales@novaconsulting.com
                         </a>
                     </div>
 
