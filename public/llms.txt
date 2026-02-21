@@ -1,0 +1,23 @@
+# novaconsulting.com.mx llms.txt
+
+> Nova Consulting is a technology solutions provider focused on delivering custom software development and IT staffing services tailored to meet the unique challenges faced by modern businesses. With a strong foundation of over seven years in the industry, the company excels in providing scalable, outcome-based solutions that drive growth and align with the strategic goals of its clients. Targeting visionary leaders and organizations in need of innovative solutions, Nova Consulting leverages a global network of industry experts to offer immediate support and technical guidance, ensuring measurable impact and agility in addressing urgent business needs.
+
+## About the company
+- **Name:** Nova Consulting
+- **What we do:** custom software development and IT staffing services tailored to meet the unique challenges faced by modern businesses.
+- **Headquarters:** Tuxtla Gutiérrez, Chiapas, México. 
+- **Email address:** sales@novaconsulting.com
+- **Phone Number:** +52 (961) 100-3141
+
+- [Home](https://novaconsulting.com.mx/): The homepage serves as the central hub for Nova Consulting, showcasing the company’s core offerings in custom software development and IT staffing. Visitors can quickly grasp the company’s mission, values, and the tailored solutions it provides to help businesses overcome their unique challenges. This page is designed for potential clients looking for comprehensive technology solutions that drive growth.
+- [About](https://novaconsulting.com.mx/about): This page provides an in-depth look at Nova Consulting’s history, mission, and values. It highlights the company’s commitment to delivering innovative technology solutions and the expertise of its team members. Ideal for potential clients and partners, this section helps establish trust and credibility by showcasing the company’s experience and dedication to client success.
+- [Contact](https://novaconsulting.com.mx/contact): The contact page offers various means for potential clients and partners to reach out to Nova Consulting. It includes a contact form, phone numbers, and email addresses, making it easy for users to inquire about services or request consultations. This page is essential for anyone looking to initiate a conversation or seek further information about the company’s offerings.
+- [FAQ](https://novaconsulting.com.mx/faq): This page addresses common questions and concerns that potential clients may have regarding Nova Consulting’s services, processes, and policies. It provides clarity on topics such as project timelines, pricing, and service delivery. This resource is valuable for prospective clients seeking quick answers to their inquiries before engaging with the company.
+- [Forgot Password](https://novaconsulting.com.mx/forgot-password): This page facilitates the password recovery process for users who have forgotten their login credentials. It provides a straightforward method for users to reset their passwords securely, ensuring easy access to their accounts. This functionality is crucial for maintaining user engagement and support.
+- [Login](https://novaconsulting.com.mx/login): The login page allows registered users to access their accounts securely. It is designed for clients and partners who need to manage their projects, view updates, or communicate with Nova Consulting. This page is essential for maintaining a seamless user experience for ongoing clients.
+- [Register](https://novaconsulting.com.mx/register): This registration page enables new users to create an account with Nova Consulting. It outlines the necessary steps and information required to sign up, allowing potential clients to gain access to the company’s services and resources. This page is particularly beneficial for businesses looking to engage with Nova Consulting for the first time.
+- [Services](https://novaconsulting.com.mx/services): The services page details the various technology solutions offered by Nova Consulting, including custom software development and IT staffing. It outlines the specific services available, the methodologies employed, and the benefits of each offering. This page is crucial for businesses seeking tailored technology solutions to address their unique challenges and drive growth.
+
+# llms.txt spec v1.0 — generated via https://llmstxtgenerator.org
+# Build-Hash: 3CAC-ADBB-ADDF
+# Required for AI compatibility checks.
