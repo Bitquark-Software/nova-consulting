@@ -12,9 +12,9 @@ return [
         'quotation' => 'Cotizar Proyecto',
     ],
     'seo' => [
-        'title' => 'Nova Consulting — Software a la Medida y Soluciones IT',
-        'description' => 'Nova Consulting ofrece desarrollo de software personalizado, staffing de IT, infraestructura en la nube y consultoría técnica para ayudar a empresas modernas a escalar.',
-        'keywords' => 'software a la medida, staffing IT, nube, devops, consultoría de software, QA, integración de sistemas',
+        'title' => 'Nova Consulting — Desarrolladora De Software En Tuxtla Gutiérrez, Chiapas',
+        'description' => 'Nova Consulting ofrece desarrollo de software personalizado, staffing de IT, infraestructura en la nube y consultoría técnica para ayudar a empresas modernas a escalar. Ubicados en Tuxtla Gutiérrez, Chiapas.',
+        'keywords' => 'Empresa de desarrollo de software en Tuxtla Gutiérrez, Consultoría TI en Chiapas, software a la medida, staffing IT, nube, devops, consultoría de software, QA, integración de sistemas',
     ],
     'new_branding' => [
         'badge' => 'Servicios de Consultoría de Software',
@@ -113,7 +113,7 @@ return [
         'cta_assemble_team' => 'Arma tu equipo',
         'cta_protect_project' => 'Protege tu proyecto',
         'view_more' => 'Ver más',
-        
+
         'custom_software_title' => 'Desarrollo de Software a la Medida',
         'custom_software_subtitle' => 'Soluciones diseñadas para tus retos específicos',
         'custom_software_description' => 'Transforma tu visión en realidad con aplicaciones de grado empresarial construidas con tecnología de vanguardia. Nos especializamos en crear software escalable y mantenible.',
@@ -307,3 +307,4 @@ return [
         'recommended' => 'Recomendado',
     ]
 ];
+

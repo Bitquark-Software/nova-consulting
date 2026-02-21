@@ -9,7 +9,7 @@
                 <a href="/hiring-services">{{ __('messages.nav.hiring_services') }}</a>
             </div>
             <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
-                <a href="{{ route('about') }}">{{ __('messages.nav.about') }}</a>
+                <a href="{{ route('contact') }}">{{ __('messages.nav.about') }}</a>
             </div>
             <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
                 <a href="{{ url('/get-a-quote') }}">{{ __('messages.nav.quotation') }}</a>
