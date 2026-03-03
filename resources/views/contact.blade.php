@@ -76,7 +76,7 @@
                             </svg>
                             <div>
                                 <p class="font-semibold text-gray-700">{{ __('messages.contact.phone') }}</p>
-                                <a href="tel:+529611003141" class="text-gray-600">+52 961 100 3141</a>
+                                <a href="tel:+529611465703" class="text-gray-600">+52 961 146 5703</a>
                             </div>
                         </div>
 
