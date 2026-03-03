@@ -208,8 +208,8 @@
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.phone_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.phone_desc') }}</p>
-                        <a href="tel:+1234567890" class="text-xl font-bold tracking-wide hover:text-gray-300 transition-colors">
-                            +52 (961) 100-3141
+                        <a href="tel:+529611465703" class="text-xl font-bold tracking-wide hover:text-gray-300 transition-colors">
+                            +52 (961) 146-5703
                         </a>
                     </div>
 
