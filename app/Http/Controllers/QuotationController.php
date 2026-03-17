@@ -65,8 +65,7 @@ class QuotationController extends Controller
         }
 
         // 2. Send the Email
-        // Replace 'admin@yourcompany.com' with your actual static email
-        Mail::to('idsfernandomorales@gmail.com')
+        Mail::to('fernando@novaconsulting.com.mx')
             ->cc($validated['email']) // CC the customer
             ->send(new QuotationRequestMail($validated));
 

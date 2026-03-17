@@ -2,13 +2,28 @@
 
 namespace App\Observers;
 
+use App\Mail\WelcomeUserMail;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class UserObserver
 {
     public function created(User $user): void
     {
         $this->syncRole($user);
+
+        // No enviar desde consola/tests.
+        if (app()->runningInConsole() || app()->runningUnitTests()) {
+            return;
+        }
+
+        // Si hay un usuario autenticado se asume creación desde el sistema (admin/Filament),
+        // el correo se envía desde el flujo de creación para incluir la contraseña.
+        if (auth()->check()) {
+            return;
+        }
+
+        Mail::to($user->email)->send(new WelcomeUserMail($user));
     }
 
     public function updated(User $user): void

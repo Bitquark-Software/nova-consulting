@@ -50,6 +50,10 @@ Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');
 
+Route::get('/login', function () {
+    return redirect('/dashboard/login');
+})->name('login');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

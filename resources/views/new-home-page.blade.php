@@ -32,7 +32,7 @@
                         
                         <div class="h-4 w-px bg-gray-300 mx-2"></div>
 
-                        <a href="#contact" class="ml-4 px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full shadow-lg hover:bg-gray-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                        <a href="/dashboard/login" class="ml-4 px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full shadow-lg hover:bg-gray-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
                             {{ __('messages.nav.customer_portal') }}
                         </a>
                     </div>

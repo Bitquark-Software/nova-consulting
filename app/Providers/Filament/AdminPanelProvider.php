@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\TaskBoard;
 use App\Filament\Resources\Projects\Widgets\BudgetUsageWidget;
 use App\Filament\Resources\Projects\Widgets\DraftProjectsWidget;
 use App\Filament\Resources\Projects\Widgets\InProgressProjectsWidget;
@@ -20,6 +21,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Relaticle\Flowforge\FlowforgePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('dashboard')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->registration()
             ->colors([
@@ -38,6 +41,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
+                TaskBoard::class,
             ])
             ->sidebarWidth('220px')
             ->sidebarFullyCollapsibleOnDesktop()
@@ -60,6 +64,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentShieldPlugin::make(),
+                FlowforgePlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,
