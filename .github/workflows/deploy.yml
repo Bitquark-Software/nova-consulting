@@ -36,5 +36,5 @@ jobs:
             git clean -fd
             git checkout main
             git pull origin main
-            composer update --no-interaction --prefer-dist --optimize-autoloader
+            composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate --force
