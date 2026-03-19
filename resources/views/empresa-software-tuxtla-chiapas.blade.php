@@ -16,7 +16,7 @@
 @endphp
 @include('layouts.global_header')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
+<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C] pb-20 sm:pb-0">
     @include('layouts.landing_navbar')
 
     <main class="pt-36 pb-16 px-4">
@@ -29,13 +29,13 @@
                 aumentar ventas y operar mejor con software a medida, integraciones y automatizacion.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://wa.me/message/H7C4TPUUXUYIF1" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-medium">
+                <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-medium" data-track="landing_software_whatsapp_click">
                     Escribir por WhatsApp
                 </a>
-                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium">
+                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium" data-track="landing_software_phone_click">
                     Llamar al +52 961 146 5703
                 </a>
-                <a href="mailto:sales@novaconsulting.com.mx" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium">
+                <a href="mailto:sales@novaconsulting.com.mx" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium" data-track="landing_software_email_click">
                     Enviar correo
                 </a>
             </div>
@@ -76,8 +76,27 @@
                 <li>Correo: <a href="mailto:sales@novaconsulting.com.mx" class="underline">sales@novaconsulting.com.mx</a></li>
             </ul>
         </section>
+
+        <section class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                <h3 class="font-semibold text-lg">Garantias comerciales</h3>
+                <ul class="mt-3 text-gray-700 space-y-2">
+                    <li>Propuesta inicial en 24 horas despues de la llamada.</li>
+                    <li>Alcance y entregables claros por etapas.</li>
+                    <li>Acompanamiento post-lanzamiento.</li>
+                </ul>
+            </article>
+            <article class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                <h3 class="font-semibold text-lg">Lo que dicen nuestros clientes</h3>
+                <p class="mt-3 text-gray-700">"Nos ayudaron a ordenar operaciones y a tener una vision clara del proyecto desde semana 1."</p>
+                <p class="mt-2 text-sm font-semibold text-gray-900">Direccion Operativa, Tuxtla Gutierrez</p>
+            </article>
+        </section>
+
+        @include('partials.lead-qualification-form', ['leadSource' => 'landing-software-tuxtla-chiapas'])
     </main>
 
+    @include('partials.sticky-mobile-cta')
     @include('layouts.footer')
 </body>
 </html>

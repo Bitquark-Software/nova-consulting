@@ -14,7 +14,7 @@
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
     </style>
-    <body class="antialiased bg-white text-gray-900 selection:bg-black selection:text-white">
+    <body class="antialiased bg-white text-gray-900 selection:bg-black selection:text-white pb-20 sm:pb-0">
         <!-- @include('layouts.landing_navbar') -->
         <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,10 +59,10 @@
                         {{ __('messages.new_branding.subheadline') }}
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 delay-200 animate-fade-up opacity-0" style="animation-fill-mode: forwards;">
-                        <a href="#contact" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-center shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        <a href="#diagnostico" class="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-center shadow-[0_0_20px_rgba(255,255,255,0.3)]" data-track="hero_cta_primary_click">
                             {{ __('messages.new_branding.cta_primary') }}
                         </a>
-                        <a href="#services" class="px-8 py-4 bg-transparent border border-gray-700 text-white font-medium rounded-full hover:bg-gray-900 hover:border-gray-500 transition-all text-center">
+                        <a href="#services" class="px-8 py-4 bg-transparent border border-gray-700 text-white font-medium rounded-full hover:bg-gray-900 hover:border-gray-500 transition-all text-center" data-track="hero_cta_secondary_click">
                             {{ __('messages.new_branding.cta_secondary') }}
                         </a>
                     </div>
@@ -94,6 +94,14 @@
                     Ayudamos a negocios en Tuxtla y todo Chiapas con desarrollo de software a medida,
                     diseño de paginas web y mejora de procesos digitales para vender mas y operar mejor.
                 </p>
+                <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="{{ url('/empresa-software-tuxtla-chiapas') }}" class="underline font-medium" data-track="home_internal_landing_software">
+                        Ver pagina: Empresa de software en Tuxtla
+                    </a>
+                    <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="underline font-medium" data-track="home_internal_landing_web">
+                        Ver pagina: Diseno de paginas web en Tuxtla
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -188,7 +196,7 @@
                         </div>
 
                         <div class="mt-10">
-                            <a href="{{url('about')}}" class="text-black font-semibold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-all">
+                            <a href="{{url('about')}}" class="text-black font-semibold border-b-2 border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-all" data-track="about_link_click">
                                 {{ __('messages.why_us.read_philosophy') }}
                             </a>
                         </div>
@@ -196,6 +204,56 @@
                 </div>
             </div>
         </section>
+
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-black">Resultados y confianza para cerrar mas ventas</h2>
+                    <p class="mt-4 text-gray-600">
+                        Estos puntos reducen el riesgo para tus clientes y aumentan la probabilidad de cierre.
+                    </p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <h3 class="font-semibold text-lg">Garantia de propuesta en 24 horas</h3>
+                        <p class="mt-2 text-gray-600">Despues de la llamada inicial, te enviamos alcance y costos de forma clara.</p>
+                    </article>
+                    <article class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <h3 class="font-semibold text-lg">Proceso transparente por etapas</h3>
+                        <p class="mt-2 text-gray-600">Definimos entregables, tiempos y avances para que siempre sepas donde va tu proyecto.</p>
+                    </article>
+                    <article class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                        <h3 class="font-semibold text-lg">Soporte post-lanzamiento</h3>
+                        <p class="mt-2 text-gray-600">Acompanamos estabilizacion y mejoras para proteger tu inversion digital.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-black">Testimonios de clientes</h2>
+                    <p class="mt-4 text-gray-600">Prueba social para aumentar conversion en trafico nuevo.</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <blockquote class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <p class="text-gray-700">"Nos ayudaron a digitalizar procesos comerciales y ahora respondemos mas rapido a clientes."</p>
+                        <cite class="block mt-4 text-sm font-semibold text-gray-900">Direccion Comercial, empresa local en Tuxtla</cite>
+                    </blockquote>
+                    <blockquote class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <p class="text-gray-700">"El sitio web nuevo mejoro nuestra imagen y empezamos a recibir contactos semanales."</p>
+                        <cite class="block mt-4 text-sm font-semibold text-gray-900">Gerencia General, pyme en Chiapas</cite>
+                    </blockquote>
+                    <blockquote class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <p class="text-gray-700">"Tuvimos claridad en tiempos, costos y alcance desde el inicio. Muy recomendados."</p>
+                        <cite class="block mt-4 text-sm font-semibold text-gray-900">Operacion, negocio de servicios en Tuxtla</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        @include('partials.lead-qualification-form', ['leadSource' => 'home'])
 
         <section id="contact" class="py-24 bg-black text-white relative overflow-hidden">
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
@@ -220,7 +278,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.phone_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.phone_desc') }}</p>
-                        <a href="tel:+529611465703" class="text-xl font-bold tracking-wide hover:text-gray-300 transition-colors">
+                        <a href="tel:+529611465703" class="text-xl font-bold tracking-wide hover:text-gray-300 transition-colors" data-track="home_phone_click">
                             +52 (961) 146-5703
                         </a>
                     </div>
@@ -234,7 +292,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.whatsapp_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.whatsapp_desc') }}</p>
-                        <a href="https://wa.me/message/H7C4TPUUXUYIF1" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 font-medium text-sm">
+                        <a href="https://wa.me/529611465703" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 font-medium text-sm" data-track="home_whatsapp_click">
                             {{ __('messages.new_contact.whatsapp_action') }}
                         </a>
                     </div>
@@ -245,7 +303,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">{{ __('messages.new_contact.email_title') }}</h3>
                         <p class="text-gray-400 text-sm mb-6 h-10">{{ __('messages.new_contact.email_desc') }}</p>
-                        <a href="mailto:contact@novaconsulting.com" class="text-lg font-medium border-b border-gray-600 pb-1 hover:text-gray-300 hover:border-gray-400 transition-all">
+                        <a href="mailto:contact@novaconsulting.com" class="text-lg font-medium border-b border-gray-600 pb-1 hover:text-gray-300 hover:border-gray-400 transition-all" data-track="home_email_click">
                             sales@novaconsulting.com
                         </a>
                     </div>
@@ -253,6 +311,7 @@
                 </div>
             </div>
         </section>
+        @include('partials.sticky-mobile-cta')
         @include('layouts.footer')
 
     </body>

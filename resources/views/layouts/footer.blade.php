@@ -11,7 +11,7 @@
             <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
                 <x-ri-tiktok-fill class="w-6 h-6" />
             </a>
-            <a href="https://wa.me/message/H7C4TPUUXUYIF1" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
+            <a href="https://wa.me/529611465703" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
                 <x-ri-whatsapp-fill class="w-6 h-6" />
             </a>
         </div>
