@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://novaconsulting.com.mx/sitemap.xml

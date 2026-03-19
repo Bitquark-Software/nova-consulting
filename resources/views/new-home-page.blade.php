@@ -85,6 +85,18 @@
             </div>
         </section>
 
+        <section class="py-14 bg-white border-y border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">
+                    Empresa de software y diseño web en Tuxtla Gutierrez, Chiapas
+                </h2>
+                <p class="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
+                    Ayudamos a negocios en Tuxtla y todo Chiapas con desarrollo de software a medida,
+                    diseño de paginas web y mejora de procesos digitales para vender mas y operar mejor.
+                </p>
+            </div>
+        </section>
+
 
         <section id="services" class="py-24 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

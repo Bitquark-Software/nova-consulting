@@ -13,7 +13,7 @@ class SeoService
     public function __construct($locale = null)
     {
         $this->locale = $locale ?? app()->getLocale();
-        $this->routeName = request()->route() ? request()->route()->getName() : 'home';
+        $this->routeName = request()->route() ? (request()->route()->getName() ?? 'home') : 'home';
     }
 
     public function set(array $overrides = [])
@@ -42,12 +42,13 @@ class SeoService
             $title = $this->translate('title') ?: $this->translate('welcome.hero_title_html');
             $description = $this->translate('description') ?: $this->translate('welcome.hero_subtitle');
             $keywords = $this->translate('keywords') ?: $this->generateKeywords($description);
+            $canonicalUrl = request()->url();
 
             $og = [
                 'title' => strip_tags($title),
                 'description' => strip_tags($description),
                 'type' => 'website',
-                'url' => url()->current(),
+                'url' => $canonicalUrl,
                 'image' => asset('images/og-default.png'),
             ];
 
@@ -77,7 +78,13 @@ class SeoService
             }
         }
 
-        // Try seo.php first
+        // Try default SEO keys
+        $candidate = __('seo.default.' . $key);
+        if ($candidate && $candidate !== 'seo.default.' . $key) {
+            return $candidate;
+        }
+
+        // Backwards compatible fallback: seo.{key}
         $candidate = __('seo.' . $key);
         if ($candidate && $candidate !== 'seo.' . $key) {
             return $candidate;
@@ -113,10 +120,28 @@ class SeoService
     {
         $org = [
             "@context" => "https://schema.org",
-            "@type" => "Organization",
+            "@type" => "LocalBusiness",
             "name" => config('app.name', 'Nova Consulting'),
             "url" => url('/'),
             "logo" => asset('images/Web_inverted.svg'),
+            "telephone" => "+52-961-146-5703",
+            "email" => "sales@novaconsulting.com",
+            "address" => [
+                "@type" => "PostalAddress",
+                "addressLocality" => "Tuxtla Gutierrez",
+                "addressRegion" => "Chiapas",
+                "addressCountry" => "MX",
+            ],
+            "areaServed" => [
+                [
+                    "@type" => "City",
+                    "name" => "Tuxtla Gutierrez",
+                ],
+                [
+                    "@type" => "State",
+                    "name" => "Chiapas",
+                ],
+            ],
             "sameAs" => [
                 // social links could be in config or env
             ],
@@ -143,11 +168,17 @@ class SeoService
         $out[] = "<title>" . e($title) . "</title>";
         $out[] = "<meta name=\"description\" content=\"" . e($description) . "\">";
         $out[] = "<meta name=\"keywords\" content=\"" . e($keywords) . "\">";
+        $out[] = "<meta name=\"robots\" content=\"index, follow, max-image-preview:large\">";
         $out[] = "<meta property=\"og:title\" content=\"" . e($data['og']['title']) . "\">";
         $out[] = "<meta property=\"og:description\" content=\"" . e($data['og']['description']) . "\">";
         $out[] = "<meta property=\"og:type\" content=\"" . e($data['og']['type']) . "\">";
         $out[] = "<meta property=\"og:url\" content=\"" . e($data['og']['url']) . "\">";
         $out[] = "<meta property=\"og:image\" content=\"" . e($data['og']['image']) . "\">";
+        $out[] = "<meta property=\"og:locale\" content=\"" . e(str_replace('-', '_', app()->getLocale())) . "\">";
+        $out[] = "<meta name=\"twitter:card\" content=\"summary_large_image\">";
+        $out[] = "<meta name=\"twitter:title\" content=\"" . e($data['og']['title']) . "\">";
+        $out[] = "<meta name=\"twitter:description\" content=\"" . e($data['og']['description']) . "\">";
+        $out[] = "<meta name=\"twitter:image\" content=\"" . e($data['og']['image']) . "\">";
         $out[] = "<link rel=\"canonical\" href=\"" . e($data['og']['url']) . "\">";
         // hreflang links for indexed locales
         $locales = ['en', 'es'];

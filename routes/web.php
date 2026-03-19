@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // return view('welcome');
     return view('new-home-page');
-});
+})->name('home');
 
 Route::get('/get-a-quote', function () {
     return view('quotations');
@@ -28,7 +28,7 @@ Route::get('/locale/{locale}', function ($locale) {
 
 Route::get('/hiring-services', function () {
     return view('hiring_services');
-});
+})->name('hiring_services');
 
 Route::get('/services', function () {
     return view('services');
@@ -45,6 +45,14 @@ Route::get('/contact', function () {
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+Route::get('/empresa-software-tuxtla-chiapas', function () {
+    return view('empresa-software-tuxtla-chiapas');
+})->name('landing.software.tuxtla.chiapas');
+
+Route::get('/diseno-paginas-web-tuxtla-chiapas', function () {
+    return view('diseno-paginas-web-tuxtla-chiapas');
+})->name('landing.webdesign.tuxtla.chiapas');
 
 Route::get('/coming-soon', function () {
     return view('coming-soon');
