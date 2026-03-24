@@ -23,10 +23,10 @@
                 <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.custom_software') }}</a></li>
                 <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.staff_augmentation') }}</a></li>
                 <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_consulting') }}</a></li>
-                <li><a href="{{ route('landing.software.guadalajara') }}" class="hover:underline underline-offset-4">Software en Guadalajara</a></li>
-                <li><a href="{{ route('landing.software.monterrey') }}" class="hover:underline underline-offset-4">Software en Monterrey</a></li>
-                <li><a href="{{ route('landing.software.cdmx') }}" class="hover:underline underline-offset-4">Software en Ciudad de México</a></li>
-                <li><a href="{{ route('landing.software.merida') }}" class="hover:underline underline-offset-4">Software en Mérida</a></li>
+                <li><a href="{{ \App\Support\LocalizedUrls::citySoftware('gdl') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_gdl') }}</a></li>
+                <li><a href="{{ \App\Support\LocalizedUrls::citySoftware('mty') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_mty') }}</a></li>
+                <li><a href="{{ \App\Support\LocalizedUrls::citySoftware('cdmx') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_cdmx') }}</a></li>
+                <li><a href="{{ \App\Support\LocalizedUrls::citySoftware('merida') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_merida') }}</a></li>
             </ul>
         </div>
         <div>
@@ -46,6 +46,16 @@
                 <li><a href="{{ url('/dashboard/register') }}" class="hover:underline underline-offset-4">Crea tu cuenta</a></li>
             </ul>
         </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-10 border-t border-gray-100">
+        <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 pt-10">{{ __('messages.footer.guides_prices') }}</h2>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#2C2C2C]">
+            <li><a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="hover:underline underline-offset-4">{{ __('guides.cuanto_pagina_web.h1') }}</a></li>
+            <li><a href="{{ \App\Support\LocalizedUrls::guide('cuanto_aplicacion') }}" class="hover:underline underline-offset-4">{{ __('guides.cuanto_aplicacion.h1') }}</a></li>
+            <li><a href="{{ \App\Support\LocalizedUrls::guide('que_es_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.que_es_landing.h1') }}</a></li>
+            <li><a href="{{ \App\Support\LocalizedUrls::guide('cuanto_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.cuanto_landing.h1') }}</a></li>
+            <li><a href="{{ \App\Support\LocalizedUrls::guide('como_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.como_landing.h1') }}</a></li>
+        </ul>
     </div>
     <div class="border-t border-gray-100 bg-[#F2F2F2] py-4 text-center text-xs text-gray-600">
         Tuxtla Gutiérrez, Chiapas, México

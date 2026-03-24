@@ -1,287 +1,232 @@
+@php
+    $cp = trans('messages.contact_page');
+    $mapUrl = 'https://www.google.com/maps/search/?api=1&query='.urlencode($cp['map_query']);
+    $canonical = url('/contact');
+    $htmlLang = app()->getLocale() === 'en' ? 'en' : 'es-MX';
+    $seo_overrides = [
+        'title' => __('seo.contact.title'),
+        'description' => __('seo.contact.description'),
+        'keywords' => __('seo.contact.keywords'),
+        'og' => [
+            'title' => __('seo.contact.title'),
+            'description' => __('seo.contact.description'),
+            'type' => 'website',
+            'url' => $canonical,
+            'image' => asset('images/og-default.png'),
+        ],
+    ];
+@endphp
 @extends('layouts.marketing')
 
 @section('nav_ga_section', 'nav-contact')
+@section('propuesta_href', url('/contact#propuesta'))
 
 @section('content')
+<div class="relative pt-28 sm:pt-32 pb-20 px-4 sm:px-6 overflow-hidden">
+    <div class="pointer-events-none absolute -top-24 right-0 w-[min(28rem,90vw)] h-[min(28rem,90vw)] rounded-full bg-white/80 blur-3xl"></div>
+    <div class="pointer-events-none absolute top-40 -left-20 w-72 h-72 rounded-full bg-gray-300/40 blur-3xl"></div>
 
-    <!-- FAQ Section -->
-    <!-- <section id="faq" class="relative py-20 px-4 bg-gray-900/30">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-400">Find answers to common questions about our services</p>
+    <div class="relative max-w-6xl mx-auto">
+        {{-- Hero --}}
+        <header class="text-center max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gray-600 px-3 py-1.5 rounded-full border border-gray-200 bg-white/90 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
+                {{ $cp['badge'] }}
+            </span>
+            <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-black leading-[1.08]">
+                {{ $cp['hero_title'] }}
+            </h1>
+            <p class="mt-5 text-lg sm:text-xl text-gray-600 leading-relaxed font-light">
+                {{ $cp['hero_subtitle'] }}
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
+                <a
+                    href="https://wa.me/529611465703?text={{ urlencode($cp['whatsapp_prefill']) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex justify-center items-center w-full sm:w-auto min-w-[12rem] px-8 py-3.5 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    data-track="contact_whatsapp_hero"
+                >
+                    {{ $cp['cta_whatsapp'] }}
+                </a>
+                <a
+                    href="{{ route('quotations') }}"
+                    class="inline-flex justify-center items-center w-full sm:w-auto min-w-[12rem] px-8 py-3.5 rounded-full bg-black text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                    data-track="contact_quote_hero"
+                >
+                    {{ $cp['cta_quote'] }}
+                </a>
+                <a
+                    href="{{ $cp['calendar_url'] }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex justify-center items-center w-full sm:w-auto min-w-[12rem] px-8 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold hover:bg-gray-50 transition-all"
+                    data-track="contact_calendar_hero"
+                >
+                    {{ $cp['cta_calendar'] }}
+                </a>
             </div>
+            <a href="tel:+529611465703" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors" data-track="contact_call_hero">
+                <x-ri-phone-line class="w-4 h-4 shrink-0" />
+                {{ $cp['cta_call'] }} · +52 961 146 5703
+            </a>
+        </header>
 
-            <div class="space-y-4">
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">What services do you offer?</h3>
-                    <p class="text-gray-300">We offer a comprehensive range of IT services including Custom Software Development, IT Staff Augmentation, Cloud & DevOps Solutions, Technical Consulting, QA & Testing, and System Integration.</p>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">How long does a typical project take?</h3>
-                    <p class="text-gray-300">Project timelines vary based on scope and complexity. A simple web application might take 4-8 weeks, while enterprise solutions can take 3-6 months or longer. We provide detailed timelines during the consultation phase.</p>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Do you provide ongoing support?</h3>
-                    <p class="text-gray-300">Yes, we offer comprehensive maintenance and support packages to ensure your solutions continue to perform optimally. Our support includes bug fixes, updates, security patches, and feature enhancements.</p>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">What industries do you serve?</h3>
-                    <p class="text-gray-300">We serve a wide range of industries including healthcare, finance, e-commerce, education, manufacturing, and more. Our solutions are tailored to meet the specific needs of each industry.</p>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">How do you ensure project security?</h3>
-                    <p class="text-gray-300">Security is our top priority. We implement industry best practices including secure coding standards, regular security audits, encryption, and compliance with relevant regulations like GDPR and HIPAA.</p>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20">
-                    <h3 class="text-xl font-semibold mb-3 text-purple-400">What is your pricing model?</h3>
-                    <p class="text-gray-300">We offer flexible pricing models including fixed-price projects, time and materials, and dedicated team arrangements. Pricing is customized based on project requirements, and we provide transparent quotes upfront.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="relative pt-28 sm:pt-32 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">{{ __('messages.contact.get_in_touch') }}</h2>
-                <p class="text-xl text-gray-600">{{ __('messages.contact.ready_start') }}</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 mb-20">
+        {{-- Grid: canales + aside --}}
+        <div class="mt-16 lg:mt-20 grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            <div class="lg:col-span-7 space-y-4">
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-[#2C2C2C]">{{ __('messages.contact.contact_information') }}</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <svg class="w-6 h-6 text-gray-700 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <div>
-                                <p class="font-semibold text-gray-700">{{ __('messages.contact.email') }}</p>
-                                <a href="mailto:sales@novaconsulting.com.mx" class="text-gray-600">sales@novaconsulting.com.mx</a>
-                            </div>
-                        </div>
+                    <h2 class="text-2xl font-bold text-black">{{ $cp['channels_title'] }}</h2>
+                    <p class="mt-2 text-gray-600">{{ $cp['channels_sub'] }}</p>
+                </div>
 
-                        <div class="flex items-start gap-4">
-                            <svg class="w-6 h-6 text-gray-700 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            <div>
-                                <p class="font-semibold text-gray-700">{{ __('messages.contact.phone') }}</p>
-                                <a href="tel:+529611465703" class="text-gray-600">+52 961 146 5703</a>
-                            </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="mailto:sales@novaconsulting.com.mx" class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all" data-track="contact_card_email">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-100 text-black group-hover:bg-black group-hover:text-white transition-colors">
+                            <x-ri-mail-line class="w-5 h-5" />
                         </div>
+                        <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.contact.email') }}</p>
+                        <p class="mt-1 font-semibold text-black">sales@novaconsulting.com.mx</p>
+                        <p class="mt-2 text-sm text-gray-600">{{ $cp['email_hint'] }}</p>
+                    </a>
 
-                        <div class="flex items-start gap-4">
-                            <svg class="w-6 h-6 text-gray-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <div>
-                                <p class="font-semibold text-gray-700">{{ __('messages.contact.address') }}</p>
-                                <p class="text-gray-600">1067 Chihuahua Avenue, Tuxtla Gutierrez, Chiapas 29020</p>
-                            </div>
+                    <a href="tel:+529611465703" class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all" data-track="contact_card_phone">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-100 text-black group-hover:bg-black group-hover:text-white transition-colors">
+                            <x-ri-phone-line class="w-5 h-5" />
                         </div>
-                    </div>
+                        <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.contact.phone') }}</p>
+                        <p class="mt-1 font-semibold text-black">+52 961 146 5703</p>
+                        <p class="mt-2 text-sm text-gray-600">{{ $cp['phone_hint'] }}</p>
+                    </a>
+                </div>
 
-                    <div class="mt-8">
-                        <h4 class="text-lg font-semibold mb-4 text-gray-600">{{ __('messages.contact.business_hours') }}</h4>
-                        <div class="space-y-2 text-gray-700">
-                            <p>{{ __('messages.contact.monday_friday') }}</p>
-                            <p>{{ __('messages.contact.saturday') }}</p>
-                            <p>{{ __('messages.contact.sunday') }}</p>
+                <div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-black">
+                            <x-ri-map-pin-line class="w-5 h-5" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.contact.address') }}</p>
+                            <p class="mt-1 font-semibold text-black">{{ $cp['map_query'] }}</p>
+                            <p class="mt-2 text-sm text-gray-600">{{ $cp['address_hint'] }}</p>
+                            <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black border-b border-black/30 hover:border-black transition-colors" data-track="contact_map">
+                                {{ $cp['map_cta'] }}
+                                <x-ri-external-link-line class="w-4 h-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- TBD -->
-                <!-- <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-purple-500/20 glow-border">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium mb-2 text-gray-200">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 text-gray-200" placeholder="Your name">
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium mb-2 text-gray-200">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 text-gray-200" placeholder="your@email.com">
-                        </div>
-
-                        <div>
-                            <label for="subject" class="block text-sm font-medium mb-2 text-gray-200">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 text-gray-200" placeholder="How can we help?">
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium mb-2 text-gray-200">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500 text-gray-200" placeholder="Tell us about your project"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105">
-                            Send Message
-                        </button>
-                    </form>
-                </div> -->
+                <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.contact.business_hours') }}</p>
+                    <p class="mt-2 text-sm text-gray-500">{{ $cp['hours_hint'] }}</p>
+                    <ul class="mt-4 space-y-2 text-gray-800">
+                        <li>{{ __('messages.contact.monday_friday') }}</li>
+                        <li>{{ __('messages.contact.saturday') }}</li>
+                        <li>{{ __('messages.contact.sunday') }}</li>
+                    </ul>
+                </div>
             </div>
+
+            <aside class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+                <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-[#2C2C2C] to-gray-900 text-white p-8 shadow-xl">
+                    <h2 class="text-xl font-bold">{{ $cp['aside_title'] }}</h2>
+                    <p class="mt-3 text-sm text-gray-300 leading-relaxed">{{ $cp['aside_body'] }}</p>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-200">
+                        <li class="flex gap-3">
+                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold">✓</span>
+                            <span>{{ $cp['aside_b1'] }}</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold">✓</span>
+                            <span>{{ $cp['aside_b2'] }}</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs font-bold">✓</span>
+                            <span>{{ $cp['aside_b3'] }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">{{ $cp['social_title'] }}</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <a href="https://www.facebook.com/share/1GDwN93yhW/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="Facebook" data-track="contact_social_fb">
+                            <x-ri-facebook-fill class="w-5 h-5" />
+                        </a>
+                        <a href="https://www.instagram.com/nova_consulting_devs" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="Instagram" data-track="contact_social_ig">
+                            <x-ri-instagram-fill class="w-5 h-5" />
+                        </a>
+                        <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="TikTok" data-track="contact_social_tt">
+                            <x-ri-tiktok-fill class="w-5 h-5" />
+                        </a>
+                        <a href="https://wa.me/529611465703" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="WhatsApp" data-track="contact_social_wa">
+                            <x-ri-whatsapp-fill class="w-5 h-5" />
+                        </a>
+                    </div>
+                </div>
+            </aside>
         </div>
-    </section>
 
-    <!-- Careers Section -->
-    <!-- <section id="careers" class="relative py-20 px-4 bg-gray-900/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Join Our Team</h2>
-                <p class="text-xl text-gray-400">Build the future with us</p>
+        {{-- Proceso --}}
+        <section class="mt-20 lg:mt-24" aria-labelledby="contact-process-title">
+            <h2 id="contact-process-title" class="text-2xl sm:text-3xl font-bold text-black text-center max-w-2xl mx-auto">
+                {{ $cp['process_title'] }}
+            </h2>
+            <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach ([
+                    ['t' => $cp['step1_title'], 'b' => $cp['step1_body'], 'n' => '1'],
+                    ['t' => $cp['step2_title'], 'b' => $cp['step2_body'], 'n' => '2'],
+                    ['t' => $cp['step3_title'], 'b' => $cp['step3_body'], 'n' => '3'],
+                    ['t' => $cp['step4_title'], 'b' => $cp['step4_body'], 'n' => '4'],
+                ] as $step)
+                    <div class="relative rounded-2xl border border-gray-200 bg-white p-6 pt-10 shadow-sm hover:shadow-md transition-shadow">
+                        <span class="absolute top-4 right-4 text-4xl font-bold text-gray-100 select-none" aria-hidden="true">{{ $step['n'] }}</span>
+                        <h3 class="text-lg font-bold text-black relative">{{ $step['t'] }}</h3>
+                        <p class="mt-2 text-sm text-gray-600 leading-relaxed relative">{{ $step['b'] }}</p>
+                    </div>
+                @endforeach
             </div>
+        </section>
 
-            <div class="mb-16 bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-purple-500/20 text-center">
-                <h3 class="text-2xl font-bold mb-4 text-gray-200">Why Work With Us?</h3>
-                <p class="text-gray-300 max-w-3xl mx-auto mb-8">
-                    We believe in creating an environment where talented individuals can thrive, innovate, and make a real impact. Join a team that values creativity, continuous learning, and work-life balance.
-                </p>
-                
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="p-4">
-                        <div class="text-3xl mb-2">🚀</div>
-                        <h4 class="font-semibold text-gray-200 mb-1">Innovation</h4>
-                        <p class="text-sm text-gray-400">Work on cutting-edge projects</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl mb-2">📚</div>
-                        <h4 class="font-semibold text-gray-200 mb-1">Growth</h4>
-                        <p class="text-sm text-gray-400">Continuous learning opportunities</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl mb-2">⚖️</div>
-                        <h4 class="font-semibold text-gray-200 mb-1">Balance</h4>
-                        <p class="text-sm text-gray-400">Flexible work arrangements</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="text-3xl mb-2">💰</div>
-                        <h4 class="font-semibold text-gray-200 mb-1">Benefits</h4>
-                        <p class="text-sm text-gray-400">Competitive compensation</p>
-                    </div>
-                </div>
+        {{-- FAQ --}}
+        <section class="mt-20 lg:mt-24 max-w-3xl mx-auto" aria-labelledby="contact-faq-title">
+            <h2 id="contact-faq-title" class="text-2xl font-bold text-black text-center">{{ $cp['faq_title'] }}</h2>
+            <div class="mt-8 space-y-2">
+                @foreach($cp['faqs'] as $faq)
+                    <details class="rounded-2xl border border-gray-200 bg-white open:shadow-sm transition-shadow group">
+                        <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-[#2C2C2C] flex justify-between gap-3 items-center">
+                            <span>{{ $faq['q'] }}</span>
+                            <span class="text-gray-400 text-xs shrink-0 group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="px-5 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">{{ $faq['a'] }}</div>
+                    </details>
+                @endforeach
             </div>
+        </section>
 
-            <div class="space-y-6">
-                <h3 class="text-3xl font-bold mb-8 text-center text-purple-400">Open Positions</h3>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-200 mb-2">Senior Full Stack Developer</h4>
-                            <div class="flex flex-wrap gap-3 text-sm text-gray-400">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    </svg>
-                                    Remote / San Francisco
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    Full-time
-                                </span>
-                            </div>
-                        </div>
-                        <button class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 whitespace-nowrap">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-200 mb-2">DevOps Engineer</h4>
-                            <div class="flex flex-wrap gap-3 text-sm text-gray-400">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    </svg>
-                                    Remote / New York
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    Full-time
-                                </span>
-                            </div>
-                        </div>
-                        <button class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 whitespace-nowrap">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-200 mb-2">UX/UI Designer</h4>
-                            <div class="flex flex-wrap gap-3 text-sm text-gray-400">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    </svg>
-                                    Remote / Austin
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    Full-time
-                                </span>
-                            </div>
-                        </div>
-                        <button class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 whitespace-nowrap">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
-
-                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-200 mb-2">QA Automation Engineer</h4>
-                            <div class="flex flex-wrap gap-3 text-sm text-gray-400">
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    </svg>
-                                    Remote / Boston
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    Full-time
-                                </span>
-                            </div>
-                        </div>
-                        <button class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 whitespace-nowrap">
-                            Apply Now
-                        </button>
-                    </div>
-                </div>
+        {{-- Enlaces útiles --}}
+        <section class="mt-16 rounded-2xl border border-gray-200 bg-white p-8 sm:p-10 shadow-sm" aria-label="{{ $cp['explore_title'] }}">
+            <h2 class="text-lg font-bold text-black">{{ $cp['explore_title'] }}</h2>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="{{ route('services') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_services">{{ $cp['explore_services'] }}</a>
+                <a href="{{ route('faq') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_faq">{{ $cp['explore_faq'] }}</a>
+                <a href="{{ route('quotations') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_quote">{{ $cp['explore_quote'] }}</a>
+                <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_guides">{{ $cp['explore_guides'] }}</a>
             </div>
+        </section>
 
-            <div class="mt-12 text-center">
-                <p class="text-gray-400 mb-4">Don't see the right position?</p>
-                <button class="px-8 py-3 border border-purple-500/50 text-purple-400 font-semibold rounded-lg hover:bg-purple-500/10 transition-all duration-200">
-                    Send us your resume
-                </button>
+        {{-- Formulario (ancla #propuesta para el nav) --}}
+        <div id="propuesta" class="scroll-mt-28">
+            <div class="max-w-5xl mx-auto text-center mt-4 mb-2">
+                <h2 class="text-2xl font-bold text-black">{{ $cp['form_section_title'] }}</h2>
+                <p class="mt-2 text-gray-600 max-w-xl mx-auto text-sm sm:text-base">{{ $cp['form_section_sub'] }}</p>
             </div>
+            @include('partials.lead-qualification-form', [
+                'leadSource' => 'contact-page',
+                'leadFormSectionId' => 'formulario-contacto',
+            ])
         </div>
-    </section> -->
-
+    </div>
+</div>
 @endsection

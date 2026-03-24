@@ -19,6 +19,12 @@
             0% { background-position: 0% 50%; }
             100% { background-position: 200% 50%; }
         }
+        @keyframes marketingFabFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .marketing-fab-float { animation: marketingFabFloat 4.5s ease-in-out infinite; }
+        .marketing-fab-float-delay { animation: marketingFabFloat 4.5s ease-in-out infinite; animation-delay: 0.9s; }
         .marketing-hero-in { animation: marketingHeroIn 0.85s ease-out forwards; }
         .marketing-hero-in-delay { animation: marketingHeroIn 0.85s ease-out 0.15s forwards; opacity: 0; animation-fill-mode: forwards; }
         .marketing-float { animation: marketingFloat 14s ease-in-out infinite; }
@@ -29,7 +35,7 @@
             animation: marketingShimmer 4s linear infinite;
         }
     </style>
-    <body class="antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white pb-20 sm:pb-0">
+    <body class="antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white pb-6 sm:pb-0">
         @include('partials.marketing-nav', [
             'navGaSection' => trim($__env->yieldContent('nav_ga_section')) ?: 'nav-marketing',
             'propuestaHref' => trim($__env->yieldContent('propuesta_href')) ?: null,

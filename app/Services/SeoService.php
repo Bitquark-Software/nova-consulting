@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Cache;
 class SeoService
 {
     protected $locale;
+
     protected $routeName;
+
     protected $overrides = [];
 
     public function __construct($locale = null)
@@ -19,12 +21,13 @@ class SeoService
     public function set(array $overrides = [])
     {
         $this->overrides = $overrides;
+
         return $this;
     }
 
     protected function cacheKey()
     {
-        return 'seo:' . $this->routeName . ':' . $this->locale;
+        return 'seo:'.$this->routeName.':'.$this->locale;
     }
 
     /**
@@ -35,6 +38,7 @@ class SeoService
     {
         // Use cache to minimize work (edge friendly)
         $key = $this->cacheKey();
+
         return Cache::remember($key, now()->addHours(6), function () {
             // Fallback order: resources/lang/{locale}/seo.php -> messages.php -> default text
             // We'll use __('seo.<key>') if exists, else fall back to messages.welcome etc.
@@ -72,33 +76,33 @@ class SeoService
     {
         // Try route-specific seo keys first: seo.{route}.{key}
         if ($this->routeName) {
-            $candidate = __('seo.' . $this->routeName . '.' . $key);
-            if ($candidate && $candidate !== 'seo.' . $this->routeName . '.' . $key) {
+            $candidate = __('seo.'.$this->routeName.'.'.$key);
+            if ($candidate && $candidate !== 'seo.'.$this->routeName.'.'.$key) {
                 return $candidate;
             }
         }
 
         // Try default SEO keys
-        $candidate = __('seo.default.' . $key);
-        if ($candidate && $candidate !== 'seo.default.' . $key) {
+        $candidate = __('seo.default.'.$key);
+        if ($candidate && $candidate !== 'seo.default.'.$key) {
             return $candidate;
         }
 
         // Backwards compatible fallback: seo.{key}
-        $candidate = __('seo.' . $key);
-        if ($candidate && $candidate !== 'seo.' . $key) {
+        $candidate = __('seo.'.$key);
+        if ($candidate && $candidate !== 'seo.'.$key) {
             return $candidate;
         }
 
         // Try messages.php fallback
-        $candidate = __('messages.' . $key);
-        if ($candidate && $candidate !== 'messages.' . $key) {
+        $candidate = __('messages.'.$key);
+        if ($candidate && $candidate !== 'messages.'.$key) {
             return $candidate;
         }
 
         // Try nested welcome keys
-        $candidate = __('messages.welcome.' . $key);
-        if ($candidate && $candidate !== 'messages.welcome.' . $key) {
+        $candidate = __('messages.welcome.'.$key);
+        if ($candidate && $candidate !== 'messages.welcome.'.$key) {
             return $candidate;
         }
 
@@ -113,74 +117,75 @@ class SeoService
         $words = array_filter(array_count_values(explode(' ', $clean)));
         arsort($words);
         $keywords = array_slice(array_keys($words), 0, 10);
+
         return implode(', ', $keywords);
     }
 
     protected function generateJsonLdGraph($data)
     {
         $homeUrl = url('/');
-        $orgId = $homeUrl . '#organization';
-        $websiteId = $homeUrl . '#website';
+        $orgId = $homeUrl.'#organization';
+        $websiteId = $homeUrl.'#website';
 
         $org = [
-            "@id" => $orgId,
-            "@type" => "LocalBusiness",
-            "name" => config('app.name', 'Nova Consulting'),
-            "url" => $homeUrl,
-            "logo" => asset('images/Web_inverted.svg'),
-            "telephone" => "+52-961-146-5703",
-            "email" => "sales@novaconsulting.com",
-            "address" => [
-                "@type" => "PostalAddress",
-                "addressLocality" => "Tuxtla Gutierrez",
-                "addressRegion" => "Chiapas",
-                "addressCountry" => "MX",
+            '@id' => $orgId,
+            '@type' => 'LocalBusiness',
+            'name' => config('app.name', 'Nova Consulting'),
+            'url' => $homeUrl,
+            'logo' => asset('images/Web_inverted.svg'),
+            'telephone' => '+52-961-146-5703',
+            'email' => 'sales@novaconsulting.com',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Tuxtla Gutierrez',
+                'addressRegion' => 'Chiapas',
+                'addressCountry' => 'MX',
             ],
-            "areaServed" => [
+            'areaServed' => [
                 [
-                    "@type" => "City",
-                    "name" => "Tuxtla Gutierrez",
+                    '@type' => 'City',
+                    'name' => 'Tuxtla Gutierrez',
                 ],
                 [
-                    "@type" => "State",
-                    "name" => "Chiapas",
+                    '@type' => 'State',
+                    'name' => 'Chiapas',
                 ],
             ],
-            "sameAs" => [
+            'sameAs' => [
                 // social links could be in config or env
             ],
-            "description" => strip_tags($data['description'] ?? ''),
+            'description' => strip_tags($data['description'] ?? ''),
         ];
 
         $website = [
-            "@id" => $websiteId,
-            "@type" => "WebSite",
-            "url" => $homeUrl,
-            "name" => config('app.name', 'Nova Consulting'),
-            "publisher" => [
-                "@id" => $orgId,
+            '@id' => $websiteId,
+            '@type' => 'WebSite',
+            'url' => $homeUrl,
+            'name' => config('app.name', 'Nova Consulting'),
+            'publisher' => [
+                '@id' => $orgId,
             ],
-            "inLanguage" => app()->getLocale(),
-            "potentialAction" => [
-                "@type" => "SearchAction",
-                "target" => $homeUrl . "?q={search_term_string}",
-                "query-input" => "required name=search_term_string",
+            'inLanguage' => app()->getLocale(),
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => $homeUrl.'?q={search_term_string}',
+                'query-input' => 'required name=search_term_string',
             ],
         ];
 
         $menuItems = [
-            ["name" => "Servicios", "url" => url('/services')],
-            ["name" => "Contacto", "url" => url('/contact')],
-            ["name" => "Cotiza", "url" => url('/get-a-quote')],
-            ["name" => "Inicia sesion", "url" => url('/dashboard/login')],
-            ["name" => "FAQ", "url" => url('/faq')],
+            ['name' => 'Servicios', 'url' => url('/services')],
+            ['name' => 'Contacto', 'url' => url('/contact')],
+            ['name' => 'Cotiza', 'url' => url('/get-a-quote')],
+            ['name' => 'Inicia sesion', 'url' => url('/dashboard/login')],
+            ['name' => 'FAQ', 'url' => url('/faq')],
         ];
 
         $navigation = array_map(function ($item) {
             return [
-                "@type" => "SiteNavigationElement",
-                "name" => $item["name"],
-                "url" => $item["url"],
+                '@type' => 'SiteNavigationElement',
+                'name' => $item['name'],
+                'url' => $item['url'],
             ];
         }, $menuItems);
 
@@ -192,16 +197,86 @@ class SeoService
         }
 
         $graph = [
-            "@context" => "https://schema.org",
-            "@graph" => $graphNodes,
+            '@context' => 'https://schema.org',
+            '@graph' => $graphNodes,
         ];
 
         return json_encode($graph, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 
+    protected function guideKeyFromRoute(?string $route): ?string
+    {
+        $map = [
+            'guide.cuanto_pagina_web' => 'cuanto_pagina_web',
+            'guide.en.cuanto_pagina_web' => 'cuanto_pagina_web',
+            'guide.cuanto_aplicacion' => 'cuanto_aplicacion',
+            'guide.en.cuanto_aplicacion' => 'cuanto_aplicacion',
+            'guide.que_es_landing' => 'que_es_landing',
+            'guide.en.que_es_landing' => 'que_es_landing',
+            'guide.cuanto_landing' => 'cuanto_landing',
+            'guide.en.cuanto_landing' => 'cuanto_landing',
+            'guide.como_landing' => 'como_landing',
+            'guide.en.como_landing' => 'como_landing',
+        ];
+
+        return $map[$route] ?? null;
+    }
+
+    protected function citySoftwareKeyFromRoute(?string $route): ?string
+    {
+        $map = [
+            'landing.software.guadalajara' => 'gdl',
+            'landing.en.software.guadalajara' => 'gdl',
+            'landing.software.monterrey' => 'mty',
+            'landing.en.software.monterrey' => 'mty',
+            'landing.software.cdmx' => 'cdmx',
+            'landing.en.software.cdmx' => 'cdmx',
+            'landing.software.merida' => 'merida',
+            'landing.en.software.merida' => 'merida',
+        ];
+
+        return $map[$route] ?? null;
+    }
+
+    protected function breadcrumbSchema(array $items): array
+    {
+        $list = array_map(function ($item, $index) {
+            return [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $item['name'],
+                'item' => $item['url'],
+            ];
+        }, $items, array_keys($items));
+
+        return [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $list,
+        ];
+    }
+
     protected function generateBreadcrumbNode($homeUrl)
     {
         $route = $this->routeName ?: 'home';
+
+        if ($gk = $this->guideKeyFromRoute($route)) {
+            $path = config('guides.paths.'.$gk.'.'.app()->getLocale());
+
+            return $this->breadcrumbSchema([
+                ['name' => __('seo.breadcrumb.home'), 'url' => $homeUrl],
+                ['name' => __('seo.breadcrumb.guides.'.$gk), 'url' => url($path)],
+            ]);
+        }
+
+        if ($ck = $this->citySoftwareKeyFromRoute($route)) {
+            $path = config('city_landings.paths.'.$ck.'.'.app()->getLocale());
+
+            return $this->breadcrumbSchema([
+                ['name' => __('seo.breadcrumb.home'), 'url' => $homeUrl],
+                ['name' => __('seo.breadcrumb.cities.'.$ck), 'url' => url($path)],
+            ]);
+        }
+
         $map = [
             'home' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
@@ -238,46 +313,18 @@ class SeoService
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'Diseno de paginas web en Tuxtla y Chiapas', 'url' => url('/diseno-paginas-web-tuxtla-chiapas')],
             ],
-            'landing.software.guadalajara' => [
-                ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Empresa de software en Guadalajara', 'url' => url('/empresa-software-guadalajara')],
-            ],
-            'landing.software.monterrey' => [
-                ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Empresa de software en Monterrey', 'url' => url('/empresa-software-monterrey')],
-            ],
-            'landing.software.cdmx' => [
-                ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Empresa de software en Ciudad de Mexico', 'url' => url('/empresa-software-cdmx')],
-            ],
-            'landing.software.merida' => [
-                ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Empresa de software en Merida', 'url' => url('/empresa-software-merida')],
-            ],
         ];
 
-        if (!isset($map[$route])) {
+        if (! isset($map[$route])) {
             return null;
         }
 
-        $items = array_map(function ($item, $index) {
-            return [
-                "@type" => "ListItem",
-                "position" => $index + 1,
-                "name" => $item['name'],
-                "item" => $item['url'],
-            ];
-        }, $map[$route], array_keys($map[$route]));
-
-        return [
-            "@type" => "BreadcrumbList",
-            "itemListElement" => $items,
-        ];
+        return $this->breadcrumbSchema($map[$route]);
     }
 
     public static function renderMetaTags($overrides = [])
     {
-        $service = new self();
+        $service = new self;
         $data = $service->set($overrides)->build();
 
         // Minimal, optimized meta tags string
@@ -289,30 +336,36 @@ class SeoService
         $description = html_entity_decode($description, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $keywords = html_entity_decode($data['keywords'] ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
-        $out[] = "<title>" . e($title) . "</title>";
-        $out[] = "<meta name=\"description\" content=\"" . e($description) . "\">";
-        $out[] = "<meta name=\"keywords\" content=\"" . e($keywords) . "\">";
-        $out[] = "<meta name=\"robots\" content=\"index, follow, max-image-preview:large\">";
-        $out[] = "<meta property=\"og:title\" content=\"" . e($data['og']['title']) . "\">";
-        $out[] = "<meta property=\"og:description\" content=\"" . e($data['og']['description']) . "\">";
-        $out[] = "<meta property=\"og:type\" content=\"" . e($data['og']['type']) . "\">";
-        $out[] = "<meta property=\"og:url\" content=\"" . e($data['og']['url']) . "\">";
-        $out[] = "<meta property=\"og:image\" content=\"" . e($data['og']['image']) . "\">";
-        $out[] = "<meta property=\"og:locale\" content=\"" . e(str_replace('-', '_', app()->getLocale())) . "\">";
-        $out[] = "<meta name=\"twitter:card\" content=\"summary_large_image\">";
-        $out[] = "<meta name=\"twitter:title\" content=\"" . e($data['og']['title']) . "\">";
-        $out[] = "<meta name=\"twitter:description\" content=\"" . e($data['og']['description']) . "\">";
-        $out[] = "<meta name=\"twitter:image\" content=\"" . e($data['og']['image']) . "\">";
-        $out[] = "<link rel=\"canonical\" href=\"" . e($data['og']['url']) . "\">";
-        // hreflang links for indexed locales
-        $locales = ['en', 'es'];
-        foreach ($locales as $loc) {
-            $url = url()->current();
-            // Optionally, switch host/path based on locale if you use localized domains or prefixes
-            $out[] = "<link rel=\"alternate\" href=\"" . e($url) . "\" hreflang=\"" . e($loc) . "\">";
+        $out[] = '<title>'.e($title).'</title>';
+        $out[] = '<meta name="description" content="'.e($description).'">';
+        $out[] = '<meta name="keywords" content="'.e($keywords).'">';
+        $out[] = '<meta name="robots" content="index, follow, max-image-preview:large">';
+        $out[] = '<meta property="og:title" content="'.e($data['og']['title']).'">';
+        $out[] = '<meta property="og:description" content="'.e($data['og']['description']).'">';
+        $out[] = '<meta property="og:type" content="'.e($data['og']['type']).'">';
+        $out[] = '<meta property="og:url" content="'.e($data['og']['url']).'">';
+        $out[] = '<meta property="og:image" content="'.e($data['og']['image']).'">';
+        $out[] = '<meta property="og:locale" content="'.e(str_replace('-', '_', app()->getLocale())).'">';
+        $out[] = '<meta name="twitter:card" content="summary_large_image">';
+        $out[] = '<meta name="twitter:title" content="'.e($data['og']['title']).'">';
+        $out[] = '<meta name="twitter:description" content="'.e($data['og']['description']).'">';
+        $out[] = '<meta name="twitter:image" content="'.e($data['og']['image']).'">';
+        $out[] = '<link rel="canonical" href="'.e($data['og']['url']).'">';
+        $hreflang = $overrides['hreflang'] ?? null;
+        if (is_array($hreflang) && (isset($hreflang['es']) || isset($hreflang['en']))) {
+            foreach (['es', 'en'] as $loc) {
+                if (! empty($hreflang[$loc])) {
+                    $out[] = '<link rel="alternate" href="'.e($hreflang[$loc]).'" hreflang="'.e($loc).'">';
+                }
+            }
+            $xDefault = $hreflang['es'] ?? $hreflang['en'] ?? url('/');
+            $out[] = '<link rel="alternate" href="'.e($xDefault).'" hreflang="x-default">';
+        } else {
+            $locTag = app()->getLocale() === 'en' ? 'en' : 'es';
+            $out[] = '<link rel="alternate" href="'.e(url()->current()).'" hreflang="'.e($locTag).'">';
+            $out[] = '<link rel="alternate" href="'.e(url('/')).'" hreflang="x-default">';
         }
-        $out[] = "<link rel=\"alternate\" href=\"" . e(url('/')) . "\" hreflang=\"x-default\">";
-        $out[] = "<script type=\"application/ld+json\">" . $data['jsonld'] . "</script>";
+        $out[] = '<script type="application/ld+json">'.$data['jsonld'].'</script>';
 
         return implode("\n", $out);
     }

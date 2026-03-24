@@ -69,10 +69,22 @@
                 <div class="max-w-6xl mx-auto">
                     <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">Presencia en México</p>
                     <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
-                        <a href="{{ route('landing.software.guadalajara') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Guadalajara</a>
-                        <a href="{{ route('landing.software.monterrey') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Monterrey</a>
-                        <a href="{{ route('landing.software.cdmx') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Ciudad de México</a>
-                        <a href="{{ route('landing.software.merida') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Mérida</a>
+                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('gdl') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Guadalajara</a>
+                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('mty') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Monterrey</a>
+                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('cdmx') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Ciudad de México</a>
+                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('merida') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Mérida</a>
+                    </div>
+                </div>
+            </section>
+
+            {{-- Guías SEO (precios y landings) --}}
+            <section class="py-8 px-4 sm:px-6" data-ga-section="guias-home">
+                <div class="max-w-6xl mx-auto text-center">
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Guías útiles</p>
+                    <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+                        <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.cuanto_pagina_web.h1') }}</a>
+                        <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_aplicacion') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.cuanto_aplicacion.h1') }}</a>
+                        <a href="{{ \App\Support\LocalizedUrls::guide('que_es_landing') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.que_es_landing.h1') }}</a>
                     </div>
                 </div>
             </section>

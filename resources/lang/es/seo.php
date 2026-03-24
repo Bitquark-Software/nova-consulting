@@ -1,6 +1,23 @@
 <?php
 
 return [
+    'breadcrumb' => [
+        'home' => 'Inicio',
+        'guides' => [
+            'cuanto_pagina_web' => '¿Cuánto cuesta una página web?',
+            'cuanto_aplicacion' => '¿Cuánto cuesta una aplicación?',
+            'que_es_landing' => '¿Qué es una landing page?',
+            'cuanto_landing' => '¿Cuánto cuesta una landing page?',
+            'como_landing' => 'Cómo hacer una landing page',
+        ],
+        'cities' => [
+            'gdl' => 'Empresa de software en Guadalajara',
+            'mty' => 'Empresa de software en Monterrey',
+            'cdmx' => 'Empresa de software en Ciudad de México',
+            'merida' => 'Empresa de software en Mérida',
+        ],
+    ],
+
     'default' => [
         'title' => 'Nova Consulting — Desarrolladora De Software En Tuxtla Gutiérrez, Chiapas',
         'description' => 'Nova Consulting ofrece desarrollo de software a medida, personal de TI, infraestructura en la nube y consultoría técnica para ayudar a las empresas modernas a escalar.',
@@ -20,14 +37,22 @@ return [
     ],
 
     'about' => [
-        'title' => 'Acerca de — Nova Consulting',
-        'description' => 'Conoce a Nova Consulting — nuestra misión, equipo y enfoque para construir software de alta calidad y proveer personal de TI experto.',
+        'title' => 'Nosotros — Nova Consulting | Software y diseño web en México',
+        'description' => 'Conoce Nova Consulting: equipo en Tuxtla Gutiérrez, Chiapas, proyectos remotos en todo México. Misión, valores y cómo construimos software y experiencias web.',
+        'keywords' => 'nova consulting chiapas, empresa software tuxtla, desarrollo web mexico, nosotros nova consulting',
     ],
 
     'faq' => [
         'title' => 'Preguntas frecuentes — Nova Consulting',
         'description' => 'Preguntas frecuentes sobre nuestros servicios, precios, proceso de contratación y soporte.',
     ],
+
+    'contact' => [
+        'title' => 'Contacto — Nova Consulting | Software y diseño web en México',
+        'description' => 'Escríbenos por WhatsApp, correo o agenda una videollamada. Nova Consulting en Tuxtla Gutiérrez, Chiapas; proyectos remotos en todo México.',
+        'keywords' => 'contacto nova consulting, cotizar software mexico, desarrollo web tuxtla, whatsapp nova consulting',
+    ],
+
     'hiring_services' => [
         'title' => 'Contrata ingenieros — Nova Consulting',
         'description' => 'Contrata desarrolladores preseleccionados rápidamente. Buscamos, filtramos y entregamos ingenieros calificados en menos de 48 horas. Precios: nuestra tarifa se cobra con la primera nómina del contratado.',

@@ -1,8 +1,9 @@
 @php
     $leadSource = $leadSource ?? 'website';
+    $leadFormSectionId = $leadFormSectionId ?? 'diagnostico';
 @endphp
 
-<section id="diagnostico" class="max-w-5xl mx-auto mt-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+<section id="{{ $leadFormSectionId }}" class="max-w-5xl mx-auto mt-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
     <div class="text-center">
         <h2 class="text-2xl md:text-3xl font-bold text-black">Recibe una propuesta en 24 horas</h2>
         <p class="mt-3 text-gray-600">
