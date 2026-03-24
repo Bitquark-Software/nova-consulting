@@ -1,62 +1,53 @@
-<footer class="w-full p-12 bg-[#e2e2e2] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center justify-center gap-1">
-    <div class="col-span-1">
-        <img src="{{asset('images/Web_inverted.svg')}}" alt="Nova Consulting" draggable="false" class="w-24 h-auto">
-        <div class="flex flex-row gap-2 items-center justify-start">
-            <a href="https://www.facebook.com/share/1GDwN93yhW/?mibextid=wwXIfr" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                <x-ri-facebook-fill class="w-6 h-6" />
-            </a>
-            <a href="https://www.instagram.com/nova_consulting_devs" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                <x-ri-instagram-fill class="w-6 h-6" />
-            </a>
-            <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                <x-ri-tiktok-fill class="w-6 h-6" />
-            </a>
-            <a href="https://wa.me/529611465703" target="_blank" class="w-12 h-12 rounded-full bg-[#b3b3b3] text-[#2C2C2C] text-center flex items-center justify-center">
-                <x-ri-whatsapp-fill class="w-6 h-6" />
-            </a>
+<footer class="mt-12 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        <div class="space-y-4">
+            <img src="{{ asset('images/Web_inverted.svg') }}" alt="Nova Consulting" draggable="false" class="w-24 h-auto">
+            <div class="flex flex-wrap gap-2">
+                <a href="https://www.facebook.com/share/1GDwN93yhW/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] text-[#2C2C2C] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="Facebook">
+                    <x-ri-facebook-fill class="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/nova_consulting_devs" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] text-[#2C2C2C] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="Instagram">
+                    <x-ri-instagram-fill class="w-5 h-5" />
+                </a>
+                <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] text-[#2C2C2C] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="TikTok">
+                    <x-ri-tiktok-fill class="w-5 h-5" />
+                </a>
+                <a href="https://wa.me/529611465703" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] text-[#2C2C2C] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="WhatsApp">
+                    <x-ri-whatsapp-fill class="w-5 h-5" />
+                </a>
+            </div>
+        </div>
+        <div>
+            <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">{{ __('messages.footer.services') }}</h2>
+            <ul class="space-y-2 text-sm text-[#2C2C2C]">
+                <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.custom_software') }}</a></li>
+                <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.staff_augmentation') }}</a></li>
+                <li><a href="{{ route('services') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.software_consulting') }}</a></li>
+                <li><a href="{{ route('landing.software.guadalajara') }}" class="hover:underline underline-offset-4">Software en Guadalajara</a></li>
+                <li><a href="{{ route('landing.software.monterrey') }}" class="hover:underline underline-offset-4">Software en Monterrey</a></li>
+                <li><a href="{{ route('landing.software.cdmx') }}" class="hover:underline underline-offset-4">Software en Ciudad de México</a></li>
+                <li><a href="{{ route('landing.software.merida') }}" class="hover:underline underline-offset-4">Software en Mérida</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">{{ __('messages.footer.company') }}</h2>
+            <ul class="space-y-2 text-sm text-[#2C2C2C]">
+                <li><a href="{{ route('about') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.about') }}</a></li>
+                <li><a href="{{ route('contact') }}" class="hover:underline underline-offset-4">Contacto</a></li>
+                <li><a href="{{ route('contact') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.contact') }}</a></li>
+                <li><a href="{{ route('hiring_services') }}" class="hover:underline underline-offset-4">{{ __('messages.nav.hiring_services') }}</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4">{{ __('messages.footer.customer_portal') }}</h2>
+            <ul class="space-y-2 text-sm text-[#2C2C2C]">
+                <li><a href="{{ route('faq') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.faq') }}</a></li>
+                <li><a href="{{ url('/dashboard/login') }}" class="hover:underline underline-offset-4">Inicia sesión</a></li>
+                <li><a href="{{ url('/dashboard/register') }}" class="hover:underline underline-offset-4">Crea tu cuenta</a></li>
+            </ul>
         </div>
     </div>
-    <div class="col-span-1">
-        <h1 class="font-bold text-xl">{{ __('messages.footer.services') }}</h1>
-        <ul>
-            <li>
-                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.custom_software') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.staff_augmentation') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('services') }}" class="underline">{{ __('messages.footer.software_consulting') }}</a>
-            </li>
-        </ul>
-    </div>
-    <div class="col-span-1">
-        <h1 class="font-bold text-xl">{{ __('messages.footer.company') }}</h1>
-        <ul>
-            <li>
-                <a href="{{ route('about') }}" class="underline">{{ __('messages.footer.about') }}</a>
-            </li>
-            <li>
-                <a href="#" class="underline">{{ __('messages.footer.careers') }}</a>
-            </li>
-            <li>
-                <a href="{{ route('contact') }}" class="underline">{{ __('messages.footer.contact') }}</a>
-            </li>
-        </ul>
-    </div>
-    <div class="col-span-1">
-        <h1 class="font-bold text-xl">{{ __('messages.footer.customer_portal') }}</h1>
-        <ul>
-            <li>
-                <a href="{{ route('faq') }}" class="underline">{{ __('messages.footer.faq') }}</a>
-            </li>
-            <li>
-                <a href="#" class="underline">{{ __('messages.footer.my_projects') }}</a>
-            </li>
-            <li>
-                <a href="#" class="underline">{{ __('messages.footer.create_account') }}</a>
-            </li>
-        </ul>
+    <div class="border-t border-gray-100 bg-[#F2F2F2] py-4 text-center text-xs text-gray-600">
+        Tuxtla Gutiérrez, Chiapas, México
     </div>
 </footer>
-<div class="w-full text-center text-sm bg-[#e2e2e2]">Tuxtla Gutierrez, Chiapas; Mexico.</div>

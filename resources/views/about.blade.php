@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar')
+@section('nav_ga_section', 'nav-about')
+
+@section('content')
 
     <!-- About Section -->
-    <section id="about" class="relative pt-44 px-4">
+    <section id="about" class="relative pt-28 sm:pt-32 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">About Us</h1>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-black">About Us</h1>
                 <p class="text-xl text-[#2C2C2C] max-w-3xl mx-auto">
                     Empowering businesses through innovative technology solutions
                 </p>
@@ -33,15 +32,15 @@
 
             <div class="grid md:grid-cols-3 gap-8 bg-[#ececec] rounded-2xl mb-20">
                 <div class="text-center p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">6+</div>
+                    <div class="text-5xl font-bold text-black mb-2">6+</div>
                     <p class="text-gray-400">Years of Experience</p>
                 </div>
                 <div class="text-center p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">500,00+</div>
+                    <div class="text-5xl font-bold text-black mb-2">500,00+</div>
                     <p class="text-gray-400">Lines of Code</p>
                 </div>
                 <div class="text-center p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">98%</div>
+                    <div class="text-5xl font-bold text-black mb-2">98%</div>
                     <p class="text-gray-400">Client Satisfaction</p>
                 </div>
             </div>
@@ -52,7 +51,7 @@
     <!-- <section id="faq" class="relative py-20 px-4 bg-gray-900/30">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Frequently Asked Questions</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Frequently Asked Questions</h2>
                 <p class="text-xl text-gray-400">Find answers to common questions about our services</p>
             </div>
 
@@ -94,7 +93,7 @@
     <!-- <section id="contact" class="relative py-20 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get in Touch</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Get in Touch</h2>
                 <p class="text-xl text-gray-400">Ready to start your project? Let's talk</p>
             </div>
 
@@ -180,7 +179,7 @@
     <!-- <section id="careers" class="relative py-20 px-4 bg-gray-900/30">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Join Our Team</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Join Our Team</h2>
                 <p class="text-xl text-gray-400">Build the future with us</p>
             </div>
 
@@ -327,6 +326,4 @@
         </div>
     </section> -->
 
-    @include('layouts.footer')
-</body>
-</html>
+@endsection

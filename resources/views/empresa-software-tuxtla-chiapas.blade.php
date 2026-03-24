@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="es-MX">
 @php
+    $htmlLang = 'es-MX';
     $seo_overrides = [
         'title' => 'Empresas de software en Tuxtla y Chiapas | Nova Consulting',
         'description' => 'Nova Consulting es una empresa de software en Tuxtla Gutierrez, Chiapas. Desarrollamos sistemas a medida, apps y automatizaciones para negocios locales.',
@@ -14,12 +13,13 @@
         ],
     ];
 @endphp
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C] pb-20 sm:pb-0">
-    @include('layouts.landing_navbar')
+@section('nav_ga_section', 'nav-landing-tuxtla-software')
 
-    <main class="pt-36 pb-16 px-4">
+@section('content')
+
+    <div class="pt-8 sm:pt-10 pb-16 px-4">
         <section class="max-w-5xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
                 Empresas de software en Tuxtla Gutierrez, Chiapas
@@ -63,6 +63,23 @@
             </article>
         </section>
 
+        <section class="max-w-6xl mx-auto mt-16 bg-black text-white rounded-2xl p-8 md:p-10 text-center" data-ga-section="promo-software-chiapas">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-300">Promocion local</p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-bold">Negocios en Tuxtla y Chiapas reciben 10% de descuento</h2>
+            <p class="mt-4 text-gray-300 max-w-3xl mx-auto">
+                Esta promocion aplica para nuevos proyectos de software a medida. Escribenos y menciona
+                "DESCUENTO CHIAPAS" para aplicarlo en tu propuesta.
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_software_whatsapp_click">
+                    Reclamar 10% por WhatsApp
+                </a>
+                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_software_phone_click">
+                    Llamar ahora
+                </a>
+            </div>
+        </section>
+
         <section class="max-w-5xl mx-auto mt-16 bg-white rounded-2xl p-8 shadow-sm">
             <h2 class="text-2xl font-bold">Atencion para empresas en Tuxtla y todo Chiapas</h2>
             <p class="mt-4 text-gray-700 leading-relaxed">
@@ -93,10 +110,28 @@
             </article>
         </section>
 
-        @include('partials.lead-qualification-form', ['leadSource' => 'landing-software-tuxtla-chiapas'])
-    </main>
+        <section class="max-w-5xl mx-auto mt-16" data-ga-section="faq-software-chiapas">
+            <h2 class="text-3xl font-bold text-center">FAQ sobre desarrollo de software en Tuxtla y Chiapas</h2>
+            <div class="mt-6 space-y-4">
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Que tipo de software desarrollan?</summary>
+                    <p class="mt-2 text-gray-700">Sistemas administrativos, CRMs, plataformas de ventas, dashboards y automatizaciones internas.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Cuanto cuesta un sistema a medida?</summary>
+                    <p class="mt-2 text-gray-700">Depende del alcance. Te entregamos propuesta clara por etapas para que avances con control de inversion.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Atienden solo Tuxtla?</summary>
+                    <p class="mt-2 text-gray-700">Atendemos Tuxtla y todo Chiapas, y podemos colaborar de forma remota con reuniones semanales.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Como aplico el descuento del 10%?</summary>
+                    <p class="mt-2 text-gray-700">Solo menciona "DESCUENTO CHIAPAS" al primer contacto y lo aplicamos en tu propuesta inicial.</p>
+                </details>
+            </div>
+        </section>
 
-    @include('partials.sticky-mobile-cta')
-    @include('layouts.footer')
-</body>
-</html>
+        @include('partials.lead-qualification-form', ['leadSource' => 'landing-software-tuxtla-chiapas'])
+    </div>
+@endsection

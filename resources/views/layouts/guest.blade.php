@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    @include('layouts.global_header')
+    <body class="antialiased bg-[#F2F2F2] text-[#2C2C2C] min-h-screen selection:bg-black selection:text-white pb-20 sm:pb-0">
+        @include('partials.marketing-nav', ['navGaSection' => 'nav-guest'])
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <main class="pt-24 sm:pt-28 px-4 pb-16 flex flex-col min-h-[70vh] items-center justify-center">
+            <div class="w-full max-w-md rounded-2xl border border-gray-200 bg-white shadow-sm p-6 sm:p-8">
                 {{ $slot }}
             </div>
-        </div>
+        </main>
+
+        @include('partials.sticky-mobile-cta')
+        @include('layouts.footer')
     </body>
 </html>

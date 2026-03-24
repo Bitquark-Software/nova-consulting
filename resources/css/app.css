@@ -3,6 +3,64 @@
 @tailwind utilities; */
 @import "tailwindcss";
 
+[x-cloak] {
+    display: none !important;
+}
+
 body {
     scroll-behavior: smooth;
+}
+
+/* iOS-like nav sheet + scroll lock */
+html.marketing-nav-open,
+body.marketing-nav-open {
+    touch-action: none;
+    overscroll-behavior: none;
+}
+
+@keyframes marketing-nav-row-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row,
+.marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
+    animation: marketing-nav-row-in 0.48s cubic-bezier(0.32, 0.72, 0, 1) backwards;
+}
+
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(1) {
+    animation-delay: 0.03s;
+}
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(2) {
+    animation-delay: 0.07s;
+}
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(3) {
+    animation-delay: 0.11s;
+}
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(4) {
+    animation-delay: 0.15s;
+}
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(5) {
+    animation-delay: 0.19s;
+}
+.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(6) {
+    animation-delay: 0.26s;
+}
+.marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
+    animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marketing-nav-rows[data-state='open'] > a.marketing-nav-row,
+    .marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 }

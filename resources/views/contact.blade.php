@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar')
+@section('nav_ga_section', 'nav-contact')
+
+@section('content')
 
     <!-- FAQ Section -->
     <!-- <section id="faq" class="relative py-20 px-4 bg-gray-900/30">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Frequently Asked Questions</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Frequently Asked Questions</h2>
                 <p class="text-xl text-gray-400">Find answers to common questions about our services</p>
             </div>
 
@@ -48,10 +47,10 @@
     </section> -->
 
     <!-- Contact Section -->
-    <section id="contact" class="relative pt-40 px-4">
+    <section id="contact" class="relative pt-28 sm:pt-32 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">{{ __('messages.contact.get_in_touch') }}</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">{{ __('messages.contact.get_in_touch') }}</h2>
                 <p class="text-xl text-gray-600">{{ __('messages.contact.ready_start') }}</p>
             </div>
 
@@ -138,7 +137,7 @@
     <!-- <section id="careers" class="relative py-20 px-4 bg-gray-900/30">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Join Our Team</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Join Our Team</h2>
                 <p class="text-xl text-gray-400">Build the future with us</p>
             </div>
 
@@ -285,6 +284,4 @@
         </div>
     </section> -->
 
-    @include('layouts.footer')
-</body>
-</html>
+@endsection

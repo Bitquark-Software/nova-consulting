@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    @include('layouts.landing_navbar')
+@section('nav_ga_section', 'nav-services')
+
+@section('content')
     <!-- Hero Section -->
-    <section class="relative pt-40 px-6 md:px-12 cosmic-grid">
+    <section class="relative pt-28 sm:pt-32 px-6 md:px-12">
         <div class="relative max-w-7xl mx-auto text-center space-y-6">
             <h1 class="text-4xl md:text-6xl font-bold tracking-tighter">
                 {{ __('messages.services_page.hero_title') }}
@@ -815,8 +814,4 @@
             </button>
         </div>
     </section>
-    @include('layouts.footer')
-
-</body>
-
-</html>
+@endsection

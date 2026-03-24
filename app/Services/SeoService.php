@@ -61,8 +61,8 @@ class SeoService
                 'locale' => $this->locale,
             ], $this->overrides);
 
-            // Micro-SEO: generate structured data for Organization
-            $data['jsonld'] = $this->generateOrganizationJsonLd($data);
+            // Structured data graph helps Google understand brand and sitelinks candidates.
+            $data['jsonld'] = $this->generateJsonLdGraph($data);
 
             return $data;
         });
@@ -116,13 +116,17 @@ class SeoService
         return implode(', ', $keywords);
     }
 
-    protected function generateOrganizationJsonLd($data)
+    protected function generateJsonLdGraph($data)
     {
+        $homeUrl = url('/');
+        $orgId = $homeUrl . '#organization';
+        $websiteId = $homeUrl . '#website';
+
         $org = [
-            "@context" => "https://schema.org",
+            "@id" => $orgId,
             "@type" => "LocalBusiness",
             "name" => config('app.name', 'Nova Consulting'),
-            "url" => url('/'),
+            "url" => $homeUrl,
             "logo" => asset('images/Web_inverted.svg'),
             "telephone" => "+52-961-146-5703",
             "email" => "sales@novaconsulting.com",
@@ -148,7 +152,127 @@ class SeoService
             "description" => strip_tags($data['description'] ?? ''),
         ];
 
-        return json_encode($org, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $website = [
+            "@id" => $websiteId,
+            "@type" => "WebSite",
+            "url" => $homeUrl,
+            "name" => config('app.name', 'Nova Consulting'),
+            "publisher" => [
+                "@id" => $orgId,
+            ],
+            "inLanguage" => app()->getLocale(),
+            "potentialAction" => [
+                "@type" => "SearchAction",
+                "target" => $homeUrl . "?q={search_term_string}",
+                "query-input" => "required name=search_term_string",
+            ],
+        ];
+
+        $menuItems = [
+            ["name" => "Servicios", "url" => url('/services')],
+            ["name" => "Contacto", "url" => url('/contact')],
+            ["name" => "Cotiza", "url" => url('/get-a-quote')],
+            ["name" => "Inicia sesion", "url" => url('/dashboard/login')],
+            ["name" => "FAQ", "url" => url('/faq')],
+        ];
+
+        $navigation = array_map(function ($item) {
+            return [
+                "@type" => "SiteNavigationElement",
+                "name" => $item["name"],
+                "url" => $item["url"],
+            ];
+        }, $menuItems);
+
+        $graphNodes = array_merge([$org, $website], $navigation);
+
+        $breadcrumb = $this->generateBreadcrumbNode($homeUrl);
+        if ($breadcrumb) {
+            $graphNodes[] = $breadcrumb;
+        }
+
+        $graph = [
+            "@context" => "https://schema.org",
+            "@graph" => $graphNodes,
+        ];
+
+        return json_encode($graph, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    }
+
+    protected function generateBreadcrumbNode($homeUrl)
+    {
+        $route = $this->routeName ?: 'home';
+        $map = [
+            'home' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+            ],
+            'services' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Servicios', 'url' => url('/services')],
+            ],
+            'about' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Acerca de', 'url' => url('/about')],
+            ],
+            'contact' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Contacto', 'url' => url('/contact')],
+            ],
+            'faq' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'FAQ', 'url' => url('/faq')],
+            ],
+            'quotations' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Cotiza', 'url' => url('/get-a-quote')],
+            ],
+            'hiring_services' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Contratacion', 'url' => url('/hiring-services')],
+            ],
+            'landing.software.tuxtla.chiapas' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Empresa de software en Tuxtla y Chiapas', 'url' => url('/empresa-software-tuxtla-chiapas')],
+            ],
+            'landing.webdesign.tuxtla.chiapas' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Diseno de paginas web en Tuxtla y Chiapas', 'url' => url('/diseno-paginas-web-tuxtla-chiapas')],
+            ],
+            'landing.software.guadalajara' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Empresa de software en Guadalajara', 'url' => url('/empresa-software-guadalajara')],
+            ],
+            'landing.software.monterrey' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Empresa de software en Monterrey', 'url' => url('/empresa-software-monterrey')],
+            ],
+            'landing.software.cdmx' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Empresa de software en Ciudad de Mexico', 'url' => url('/empresa-software-cdmx')],
+            ],
+            'landing.software.merida' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Empresa de software en Merida', 'url' => url('/empresa-software-merida')],
+            ],
+        ];
+
+        if (!isset($map[$route])) {
+            return null;
+        }
+
+        $items = array_map(function ($item, $index) {
+            return [
+                "@type" => "ListItem",
+                "position" => $index + 1,
+                "name" => $item['name'],
+                "item" => $item['url'],
+            ];
+        }, $map[$route], array_keys($map[$route]));
+
+        return [
+            "@type" => "BreadcrumbList",
+            "itemListElement" => $items,
+        ];
     }
 
     public static function renderMetaTags($overrides = [])

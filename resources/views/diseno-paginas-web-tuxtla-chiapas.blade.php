@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="es-MX">
 @php
+    $htmlLang = 'es-MX';
     $seo_overrides = [
         'title' => 'Diseño de paginas web en Tuxtla y Chiapas | Nova Consulting',
         'description' => 'Servicio de diseño de paginas web en Tuxtla Gutierrez, Chiapas. Creamos sitios web corporativos, catalogos y landing pages enfocadas en conversion.',
@@ -14,12 +13,13 @@
         ],
     ];
 @endphp
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C] pb-20 sm:pb-0">
-    @include('layouts.landing_navbar')
+@section('nav_ga_section', 'nav-landing-tuxtla-web')
 
-    <main class="pt-36 pb-16 px-4">
+@section('content')
+
+    <div class="pt-8 sm:pt-10 pb-16 px-4">
         <section class="max-w-5xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
                 Diseño de paginas web en Tuxtla Gutierrez, Chiapas
@@ -62,6 +62,23 @@
             </article>
         </section>
 
+        <section class="max-w-6xl mx-auto mt-16 bg-black text-white rounded-2xl p-8 md:p-10 text-center" data-ga-section="promo-web-chiapas">
+            <p class="text-xs uppercase tracking-[0.2em] text-gray-300">Promocion local</p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-bold">10% de descuento para negocios de Tuxtla y Chiapas</h2>
+            <p class="mt-4 text-gray-300 max-w-3xl mx-auto">
+                Si tu empresa esta en Chiapas, aprovecha este descuento en tu nueva pagina web o landing comercial.
+                Menciona "DESCUENTO CHIAPAS" al escribirnos.
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_web_whatsapp_click">
+                    Reclamar 10% por WhatsApp
+                </a>
+                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_web_phone_click">
+                    Llamar ahora
+                </a>
+            </div>
+        </section>
+
         <section class="max-w-5xl mx-auto mt-16 bg-white rounded-2xl p-8 shadow-sm">
             <h2 class="text-2xl font-bold">Habla con nuestro equipo de Tuxtla</h2>
             <p class="mt-4 text-gray-700 leading-relaxed">
@@ -91,10 +108,28 @@
             </article>
         </section>
 
-        @include('partials.lead-qualification-form', ['leadSource' => 'landing-web-tuxtla-chiapas'])
-    </main>
+        <section class="max-w-5xl mx-auto mt-16" data-ga-section="faq-web-chiapas">
+            <h2 class="text-3xl font-bold text-center">FAQ sobre diseno de paginas web en Tuxtla y Chiapas</h2>
+            <div class="mt-6 space-y-4">
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">En cuanto tiempo entregan una pagina web?</summary>
+                    <p class="mt-2 text-gray-700">Normalmente entre 2 y 4 semanas, dependiendo del contenido y funcionalidades.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">La pagina queda preparada para SEO local?</summary>
+                    <p class="mt-2 text-gray-700">Si, entregamos estructura base SEO para mejorar visibilidad en busquedas de Tuxtla y Chiapas.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Incluyen mantenimiento o cambios posteriores?</summary>
+                    <p class="mt-2 text-gray-700">Ofrecemos paquetes de soporte para ajustes, mejoras y actualizaciones despues del lanzamiento.</p>
+                </details>
+                <details class="bg-white p-5 rounded-xl border border-gray-200">
+                    <summary class="font-semibold cursor-pointer">Como obtengo el 10% de descuento en Chiapas?</summary>
+                    <p class="mt-2 text-gray-700">Contactanos por WhatsApp o telefono y menciona "DESCUENTO CHIAPAS" para aplicar el beneficio.</p>
+                </details>
+            </div>
+        </section>
 
-    @include('partials.sticky-mobile-cta')
-    @include('layouts.footer')
-</body>
-</html>
+        @include('partials.lead-qualification-form', ['leadSource' => 'landing-web-tuxtla-chiapas'])
+    </div>
+@endsection

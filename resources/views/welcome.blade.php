@@ -1,9 +1,8 @@
-{{-- resources/views/partials/head.blade.php --}}
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @include('layouts.global_header')
-    <body class="bg-[#F2F2F2] text-[#2C2C2C]">
-        @include('layouts.landing_navbar')
+@extends('layouts.marketing')
+
+@section('nav_ga_section', 'nav-welcome-legacy')
+
+@section('content')
         <main class="block w-full">
             <div class="mt-44 w-6/12 sm:w-4/12 md:w-3/12 xl:w-2/12 mx-auto p-3 flex items-center justify-center">
                 <div class="rounded-full p-1 w-10/12 flex flex-row items-center justify-around bg-gray-300 shadow">
@@ -271,5 +270,4 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+@endsection

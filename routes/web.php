@@ -54,6 +54,22 @@ Route::get('/diseno-paginas-web-tuxtla-chiapas', function () {
     return view('diseno-paginas-web-tuxtla-chiapas');
 })->name('landing.webdesign.tuxtla.chiapas');
 
+Route::get('/empresa-software-guadalajara', function () {
+    return view('empresa-software-guadalajara');
+})->name('landing.software.guadalajara');
+
+Route::get('/empresa-software-monterrey', function () {
+    return view('empresa-software-monterrey');
+})->name('landing.software.monterrey');
+
+Route::get('/empresa-software-cdmx', function () {
+    return view('empresa-software-cdmx');
+})->name('landing.software.cdmx');
+
+Route::get('/empresa-software-merida', function () {
+    return view('empresa-software-merida');
+})->name('landing.software.merida');
+
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');

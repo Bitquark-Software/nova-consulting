@@ -3,6 +3,29 @@ import './modals';
 import './mobileNav';
 import Alpine from 'alpinejs';
 
+document.addEventListener('alpine:init', () => {
+    Alpine.data('marketingNav', () => ({
+        open: false,
+        toggle() {
+            this.open = !this.open;
+            this._setScrollLock(this.open);
+        },
+        close() {
+            if (!this.open) {
+                return;
+            }
+            this.open = false;
+            this._setScrollLock(false);
+        },
+        _setScrollLock(on) {
+            document.documentElement.classList.toggle('marketing-nav-open', on);
+            document.body.classList.toggle('marketing-nav-open', on);
+            document.body.classList.toggle('overflow-hidden', on);
+        },
+    }));
+
+});
+
 window.Alpine = Alpine;
 
 Alpine.start();
@@ -112,3 +135,88 @@ document.addEventListener('submit', (event) => {
     const whatsappUrl = `https://wa.me/529611465703?text=${encodeURIComponent(payload)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 });
+
+const trackPageInteractionSignals = () => {
+    const scrollMilestones = [25, 50, 75, 90];
+    const reached = new Set();
+
+    const emitScrollDepth = () => {
+        const doc = document.documentElement;
+        const maxScrollable = doc.scrollHeight - window.innerHeight;
+        if (maxScrollable <= 0) {
+            return;
+        }
+
+        const percent = Math.round((window.scrollY / maxScrollable) * 100);
+        scrollMilestones.forEach((milestone) => {
+            if (percent >= milestone && !reached.has(milestone)) {
+                reached.add(milestone);
+                fireTrackingEvent('scroll_depth', {
+                    event_category: 'engagement',
+                    event_label: `${milestone}%`,
+                    percent_scrolled: milestone,
+                    page_path: window.location.pathname,
+                });
+            }
+        });
+    };
+
+    window.addEventListener('scroll', emitScrollDepth, { passive: true });
+
+    // Track engaged time in page.
+    [30, 60, 120].forEach((seconds) => {
+        window.setTimeout(() => {
+            fireTrackingEvent('engaged_time', {
+                event_category: 'engagement',
+                event_label: `${seconds}s`,
+                engaged_seconds: seconds,
+                page_path: window.location.pathname,
+            });
+        }, seconds * 1000);
+    });
+};
+
+const trackFaqAndForms = () => {
+    // FAQ open interactions.
+    document.addEventListener('toggle', (event) => {
+        const details = event.target.closest('details');
+        if (!details || !details.open) {
+            return;
+        }
+
+        const question = normalizeText(details.querySelector('summary')?.textContent || 'faq_item');
+        fireTrackingEvent('faq_open', {
+            event_category: 'faq_interaction',
+            event_label: question,
+            question,
+            section: getSectionName(details),
+            page_path: window.location.pathname,
+        });
+    }, true);
+
+    // First interaction per form field.
+    const focusedFields = new Set();
+    document.addEventListener('focusin', (event) => {
+        const field = event.target.closest('input, select, textarea');
+        if (!field || !field.form || !field.form.matches('form[data-lead-form="true"]')) {
+            return;
+        }
+
+        const key = `${field.form.getAttribute('data-lead-source') || 'unknown'}:${field.name || field.id}`;
+        if (focusedFields.has(key)) {
+            return;
+        }
+        focusedFields.add(key);
+
+        fireTrackingEvent('form_field_focus', {
+            event_category: 'form_interaction',
+            event_label: field.name || field.id || 'field',
+            field_name: field.name || field.id || 'field',
+            form_source: field.form.getAttribute('data-lead-source') || window.location.pathname,
+            page_path: window.location.pathname,
+        });
+    });
+};
+
+trackPageInteractionSignals();
+trackFaqAndForms();

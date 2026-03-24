@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @php
-// Provide explicit SEO overrides for this page
 $seo_overrides = [
-'title' => __('quotation.title'),
-'description' => __('seo.hiring_services.description'),
-'keywords' => __('seo.hiring_services.keywords'),
+    'title' => __('quotation.title'),
+    'description' => __('seo.hiring_services.description'),
+    'keywords' => __('seo.hiring_services.keywords'),
 ];
 @endphp
-@include('layouts.global_header')
+@extends('layouts.marketing')
 
-<body class="min-h-screen bg-[#F2F2F2] text-[#2C2C2C]">
-    
-    {{-- 1. INSERTED CSS FOR LOADER & MODAL --}}
+@section('nav_ga_section', 'nav-quotation')
+
+@push('styles')
     <style>
         [x-cloak] { display: none !important; }
 
-        /* Loader Overlay */
         #loading-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.8);
@@ -24,13 +20,12 @@ $seo_overrides = [
             justify-content: center; align-items: center; flex-direction: column;
         }
         .spinner {
-            border: 4px solid #f3f3f3; border-top: 4px solid #000; /* Black to match your theme */
+            border: 4px solid #f3f3f3; border-top: 4px solid #000;
             border-radius: 50%; width: 40px; height: 40px;
             animation: spin 1s linear infinite;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Modal */
         #result-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.5);
@@ -38,7 +33,7 @@ $seo_overrides = [
             justify-content: center; align-items: center;
         }
         .modal-content {
-            background: white; padding: 30px; border-radius: 8px;
+            background: white; padding: 30px; border-radius: 12px;
             text-align: center; width: 90%; max-width: 350px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
@@ -47,12 +42,15 @@ $seo_overrides = [
         .error-icon { color: #dc3545; }
         .close-btn {
             margin-top: 20px; padding: 8px 20px; background: #000;
-            color: white; border: none; border-radius: 4px; cursor: pointer;
+            color: white; border: none; border-radius: 8px; cursor: pointer;
         }
         .close-btn:hover { background: #333; }
     </style>
+@endpush
 
-    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 font-sans"
+@section('content')
+
+    <div class="min-h-screen bg-transparent pt-6 sm:pt-8 pb-16 px-4 sm:px-6 lg:px-8 font-sans"
         x-data="quotationWizard()">
 
         <div class="mb-8">
@@ -74,7 +72,7 @@ $seo_overrides = [
                 <div class="relative flex items-center justify-between w-full px-2">
                     <div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-gray-200 -z-10"></div>
                     <template x-for="i in 4" :key="i">
-                        <div class="flex flex-col items-center bg-gray-50 px-2 group cursor-default">
+                        <div class="flex flex-col items-center bg-[#F2F2F2] px-2 group cursor-default">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 border-2"
                                 :class="step >= i 
                                     ? 'bg-black border-black text-white shadow-lg scale-105' 
@@ -475,6 +473,4 @@ $seo_overrides = [
             }));
         });
     </script>
-    @include('layouts.footer')
-</body>
-</html>
+@endsection
