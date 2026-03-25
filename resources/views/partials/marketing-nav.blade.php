@@ -23,6 +23,7 @@
                 <a href="{{ route('contact') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">Contacto</a>
                 <a href="{{ route('quotations') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.quotation') }}</a>
                 <a href="{{ route('about') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.about') }}</a>
+                <a href="{{ route('blog.cheap_labor') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.blog') }}</a>
             </div>
 
             <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
@@ -125,6 +126,12 @@
                     @click="close()"
                     class="marketing-nav-row flex items-center min-h-[3.25rem] px-4 rounded-2xl text-[1.05rem] font-medium text-[#2C2C2C] transition-colors duration-200 active:bg-gray-100/95"
                 >{{ __('messages.nav.about') }}</a>
+
+                <a
+                    href="{{ route('blog.cheap_labor') }}"
+                    @click="close()"
+                    class="marketing-nav-row flex items-center min-h-[3.25rem] px-4 rounded-2xl text-[1.05rem] font-medium text-[#2C2C2C] transition-colors duration-200 active:bg-gray-100/95"
+                >{{ __('messages.nav.blog') }}</a>
 
                 <div class="h-px bg-gray-200/80 mx-2 my-2"></div>
 

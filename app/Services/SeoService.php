@@ -297,6 +297,10 @@ class SeoService
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'FAQ', 'url' => url('/faq')],
             ],
+            'blog.cheap_labor' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Blog', 'url' => url('/blog/mano-de-obra-barata')],
+            ],
             'quotations' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'Cotiza', 'url' => url('/get-a-quote')],

@@ -55,6 +55,38 @@
         @if(count($faqs))
             <section class="mt-14">
                 <h2 class="text-xl font-bold text-black">{{ __('guides.shell.faq_title') }}</h2>
+                @php
+                    // Structured data for FAQPage (helps crawlers understand Q/A pairs).
+                    $faqMain = array_map(function ($faq, $key) {
+                        if (is_array($faq) && isset($faq['q'])) {
+                            return [
+                                '@type' => 'Question',
+                                'name' => $faq['q'],
+                                'acceptedAnswer' => [
+                                    '@type' => 'Answer',
+                                    'text' => $faq['a'] ?? '',
+                                ],
+                            ];
+                        }
+
+                        return [
+                            '@type' => 'Question',
+                            'name' => $key,
+                            'acceptedAnswer' => [
+                                '@type' => 'Answer',
+                                'text' => is_string($faq) ? $faq : '',
+                            ],
+                        ];
+                    }, $faqs, array_keys($faqs));
+                    $faqSchema = [
+                        '@context' => 'https://schema.org',
+                        '@type' => 'FAQPage',
+                        'mainEntity' => $faqMain,
+                    ];
+                @endphp
+                <script type="application/ld+json">
+                    {!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+                </script>
                 <div class="mt-4 space-y-2">
                     @foreach($faqs as $key => $faq)
                         @php

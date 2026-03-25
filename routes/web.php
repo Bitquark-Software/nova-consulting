@@ -40,6 +40,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/blog/mano-de-obra-barata', function () {
+    return view('blog.mano-de-obra-barata');
+})->name('blog.cheap_labor');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');

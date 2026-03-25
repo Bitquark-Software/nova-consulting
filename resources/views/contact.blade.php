@@ -191,6 +191,25 @@
 
         {{-- FAQ --}}
         <section class="mt-20 lg:mt-24 max-w-3xl mx-auto" aria-labelledby="contact-faq-title">
+            @php
+                $faqSchema = [
+                    '@context' => 'https://schema.org',
+                    '@type' => 'FAQPage',
+                    'mainEntity' => array_map(function ($faq) {
+                        return [
+                            '@type' => 'Question',
+                            'name' => $faq['q'],
+                            'acceptedAnswer' => [
+                                '@type' => 'Answer',
+                                'text' => $faq['a'],
+                            ],
+                        ];
+                    }, $cp['faqs']),
+                ];
+            @endphp
+            <script type="application/ld+json">
+                {!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+            </script>
             <h2 id="contact-faq-title" class="text-2xl font-bold text-black text-center">{{ $cp['faq_title'] }}</h2>
             <div class="mt-8 space-y-2">
                 @foreach($cp['faqs'] as $faq)
@@ -212,6 +231,7 @@
                 <a href="{{ route('services') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_services">{{ $cp['explore_services'] }}</a>
                 <a href="{{ route('faq') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_faq">{{ $cp['explore_faq'] }}</a>
                 <a href="{{ route('quotations') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_quote">{{ $cp['explore_quote'] }}</a>
+                <a href="{{ route('blog.cheap_labor') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_blog">{{ $cp['explore_blog'] }}</a>
                 <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_guides">{{ $cp['explore_guides'] }}</a>
             </div>
         </section>

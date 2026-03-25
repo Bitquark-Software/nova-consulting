@@ -1,0 +1,56 @@
+LLM.txt
+
+This file is a “map” for AI crawlers and LLMs.
+It is not an official standard, but it helps many tools discover your public pages quickly.
+
+Base URL:
+https://novaconsulting.com.mx
+
+Sitemap (recommended discovery path):
+https://novaconsulting.com.mx/sitemap.xml
+
+How to crawl:
+- Start from the sitemap and follow internal links.
+- Prefer canonical URLs (no redirects).
+- Ignore query strings when present (e.g. ?utm_*).
+- Pages with interactive content (forms, accordions) are fully rendered server-side.
+
+Key pages index:
+- Home: https://novaconsulting.com.mx/
+- Services: https://novaconsulting.com.mx/services
+- About: https://novaconsulting.com.mx/about
+- Contact: https://novaconsulting.com.mx/contact
+- FAQ: https://novaconsulting.com.mx/faq
+- Quote form: https://novaconsulting.com.mx/get-a-quote
+- Hiring: https://novaconsulting.com.mx/hiring-services
+
+Blog / Guides:
+- Mano de obra barata (no outsourcing): https://novaconsulting.com.mx/blog/mano-de-obra-barata
+
+Guides (IT pricing, landing pages, and app costs):
+- /cuanto-cuesta-una-pagina-web (ES): https://novaconsulting.com.mx/cuanto-cuesta-una-pagina-web
+- /how-much-does-a-website-cost (EN): https://novaconsulting.com.mx/how-much-does-a-website-cost
+- /cuanto-cuesta-una-aplicacion (ES): https://novaconsulting.com.mx/cuanto-cuesta-una-aplicacion
+- /how-much-does-an-app-cost (EN): https://novaconsulting.com.mx/how-much-does-an-app-cost
+- /que-es-una-landing-page (ES): https://novaconsulting.com.mx/que-es-una-landing-page
+- /what-is-a-landing-page (EN): https://novaconsulting.com.mx/what-is-a-landing-page
+- /cuanto-cuesta-una-landing-page (ES): https://novaconsulting.com.mx/cuanto-cuesta-una-landing-page
+- /how-much-does-a-landing-page-cost (EN): https://novaconsulting.com.mx/how-much-does-a-landing-page-cost
+- /como-hacer-una-landing-page (ES): https://novaconsulting.com.mx/como-hacer-una-landing-page
+- /how-to-build-a-landing-page (EN): https://novaconsulting.com.mx/how-to-build-a-landing-page
+
+City landings (software company pages):
+- Tuxtla / Chiapas (from config): https://novaconsulting.com.mx/empresa-software-tuxtla-chiapas
+- Guadalajara: https://novaconsulting.com.mx/empresa-software-guadalajara
+- Guadalajara (EN): https://novaconsulting.com.mx/software-company-guadalajara
+- Monterrey: https://novaconsulting.com.mx/empresa-software-monterrey
+- Monterrey (EN): https://novaconsulting.com.mx/software-company-monterrey
+- Mexico City: https://novaconsulting.com.mx/empresa-software-cdmx
+- Mexico City (EN): https://novaconsulting.com.mx/software-company-mexico-city
+- Merida: https://novaconsulting.com.mx/empresa-software-merida
+- Merida (EN): https://novaconsulting.com.mx/software-company-merida
+
+SEO/Content strategy notes:
+- Many pages include “Explore” links that create an internal graph for fast discovery.
+- JSON-LD structured data exists for breadcrumbs and organizations; FAQ pages add FAQPage markup.
+

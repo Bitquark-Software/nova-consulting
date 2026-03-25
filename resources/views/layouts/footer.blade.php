@@ -55,6 +55,7 @@
             <li><a href="{{ \App\Support\LocalizedUrls::guide('que_es_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.que_es_landing.h1') }}</a></li>
             <li><a href="{{ \App\Support\LocalizedUrls::guide('cuanto_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.cuanto_landing.h1') }}</a></li>
             <li><a href="{{ \App\Support\LocalizedUrls::guide('como_landing') }}" class="hover:underline underline-offset-4">{{ __('guides.como_landing.h1') }}</a></li>
+            <li><a href="{{ route('blog.cheap_labor') }}" class="hover:underline underline-offset-4">{{ __('messages.footer.blog_cheap_labor') }}</a></li>
         </ul>
     </div>
     <div class="border-t border-gray-100 bg-[#F2F2F2] py-4 text-center text-xs text-gray-600">

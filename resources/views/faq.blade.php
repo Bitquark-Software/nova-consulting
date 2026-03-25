@@ -3,6 +3,65 @@
 @section('nav_ga_section', 'nav-faq')
 
 @section('content')
+    @php
+        $faqSchema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => [
+                [
+                    '@type' => 'Question',
+                    'name' => 'What services do you offer?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'We offer a comprehensive range of IT services including Custom Software Development, IT Staff Augmentation, Cloud & DevOps Solutions, Technical Consulting, QA & Testing, and System Integration.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'How long does a typical project take?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Project timelines vary based on scope and complexity. A simple web application might take 4-8 weeks, while enterprise solutions can take 3-6 months or longer. We provide detailed timelines during the consultation phase.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'Do you provide ongoing support?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Yes, we offer comprehensive maintenance and support packages to ensure your solutions continue to perform optimally. Our support includes bug fixes, updates, security patches, and feature enhancements.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'What industries do you serve?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'We serve a wide range of industries including healthcare, finance, e-commerce, education, manufacturing, and more. Our solutions are tailored to meet the specific needs of each industry.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'How do you ensure project security?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'Security is our top priority. We implement industry best practices including secure coding standards, regular security audits, encryption, and compliance with relevant regulations like GDPR and HIPAA.',
+                    ],
+                ],
+                [
+                    '@type' => 'Question',
+                    'name' => 'What is your pricing model?',
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => 'We offer flexible pricing models including fixed-price projects, time and materials, and dedicated team arrangements. Pricing is customized based on project requirements, and we provide transparent quotes upfront.',
+                    ],
+                ],
+            ],
+        ];
+    @endphp
+    <script type="application/ld+json">
+        {!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+    </script>
 
     <section id="faq" class="relative pt-28 sm:pt-32 px-4 pb-20 sm:pb-24">
         <div class="max-w-3xl mx-auto">

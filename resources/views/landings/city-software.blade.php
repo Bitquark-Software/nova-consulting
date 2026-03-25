@@ -152,6 +152,25 @@
 
     <section class="max-w-5xl mx-auto mt-16 px-4" data-ga-section="faq-{{ $city }}">
         <h2 class="text-3xl font-bold text-center">{{ $c['faq_title'] }}</h2>
+        @php
+            $faqSchema = [
+                '@context' => 'https://schema.org',
+                '@type' => 'FAQPage',
+                'mainEntity' => array_map(function ($faq) {
+                    return [
+                        '@type' => 'Question',
+                        'name' => $faq['q'] ?? '',
+                        'acceptedAnswer' => [
+                            '@type' => 'Answer',
+                            'text' => $faq['a'] ?? '',
+                        ],
+                    ];
+                }, $c['faqs'] ?? []),
+            ];
+        @endphp
+        <script type="application/ld+json">
+            {!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+        </script>
         <div class="mt-6 space-y-4">
             @foreach($c['faqs'] as $faq)
                 <details class="bg-white p-5 rounded-xl border border-gray-200">
