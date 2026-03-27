@@ -139,10 +139,14 @@ document.addEventListener('submit', (event) => {
 const trackPageInteractionSignals = () => {
     const scrollMilestones = [25, 50, 75, 90];
     const reached = new Set();
+    let maxScrollable = 0;
+
+    const refreshMaxScrollable = () => {
+        const doc = document.documentElement;
+        maxScrollable = doc.scrollHeight - window.innerHeight;
+    };
 
     const emitScrollDepth = () => {
-        const doc = document.documentElement;
-        const maxScrollable = doc.scrollHeight - window.innerHeight;
         if (maxScrollable <= 0) {
             return;
         }
@@ -161,7 +165,31 @@ const trackPageInteractionSignals = () => {
         });
     };
 
-    window.addEventListener('scroll', emitScrollDepth, { passive: true });
+    let scrollDepthRaf = 0;
+    const scheduleScrollDepth = () => {
+        if (scrollDepthRaf) {
+            return;
+        }
+        scrollDepthRaf = requestAnimationFrame(() => {
+            scrollDepthRaf = 0;
+            emitScrollDepth();
+        });
+    };
+
+    refreshMaxScrollable();
+    window.addEventListener('scroll', scheduleScrollDepth, { passive: true });
+    window.addEventListener('resize', () => {
+        refreshMaxScrollable();
+        scheduleScrollDepth();
+    });
+
+    if (typeof ResizeObserver !== 'undefined') {
+        const ro = new ResizeObserver(() => {
+            refreshMaxScrollable();
+            scheduleScrollDepth();
+        });
+        ro.observe(document.documentElement);
+    }
 
     // Track engaged time in page.
     [30, 60, 120].forEach((seconds) => {

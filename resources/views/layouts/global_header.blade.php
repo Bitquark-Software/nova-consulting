@@ -8,37 +8,32 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <link rel="preload" href="/fonts/instrument-sans/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSEMW3GN2Y"></script>
+    {{-- One gtag.js load (GA4 + Ads); library injected after window load so it does not compete with LCP. --}}
+    @php
+        $ga4MeasurementId = 'G-BSEMW3GN2Y';
+        $googleAdsId = 'AW-16713345017';
+    @endphp
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-BSEMW3GN2Y');
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16713345017"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-16713345017');
-    </script>
-
-    <!-- Event snippet for Vista de página conversion page -->
-    <script>
+    gtag('config', @json($ga4MeasurementId));
+    gtag('config', @json($googleAdsId));
     gtag('event', 'conversion', {
-        'send_to': 'AW-16713345017/Szr_CKa03-gaEPnPxaE-',
-        'value': 1.0,
-        'currency': 'MXN'
+        send_to: @json($googleAdsId . '/Szr_CKa03-gaEPnPxaE-'),
+        value: 1.0,
+        currency: 'MXN',
+    });
+    window.addEventListener('load', function () {
+        if (window.__gtagLoader) return;
+        window.__gtagLoader = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + @json($ga4MeasurementId);
+        document.head.appendChild(s);
     });
     </script>
 

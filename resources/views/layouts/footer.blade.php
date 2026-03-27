@@ -1,7 +1,7 @@
 <footer class="mt-12 border-t border-gray-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
         <div class="space-y-4">
-            <img src="{{ asset('images/Web_inverted.svg') }}" alt="Nova Consulting" draggable="false" class="w-24 h-auto">
+            <img src="{{ asset('images/Web_inverted.svg') }}" alt="Nova Consulting" width="1080" height="1080" decoding="async" draggable="false" class="w-24 h-auto">
             <div class="flex flex-wrap gap-2">
                 <a href="https://www.facebook.com/share/1GDwN93yhW/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] text-[#2C2C2C] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="Facebook">
                     <x-ri-facebook-fill class="w-5 h-5" />

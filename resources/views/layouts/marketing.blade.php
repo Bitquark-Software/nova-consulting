@@ -35,7 +35,7 @@
             animation: marketingShimmer 4s linear infinite;
         }
     </style>
-    <body class="antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white pb-6 sm:pb-0">
+    <body class="font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white pb-6 sm:pb-0">
         @include('partials.marketing-nav', [
             'navGaSection' => trim($__env->yieldContent('nav_ga_section')) ?: 'nav-marketing',
             'propuestaHref' => trim($__env->yieldContent('propuesta_href')) ?: null,

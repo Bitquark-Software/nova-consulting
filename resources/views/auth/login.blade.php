@@ -29,7 +29,7 @@
                 <form method="POST" action="{{ route('login') }}" class="rounded-2xl border border-gray-200 bg-white shadow-sm p-8 sm:p-10">
                     @csrf
 
-                    <img class="w-24 h-auto block mx-auto cursor-pointer" src="{{ asset('images/Web_inverted.svg') }}" alt="Nova Consulting" draggable="false" onclick="window.location.pathname = '/'">
+                    <img class="w-24 h-auto block mx-auto cursor-pointer" src="{{ asset('images/Web_inverted.svg') }}" alt="Nova Consulting" width="1080" height="1080" decoding="async" draggable="false" onclick="window.location.pathname = '/'">
 
                     <div class="mt-6">
                         <x-input-label for="email" :value="__('Email')" />
