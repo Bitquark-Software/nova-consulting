@@ -1,11 +1,11 @@
 @php
     $htmlLang = 'es-MX';
     $seo_overrides = [
-        'title' => 'Diseño de paginas web en Tuxtla y Chiapas | Nova Consulting',
+        'title' => 'Diseños de paginas web en Tuxtla Gutiérrez',
         'description' => 'Servicio de diseño de paginas web en Tuxtla Gutierrez, Chiapas. Creamos sitios web corporativos, catalogos y landing pages enfocadas en conversion.',
         'keywords' => 'diseño de paginas web en tuxtla, diseño web chiapas, crear pagina web en tuxtla gutierrez, landing page chiapas, desarrollo web para negocios locales',
         'og' => [
-            'title' => 'Diseño de paginas web en Tuxtla, Chiapas',
+            'title' => 'Diseños de paginas web en Tuxtla Gutiérrez',
             'description' => 'Paginas web profesionales para empresas de Tuxtla y Chiapas con enfoque comercial y SEO.',
             'type' => 'website',
             'url' => url('/diseno-paginas-web-tuxtla-chiapas'),
@@ -22,7 +22,7 @@
     <div class="pt-8 sm:pt-10 pb-16 px-4">
         <section class="max-w-5xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                Diseño de paginas web en Tuxtla Gutierrez, Chiapas
+                Diseños de paginas web en Tuxtla Gutiérrez
             </h1>
             <p class="mt-6 text-lg text-gray-700 max-w-3xl mx-auto">
                 Creamos paginas web para empresas de Tuxtla y Chiapas que quieren vender mas,

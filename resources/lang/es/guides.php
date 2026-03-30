@@ -57,7 +57,7 @@ return [
         'related' => [
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
             ['label' => '¿Qué es una landing page?', 'guide' => 'que_es_landing'],
-            ['label' => 'Diseño de páginas web en Tuxtla y Chiapas', 'path' => '/diseno-paginas-web-tuxtla-chiapas'],
+            ['label' => 'Diseños de paginas web en Tuxtla Gutiérrez', 'path' => '/diseno-paginas-web-tuxtla-chiapas'],
         ],
         'lead_source' => 'guide-cuanto-pagina-web',
     ],

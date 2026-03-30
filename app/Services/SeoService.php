@@ -315,7 +315,7 @@ class SeoService
             ],
             'landing.webdesign.tuxtla.chiapas' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Diseno de paginas web en Tuxtla y Chiapas', 'url' => url('/diseno-paginas-web-tuxtla-chiapas')],
+                ['name' => 'Diseños de paginas web en Tuxtla Gutiérrez', 'url' => url('/diseno-paginas-web-tuxtla-chiapas')],
             ],
         ];
 
