@@ -10,6 +10,13 @@
 
     <link rel="preload" href="/fonts/instrument-sans/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w3wkj1p409");
+    </script>
 
     {{-- One gtag.js load (GA4 + Ads); library injected after window load so it does not compete with LCP. --}}
     @php
