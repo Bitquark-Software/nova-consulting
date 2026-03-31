@@ -160,4 +160,147 @@ return [
         'final_cta_contact' => 'Ir a contacto',
         'final_cta_quote' => 'Cotizar en línea',
     ],
+
+    'vibe_coding_page' => [
+        'seo_title' => 'El arte de hacer vibe coding (y no romper tu producto) - Nova Consulting',
+        'seo_description' => 'Guía práctica para construir con IA sin perder calidad. Te mostramos cómo impulsamos proyectos con vibe coding y cómo rescatamos sistemas vibecodeados que ya presentan errores.',
+        'seo_keywords' => 'vibe coding, desarrollo con ia, proyecto vibecodeado, arreglar software con ia, rescate de software, auditoria tecnica',
+
+        'hero_badge' => 'Guía · IA aplicada a producto real',
+        'hero_title' => 'El arte de hacer vibe coding: velocidad con criterio técnico',
+        'hero_subtitle' => 'Vibe coding no es escribir prompts y cruzar los dedos. Bien ejecutado, acelera entregas. Mal ejecutado, crea deuda técnica. Aquí te explicamos cómo usar IA para avanzar y cómo podemos rescatar tu proyecto si ya viene vibecodeado.',
+
+        'hero_cta_contact' => 'Revisar mi proyecto',
+        'hero_cta_quote' => 'Solicitar diagnóstico',
+        'hero_cta_services' => 'Ver cómo trabajamos',
+
+        'toc_title' => 'Qué vas a encontrar en esta guía',
+        'toc' => [
+            ['id' => 'que-es', 'label' => 'Qué es vibe coding (en serio)'],
+            ['id' => 'cuando-funciona', 'label' => 'Cuándo sí funciona'],
+            ['id' => 'riesgos', 'label' => 'Errores típicos en proyectos vibecodeados'],
+            ['id' => 'modelo-nova', 'label' => 'Cómo impulsamos un proyecto con IA'],
+            ['id' => 'rescate', 'label' => 'Si ya tienes un proyecto vibecodeado, cómo lo arreglamos'],
+            ['id' => 'senales', 'label' => 'Señales de que necesitas intervención técnica'],
+            ['id' => 'plan-30', 'label' => 'Plan de rescate en 30 días'],
+        ],
+
+        'sections' => [
+            [
+                'id' => 'que-es',
+                'title' => 'Qué es vibe coding (sin humo)',
+                'paragraphs' => [
+                    'Vibe coding es construir software con ayuda intensiva de IA para idear, generar y refinar código más rápido. El problema no es la IA: el problema es usarla sin arquitectura, sin pruebas y sin revisión.',
+                    'Cuando hay proceso, la IA te da velocidad. Cuando no lo hay, te deja un sistema que “medio funciona” pero cuesta mantener, depurar y escalar.',
+                ],
+                'bullets' => [
+                    'La IA acelera la ejecución, no reemplaza decisiones de producto.',
+                    'Prompting sin criterio técnico no sustituye una arquitectura sólida.',
+                    'Velocidad sin validación termina en retrabajo caro.',
+                ],
+            ],
+            [
+                'id' => 'cuando-funciona',
+                'title' => 'Cuándo sí funciona y te da ventaja real',
+                'paragraphs' => [
+                    'Vibe coding funciona excelente para prototipos, flujos internos, automatizaciones y primeras versiones de producto, siempre que exista una capa de control técnico.',
+                    'Nosotros lo usamos para iterar rápido, pero con estándares: estructura modular, revisión de código, pruebas clave y entregables por fase.',
+                ],
+                'bullets' => [
+                    'MVPs con tiempo corto y enfoque comercial.',
+                    'Automatizaciones operativas y herramientas internas.',
+                    'Evolución de productos existentes con backlog claro.',
+                ],
+            ],
+            [
+                'id' => 'riesgos',
+                'title' => 'Errores comunes en proyectos ya vibecodeados',
+                'paragraphs' => [
+                    'Lo más frecuente: lógica duplicada, dependencias innecesarias, seguridad débil, integraciones frágiles y cero trazabilidad de cambios.',
+                    'A simple vista “ya está hecho”, pero en producción aparecen fallos de rendimiento, bugs intermitentes y miedo a tocar cualquier módulo por riesgo a romper todo.',
+                ],
+                'bullets' => [
+                    'Código generado en bloques grandes sin cohesión.',
+                    'Validaciones incompletas en formularios, pagos o autenticación.',
+                    'Ausencia de pruebas automatizadas en rutas críticas.',
+                    'Sin observabilidad: nadie sabe por qué falla.',
+                ],
+            ],
+            [
+                'id' => 'modelo-nova',
+                'title' => 'Cómo impulsamos tu proyecto con IA sin perder control',
+                'paragraphs' => [
+                    'Trabajamos con IA, pero bajo método: definimos objetivos de negocio, priorizamos módulos, delimitamos alcance por sprint y validamos cada entrega con criterios de calidad.',
+                    'Eso nos permite avanzar rápido sin comprometer mantenibilidad. No vendemos “magia”; vendemos visibilidad, trazabilidad y resultados medibles.',
+                ],
+                'bullets' => [
+                    'Discovery técnico + mapa de riesgos.',
+                    'Roadmap por fases con métricas de avance.',
+                    'Revisión de arquitectura y calidad de código.',
+                    'QA funcional para los flujos que sí importan al negocio.',
+                ],
+            ],
+            [
+                'id' => 'rescate',
+                'title' => '¿Ya tienes un proyecto vibecodeado? Así lo arreglamos',
+                'paragraphs' => [
+                    'Tenemos una línea específica de rescate para proyectos construidos con IA sin base técnica suficiente. Empezamos con una auditoría de código, seguridad y rendimiento para detectar lo crítico primero.',
+                    'Después estabilizamos el sistema, corregimos arquitectura y dejamos una base sostenible para seguir iterando con IA, pero ahora con gobierno técnico.',
+                ],
+                'bullets' => [
+                    'Auditoría técnica inicial con hallazgos priorizados.',
+                    'Correcciones de estabilidad y seguridad en producción.',
+                    'Refactor por capas para reducir deuda técnica.',
+                    'Plan de continuidad para que no vuelvas al mismo problema.',
+                ],
+            ],
+            [
+                'id' => 'senales',
+                'title' => 'Señales de que ya necesitas ayuda especializada',
+                'paragraphs' => [
+                    'Si tu equipo evita tocar partes del sistema por miedo a romper algo, si cada nueva función genera tres bugs nuevos, o si no puedes estimar tiempos con confianza, necesitas intervención.',
+                    'No se trata de empezar de cero: se trata de recuperar control y bajar el riesgo operativo cuanto antes.',
+                ],
+                'bullets' => [
+                    'Deploys con rollback frecuente.',
+                    'Bugs repetidos en los mismos módulos.',
+                    'Sin documentación mínima para onboardear equipo.',
+                    'Costos crecientes sin mejoras proporcionales.',
+                ],
+            ],
+            [
+                'id' => 'plan-30',
+                'title' => 'Nuestro plan de rescate en 30 días',
+                'paragraphs' => [
+                    'Semana 1: auditoría técnica y priorización de riesgos. Semana 2: estabilización de flujos críticos. Semana 3: refactor dirigido y pruebas. Semana 4: documentación operativa y plan de evolución.',
+                    'El objetivo es simple: en 30 días recuperar confianza técnica y dejar bases para escalar sin improvisar.',
+                ],
+            ],
+        ],
+
+        'faq_title' => 'Preguntas frecuentes sobre vibe coding y rescate técnico',
+        'faqs' => [
+            [
+                'q' => '¿Vibe coding es bueno o malo?',
+                'a' => 'Es una herramienta. Bien gobernada, acelera. Sin proceso, genera deuda técnica. La diferencia está en arquitectura, pruebas y revisión.',
+            ],
+            [
+                'q' => '¿Pueden arreglar algo que ya hizo otro equipo con IA?',
+                'a' => 'Sí. De hecho es un caso frecuente. Iniciamos con auditoría, priorizamos riesgo y ejecutamos un plan de estabilización + refactor.',
+            ],
+            [
+                'q' => '¿Tengo que rehacer todo desde cero?',
+                'a' => 'Casi nunca. Normalmente se puede rescatar una parte importante y reconstruir solo lo que realmente está comprometiendo estabilidad o seguridad.',
+            ],
+            [
+                'q' => '¿En cuánto tiempo veo mejoras?',
+                'a' => 'En las primeras semanas ya se notan mejoras en estabilidad y claridad técnica. El impacto completo depende del tamaño y deuda del proyecto.',
+            ],
+        ],
+
+        'final_title' => 'Si tu proyecto está vibecodeado, no estás tarde',
+        'final_sub' => 'Podemos ayudarte a convertir ese código en un producto mantenible y listo para crecer. Hagamos una revisión técnica y te damos un plan claro de rescate o aceleración con IA.',
+        'final_cta_contact' => 'Hablar con un especialista',
+        'final_cta_quote' => 'Pedir diagnóstico',
+    ],
 ];

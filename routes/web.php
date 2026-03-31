@@ -44,6 +44,10 @@ Route::get('/blog/mano-de-obra-barata', function () {
     return view('blog.mano-de-obra-barata');
 })->name('blog.cheap_labor');
 
+Route::get('/blog/vibe-coding', function () {
+    return view('blog.vibe-coding');
+})->name('blog.vibe_coding');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
