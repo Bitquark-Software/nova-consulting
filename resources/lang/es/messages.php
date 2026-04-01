@@ -38,6 +38,7 @@ return [
         'about' => 'Nosotros',
         'blog' => 'Blog',
         'blog_cheap_labor' => 'Guía: mano de obra barata',
+        'blog_vibe_coding' => 'Guía: vibe coding e IA',
         'careers' => 'Vacantes',
         'contact' => 'Contacto',
         'faq' => 'F.A.Q.',

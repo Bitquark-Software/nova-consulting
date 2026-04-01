@@ -38,6 +38,7 @@ return [
         'about' => 'About',
         'blog' => 'Blog',
         'blog_cheap_labor' => 'Guide: cheap software labor',
+        'blog_vibe_coding' => 'Guide: vibe coding & AI',
         'careers' => 'Careers',
         'contact' => 'Contact',
         'faq' => 'F.A.Q',

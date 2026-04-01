@@ -31,8 +31,13 @@ window.Alpine = Alpine;
 Alpine.start();
 
 const fireTrackingEvent = (eventName, params = {}) => {
-    if (typeof window.gtag === 'function') {
+    if (typeof window.gtag !== 'function') {
+        return;
+    }
+    try {
         window.gtag('event', eventName, params);
+    } catch {
+        // gtag can throw if blocked or misconfigured; never break UX (forms, navigation).
     }
 };
 

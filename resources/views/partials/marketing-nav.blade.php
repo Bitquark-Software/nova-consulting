@@ -9,24 +9,25 @@
     @keydown.escape.window="close()"
 >
     <nav class="max-w-6xl mx-auto rounded-2xl border border-gray-200/80 bg-white/80 backdrop-blur-xl shadow-sm transition-[box-shadow,background-color,border-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-md hover:bg-white/90">
-        <div class="flex items-center justify-between gap-3 sm:gap-4 px-4 sm:px-6 h-14 sm:h-[4.25rem]">
+        <div class="flex items-center justify-between gap-2 sm:gap-3 min-w-0 px-3 sm:px-4 md:px-6 min-h-14 sm:min-h-[4.25rem] py-1.5 sm:py-0">
             <a
                 href="{{ route('home') }}"
-                class="text-base sm:text-xl font-bold tracking-tight text-black shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+                class="text-xs sm:text-sm md:text-base lg:text-xl font-bold tracking-tight text-black shrink-0 min-w-0 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
             >
                 <span class="opacity-90">&lt;</span>NOVA<span class="font-light text-gray-500"> CONSULTING</span><span class="opacity-90">/&gt;</span>
             </a>
 
-            <div class="hidden lg:flex items-center gap-0.5">
-                <a href="{{ route('services') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.services') }}</a>
-                <a href="{{ route('hiring_services') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.hiring_services') }}</a>
-                <a href="{{ route('contact') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">Contacto</a>
-                <a href="{{ route('quotations') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.quotation') }}</a>
-                <a href="{{ route('about') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.about') }}</a>
-                <a href="{{ route('blog.cheap_labor') }}" class="nav-link-ios px-3 py-2 text-sm font-medium text-gray-600 rounded-xl">{{ __('messages.nav.blog') }}</a>
-            </div>
+            <nav class="hidden lg:flex flex-1 min-w-0 items-center justify-center px-1 xl:px-2" aria-label="Principal">
+                <div class="flex flex-wrap items-center justify-center gap-x-0 gap-y-1 xl:gap-x-0.5 max-w-full">
+                    <a href="{{ route('services') }}" class="nav-link-ios px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-gray-600 rounded-xl whitespace-nowrap">{{ __('messages.nav.services') }}</a>
+                    <a href="{{ route('hiring_services') }}" class="nav-link-ios px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-gray-600 rounded-xl whitespace-nowrap">{{ __('messages.nav.hiring_services') }}</a>
+                    <a href="{{ route('contact') }}" class="nav-link-ios px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-gray-600 rounded-xl whitespace-nowrap">Contacto</a>
+                    <a href="{{ route('quotations') }}" class="nav-link-ios px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-gray-600 rounded-xl whitespace-nowrap">{{ __('messages.nav.quotation') }}</a>
+                    <a href="{{ route('about') }}" class="nav-link-ios px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-gray-600 rounded-xl whitespace-nowrap">{{ __('messages.nav.about') }}</a>
+                </div>
+            </nav>
 
-            <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
                 <a
                     href="{{ $propuestaHref }}"
                     class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-black border border-gray-300/90 rounded-full bg-white/50 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-gray-50 hover:border-gray-400 hover:-translate-y-px active:translate-y-0 active:scale-[0.98]"
@@ -126,12 +127,6 @@
                     @click="close()"
                     class="marketing-nav-row flex items-center min-h-[3.25rem] px-4 rounded-2xl text-[1.05rem] font-medium text-[#2C2C2C] transition-colors duration-200 active:bg-gray-100/95"
                 >{{ __('messages.nav.about') }}</a>
-
-                <a
-                    href="{{ route('blog.cheap_labor') }}"
-                    @click="close()"
-                    class="marketing-nav-row flex items-center min-h-[3.25rem] px-4 rounded-2xl text-[1.05rem] font-medium text-[#2C2C2C] transition-colors duration-200 active:bg-gray-100/95"
-                >{{ __('messages.nav.blog') }}</a>
 
                 <div class="h-px bg-gray-200/80 mx-2 my-2"></div>
 

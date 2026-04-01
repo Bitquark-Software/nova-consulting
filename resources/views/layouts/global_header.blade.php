@@ -18,7 +18,12 @@
         })(window, document, "clarity", "script", "w3wkj1p409");
     </script>
 
-    {{-- One gtag.js load (GA4 + Ads); library injected after window load so it does not compete with LCP. --}}
+    @php
+        $analyticsHost = strtolower((string) request()->getHost());
+        $shouldLoadGoogleAnalytics = ! in_array($analyticsHost, ['localhost', '127.0.0.1', '::1'], true);
+    @endphp
+    @if ($shouldLoadGoogleAnalytics)
+    {{-- One gtag.js load (GA4 + Ads); library injected after window load so it does not compete with LCP. Disabled on localhost / 127.0.0.1 / ::1. --}}
     @php
         $ga4MeasurementId = 'G-BSEMW3GN2Y';
         $googleAdsId = 'AW-16713345017';
@@ -43,6 +48,7 @@
         document.head.appendChild(s);
     });
     </script>
+    @endif
 
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
