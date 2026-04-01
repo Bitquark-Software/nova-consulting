@@ -3,6 +3,8 @@
 return [
     // Header & Stepper
     'title' => 'Solicitar Cotización',
+    'seo_description' => 'Cotiza desarrollo web, personal TI o reclutamiento técnico con Nova Consulting. Formulario breve y respuesta orientativa.',
+    'seo_keywords' => 'cotizar software, cotizar desarrollo web, staffing IT, reclutamiento técnico, nova consulting',
     'btn_return_home' => 'Volver al Inicio',
     'step_info' => 'Info',
     'step_service' => 'Servicio',

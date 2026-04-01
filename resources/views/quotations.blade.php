@@ -1,8 +1,8 @@
 @php
 $seo_overrides = [
     'title' => __('quotation.title'),
-    'description' => __('seo.hiring_services.description'),
-    'keywords' => __('seo.hiring_services.keywords'),
+    'description' => __('quotation.seo_description'),
+    'keywords' => __('quotation.seo_keywords'),
 ];
 @endphp
 @extends('layouts.marketing')

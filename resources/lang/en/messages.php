@@ -5,7 +5,7 @@ return [
         'brand' => 'Nova Consulting',
         'services' => 'Services',
         'pricing' => 'Pricing',
-        'hiring_services' => 'Hiring Services',
+        'hiring_services' => 'Recruitment for companies',
         'about' => 'About',
         'blog' => 'Blog',
         'my_projects' => 'My Projects',
@@ -281,13 +281,20 @@ return [
     ],
 
     'hiring_page' => [
-        'hero_title' => 'Hire top engineers fast',
-        'hero_subtitle' => 'We know the market, the technologies and the talent — get screened candidates in less than 48 hours.',
-        'hero_cta_talk' => 'Talk to us',
+        'hero_kicker' => 'Technical recruitment service · For companies hiring talent',
+        'hero_title' => 'We recruit IT talent for you: your company hires, we accelerate search',
+        'hero_subtitle' => 'We source, screen, and introduce candidates matched to your open role. You run final interviews and employment is with your organization. This is not a Nova job board and it is not about joining Nova from this page.',
+        'hero_cta_talk' => 'I want to fill a role',
         'hero_cta_how' => 'How it works',
 
-        'what_we_offer' => 'What we offer',
-        'overview' => 'Whether you need a single developer or a full team, we source, screen and deliver candidates who match your tech stack and culture. Our recruiters have deep market knowledge across modern stacks and can surface high‑quality profiles quickly.',
+        'disclaimer_aria' => 'Recruitment service clarification',
+        'disclaimer_title' => 'Important clarification',
+        'disclaimer_intro' => 'This page describes a recruitment and sourcing service for clients. The employer who hires the candidate is your company.',
+        'disclaimer_point_client' => 'We help find and assess profiles for your vacancy; employment contract and payroll are on your side.',
+        'disclaimer_point_not_board' => 'We are not Nova’s public job portal: we do not publish Nova internal openings or direct hiring with Nova from this section.',
+
+        'what_we_offer' => 'What we do for your company',
+        'overview' => 'Whether you need one developer or a full team, we operate as an extension of your recruiting function: we align on the role, search the market, run technical screening, and deliver interview‑ready candidates. Final selection and hiring happen on your side.',
 
         'sourcing_48h_title' => '48‑hour sourcing',
         'sourcing_48h_sub' => 'We find and contact qualified candidates, then return a shortlist within 48 hours.',
@@ -300,10 +307,10 @@ return [
 
         'fast_process_title' => 'Fast process',
         'fast_process_steps' => [
-            'tell_us' => 'Tell us your needs',
+            'tell_us' => 'Define the role with us (stack, seniority, culture)',
             'search_screen' => 'We search & screen (≤48h)',
-            'send_shortlist' => 'We send curated shortlist',
-            'you_hire' => 'You interview & hire',
+            'send_shortlist' => 'We send curated candidates',
+            'you_hire' => 'You interview & hire at your company',
         ],
 
         'pricing_note_title' => 'Pricing note',
@@ -358,7 +365,7 @@ return [
         'cta_contact' => 'Go to contact',
         'cta_quote' => 'Get a quote online',
         'cta_services' => 'View services',
-        'cta_hiring' => 'IT hiring services',
+        'cta_hiring' => 'Recruitment for companies',
         'explore_title' => 'Useful links',
         'link_faq' => 'FAQ',
         'link_guides' => 'Pricing guides',

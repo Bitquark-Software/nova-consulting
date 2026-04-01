@@ -5,7 +5,7 @@ return [
         'brand' => 'Nova Consulting',
         'services' => 'Servicios',
         'pricing' => 'Precios',
-        'hiring_services' => 'Reclutamiento IT',
+        'hiring_services' => 'Reclutamiento para empresas',
         'about' => 'Nosotros',
         'blog' => 'Blog',
         'my_projects' => 'Mis Proyectos',
@@ -280,13 +280,20 @@ return [
     ],
 
     'hiring_page' => [
-        'hero_title' => 'Contrata ingenieros top rápidamente',
-        'hero_subtitle' => 'Conocemos el mercado, las tecnologías y el talento — recibe candidatos filtrados en menos de 48 horas.',
-        'hero_cta_talk' => 'Habla con nosotros',
+        'hero_kicker' => 'Servicio de reclutamiento técnico · Para empresas que quieren contratar',
+        'hero_title' => 'Reclutamos talento IT por ti: tu empresa contrata, nosotros aceleramos la búsqueda',
+        'hero_subtitle' => 'Buscamos, filtramos y te presentamos candidatos alineados a tu vacante. Tú entrevistas y formalizas la relación laboral con tu organización. Esto no es bolsa de empleo de Nova ni vacantes para trabajar “en” Nova.',
+        'hero_cta_talk' => 'Quiero cubrir una vacante',
         'hero_cta_how' => 'Cómo funciona',
 
-        'what_we_offer' => 'Lo que ofrecemos',
-        'overview' => 'Ya sea que necesites un solo desarrollador o un equipo completo, buscamos, evaluamos y entregamos candidatos que encajen con tu stack y cultura. Nuestros reclutadores tienen un profundo conocimiento del mercado.',
+        'disclaimer_aria' => 'Aclaración sobre el servicio de reclutamiento',
+        'disclaimer_title' => 'Aclaración importante',
+        'disclaimer_intro' => 'Esta página describe un servicio de reclutamiento y sourcing para clientes. El empleador que contrata al candidato es tu empresa.',
+        'disclaimer_point_client' => 'Nosotros ayudamos a encontrar y evaluar perfiles según tu vacante; el contrato y la nómina son tuyos.',
+        'disclaimer_point_not_board' => 'No somos portal de empleo de Nova Consulting: no publicamos vacantes internas ni oferta laboral directa con nosotros desde esta sección.',
+
+        'what_we_offer' => 'Qué hacemos por tu empresa',
+        'overview' => 'Si necesitas uno o varios perfiles de tecnología, trabajamos como extensión de tu equipo de reclutamiento: mapeamos el rol, salimos al mercado, aplicamos filtros técnicos y te entregamos candidatos listos para entrevista. El proceso de selección final y la contratación ocurren en tu lado.',
 
         'sourcing_48h_title' => 'Sourcing en 48 horas',
         'sourcing_48h_sub' => 'Encontramos y contactamos candidatos calificados, entregando una lista final en 48 horas.',
@@ -299,10 +306,10 @@ return [
 
         'fast_process_title' => 'Proceso ágil',
         'fast_process_steps' => [
-            'tell_us' => 'Cuéntanos tus necesidades',
+            'tell_us' => 'Define la vacante con nosotros (rol, stack, cultura)',
             'search_screen' => 'Buscamos y evaluamos (≤48h)',
-            'send_shortlist' => 'Enviamos terna curada',
-            'you_hire' => 'Entrevistas y contratas',
+            'send_shortlist' => 'Te enviamos candidatos curados',
+            'you_hire' => 'Tú entrevistas y contratas en tu empresa',
         ],
 
         'pricing_note_title' => 'Nota sobre el pago',
@@ -357,7 +364,7 @@ return [
         'cta_contact' => 'Ir a contacto',
         'cta_quote' => 'Cotizar en línea',
         'cta_services' => 'Ver servicios',
-        'cta_hiring' => 'Reclutamiento IT',
+        'cta_hiring' => 'Reclutamiento para empresas',
         'explore_title' => 'Enlaces útiles',
         'link_faq' => 'Preguntas frecuentes',
         'link_guides' => 'Guías de precios',

@@ -3,6 +3,8 @@
 return [
     // Header & Stepper
     'title' => 'Request a Quotation',
+    'seo_description' => 'Request a quote for web development, IT staffing, or technical recruitment with Nova Consulting. Short form, clear next steps.',
+    'seo_keywords' => 'quote software development, web project quote, IT staffing, technical recruitment, nova consulting',
     'btn_return_home' => 'Return to Home',
     'step_info' => 'Info',
     'step_service' => 'Service',

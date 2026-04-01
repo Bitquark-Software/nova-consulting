@@ -14,6 +14,9 @@
     <!-- Hero -->
     <section class="relative pt-28 sm:pt-32 px-6 md:px-12">
         <div class="relative max-w-7xl mx-auto text-center space-y-6">
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] text-gray-600 max-w-2xl mx-auto">
+                {{ __('messages.hiring_page.hero_kicker') }}
+            </p>
             <h1 class="text-4xl md:text-6xl font-bold tracking-tighter">
                 {{ __('messages.hiring_page.hero_title') }}
             </h1>
@@ -23,6 +26,23 @@
             <div class="mt-6 flex items-center justify-center gap-3">
                 <a href="/contact" class="px-6 py-3 bg-[#2C2C2C] text-white rounded-md font-semibold hover:bg-[#525252]">{{ __('messages.hiring_page.hero_cta_talk') }}</a>
             </div>
+        </div>
+    </section>
+
+    <section class="px-6 md:px-12 pb-8 pt-4" aria-label="{{ __('messages.hiring_page.disclaimer_aria') }}">
+        <div class="max-w-3xl mx-auto rounded-2xl border border-gray-200 bg-gray-50 px-5 py-5 sm:px-6 sm:py-6 text-left shadow-sm">
+            <p class="text-sm font-semibold text-black">{{ __('messages.hiring_page.disclaimer_title') }}</p>
+            <p class="mt-2 text-sm text-[#4a4a4a] leading-relaxed">{{ __('messages.hiring_page.disclaimer_intro') }}</p>
+            <ul class="mt-4 space-y-2 text-sm text-[#4a4a4a] list-none">
+                <li class="flex gap-2">
+                    <span class="mt-0.5 shrink-0 text-black" aria-hidden="true">✓</span>
+                    <span>{{ __('messages.hiring_page.disclaimer_point_client') }}</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="mt-0.5 shrink-0 text-black" aria-hidden="true">✓</span>
+                    <span>{{ __('messages.hiring_page.disclaimer_point_not_board') }}</span>
+                </li>
+            </ul>
         </div>
     </section>
 

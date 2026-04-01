@@ -307,7 +307,7 @@ class SeoService
             ],
             'hiring_services' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Contratacion', 'url' => url('/hiring-services')],
+                ['name' => 'Reclutamiento para empresas', 'url' => url('/hiring-services')],
             ],
             'landing.software.tuxtla.chiapas' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],

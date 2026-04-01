@@ -54,8 +54,8 @@ return [
     ],
 
     'hiring_services' => [
-        'title' => 'Contrata ingenieros — Nova Consulting',
-        'description' => 'Contrata desarrolladores preseleccionados rápidamente. Buscamos, filtramos y entregamos ingenieros calificados en menos de 48 horas. Precios: nuestra tarifa se cobra con la primera nómina del contratado.',
-        'keywords' => 'contratar desarrolladores, contratar ingenieros, personal TI, reclutamiento técnico, búsqueda de desarrolladores, servicios de contratación',
+        'title' => 'Reclutamiento IT para empresas — Nova Consulting',
+        'description' => 'Servicio de búsqueda y filtrado de talento técnico para que tu empresa contrate candidatos. No es bolsa de empleo de Nova: te ayudamos a reclutar por ti; el empleador eres tú. Tarifa alineada a contratación.',
+        'keywords' => 'reclutamiento it para empresas, headhunting desarrolladores, sourcing técnico, contratar desarrolladores, reclutamiento técnico méxico',
     ],
 ];

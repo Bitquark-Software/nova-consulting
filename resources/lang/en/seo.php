@@ -53,8 +53,8 @@ return [
     ],
 
     'hiring_services' => [
-        'title' => 'Hire Engineers — Nova Consulting',
-        'description' => 'Hire vetted developers fast. We source, screen and deliver qualified engineers within 48 hours. Pricing: our fee is collected with the hired developer\'s first payroll.',
-        'keywords' => 'hire developers, hire engineers, it staffing, technical recruitment, developer sourcing, hiring services',
+        'title' => 'IT recruitment for companies — Nova Consulting',
+        'description' => 'Recruitment and technical screening so your company can hire candidates. Not a Nova job board: we recruit on your behalf; your business is the employer. Fee structured around successful hire.',
+        'keywords' => 'it recruitment for companies, developer sourcing, technical hiring, recruit engineers, headhunting developers',
     ],
 ];
