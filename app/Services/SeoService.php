@@ -31,6 +31,23 @@ class SeoService
     }
 
     /**
+     * Single preferred URL for rel=canonical and og:url.
+     * Uses APP_URL (scheme + host) + current path so crawlers, CDN hosts, and cached HTML
+     * all agree with sitemaps and JSON-LD — avoids "Google chose a different canonical".
+     */
+    protected function preferredCanonicalUrl(): string
+    {
+        $base = rtrim((string) config('app.url'), '/');
+        $path = trim(str_replace('\\', '/', (string) request()->path()), '/');
+
+        if ($path === '') {
+            return $base.'/';
+        }
+
+        return $base.'/'.$path;
+    }
+
+    /**
      * Build the seo array (title, description, keywords, og)
      * Uses localized strings under resources/lang/{locale}/seo.php or messages.php (seo.*)
      */
@@ -46,7 +63,7 @@ class SeoService
             $title = $this->translate('title') ?: $this->translate('welcome.hero_title_html');
             $description = $this->translate('description') ?: $this->translate('welcome.hero_subtitle');
             $keywords = $this->translate('keywords') ?: $this->generateKeywords($description);
-            $canonicalUrl = request()->url();
+            $canonicalUrl = $this->preferredCanonicalUrl();
 
             $og = [
                 'title' => strip_tags($title),
@@ -362,12 +379,8 @@ class SeoService
                     $out[] = '<link rel="alternate" href="'.e($hreflang[$loc]).'" hreflang="'.e($loc).'">';
                 }
             }
-            $xDefault = $hreflang['es'] ?? $hreflang['en'] ?? url('/');
+            $xDefault = $hreflang['es'] ?? $hreflang['en'] ?? rtrim((string) config('app.url'), '/').'/';
             $out[] = '<link rel="alternate" href="'.e($xDefault).'" hreflang="x-default">';
-        } else {
-            $locTag = app()->getLocale() === 'en' ? 'en' : 'es';
-            $out[] = '<link rel="alternate" href="'.e(url()->current()).'" hreflang="'.e($locTag).'">';
-            $out[] = '<link rel="alternate" href="'.e(url('/')).'" hreflang="x-default">';
         }
         $out[] = '<script type="application/ld+json">'.$data['jsonld'].'</script>';
 
