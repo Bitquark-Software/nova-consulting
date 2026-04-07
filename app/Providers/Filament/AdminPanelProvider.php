@@ -46,7 +46,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
-                fn (): string => <<<'HTML'
+                function (): string {
+                    $host = strtolower((string) request()->getHost());
+                    if (in_array($host, ['localhost', '127.0.0.1', '::1'], true)) {
+                        return '';
+                    }
+
+                    return <<<'HTML'
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -54,7 +60,8 @@ class AdminPanelProvider extends PanelProvider
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "w3wkj1p409");
 </script>
-HTML
+HTML;
+                }
             )
             ->sidebarWidth('220px')
             ->sidebarFullyCollapsibleOnDesktop()
