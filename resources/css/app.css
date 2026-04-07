@@ -47,6 +47,153 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Home hero: floating phone + code-symbol particle burst (easter egg) */
+.home-hero-phone {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.home-hero-phone__wrap {
+    perspective: 880px;
+}
+
+.home-hero-phone__float {
+    transform-style: preserve-3d;
+    animation: home-hero-phone-float 5.5s ease-in-out infinite;
+}
+
+.home-hero-phone__device {
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.home-hero-phone:hover .home-hero-phone__device,
+.home-hero-phone:focus-visible .home-hero-phone__device {
+    transform: translateY(-6px) rotateY(-7deg) rotateX(5deg);
+}
+
+.home-hero-phone:active .home-hero-phone__device {
+    transform: scale(0.985);
+}
+
+@keyframes home-hero-phone-float {
+    0%,
+    100% {
+        transform: translateY(0) rotateZ(-0.4deg);
+    }
+
+    50% {
+        transform: translateY(-7px) rotateZ(0.4deg);
+    }
+}
+
+.home-hero-phone__screen-shine {
+    animation: home-hero-phone-shine 4s ease-in-out infinite;
+}
+
+@keyframes home-hero-phone-shine {
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+}
+
+.home-hero-phone__code-line {
+    animation: home-hero-phone-code-line 2.8s ease-in-out infinite;
+}
+
+.home-hero-phone__code-line:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.home-hero-phone__code-line:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.home-hero-phone__code-line:nth-child(4) {
+    animation-delay: 1.05s;
+}
+
+@keyframes home-hero-phone-code-line {
+    0%,
+    100% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.95;
+    }
+}
+
+.home-hero-phone-particle {
+    position: fixed;
+    z-index: 60;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-size: clamp(0.92rem, 2.6vw, 1.12rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgb(52 211 153 / 0.96);
+    text-shadow:
+        0 0 18px rgb(167 243 208 / 0.75),
+        0 0 28px rgb(16 185 129 / 0.35),
+        0 1px 2px rgb(0 0 0 / 0.45);
+    animation: home-hero-phone-particle-burst var(--burst-dur, 1.75s) cubic-bezier(0.18, 0.82, 0.32, 1) forwards;
+}
+
+@keyframes home-hero-phone-particle-burst {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.82) rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    62% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--tx, 0px) * 0.72), calc(-50% + var(--ty, 0px) * 0.72)) scale(1.06) rotate(calc(var(--rot, 0deg) * 0.55));
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, 0px))) scale(0.88) rotate(var(--rot, 0deg));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-hero-phone-particle {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+
+    .home-hero-phone__float {
+        animation: none;
+    }
+
+    .home-hero-phone:hover .home-hero-phone__device,
+    .home-hero-phone:focus-visible .home-hero-phone__device,
+    .home-hero-phone:active .home-hero-phone__device {
+        transform: none;
+    }
+
+    .home-hero-phone__screen-shine,
+    .home-hero-phone__code-line {
+        animation: none;
+    }
+
+    .home-hero-phone__code-line {
+        opacity: 0.55;
+    }
+}
+
 /* —— Barra principal: sin fondo; solo logo + píldora + CTAs limpios —— */
 .marketing-nav-glass {
     background: transparent;
@@ -598,5 +745,29 @@ body {
 @media (max-width: 1023.98px) {
     body.marketing-quote-flow #sticky-marketing-fabs {
         bottom: calc(1rem + 9.25rem + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* Home: full-viewport Spline hero — hide marketing blob layer (3D is the backdrop) */
+body.home-spline-hero main > .pointer-events-none.fixed {
+    display: none;
+}
+
+.home-hero-spline__scene {
+    min-height: 100%;
+}
+
+.home-hero-spline__viewer {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-hero-spline__viewer {
+        display: none !important;
     }
 }

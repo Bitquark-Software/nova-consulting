@@ -2,6 +2,7 @@
 import './modals';
 import './mobileNav';
 import './marketingHeaderContrast';
+import './homeHeroPhone';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

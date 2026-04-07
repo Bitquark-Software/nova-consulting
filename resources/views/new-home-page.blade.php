@@ -3,65 +3,18 @@
 
 @section('nav_ga_section', 'nav-home')
 
-@section('content')
-            {{-- Hero bento --}}
-            <section class="relative pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 px-4 sm:px-6" data-ga-section="hero-home">
-                <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-4 lg:gap-5">
-                    <div class="lg:col-span-7 marketing-hero-in">
-                        <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gray-600 px-3 py-1.5 rounded-full border border-gray-200 bg-white/80">
-                            <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
-                            {{ __('messages.new_branding.badge') }}
-                        </span>
-                        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-[1.08]">
-                            {{ __('messages.new_branding.headline_start') }}
-                            <span class="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-black to-gray-500">
-                                {{ __('messages.new_branding.headline_highlight') }}
-                            </span>
-                        </h1>
-                        <p class="mt-5 text-lg sm:text-xl text-gray-600 max-w-xl leading-relaxed font-light">
-                            {{ __('messages.new_branding.subheadline') }}
-                        </p>
-                        <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-                            <a href="#diagnostico" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-black text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all" data-track="hero_cta_primary_click">
-                                {{ __('messages.new_branding.cta_primary') }}
-                            </a>
-                            <a href="#services" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold hover:bg-white transition-all" data-track="hero_cta_secondary_click">
-                                {{ __('messages.new_branding.cta_secondary') }}
-                            </a>
-                        </div>
-                    </div>
+@php
+    $homeSplineUrl = trim((string) config('spline.hero_scene_url', ''));
+@endphp
+@section('marketing_body_class', $homeSplineUrl !== '' ? 'home-spline-hero' : '')
+@if ($homeSplineUrl !== '')
+    @push('body_end')
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
+    @endpush
+@endif
 
-                    <div class="lg:col-span-5 grid gap-4 lg:gap-5 marketing-hero-in-delay">
-                        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Tuxtla Gutiérrez, Chiapas</p>
-                            <h2 class="mt-2 text-xl font-bold text-black">Software y diseño web con impacto local</h2>
-                            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
-                                También trabajamos con empresas en todo México de forma remota.
-                            </p>
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <a href="{{ url('/empresa-software-tuxtla-chiapas') }}" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors" data-track="home_internal_landing_software">Tuxtla</a>
-                                <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors" data-track="home_internal_landing_web">Diseño web</a>
-                            </div>
-                        </div>
-                        <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-[#2C2C2C] to-gray-800 text-white p-6 shadow-lg" data-marketing-nav-contrast="dark">
-                            <div class="grid grid-cols-3 gap-4 text-center">
-                                <div>
-                                    <span class="block text-2xl sm:text-3xl font-bold">7+</span>
-                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-gray-400 mt-1 block">{{ __('messages.new_branding.years_exp') }}</span>
-                                </div>
-                                <div>
-                                    <span class="block text-2xl sm:text-3xl font-bold">350k+</span>
-                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-gray-400 mt-1 block">{{ __('messages.new_branding.projects_done') }}</span>
-                                </div>
-                                <div>
-                                    <span class="block text-2xl sm:text-3xl font-bold">10+</span>
-                                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-gray-400 mt-1 block">{{ __('messages.new_branding.value_generated') }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+@section('content')
+            @include('partials.home-hero', ['splineUrl' => $homeSplineUrl])
 
             {{-- Hub ciudades --}}
             <section class="py-10 px-4 sm:px-6" data-ga-section="ciudades-home">

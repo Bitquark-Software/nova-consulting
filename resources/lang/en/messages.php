@@ -45,6 +45,9 @@ return [
         'years_exp' => 'Years Exp.',
         'projects_done' => 'Lines Of Code Deployed',
         'value_generated' => 'Successful Projects',
+        'hero_phone_aria' => 'Decorative phone: tap for a little surprise',
+        'hero_phone_hint' => 'Tap the phone',
+        'hero_spline_hint' => 'Drag to rotate the 3D scene',
     ],
     'footer' => [
         'services' => 'Services',

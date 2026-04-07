@@ -45,6 +45,9 @@ return [
         'years_exp' => 'Años de Exp.',
         'projects_done' => 'Líneas de Código Desplegadas',
         'value_generated' => 'Proyectos Exitosos',
+        'hero_phone_aria' => 'Teléfono decorativo: toca para una sorpresa',
+        'hero_phone_hint' => 'Toca el teléfono',
+        'hero_spline_hint' => 'Arrastra para rotar la escena 3D',
     ],
     'footer' => [
         'services' => 'Servicios',
