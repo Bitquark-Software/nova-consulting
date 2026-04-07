@@ -266,7 +266,7 @@
                             </label>
                         </div>
 
-                        <div class="mt-8 p-5 rounded-2xl bg-black text-white">
+                        <div class="mt-8 p-5 rounded-2xl bg-black text-white" data-marketing-nav-contrast="dark">
                             <p class="text-xs font-bold uppercase tracking-wider text-white/70">{{ __('website_quote.step_options') }}</p>
                             <div class="mt-3 space-y-2 text-sm text-white/95">
                                 <div class="flex justify-between gap-4" x-show="quoteType === 'landing'">

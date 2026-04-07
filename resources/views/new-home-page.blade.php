@@ -43,7 +43,7 @@
                                 <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors" data-track="home_internal_landing_web">Diseño web</a>
                             </div>
                         </div>
-                        <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-[#2C2C2C] to-gray-800 text-white p-6 shadow-lg">
+                        <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-[#2C2C2C] to-gray-800 text-white p-6 shadow-lg" data-marketing-nav-contrast="dark">
                             <div class="grid grid-cols-3 gap-4 text-center">
                                 <div>
                                     <span class="block text-2xl sm:text-3xl font-bold">7+</span>
@@ -92,7 +92,7 @@
             <section class="py-10 px-4 sm:px-6" data-ga-section="promo-descuento-chiapas">
                 <div class="max-w-6xl mx-auto rounded-3xl overflow-hidden border border-gray-900/10 shadow-xl">
                     <div class="marketing-border-shine p-[1px] rounded-3xl">
-                        <div class="rounded-[1.4rem] bg-black text-white px-6 py-10 sm:px-10 sm:py-12 text-center">
+                        <div class="rounded-[1.4rem] bg-black text-white px-6 py-10 sm:px-10 sm:py-12 text-center" data-marketing-nav-contrast="dark">
                             <p class="text-xs uppercase tracking-[0.2em] text-gray-400">Promoción local</p>
                             <h2 class="mt-3 text-2xl sm:text-4xl font-bold">Si tu negocio está en Tuxtla o Chiapas, 10% de descuento</h2>
                             <p class="mt-4 text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
@@ -237,7 +237,7 @@
             @include('partials.lead-qualification-form', ['leadSource' => 'home'])
 
             {{-- Contacto --}}
-            <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-black text-white" data-ga-section="contact-home">
+            <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-black text-white" data-ga-section="contact-home" data-marketing-nav-contrast="dark">
                 <div class="absolute inset-0 opacity-30 pointer-events-none">
                     <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-gray-700 blur-3xl"></div>
                     <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-gray-800 blur-3xl"></div>

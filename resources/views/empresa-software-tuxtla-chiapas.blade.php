@@ -63,7 +63,7 @@
             </article>
         </section>
 
-        <section class="max-w-6xl mx-auto mt-16 bg-black text-white rounded-2xl p-8 md:p-10 text-center" data-ga-section="promo-software-chiapas">
+        <section class="max-w-6xl mx-auto mt-16 bg-black text-white rounded-2xl p-8 md:p-10 text-center" data-ga-section="promo-software-chiapas" data-marketing-nav-contrast="dark">
             <p class="text-xs uppercase tracking-[0.2em] text-gray-300">Promocion local</p>
             <h2 class="mt-3 text-3xl md:text-4xl font-bold">Negocios en Tuxtla y Chiapas reciben 10% de descuento</h2>
             <p class="mt-4 text-gray-300 max-w-3xl mx-auto">

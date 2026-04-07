@@ -62,7 +62,7 @@
             </div>
         </section>
         <section class="max-w-6xl mx-auto mt-12 px-4" data-ga-section="promo-cdmx">
-            <div class="bg-black text-white rounded-2xl p-8 text-center">
+            <div class="bg-black text-white rounded-2xl p-8 text-center" data-marketing-nav-contrast="dark">
                 <p class="text-xs uppercase tracking-[0.2em] text-gray-300">{{ $c['coupon']['kicker'] }}</p>
                 <h2 class="mt-3 text-3xl font-bold">{{ $c['coupon']['title'] }}</h2>
                 <p class="mt-3 text-gray-300">{{ $c['coupon']['body'] }}</p>

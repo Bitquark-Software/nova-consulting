@@ -31,7 +31,9 @@
     ];
 @endphp
 <header
-    class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-4 supports-[backdrop-filter]:isolate"
+    id="marketing-site-header"
+    class="marketing-site-header fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-4 supports-[backdrop-filter]:isolate transition-[color] duration-200 ease-out"
+    data-marketing-site-header
     data-ga-section="{{ $navGaSection }}"
 >
     <nav
@@ -41,7 +43,7 @@
         <div class="flex items-center justify-between gap-2 sm:gap-3 min-w-0 px-3 sm:px-4 md:px-6 min-h-14 sm:min-h-[4.25rem] py-1.5 sm:py-0">
             <a
                 href="{{ route('home') }}"
-                class="shrink-0 min-w-0 flex items-center transition-transform duration-300 ease-out active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/25 focus-visible:ring-offset-2 rounded-md"
+                class="marketing-site-header__logo-link shrink-0 min-w-0 flex items-center transition-transform duration-300 ease-out active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/25 focus-visible:ring-offset-2 rounded-md"
                 aria-label="{{ __('messages.nav.brand') }}"
             >
                 <img
@@ -51,7 +53,7 @@
                     height="474"
                     decoding="async"
                     draggable="false"
-                    class="h-7 w-auto sm:h-8 md:h-9 lg:h-10 max-h-10 object-contain object-left"
+                    class="marketing-site-header__logo h-7 w-auto sm:h-8 md:h-9 lg:h-10 max-h-10 object-contain object-left transition-[filter] duration-200 ease-out"
                 />
             </a>
 

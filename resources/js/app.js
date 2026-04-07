@@ -1,6 +1,7 @@
 // import './bootstrap';
 import './modals';
 import './mobileNav';
+import './marketingHeaderContrast';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

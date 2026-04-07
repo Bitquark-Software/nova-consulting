@@ -164,7 +164,7 @@
         </section>
 
         {{-- CTA --}}
-        <section class="mt-16 lg:mt-20 rounded-2xl bg-black text-white px-8 py-12 sm:px-12 sm:py-14 text-center shadow-xl" aria-labelledby="about-cta-title">
+        <section class="mt-16 lg:mt-20 rounded-2xl bg-black text-white px-8 py-12 sm:px-12 sm:py-14 text-center shadow-xl" aria-labelledby="about-cta-title" data-marketing-nav-contrast="dark">
             <h2 id="about-cta-title" class="text-2xl sm:text-3xl font-bold">{{ $ap['cta_title'] }}</h2>
             <p class="mt-4 text-gray-300 max-w-xl mx-auto leading-relaxed">{{ $ap['cta_sub'] }}</p>
             <div class="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
