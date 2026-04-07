@@ -9,7 +9,7 @@
             'description' => 'Paginas web profesionales para empresas de Tuxtla y Chiapas con enfoque comercial y SEO.',
             'type' => 'website',
             'url' => url('/diseno-paginas-web-tuxtla-chiapas'),
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
     ];
 @endphp

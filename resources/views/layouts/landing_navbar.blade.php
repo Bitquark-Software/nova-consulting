@@ -1,6 +1,6 @@
 <header class="w-full text-sm mb-6 not-has-[nav]:hidden fixed top-0 left-0 bg-transparent z-20">
     <nav class="flex items-center justify-around gap-4 py-4 px-3">
-        <img class="w-24 h-auto" src="{{asset('images/Web_inverted.svg')}}" alt="{{ __('messages.nav.brand') }}" width="1080" height="1080" decoding="async" draggable="false" onclick="window.location.pathname = '/'">
+        <img class="w-24 h-auto max-h-14 object-contain object-left cursor-pointer" src="{{ asset('images/nova_consulting_logo.svg') }}" alt="{{ __('messages.nav.brand') }}" width="646" height="474" decoding="async" draggable="false" onclick="window.location.pathname = '/'">
         <div class="hidden rounded-2xl bg-transparent md:grid grid-cols-4 gap-1">
             <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
                 <a href="{{ route('services') }}">{{ __('messages.nav.services') }}</a>
@@ -12,7 +12,7 @@
                 <a href="{{ route('contact') }}">{{ __('messages.nav.about') }}</a>
             </div>
             <div class="cursor-pointer rounded-full border border-[#2C2C2C] text-[#2C2C2C] hover:bg-[#2C2C2C] hover:text-[#F2F2F2] px-6 py-2.5 text-center bg-transparent backdrop-blur-xl">
-                <a href="{{ url('/get-a-quote') }}">{{ __('messages.nav.quotation') }}</a>
+                <a href="{{ route('website_quote') }}">{{ __('messages.nav.website_quote') }}</a>
             </div>
         </div>
         @auth
@@ -37,7 +37,7 @@
         <div class="flex flex-col items-center justify-around">
             <a href="{{ route('services') }}" class="text-[#2C2C2C]">{{ __('messages.nav.services') }}</a>
             <a href="/hiring-services" class="text-[#2C2C2C]">{{ __('messages.nav.hiring_services') }}</a>
-            <a href="/get-a-quote" class="text-[#2C2C2C]">{{ __('messages.nav.quotation') }}</a>
+            <a href="{{ route('website_quote') }}" class="text-[#2C2C2C]">{{ __('messages.nav.website_quote') }}</a>
             <a href="{{ route('about') }}" class="text-[#2C2C2C]">{{ __('messages.nav.about') }}</a>
             <div class="w-full flex items-center justify-around">
                 @auth

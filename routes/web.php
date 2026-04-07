@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\WebsiteQuoteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,11 +10,12 @@ Route::get('/', function () {
     return view('new-home-page');
 })->name('home');
 
-Route::get('/get-a-quote', function () {
-    return view('quotations');
-})->name('quotations');
+Route::permanentRedirect('/get-a-quote', '/cotizador-sitio-web');
 
 Route::post('/quotation', [QuotationController::class, 'store'])->name('quotation.store');
+
+Route::get('/cotizador-sitio-web', [WebsiteQuoteController::class, 'show'])->name('website_quote');
+Route::post('/cotizador-sitio-web', [WebsiteQuoteController::class, 'store'])->name('website_quote.store');
 
 // Locale switcher route: sets the selected locale in session and redirects back
 Route::get('/locale/{locale}', function ($locale) {
@@ -39,6 +41,10 @@ Route::get('/services', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/blog', function () {
+    return view('blog.index');
+})->name('blog.index');
 
 Route::get('/blog/mano-de-obra-barata', function () {
     return view('blog.mano-de-obra-barata');

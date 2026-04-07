@@ -3,6 +3,7 @@
 return [
     'breadcrumb' => [
         'home' => 'Home',
+        'blog' => 'Blog',
         'guides' => [
             'cuanto_pagina_web' => 'How much does a website cost?',
             'cuanto_aplicacion' => 'How much does an application cost?',
@@ -44,6 +45,18 @@ return [
     'faq' => [
         'title' => 'F.A.Q — Nova Consulting',
         'description' => 'Frequently asked questions about our services, pricing, hiring process, and support.',
+    ],
+
+    'blog.index' => [
+        'title' => 'Blog, guides & software by city — Nova Consulting',
+        'description' => 'Articles, pricing guides, and city-focused pages from Nova Consulting: Tuxtla, Guadalajara, Monterrey, Mexico City, and Mérida. Professional content to plan your next digital product.',
+        'keywords' => 'software development blog, website pricing guides, software company guadalajara, monterrey developers, web development mexico',
+    ],
+
+    'website_quote' => [
+        'title' => 'Website quote calculator — Nova Consulting',
+        'description' => 'Estimate a landing page, corporate site, or custom software with indicative MXN pricing. Send details straight to the team.',
+        'keywords' => 'website quote, landing page price, corporate website mexico, web calculator',
     ],
 
     'contact' => [

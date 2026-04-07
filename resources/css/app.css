@@ -47,17 +47,358 @@ body {
     scroll-behavior: smooth;
 }
 
-/* iOS-like nav sheet + scroll lock */
-html.marketing-nav-open,
-body.marketing-nav-open {
-    touch-action: none;
-    overscroll-behavior: none;
+/* —— Barra principal: sin fondo; solo logo + píldora + CTAs limpios —— */
+.marketing-nav-glass {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
 }
 
-@keyframes marketing-nav-row-in {
+.marketing-nav-glass-login {
+    color: #fff;
+    border: 1px solid rgb(0 0 0 / 0.88);
+    background: #000;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.marketing-nav-glass-login:hover {
+    border-color: #000;
+    background: #171717;
+    box-shadow: none;
+}
+
+/* Mobile: liquid-glass dock tab bar */
+.marketing-tab-bar__dock {
+    position: relative;
+    border-radius: 1.55rem;
+    border: 1px solid rgb(255 255 255 / 0.52);
+    background:
+        linear-gradient(
+            165deg,
+            rgb(255 255 255 / 0.58) 0%,
+            rgb(255 255 255 / 0.34) 42%,
+            rgb(248 248 248 / 0.32) 100%
+        );
+    -webkit-backdrop-filter: blur(28px) saturate(1.55);
+    backdrop-filter: blur(28px) saturate(1.55);
+    box-shadow:
+        0 10px 40px rgb(0 0 0 / 0.12),
+        0 2px 0 rgb(255 255 255 / 0.72) inset,
+        0 -1px 0 rgb(0 0 0 / 0.04) inset,
+        inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.marketing-tab-bar__dock::before {
+    content: '';
+    position: absolute;
+    inset: -40% 10% auto;
+    height: 70%;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        rgb(255 255 255 / 0.5) 0%,
+        transparent 65%
+    );
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.marketing-tab-bar__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.marketing-tab-bar__link {
+    color: rgb(82 82 82 / 0.92);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.marketing-tab-bar__link .marketing-tab-bar__label {
+    opacity: 0.88;
+}
+
+.marketing-tab-bar__link:hover {
+    color: #171717;
+}
+
+.marketing-tab-bar__link--active {
+    color: #fafafa;
+    background: linear-gradient(160deg, rgb(0 0 0 / 0.86), rgb(0 0 0 / 0.72));
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
+    backdrop-filter: blur(12px) saturate(1.2);
+    box-shadow:
+        0 4px 16px rgb(0 0 0 / 0.22),
+        0 1px 0 rgb(255 255 255 / 0.18) inset;
+}
+
+.marketing-tab-bar__link--active .marketing-tab-bar__label {
+    opacity: 1;
+}
+
+.marketing-tab-bar__link--active:hover {
+    color: #fff;
+}
+
+.marketing-tab-bar__link:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .marketing-tab-bar__dock {
+        background: rgb(255 255 255 / 0.94);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .marketing-tab-bar__dock::before {
+        display: none;
+    }
+
+    .marketing-tab-bar__link--active {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .marketing-nav-pill {
+        background: rgb(255 255 255 / 0.88);
+    }
+}
+
+/* Footer: liquid glass look without backdrop blur (gradients + specular edge only) */
+.marketing-footer {
+    position: relative;
+    isolation: isolate;
+}
+
+.marketing-footer__surface {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.65rem;
+    border: 1px solid rgb(255 255 255 / 0.58);
+    background:
+        linear-gradient(
+            155deg,
+            rgb(255 255 255 / 0.82) 0%,
+            rgb(255 255 255 / 0.5) 38%,
+            rgb(248 248 248 / 0.62) 72%,
+            rgb(255 255 255 / 0.45) 100%
+        );
+    box-shadow:
+        0 18px 56px rgb(0 0 0 / 0.09),
+        0 2px 0 rgb(255 255 255 / 0.88) inset,
+        0 -1px 0 rgb(0 0 0 / 0.04) inset,
+        inset 0 0 0 1px rgb(255 255 255 / 0.12);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.marketing-footer__surface::before {
+    content: '';
+    position: absolute;
+    inset: -38% 8% auto;
+    height: 58%;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse 85% 65% at 50% 0%,
+        rgb(255 255 255 / 0.75) 0%,
+        rgb(255 255 255 / 0.22) 45%,
+        transparent 68%
+    );
+    opacity: 0.92;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.marketing-footer__surface::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgb(255 255 255 / 0.22) 38%,
+        transparent 52%,
+        rgb(255 255 255 / 0.08) 88%
+    );
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.marketing-footer__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.marketing-footer__section-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(82 82 82 / 0.88);
+    margin-bottom: 1rem;
+}
+
+.marketing-footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem 0.5rem;
+    margin-left: -0.5rem;
+    border-radius: 0.65rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: #2c2c2c;
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.marketing-footer__link:hover {
+    color: #0a0a0a;
+    background: rgb(255 255 255 / 0.55);
+    transform: translateX(2px);
+}
+
+.marketing-footer__link:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.marketing-footer__link--strong {
+    font-weight: 600;
+}
+
+.marketing-footer__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    color: #2c2c2c;
+    border: 1px solid rgb(255 255 255 / 0.52);
+    background: linear-gradient(155deg, rgb(255 255 255 / 0.58), rgb(255 255 255 / 0.22));
+    box-shadow:
+        0 4px 14px rgb(0 0 0 / 0.07),
+        0 1px 0 rgb(255 255 255 / 0.75) inset;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.marketing-footer__social:hover {
+    border-color: rgb(0 0 0 / 0.14);
+    background: linear-gradient(155deg, rgb(255 255 255 / 0.82), rgb(255 255 255 / 0.42));
+    box-shadow:
+        0 6px 18px rgb(0 0 0 / 0.1),
+        0 1px 0 rgb(255 255 255 / 0.85) inset;
+    transform: translateY(-1px);
+}
+
+.marketing-footer__social:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.marketing-footer__social:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.marketing-footer__divider {
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.75) 12% 88%, transparent);
+    box-shadow:
+        0 1px 0 rgb(0 0 0 / 0.04),
+        0 -1px 0 rgb(255 255 255 / 0.35) inset;
+}
+
+.marketing-footer__ribbon {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.25rem;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgb(82 82 82 / 0.92);
+    border-top: 1px solid rgb(255 255 255 / 0.45);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.28), rgb(242 242 242 / 0.65));
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marketing-footer__link,
+    .marketing-footer__social {
+        transition-duration: 0.01ms;
+    }
+
+    .marketing-footer__link:hover,
+    .marketing-footer__social:hover {
+        transform: none;
+    }
+}
+
+/* Desktop marketing nav: connected pill (segmented control) */
+.marketing-nav-pill {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    max-width: 100%;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    background: linear-gradient(165deg, rgb(255 255 255 / 0.42), rgb(255 255 255 / 0.18));
+    -webkit-backdrop-filter: blur(14px) saturate(1.35);
+    backdrop-filter: blur(14px) saturate(1.35);
+    box-shadow:
+        0 2px 12px rgb(0 0 0 / 0.06),
+        0 1px 0 rgb(255 255 255 / 0.65) inset,
+        0 -1px 0 rgb(0 0 0 / 0.03) inset;
+    animation: marketing-nav-pill-mount 0.65s cubic-bezier(0.32, 0.72, 0, 1) backwards;
+}
+
+@keyframes marketing-nav-pill-mount {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.marketing-nav-pill-li {
+    display: flex;
+    animation: marketing-nav-pill-li-in 0.5s cubic-bezier(0.32, 0.72, 0, 1) backwards;
+    animation-delay: calc(var(--pill-i, 0) * 45ms);
+}
+
+@keyframes marketing-nav-pill-li-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
     }
     to {
         opacity: 1;
@@ -65,38 +406,129 @@ body.marketing-nav-open {
     }
 }
 
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row,
-.marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
-    animation: marketing-nav-row-in 0.48s cubic-bezier(0.32, 0.72, 0, 1) backwards;
+.marketing-nav-pill-sep {
+    flex-shrink: 0;
+    width: 1px;
+    align-self: stretch;
+    margin: 0.375rem 0.25rem;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.08) 30% 70%, transparent);
+    animation: marketing-nav-pill-sep-in 0.55s cubic-bezier(0.32, 0.72, 0, 1) both;
+    animation-delay: 200ms;
 }
 
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(1) {
-    animation-delay: 0.03s;
+@keyframes marketing-nav-pill-sep-in {
+    from {
+        opacity: 0;
+        transform: scaleY(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(2) {
-    animation-delay: 0.07s;
+
+.marketing-nav-pill-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #525252;
+    white-space: nowrap;
+    transition:
+        color 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+        background-color 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+        transform 0.2s cubic-bezier(0.32, 0.72, 0, 1),
+        box-shadow 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    overflow: hidden;
 }
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(3) {
-    animation-delay: 0.11s;
+
+.marketing-nav-pill-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgb(255 255 255 / 0.4), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(4) {
-    animation-delay: 0.15s;
+
+.marketing-nav-pill-link:hover {
+    color: #0a0a0a;
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.72), rgb(255 255 255 / 0.45));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow:
+        0 2px 10px rgb(0 0 0 / 0.07),
+        0 1px 0 rgb(255 255 255 / 0.6) inset;
+    transform: translateY(-1px);
 }
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(5) {
-    animation-delay: 0.19s;
+
+.marketing-nav-pill-link:hover::before {
+    opacity: 1;
 }
-.marketing-nav-rows[data-state='open'] > a.marketing-nav-row:nth-of-type(6) {
-    animation-delay: 0.26s;
+
+.marketing-nav-pill-link:active {
+    transform: translateY(0) scale(0.98);
 }
-.marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
-    animation-delay: 0.3s;
+
+.marketing-nav-pill-link--active {
+    color: #fff;
+    background: linear-gradient(165deg, rgb(0 0 0 / 0.88), rgb(0 0 0 / 0.72));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow:
+        0 3px 14px rgb(0 0 0 / 0.25),
+        0 1px 0 rgb(255 255 255 / 0.2) inset;
+}
+
+.marketing-nav-pill-link--active:hover {
+    color: #fff;
+    background: linear-gradient(165deg, rgb(23 23 23 / 0.95), rgb(0 0 0 / 0.78));
+    transform: translateY(-1px);
+    box-shadow:
+        0 5px 18px rgb(0 0 0 / 0.3),
+        0 1px 0 rgb(255 255 255 / 0.22) inset;
+}
+
+.marketing-nav-pill-link--active::before {
+    opacity: 0.15;
+}
+
+.marketing-nav-pill-link:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .marketing-nav-rows[data-state='open'] > a.marketing-nav-row,
-    .marketing-nav-rows[data-state='open'] > button.marketing-nav-row {
+    .marketing-nav-pill,
+    .marketing-nav-pill-li,
+    .marketing-nav-pill-sep {
         animation: none;
-        opacity: 1;
+    }
+
+    .marketing-nav-pill-link {
+        transition-duration: 0.01ms;
+    }
+
+    .marketing-nav-pill-link:hover,
+    .marketing-nav-pill-link--active:hover {
         transform: none;
+    }
+}
+
+/* Website quote: FABs clear sticky estimate bar + mobile tab dock */
+@media (max-width: 1023.98px) {
+    body.marketing-quote-flow #sticky-marketing-fabs {
+        bottom: calc(1rem + 9.25rem + env(safe-area-inset-bottom, 0px));
     }
 }

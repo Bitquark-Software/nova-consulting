@@ -35,10 +35,12 @@
             animation: marketingShimmer 4s linear infinite;
         }
     </style>
-    <body class="font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white pb-6 sm:pb-0">
+    <body @class([
+        'font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white max-lg:pb-[calc(5.75rem+env(safe-area-inset-bottom))]',
+        trim($__env->yieldContent('marketing_body_class')),
+    ])>
         @include('partials.marketing-nav', [
             'navGaSection' => trim($__env->yieldContent('nav_ga_section')) ?: 'nav-marketing',
-            'propuestaHref' => trim($__env->yieldContent('propuesta_href')) ?: null,
         ])
 
         <main class="relative overflow-hidden">
@@ -55,9 +57,11 @@
 
         @hasSection('no_sticky_cta')
         @else
-            @include('partials.sticky-mobile-cta')
+            @include('partials.sticky-mobile-cta', ['marketingShowMobileTabBar' => true])
         @endif
 
         @include('layouts.footer')
+
+        @stack('body_end')
     </body>
 </html>

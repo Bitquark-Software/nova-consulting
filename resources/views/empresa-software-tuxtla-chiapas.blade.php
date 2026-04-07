@@ -9,7 +9,7 @@
             'description' => 'Desarrollo de software y soluciones digitales para empresas de Tuxtla y todo Chiapas.',
             'type' => 'website',
             'url' => url('/empresa-software-tuxtla-chiapas'),
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
     ];
 @endphp

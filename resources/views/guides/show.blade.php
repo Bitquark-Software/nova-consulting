@@ -23,7 +23,7 @@
             'description' => $g['seo']['og_description'],
             'type' => 'article',
             'url' => $canonical,
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
         'hreflang' => [
             'es' => url($paths['es']),
@@ -39,7 +39,7 @@
         'publisher' => [
             '@type' => 'Organization',
             'name' => 'Nova Consulting',
-            'logo' => ['@type' => 'ImageObject', 'url' => asset('images/Web_inverted.svg')],
+            'logo' => ['@type' => 'ImageObject', 'url' => asset('images/nova_consulting_logo.svg')],
         ],
         'datePublished' => '2026-03-24',
         'dateModified' => '2026-03-24',

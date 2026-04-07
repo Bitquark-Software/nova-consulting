@@ -1,7 +1,12 @@
+@php $marketingShowMobileTabBar = $marketingShowMobileTabBar ?? false; @endphp
 {{-- Round FABs: WhatsApp green + phone (brand dark). Subtle float animation; scale/shadow on hover. --}}
 <div
-    class="fixed z-60 flex flex-col gap-3"
-    style="right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom));"
+    id="sticky-marketing-fabs"
+    @class([
+        'fixed z-60 flex flex-col gap-3 bottom-[max(1rem,env(safe-area-inset-bottom))]',
+        'max-lg:bottom-[calc(1rem+4.5rem+env(safe-area-inset-bottom))]' => $marketingShowMobileTabBar,
+    ])
+    style="right: max(1rem, env(safe-area-inset-right));"
 >
     <a
         href="https://wa.me/529611465703"

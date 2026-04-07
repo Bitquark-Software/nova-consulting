@@ -11,14 +11,13 @@
             'description' => __('seo.about.description'),
             'type' => 'website',
             'url' => $canonical,
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
     ];
 @endphp
 @extends('layouts.marketing')
 
 @section('nav_ga_section', 'nav-about')
-@section('propuesta_href', url('/contact#propuesta'))
 
 @section('content')
 <div class="relative pt-28 sm:pt-32 pb-20 px-4 sm:px-6 overflow-hidden">
@@ -47,7 +46,7 @@
                     {{ $ap['cta_contact'] }}
                 </a>
                 <a
-                    href="{{ route('quotations') }}"
+                    href="{{ route('website_quote') }}"
                     class="inline-flex justify-center items-center w-full sm:w-auto min-w-[12rem] px-8 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold hover:bg-gray-50 transition-all"
                     data-track="about_cta_quote"
                 >
@@ -185,7 +184,7 @@
                 <a href="{{ route('services') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_services">{{ $ap['cta_services'] }}</a>
                 <a href="{{ route('faq') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_faq">{{ $ap['link_faq'] }}</a>
                 <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_guides">{{ $ap['link_guides'] }}</a>
-                <a href="{{ route('quotations') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_quote">{{ $ap['cta_quote'] }}</a>
+                <a href="{{ route('website_quote') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_quote">{{ $ap['cta_quote'] }}</a>
             </div>
         </section>
     </div>

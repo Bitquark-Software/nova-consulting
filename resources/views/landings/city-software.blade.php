@@ -15,7 +15,7 @@
             'description' => $c['seo']['og_description'],
             'type' => 'website',
             'url' => $canonical,
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
         'hreflang' => [
             'es' => url($paths['es']),

@@ -3,6 +3,7 @@
 return [
     'breadcrumb' => [
         'home' => 'Inicio',
+        'blog' => 'Blog',
         'guides' => [
             'cuanto_pagina_web' => '¿Cuánto cuesta una página web?',
             'cuanto_aplicacion' => '¿Cuánto cuesta una aplicación?',
@@ -57,5 +58,17 @@ return [
         'title' => 'Reclutamiento IT para empresas — Nova Consulting',
         'description' => 'Servicio de búsqueda y filtrado de talento técnico para que tu empresa contrate candidatos. No es bolsa de empleo de Nova: te ayudamos a reclutar por ti; el empleador eres tú. Tarifa alineada a contratación.',
         'keywords' => 'reclutamiento it para empresas, headhunting desarrolladores, sourcing técnico, contratar desarrolladores, reclutamiento técnico méxico',
+    ],
+
+    'blog.index' => [
+        'title' => 'Blog, guías y software por ciudad — Nova Consulting',
+        'description' => 'Artículos, guías con rangos orientativos y páginas locales de Nova Consulting: Tuxtla, Guadalajara, Monterrey, CDMX y Mérida. Contenido profesional para decidir tu próximo proyecto digital.',
+        'keywords' => 'blog desarrollo software, guías precios página web, empresa software guadalajara, software monterrey, desarrollo web méxico',
+    ],
+
+    'website_quote' => [
+        'title' => 'Cotizador de sitio web — Nova Consulting',
+        'description' => 'Cotiza landing page, sitio corporativo o software a la medida con precios orientativos en MXN. Envío instantáneo al equipo.',
+        'keywords' => 'cotizar página web, precio landing page, sitio corporativo méxico, cotizador web',
     ],
 ];

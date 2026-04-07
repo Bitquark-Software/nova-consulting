@@ -21,7 +21,7 @@ Key pages index:
 - About: https://novaconsulting.com.mx/about
 - Contact: https://novaconsulting.com.mx/contact
 - FAQ: https://novaconsulting.com.mx/faq
-- Quote form: https://novaconsulting.com.mx/get-a-quote
+- Website quote wizard: https://novaconsulting.com.mx/cotizador-sitio-web
 - Hiring: https://novaconsulting.com.mx/hiring-services
 
 Blog / Guides:

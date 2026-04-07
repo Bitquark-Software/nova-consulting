@@ -70,7 +70,7 @@ class SeoService
                 'description' => strip_tags($description),
                 'type' => 'website',
                 'url' => $canonicalUrl,
-                'image' => asset('images/og-default.png'),
+                'image' => asset('images/preview.png'),
             ];
 
             // Apply overrides
@@ -149,7 +149,7 @@ class SeoService
             '@type' => 'LocalBusiness',
             'name' => config('app.name', 'Nova Consulting'),
             'url' => $homeUrl,
-            'logo' => asset('images/Web_inverted.svg'),
+            'logo' => asset('images/nova_consulting_logo.svg'),
             'telephone' => '+52-961-146-5703',
             'email' => 'sales@novaconsulting.com',
             'address' => [
@@ -192,8 +192,9 @@ class SeoService
 
         $menuItems = [
             ['name' => 'Servicios', 'url' => url('/services')],
+            ['name' => 'Blog', 'url' => url('/blog')],
             ['name' => 'Contacto', 'url' => url('/contact')],
-            ['name' => 'Cotiza', 'url' => url('/get-a-quote')],
+            ['name' => 'Cotiza', 'url' => url('/cotizador-sitio-web')],
             ['name' => 'Inicia sesion', 'url' => url('/dashboard/login')],
             ['name' => 'FAQ', 'url' => url('/faq')],
         ];
@@ -295,6 +296,10 @@ class SeoService
         }
 
         $map = [
+            'blog.index' => [
+                ['name' => __('seo.breadcrumb.home'), 'url' => $homeUrl],
+                ['name' => __('seo.breadcrumb.blog'), 'url' => route('blog.index')],
+            ],
             'home' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
             ],
@@ -317,10 +322,6 @@ class SeoService
             'blog.cheap_labor' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'Blog', 'url' => url('/blog/mano-de-obra-barata')],
-            ],
-            'quotations' => [
-                ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Cotiza', 'url' => url('/get-a-quote')],
             ],
             'hiring_services' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],

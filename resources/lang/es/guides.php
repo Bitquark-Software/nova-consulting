@@ -100,7 +100,7 @@ return [
         ],
         'related' => [
             ['label' => '¿Cuánto cuesta una página web?', 'guide' => 'cuanto_pagina_web'],
-            ['label' => 'Cotizar proyecto', 'path' => '/get-a-quote'],
+            ['label' => 'Cotizar proyecto', 'path' => '/cotizador-sitio-web'],
             ['label' => 'Servicios de desarrollo', 'path' => '/services'],
         ],
         'lead_source' => 'guide-cuanto-aplicacion',
@@ -145,7 +145,7 @@ return [
         'related' => [
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
             ['label' => 'Cómo hacer una landing page', 'guide' => 'como_landing'],
-            ['label' => 'Cotizar proyecto', 'path' => '/get-a-quote'],
+            ['label' => 'Cotizar proyecto', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-que-es-landing',
     ],
@@ -250,7 +250,7 @@ return [
         'related' => [
             ['label' => '¿Qué es una landing page?', 'guide' => 'que_es_landing'],
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
-            ['label' => 'Cotizar con Nova Consulting', 'path' => '/get-a-quote'],
+            ['label' => 'Cotizar con Nova Consulting', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-como-landing',
     ],

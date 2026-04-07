@@ -115,4 +115,6 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'website_quote_recipient' => env('WEBSITE_QUOTE_RECIPIENT', 'idsfernandomorales@gmail.com'),
+
 ];

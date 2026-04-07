@@ -28,7 +28,7 @@
             <p class="mt-2 text-sm text-gray-300">{{ __('guides.shell.next_step_body') }}</p>
             <div class="mt-5 flex flex-col sm:flex-row gap-3">
                 <a href="https://wa.me/529611465703?text={{ urlencode(__('guides.shell.whatsapp_prefill')) }}" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-gray-100 transition-colors" data-track="guide_cta_whatsapp">{{ __('guides.shell.whatsapp') }}</a>
-                <a href="{{ route('quotations') }}" class="inline-flex justify-center items-center px-6 py-3 rounded-full border-2 border-white/40 font-semibold text-sm hover:bg-white/10 transition-colors" data-track="guide_cta_quote">{{ __('guides.shell.quote_online') }}</a>
+                <a href="{{ route('website_quote') }}" class="inline-flex justify-center items-center px-6 py-3 rounded-full border-2 border-white/40 font-semibold text-sm hover:bg-white/10 transition-colors" data-track="guide_cta_quote">{{ __('guides.shell.quote_online') }}</a>
             </div>
         </div>
 

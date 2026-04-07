@@ -100,7 +100,7 @@ return [
         ],
         'related' => [
             ['label' => 'How much does a website cost?', 'guide' => 'cuanto_pagina_web'],
-            ['label' => 'Request a quote', 'path' => '/get-a-quote'],
+            ['label' => 'Request a quote', 'path' => '/cotizador-sitio-web'],
             ['label' => 'Development services', 'path' => '/services'],
         ],
         'lead_source' => 'guide-cuanto-aplicacion',
@@ -145,7 +145,7 @@ return [
         'related' => [
             ['label' => 'How much does a landing page cost?', 'guide' => 'cuanto_landing'],
             ['label' => 'How to build a landing page', 'guide' => 'como_landing'],
-            ['label' => 'Request a quote', 'path' => '/get-a-quote'],
+            ['label' => 'Request a quote', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-que-es-landing',
     ],
@@ -250,7 +250,7 @@ return [
         'related' => [
             ['label' => 'What is a landing page?', 'guide' => 'que_es_landing'],
             ['label' => 'How much does a landing page cost?', 'guide' => 'cuanto_landing'],
-            ['label' => 'Get a quote with Nova Consulting', 'path' => '/get-a-quote'],
+            ['label' => 'Get a quote with Nova Consulting', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-como-landing',
     ],

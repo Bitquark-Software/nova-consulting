@@ -3,29 +3,6 @@ import './modals';
 import './mobileNav';
 import Alpine from 'alpinejs';
 
-document.addEventListener('alpine:init', () => {
-    Alpine.data('marketingNav', () => ({
-        open: false,
-        toggle() {
-            this.open = !this.open;
-            this._setScrollLock(this.open);
-        },
-        close() {
-            if (!this.open) {
-                return;
-            }
-            this.open = false;
-            this._setScrollLock(false);
-        },
-        _setScrollLock(on) {
-            document.documentElement.classList.toggle('marketing-nav-open', on);
-            document.body.classList.toggle('marketing-nav-open', on);
-            document.body.classList.toggle('overflow-hidden', on);
-        },
-    }));
-
-});
-
 window.Alpine = Alpine;
 
 Alpine.start();

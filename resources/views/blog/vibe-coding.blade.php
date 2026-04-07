@@ -10,7 +10,7 @@
             'description' => $bp['seo_description'],
             'type' => 'website',
             'url' => $canonical,
-            'image' => asset('images/og-default.png'),
+            'image' => asset('images/preview.png'),
         ],
     ];
 @endphp
@@ -18,7 +18,6 @@
 @extends('layouts.marketing')
 
 @section('nav_ga_section', 'nav-blog')
-@section('propuesta_href', url('/contact#propuesta'))
 
 @section('content')
 <div class="relative pt-28 sm:pt-32 pb-20 px-4 sm:px-6 overflow-hidden">
@@ -45,7 +44,7 @@
                    data-track="blog_vibe_coding_cta_contact">
                     {{ $bp['hero_cta_contact'] }}
                 </a>
-                <a href="{{ route('quotations') }}"
+                <a href="{{ route('website_quote') }}"
                    class="inline-flex justify-center items-center w-full sm:w-auto min-w-48 px-8 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold hover:bg-gray-50 transition-all"
                    data-track="blog_vibe_coding_cta_quote">
                     {{ $bp['hero_cta_quote'] }}
@@ -139,7 +138,7 @@
                    data-track="blog_vibe_coding_final_cta_contact">
                     {{ $bp['final_cta_contact'] }}
                 </a>
-                <a href="{{ route('quotations') }}"
+                <a href="{{ route('website_quote') }}"
                    class="inline-flex justify-center items-center w-full sm:w-auto min-w-48 px-8 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold hover:bg-gray-50 transition-all"
                    data-track="blog_vibe_coding_final_cta_quote">
                     {{ $bp['final_cta_quote'] }}

@@ -2,7 +2,6 @@
 @extends('layouts.marketing')
 
 @section('nav_ga_section', 'nav-home')
-@section('propuesta_href', '#diagnostico')
 
 @section('content')
             {{-- Hero bento --}}
@@ -147,38 +146,28 @@
                 </div>
             </section>
 
-            {{-- Por qué nosotros + testimonio --}}
+            {{-- Por qué nosotros --}}
             <section class="py-16 sm:py-20 px-4 sm:px-6 bg-white border-y border-gray-200" data-ga-section="why-home">
-                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="order-2 lg:order-1">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-black leading-tight">{{ __('messages.why_us.headline') }}</h2>
-                        <p class="mt-4 text-gray-600 text-lg font-light leading-relaxed">{{ __('messages.why_us.description') }}</p>
-                        <ul class="mt-8 space-y-5">
-                            <li class="flex gap-4">
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">1</span>
-                                <div>
-                                    <p class="font-bold text-black">{{ __('messages.why_us.point_1_title') }}</p>
-                                    <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_1_desc') }}</p>
-                                </div>
-                            </li>
-                            <li class="flex gap-4">
-                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">2</span>
-                                <div>
-                                    <p class="font-bold text-black">{{ __('messages.why_us.point_2_title') }}</p>
-                                    <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_2_desc') }}</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="{{ url('about') }}" class="mt-8 inline-flex font-semibold text-black border-b-2 border-black hover:text-gray-600 transition-colors" data-track="about_link_click">{{ __('messages.why_us.read_philosophy') }}</a>
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <div class="relative rounded-3xl border border-gray-200 bg-[#F2F2F2] p-8 sm:p-10 shadow-inner">
-                            <div class="absolute -top-3 -right-3 w-24 h-24 rounded-full bg-gray-300/40 blur-2xl"></div>
-                            <svg class="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            <p class="mt-4 text-lg text-gray-800 leading-relaxed font-serif italic">"{{ __('messages.testimonials.featured_quote') }}"</p>
-                            <p class="mt-4 text-xs font-bold uppercase tracking-widest text-gray-500">CEO, Creatico MX</p>
-                        </div>
-                    </div>
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-black leading-tight">{{ __('messages.why_us.headline') }}</h2>
+                    <p class="mt-4 text-gray-600 text-lg font-light leading-relaxed">{{ __('messages.why_us.description') }}</p>
+                    <ul class="mt-8 space-y-5">
+                        <li class="flex gap-4">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">1</span>
+                            <div>
+                                <p class="font-bold text-black">{{ __('messages.why_us.point_1_title') }}</p>
+                                <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_1_desc') }}</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">2</span>
+                            <div>
+                                <p class="font-bold text-black">{{ __('messages.why_us.point_2_title') }}</p>
+                                <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_2_desc') }}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="{{ url('about') }}" class="mt-8 inline-flex font-semibold text-black border-b-2 border-black hover:text-gray-600 transition-colors" data-track="about_link_click">{{ __('messages.why_us.read_philosophy') }}</a>
                 </div>
             </section>
 
@@ -196,28 +185,6 @@
                     <div class="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                         <h3 class="font-bold text-lg">Post-lanzamiento</h3>
                         <p class="mt-2 text-sm text-gray-600">Acompañamiento para estabilizar y evolucionar tu producto.</p>
-                    </div>
-                </div>
-            </section>
-
-            {{-- Testimonios grid --}}
-            <section class="py-16 sm:py-20 px-4 sm:px-6 bg-white" data-ga-section="testimonios-home">
-                <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-black">Testimonios</h2>
-                    <p class="mt-2 text-center text-gray-600 max-w-xl mx-auto">Resultados reales para negocios en la región.</p>
-                    <div class="mt-12 grid md:grid-cols-3 gap-5">
-                        <blockquote class="rounded-2xl border border-gray-200 bg-[#F2F2F2] p-6 hover:border-black/20 transition-colors">
-                            <p class="text-gray-800 text-sm leading-relaxed">"Nos ayudaron a digitalizar procesos comerciales y respondemos más rápido."</p>
-                            <cite class="mt-4 block text-xs font-bold text-gray-900 not-italic">Dirección Comercial, Tuxtla</cite>
-                        </blockquote>
-                        <blockquote class="rounded-2xl border border-gray-200 bg-[#F2F2F2] p-6 hover:border-black/20 transition-colors md:translate-y-4">
-                            <p class="text-gray-800 text-sm leading-relaxed">"El sitio nuevo mejoró nuestra imagen; empezamos a recibir contactos semanales."</p>
-                            <cite class="mt-4 block text-xs font-bold text-gray-900 not-italic">Gerencia, Chiapas</cite>
-                        </blockquote>
-                        <blockquote class="rounded-2xl border border-gray-200 bg-[#F2F2F2] p-6 hover:border-black/20 transition-colors">
-                            <p class="text-gray-800 text-sm leading-relaxed">"Claridad en tiempos, costos y alcance desde el inicio."</p>
-                            <cite class="mt-4 block text-xs font-bold text-gray-900 not-italic">Operaciones, Tuxtla</cite>
-                        </blockquote>
                     </div>
                 </div>
             </section>
