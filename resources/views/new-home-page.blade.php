@@ -1,226 +1,225 @@
-{{-- Nova Consulting — nueva interfaz homepage --}}
 @extends('layouts.marketing')
 
-@section('nav_ga_section', 'nav-home')
-
-@php
-    $homeSplineUrl = trim((string) config('spline.hero_scene_url', ''));
-@endphp
-@section('marketing_body_class', $homeSplineUrl !== '' ? 'home-spline-hero' : '')
-@if ($homeSplineUrl !== '')
-    @push('body_end')
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
-    @endpush
-@endif
+@section('nav_ga_section', 'nav-home-segmented')
 
 @section('content')
-            @include('partials.home-hero', ['splineUrl' => $homeSplineUrl])
+@php
+    $audiences = ['individual', 'smb', 'corporate'];
+    $defaultAudience = request()->query('audience', 'individual');
+    if (! in_array($defaultAudience, $audiences, true)) {
+        $defaultAudience = 'individual';
+    }
+@endphp
 
-            {{-- Hub ciudades --}}
-            <section class="py-10 px-4 sm:px-6" data-ga-section="ciudades-home">
-                <div class="max-w-6xl mx-auto">
-                    <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">Presencia en México</p>
-                    <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
-                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('gdl') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Guadalajara</a>
-                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('mty') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Monterrey</a>
-                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('cdmx') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Ciudad de México</a>
-                        <a href="{{ \App\Support\LocalizedUrls::citySoftware('merida') }}" class="px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 hover:border-black hover:shadow-md transition-all">Mérida</a>
-                    </div>
-                </div>
-            </section>
+<section class="pt-32 pb-20 px-4 sm:px-6" data-home-audience-root data-default-audience="{{ $defaultAudience }}" data-ga-section="home-audiences">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+            <div class="inline-flex rounded-full bg-white border border-gray-200 p-1 shadow-sm" role="tablist" aria-label="Project audience selector">
+                @foreach ($audiences as $audience)
+                    <button type="button" role="tab" data-audience-option="{{ $audience }}" class="rounded-full px-5 py-2 text-sm font-semibold transition-all text-gray-600">
+                        {{ __("home_audiences.selector.$audience") }}
+                    </button>
+                @endforeach
+            </div>
+        </div>
 
-            {{-- Guías SEO (precios y landings) --}}
-            <section class="py-8 px-4 sm:px-6" data-ga-section="guias-home">
-                <div class="max-w-6xl mx-auto text-center">
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Guías útiles</p>
-                    <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
-                        <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.cuanto_pagina_web.h1') }}</a>
-                        <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_aplicacion') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.cuanto_aplicacion.h1') }}</a>
-                        <a href="{{ \App\Support\LocalizedUrls::guide('que_es_landing') }}" class="text-gray-700 hover:text-black border-b border-transparent hover:border-black transition-colors">{{ __('guides.que_es_landing.h1') }}</a>
-                    </div>
-                </div>
-            </section>
-
-            {{-- Promo Chiapas --}}
-            <section class="py-10 px-4 sm:px-6" data-ga-section="promo-descuento-chiapas">
-                <div class="max-w-6xl mx-auto rounded-3xl overflow-hidden border border-gray-900/10 shadow-xl">
-                    <div class="marketing-border-shine p-[1px] rounded-3xl">
-                        <div class="rounded-[1.4rem] bg-black text-white px-6 py-10 sm:px-10 sm:py-12 text-center" data-marketing-nav-contrast="dark">
-                            <p class="text-xs uppercase tracking-[0.2em] text-gray-400">Promoción local</p>
-                            <h2 class="mt-3 text-2xl sm:text-4xl font-bold">Si tu negocio está en Tuxtla o Chiapas, 10% de descuento</h2>
-                            <p class="mt-4 text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
-                                Menciona <strong class="text-white">DESCUENTO CHIAPAS</strong> al contactarnos. Válido en proyectos nuevos de diseño web y software.
-                            </p>
-                            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-                                <a href="https://wa.me/529611465703" target="_blank" class="inline-flex justify-center px-8 py-3.5 rounded-full bg-white text-black font-semibold hover:bg-gray-100 transition-colors" data-track="promo_home_whatsapp_click">WhatsApp</a>
-                                <a href="tel:+529611465703" class="inline-flex justify-center px-8 py-3.5 rounded-full border-2 border-white font-semibold hover:bg-white/10 transition-colors" data-track="promo_home_phone_click">Llamar</a>
-                            </div>
+        @foreach ($audiences as $audience)
+            @php
+                $quoteUrl = url('/cotizador-sitio-web?audience=' . $audience);
+                $waUrl = 'https://wa.me/529611465703?text=' . urlencode(__('home_audiences.selector.' . $audience) . ' - ' . __('home_audiences.common.primary_cta'));
+            @endphp
+            <article data-audience-panel="{{ $audience }}" class="space-y-16">
+                <section class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div data-reveal-item class="reveal-item">
+                        <p class="text-xs uppercase tracking-[0.18em] font-semibold text-gray-500">{{ __("home_audiences.$audience.kicker") }}</p>
+                        <h1 class="mt-3 text-4xl sm:text-5xl font-bold leading-tight text-black">{{ __("home_audiences.$audience.title") }}</h1>
+                        <p class="mt-4 text-lg text-gray-600">{{ __("home_audiences.$audience.subtitle") }}</p>
+                        <div class="mt-6 flex items-center gap-2">
+                            <span class="text-sm text-gray-500">{{ __('home_audiences.common.starting_at') }}</span>
+                            <strong class="text-2xl text-black">{{ __("home_audiences.$audience.price") }}</strong>
+                        </div>
+                        <div class="mt-7 flex flex-wrap gap-3">
+                            <a href="{{ $quoteUrl }}" class="px-6 py-3 rounded-full bg-black text-white font-semibold hover:shadow-lg transition-all">{{ __('home_audiences.common.primary_cta') }}</a>
+                            <a target="_blank" href="{{ $waUrl }}" class="px-6 py-3 rounded-full border border-black font-semibold hover:bg-black hover:text-white transition-all">{{ __('home_audiences.common.secondary_cta') }}</a>
                         </div>
                     </div>
-                </div>
-            </section>
+                    <div data-reveal-item class="reveal-item">
+                        <div class="h-[360px] rounded-3xl border border-gray-200 bg-linear-to-br from-white to-gray-100 p-6 relative overflow-hidden">
+                            @if ($audience === 'individual')
+                                <div class="absolute inset-x-6 top-6 h-[300px]" style="perspective: 1600px;">
+                                    <div class="absolute left-1/2 bottom-8 h-[226px] w-[350px] -translate-x-1/2" data-hero-laptop style="transform-origin: center bottom;">
+                                        <div class="absolute left-5 top-0 h-[176px] w-[250px] rounded-[1.2rem] border border-[#0f1723] bg-linear-to-b from-[#2a3444] to-[#171d2a] p-[9px] shadow-[0_24px_45px_rgba(0,0,0,0.38)]">
+                                            <div class="h-full w-full overflow-hidden rounded-[0.85rem] border border-[#202a3b] bg-white">
+                                                <div class="flex h-7 items-center gap-1.5 border-b border-gray-200 bg-gray-50 px-3">
+                                                    <span class="h-2 w-2 rounded-full bg-green-300"></span>
+                                                    <span class="h-2 w-2 rounded-full bg-yellow-300"></span>
+                                                    <span class="h-2 w-2 rounded-full bg-red-300"></span>
+                                                </div>
+                                                <div class="px-3 py-3">
+                                                    <div class="h-3 w-20 rounded bg-gray-200"></div>
+                                                    <div class="mt-2 h-2 w-full rounded bg-gray-100"></div>
+                                                    <div class="mt-2 h-2 w-4/5 rounded bg-gray-100"></div>
+                                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                                        <div class="h-12 rounded border border-gray-100 bg-gray-50"></div>
+                                                        <div class="h-12 rounded border border-gray-100 bg-gray-50"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="absolute left-1/2 top-[3px] h-[3px] w-16 -translate-x-1/2 rounded-full bg-black/35"></div>
+                                        </div>
 
-            {{-- Servicios --}}
-            <section id="services" class="py-16 sm:py-20 px-4 sm:px-6" data-ga-section="services-home">
-                <div class="max-w-6xl mx-auto">
-                    <div class="max-w-2xl">
-                        <h2 class="text-3xl sm:text-4xl font-bold text-black">{{ __('messages.welcome.services_heading') }}</h2>
-                        <p class="mt-3 text-gray-600 text-lg">{{ __('messages.welcome.services_subheading') }}</p>
-                    </div>
-                    <div class="mt-12 grid md:grid-cols-3 gap-5">
-                        <article class="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                            <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">{{ __('messages.services_page.service_custom_title') }}</h3>
-                            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{{ __('messages.services_page.service_custom_sub') }}</p>
-                            <a href="{{ url('/dashboard/register') }}" class="mt-6 inline-flex items-center text-sm font-bold text-black group-hover:underline">{{ __('messages.services_page.cta_create_project') }} <span class="ml-1 transition-transform group-hover:translate-x-1">→</span></a>
-                        </article>
-                        <article class="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 md:mt-8">
-                            <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">{{ __('messages.services_page.service_it_staffing_title') }}</h3>
-                            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{{ __('messages.services_page.service_it_staffing_sub') }}</p>
-                            <a href="{{ url('/dashboard/register') }}" class="mt-6 inline-flex items-center text-sm font-bold text-black group-hover:underline">{{ __('messages.services_page.cta_assemble_team') }} <span class="ml-1 transition-transform group-hover:translate-x-1">→</span></a>
-                        </article>
-                        <article class="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                            <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-colors">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <h3 class="mt-5 text-xl font-bold">{{ __('messages.services_page.technical_consulting_title') }}</h3>
-                            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{{ __('messages.services_page.technical_consulting_subtitle') }}</p>
-                            <a target="_blank" href="https://calendar.app.google/b8nHVZEUCh1LdLcL8" class="mt-6 inline-flex items-center text-sm font-bold text-black group-hover:underline">{{ __('messages.services_page.cta_book_call') }} <span class="ml-1">→</span></a>
-                        </article>
-                    </div>
-                    <div class="mt-10 text-center">
-                        <a href="{{ route('services') }}" class="inline-flex items-center font-semibold text-black border-b-2 border-black pb-0.5 hover:text-gray-600 hover:border-gray-600 transition-colors">Ver todos los servicios</a>
-                    </div>
-                </div>
-            </section>
+                                        <div class="absolute left-[132px] top-[178px] h-9 w-8 rounded-sm bg-linear-to-b from-[#778091] to-[#5f6775]"></div>
+                                        <div class="absolute left-[112px] top-[208px] h-4 w-[48px] rounded-full bg-linear-to-b from-[#aeb5c2] to-[#8f98a8] shadow-md"></div>
 
-            {{-- Por qué nosotros --}}
-            <section class="py-16 sm:py-20 px-4 sm:px-6 bg-white border-y border-gray-200" data-ga-section="why-home">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-black leading-tight">{{ __('messages.why_us.headline') }}</h2>
-                    <p class="mt-4 text-gray-600 text-lg font-light leading-relaxed">{{ __('messages.why_us.description') }}</p>
-                    <ul class="mt-8 space-y-5">
-                        <li class="flex gap-4">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">1</span>
-                            <div>
-                                <p class="font-bold text-black">{{ __('messages.why_us.point_1_title') }}</p>
-                                <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_1_desc') }}</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-white text-sm font-bold">2</span>
-                            <div>
-                                <p class="font-bold text-black">{{ __('messages.why_us.point_2_title') }}</p>
-                                <p class="text-sm text-gray-600 mt-1">{{ __('messages.why_us.point_2_desc') }}</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="{{ url('about') }}" class="mt-8 inline-flex font-semibold text-black border-b-2 border-black hover:text-gray-600 transition-colors" data-track="about_link_click">{{ __('messages.why_us.read_philosophy') }}</a>
-                </div>
-            </section>
+                                        <div class="absolute right-1 top-30 h-[156px] w-[88px] rounded-[0.95rem] border border-[#1b2432] bg-linear-to-b from-[#2a3446] to-[#141b29] p-2 shadow-[0_20px_30px_rgba(0,0,0,0.35)]">
+                                            <div class="h-2 w-2 rounded-full bg-emerald-400/90"></div>
+                                            <div class="mt-3 space-y-1.5">
+                                                <div class="h-1.5 w-full rounded bg-white/20"></div>
+                                                <div class="h-1.5 w-4/5 rounded bg-white/15"></div>
+                                                <div class="h-1.5 w-3/5 rounded bg-white/15"></div>
+                                            </div>
+                                            <div class="absolute bottom-3 left-2 right-2 h-2 rounded bg-black/25"></div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute left-1/2 bottom-5 z-10 h-4 w-[350px] -translate-x-1/2 rounded-full bg-black/20 blur-md"></div>
+                                </div>
+                            @elseif ($audience === 'smb')
+                                <div data-hero-smb-laptop class="absolute left-7 top-16 w-[280px] h-[180px] rounded-2xl border border-gray-800 bg-linear-to-br from-[#1d2433] to-[#0f131d] p-3 shadow-2xl transition-transform duration-100">
+                                    <div class="relative w-full h-full rounded-xl bg-white overflow-hidden">
+                                        <div class="h-7 border-b border-gray-200 bg-gray-50"></div>
+                                        <div class="p-3">
+                                            <div class="h-3 w-28 rounded bg-gray-200"></div>
+                                            <div class="mt-3 h-2 w-full rounded bg-gray-100"></div>
+                                            <div class="mt-2 h-2 w-3/4 rounded bg-gray-100"></div>
+                                            <div class="mt-4 grid grid-cols-3 gap-2">
+                                                <div class="h-12 rounded bg-gray-50 border border-gray-100"></div>
+                                                <div class="h-12 rounded bg-gray-50 border border-gray-100"></div>
+                                                <div class="h-12 rounded bg-gray-50 border border-gray-100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-hero-phone class="absolute right-10 bottom-8 w-[112px] h-[214px] rounded-[1.8rem] border-[6px] border-black bg-linear-to-b from-gray-900 to-black p-2 shadow-2xl transition-transform duration-100">
+                                    <div class="relative w-full h-full rounded-[1.2rem] bg-white overflow-hidden">
+                                        <div class="absolute left-1/2 top-1 z-10 h-4 w-14 -translate-x-1/2 rounded-full bg-black"></div>
+                                        <div class="h-6 border-b border-gray-200 bg-gray-50"></div>
+                                        <div class="p-2">
+                                            <div class="h-2 w-14 rounded bg-gray-200"></div>
+                                            <div class="mt-2 h-2 w-full rounded bg-gray-100"></div>
+                                            <div class="mt-3 h-16 rounded bg-gray-50 border border-gray-100"></div>
+                                            <div class="mt-3 h-8 rounded bg-gray-100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="absolute h-56 w-72 rounded-full bg-gray-400/25 blur-2xl"></div>
+                                    <div data-hero-planet class="relative h-[260px] w-[320px] transition-transform duration-100">
+                                        <div class="absolute left-6 right-6 top-16 h-[120px] rounded-2xl border border-[#1e2532] bg-linear-to-b from-[#394355] to-[#1d2431] shadow-[0_22px_40px_rgba(0,0,0,0.35)]">
+                                            <div class="absolute left-1/2 top-[-14px] h-7 w-20 -translate-x-1/2 rounded-t-xl border border-[#1e2532] border-b-0 bg-linear-to-b from-[#4a5569] to-[#2a3241]"></div>
+                                            <div class="absolute left-4 right-4 bottom-4 h-10 rounded-lg border border-[#4a5569] bg-[#141a24]"></div>
+                                        </div>
 
-            {{-- Garantías --}}
-            <section class="py-16 px-4 sm:px-6" data-ga-section="garantias-home">
-                <div class="max-w-6xl mx-auto grid sm:grid-cols-3 gap-5">
-                    <div class="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                        <h3 class="font-bold text-lg">Propuesta en 24 horas</h3>
-                        <p class="mt-2 text-sm text-gray-600">Tras el primer contacto, recibes alcance y costos claros.</p>
-                    </div>
-                    <div class="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                        <h3 class="font-bold text-lg">Proceso por etapas</h3>
-                        <p class="mt-2 text-sm text-gray-600">Entregables visibles y decisiones documentadas.</p>
-                    </div>
-                    <div class="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                        <h3 class="font-bold text-lg">Post-lanzamiento</h3>
-                        <p class="mt-2 text-sm text-gray-600">Acompañamiento para estabilizar y evolucionar tu producto.</p>
-                    </div>
-                </div>
-            </section>
+                                        <div class="absolute left-2 top-0 h-[116px] w-[82px] rotate-[-9deg] rounded-md border border-gray-300 bg-white shadow-lg">
+                                            <div class="h-5 border-b border-gray-200 bg-gray-50 px-2 text-[8px] text-gray-500 flex items-center">{ }</div>
+                                            <div class="p-2 space-y-1">
+                                                <div class="h-1.5 w-full rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-4/5 rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-3/5 rounded bg-gray-300"></div>
+                                                <div class="h-1.5 w-full rounded bg-gray-200"></div>
+                                            </div>
+                                        </div>
 
-            {{-- FAQ --}}
-            <section class="py-16 sm:py-20 px-4 sm:px-6" data-ga-section="faq-home">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-black">FAQ</h2>
-                    <p class="mt-2 text-center text-gray-600">Tuxtla, Chiapas y proyectos remotos en México.</p>
-                    <div class="mt-10 space-y-3">
-                        <details class="group rounded-2xl border border-gray-200 bg-white open:shadow-md transition-shadow">
-                            <summary class="cursor-pointer list-none px-5 py-4 font-semibold flex items-center justify-between gap-4">
-                                <span>¿Cuánto tarda una página web profesional?</span>
-                                <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                            </summary>
-                            <div class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">Entre 2 y 6 semanas según alcance e integraciones.</div>
-                        </details>
-                        <details class="group rounded-2xl border border-gray-200 bg-white open:shadow-md transition-shadow">
-                            <summary class="cursor-pointer list-none px-5 py-4 font-semibold flex items-center justify-between gap-4">
-                                <span>¿Desarrollan software a medida?</span>
-                                <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                            </summary>
-                            <div class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">Sí: sistemas internos, paneles, automatizaciones y apps web.</div>
-                        </details>
-                        <details class="group rounded-2xl border border-gray-200 bg-white open:shadow-md transition-shadow">
-                            <summary class="cursor-pointer list-none px-5 py-4 font-semibold flex items-center justify-between gap-4">
-                                <span>¿Cómo funciona el 10% de descuento en Chiapas?</span>
-                                <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                            </summary>
-                            <div class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">Si operas en Tuxtla o Chiapas, aplica en la propuesta inicial mencionando DESCUENTO CHIAPAS.</div>
-                        </details>
-                        <details class="group rounded-2xl border border-gray-200 bg-white open:shadow-md transition-shadow">
-                            <summary class="cursor-pointer list-none px-5 py-4 font-semibold flex items-center justify-between gap-4">
-                                <span>¿Incluyen SEO para Google?</span>
-                                <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                            </summary>
-                            <div class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">Base técnica y estructura de contenido para búsqueda local.</div>
-                        </details>
-                        <details class="group rounded-2xl border border-gray-200 bg-white open:shadow-md transition-shadow">
-                            <summary class="cursor-pointer list-none px-5 py-4 font-semibold flex items-center justify-between gap-4">
-                                <span>¿Propuesta sin costo?</span>
-                                <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
-                            </summary>
-                            <div class="px-5 pb-4 text-sm text-gray-600 border-t border-gray-100 pt-3">Sí, tras una breve llamada de diagnóstico.</div>
-                        </details>
-                    </div>
-                </div>
-            </section>
+                                        <div class="absolute left-[116px] top-[-8px] h-[126px] w-[88px] rotate-2 rounded-md border border-gray-300 bg-white shadow-xl">
+                                            <div class="h-5 border-b border-gray-200 bg-gray-50 px-2 text-[8px] text-gray-500 flex items-center">&lt;/&gt;</div>
+                                            <div class="p-2 space-y-1">
+                                                <div class="h-1.5 w-5/6 rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-full rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-2/3 rounded bg-gray-300"></div>
+                                                <div class="h-1.5 w-4/5 rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-3/5 rounded bg-gray-300"></div>
+                                            </div>
+                                        </div>
 
-            @include('partials.lead-qualification-form', ['leadSource' => 'home'])
+                                        <div class="absolute right-2 top-4 h-[110px] w-[80px] rotate-10 rounded-md border border-gray-300 bg-white shadow-lg">
+                                            <div class="h-5 border-b border-gray-200 bg-gray-50 px-2 text-[8px] text-gray-500 flex items-center">fn()</div>
+                                            <div class="p-2 space-y-1">
+                                                <div class="h-1.5 w-full rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-3/4 rounded bg-gray-300"></div>
+                                                <div class="h-1.5 w-5/6 rounded bg-gray-200"></div>
+                                                <div class="h-1.5 w-2/3 rounded bg-gray-300"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </section>
 
-            {{-- Contacto --}}
-            <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-black text-white" data-ga-section="contact-home" data-marketing-nav-contrast="dark">
-                <div class="absolute inset-0 opacity-30 pointer-events-none">
-                    <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-gray-700 blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-gray-800 blur-3xl"></div>
-                </div>
-                <div class="relative max-w-6xl mx-auto z-10">
-                    <div class="text-center max-w-2xl mx-auto mb-14">
-                        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight">{{ __('messages.new_contact.pain_headline') }}</h2>
-                        <p class="mt-4 text-lg text-gray-400 font-light">{{ __('messages.new_contact.pain_subheadline') }}</p>
+                <section data-reveal-item class="reveal-item">
+                    <h2 class="text-3xl font-bold mb-6">{{ __('home_audiences.common.sections_title') }}</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        @foreach (__('home_audiences.' . $audience . '.sections') as $item)
+                            <article class="rounded-2xl bg-white border border-gray-200 p-6 hover:shadow-lg transition-all">
+                                <h3 class="font-semibold text-lg">{{ $item['title'] }}</h3>
+                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">{{ $item['body'] }}</p>
+                            </article>
+                        @endforeach
                     </div>
-                    <div class="grid md:grid-cols-3 gap-5">
-                        <a href="tel:+529611465703" class="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all" data-track="home_phone_click">
-                            <span class="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            </span>
-                            <span class="font-semibold">{{ __('messages.new_contact.phone_title') }}</span>
-                            <span class="mt-3 text-xl font-bold">+52 (961) 146-5703</span>
-                        </a>
-                        <a href="https://wa.me/529611465703" target="_blank" class="flex flex-col items-center text-center p-8 rounded-2xl border-2 border-white/30 bg-white text-black hover:scale-[1.02] transition-transform shadow-xl" data-track="home_whatsapp_click">
-                            <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">{{ __('messages.new_contact.recommended') }}</span>
-                            <span class="font-semibold text-gray-900">{{ __('messages.new_contact.whatsapp_title') }}</span>
-                            <span class="mt-4 inline-flex px-6 py-2.5 rounded-full bg-black text-white text-sm font-semibold">{{ __('messages.new_contact.whatsapp_action') }}</span>
-                        </a>
-                        <a href="mailto:sales@novaconsulting.com.mx" class="flex flex-col items-center text-center p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all" data-track="home_email_click">
-                            <span class="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            </span>
-                            <span class="font-semibold">{{ __('messages.new_contact.email_title') }}</span>
-                            <span class="mt-3 text-sm border-b border-gray-500 pb-0.5">sales@novaconsulting.com.mx</span>
-                        </a>
+                </section>
+
+                <section data-reveal-item class="reveal-item grid lg:grid-cols-2 gap-5">
+                    <div class="rounded-2xl bg-white border border-gray-200 p-6">
+                        <h3 class="text-2xl font-bold mb-4">{{ __('home_audiences.common.process_title') }}</h3>
+                        <ul class="space-y-3">
+                            @foreach (__('home_audiences.' . $audience . '.process') as $step)
+                                <li class="flex gap-3 text-sm text-gray-700"><span class="font-semibold text-black">•</span><span>{{ $step }}</span></li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div>
-            </section>
+                    <div class="rounded-2xl bg-white border border-gray-200 p-6">
+                        <h3 class="text-2xl font-bold mb-4">{{ __('home_audiences.common.faq_title') }}</h3>
+                        <div class="space-y-3">
+                            @foreach (__('home_audiences.' . $audience . '.faq') as $faq)
+                                <details class="rounded-xl border border-gray-100 p-4">
+                                    <summary class="font-semibold cursor-pointer">{{ $faq['q'] }}</summary>
+                                    <p class="mt-2 text-sm text-gray-600">{{ $faq['a'] }}</p>
+                                </details>
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+
+                <section data-reveal-item class="reveal-item rounded-3xl bg-black text-white px-7 py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5" data-marketing-nav-contrast="dark">
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ __('home_audiences.common.final_cta_title') }}</h3>
+                        <p class="mt-2 text-gray-300">{{ __('home_audiences.common.final_cta_body') }}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="{{ $quoteUrl }}" class="px-6 py-3 rounded-full bg-white text-black font-semibold">{{ __('home_audiences.common.primary_cta') }}</a>
+                        <a target="_blank" href="{{ $waUrl }}" class="px-6 py-3 rounded-full border border-white font-semibold">{{ __('home_audiences.common.secondary_cta') }}</a>
+                    </div>
+                </section>
+            </article>
+        @endforeach
+
+        <input type="hidden" data-audience-input name="audience" value="{{ $defaultAudience }}">
+    </div>
+</section>
+
+@include('partials.lead-qualification-form', ['leadSource' => 'home'])
+
+<style>
+    .reveal-item {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .reveal-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
 @endsection
