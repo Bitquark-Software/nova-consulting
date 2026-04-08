@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WebsiteQuoteController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/sitemap.xml', SitemapController::class);
 
 Route::get('/', function () {
     // return view('welcome');

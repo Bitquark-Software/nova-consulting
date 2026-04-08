@@ -47,12 +47,19 @@ class AdminPanelProvider extends PanelProvider
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
                 function (): string {
+                    $path = request()->path();
+                    $guestAuthPaths = str_starts_with($path, 'dashboard/login')
+                        || str_starts_with($path, 'dashboard/register');
+                    $robotsMeta = $guestAuthPaths
+                        ? '<meta name="robots" content="noindex, follow">'."\n"
+                        : '';
+
                     $host = strtolower((string) request()->getHost());
                     if (in_array($host, ['localhost', '127.0.0.1', '::1'], true)) {
-                        return '';
+                        return $robotsMeta;
                     }
 
-                    return <<<'HTML'
+                    return $robotsMeta.<<<'HTML'
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
