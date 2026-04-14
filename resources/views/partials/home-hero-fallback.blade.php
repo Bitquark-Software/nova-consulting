@@ -62,14 +62,14 @@
 
         <div class="pointer-events-auto mt-8 grid gap-3 rounded-2xl border border-gray-200/80 bg-white/75 p-4 shadow-lg backdrop-blur-md sm:grid-cols-2 sm:gap-4 sm:p-5 marketing-hero-in-delay lg:mt-10">
             <div class="rounded-xl border border-gray-100 bg-white/90 p-4 sm:p-5">
-                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Tuxtla Gutiérrez, Chiapas</p>
-                <h2 class="mt-2 text-lg font-bold text-black sm:text-xl">Software y diseño web con impacto local</h2>
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.new_branding.location_badge') }}</p>
+                <h2 class="mt-2 text-lg font-bold text-black sm:text-xl">{{ __('messages.new_branding.local_headline') }}</h2>
                 <p class="mt-2 text-sm leading-relaxed text-gray-600">
-                    También trabajamos con empresas en todo México de forma remota.
+                    {{ __('messages.new_branding.local_sub') }}
                 </p>
                 <div class="mt-3 flex flex-wrap gap-2">
-                    <a href="{{ url('/empresa-software-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_software">Tuxtla</a>
-                    <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_web">Diseño web</a>
+                    <a href="{{ url('/empresa-software-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_software">{{ __('messages.new_branding.local_link_software') }}</a>
+                    <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_web">{{ __('messages.new_branding.local_link_web') }}</a>
                 </div>
             </div>
             <div class="flex h-full min-h-[7rem] flex-col items-center justify-center rounded-xl border border-gray-800/20 bg-gradient-to-br from-[#2C2C2C] to-gray-800 p-4 text-white sm:min-h-0 sm:p-5" data-marketing-nav-contrast="dark">
