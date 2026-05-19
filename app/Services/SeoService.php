@@ -147,16 +147,38 @@ class SeoService
         $org = [
             '@id' => $orgId,
             '@type' => 'LocalBusiness',
-            'name' => config('app.name', 'Nova Consulting'),
+            'name' => 'Nova Consulting',
             'url' => $homeUrl,
             'logo' => asset('images/nova_consulting_logo.svg'),
             'telephone' => '+52-961-146-5703',
             'email' => 'sales@novaconsulting.com',
+            'priceRange' => '$MX',
             'address' => [
                 '@type' => 'PostalAddress',
+                'streetAddress' => 'Avenida Chihuahua 1067',
                 'addressLocality' => 'Tuxtla Gutierrez',
                 'addressRegion' => 'Chiapas',
+                'postalCode' => '29020',
                 'addressCountry' => 'MX',
+            ],
+            'openingHoursSpecification' => [
+                [
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => [
+                        'Monday',
+                        'Tuesday',
+                        'Wednesday',
+                        'Thursday',
+                        'Friday',
+                    ],
+                    'opens' => '09:00',
+                    'closes' => '18:00',
+                ],
+            ],
+            'geo' => [
+                '@type' => 'GeoCoordinates',
+                'latitude' => '16.7685447',
+                'longitude' => '-93.1864023',
             ],
             'areaServed' => [
                 [

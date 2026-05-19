@@ -7,7 +7,6 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="preload" href="/fonts/instrument-sans/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
         @php
             $analyticsHost = strtolower((string) request()->getHost());
             $shouldLoadGoogleAnalytics = ! in_array($analyticsHost, ['localhost', '127.0.0.1', '::1'], true);

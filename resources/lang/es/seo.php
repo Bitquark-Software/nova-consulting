@@ -20,13 +20,13 @@ return [
     ],
 
     'default' => [
-        'title' => 'Nova Consulting — Desarrolladora De Software En Tuxtla Gutiérrez, Chiapas',
-        'description' => 'Nova Consulting ofrece desarrollo de software a medida, personal de TI, infraestructura en la nube y consultoría técnica para ayudar a las empresas modernas a escalar.',
-        'keywords' => 'software a medida, personal TI, nube, devops, consultoría de software, QA, integración de sistemas',
+        'title' => 'Páginas web y software en Tuxtla Gutiérrez, Chiapas | Nova Consulting',
+        'description' => 'Páginas web y software en Tuxtla Gutiérrez, Chiapas. Nova Consulting ofrece desarrollo de software a medida, personal de TI, infraestructura en la nube y consultoría técnica para ayudar a las empresas modernas a escalar.',
+        'keywords' => 'paginas web, tuxtla gutierrez, software a medida, personal TI, nube, devops, consultoría de software, QA, integración de sistemas',
     ],
 
     'home' => [
-        'title' => 'Empresa de software en Tuxtla Gutiérrez, Chiapas | Nova Consulting',
+        'title' => 'Páginas web y software en Tuxtla Gutiérrez, Chiapas | Nova Consulting',
         'description' => 'Empresa de software en Tuxtla Gutiérrez, Chiapas. Diseñamos paginas web, sistemas a medida y soluciones digitales para empresas locales.',
         'keywords' => 'empresas de software en tuxtla, empresas de software en chiapas, diseño de paginas web en tuxtla, diseño de paginas web en chiapas, desarrollo de software en tuxtla, agencia de software en chiapas',
     ],
