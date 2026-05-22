@@ -3,7 +3,7 @@
     $leadFormSectionId = $leadFormSectionId ?? 'diagnostico';
 @endphp
 
-<section id="{{ $leadFormSectionId }}" class="max-w-4xl mx-auto mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative overflow-hidden">
+<section id="{{ $leadFormSectionId }}" class="max-w-4xl mx-auto mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative">
     
     <!-- Progress Bar -->
     <div class="absolute top-0 left-0 w-full h-1.5 bg-gray-100">
@@ -18,6 +18,16 @@
     </div>
 
     <form id="interactive-lead-form" class="relative min-h-[400px]" data-lead-form="true" data-lead-source="{{ $leadSource }}">
+
+        <!-- Mobile sticky nav (steps 1–2 only; hidden on final submit step) -->
+        <div id="lead-form-mobile-nav" class="md:hidden sticky top-0 z-20 -mx-8 px-8 py-3 mb-4 bg-white/95 backdrop-blur-sm border-b border-gray-100 flex justify-between items-center gap-3">
+            <button type="button" id="mobile-btn-prev" class="btn-prev shrink-0 text-gray-500 font-medium hover:text-black transition-colors invisible pointer-events-none">
+                ← Volver
+            </button>
+            <button type="button" id="mobile-btn-next" class="btn-next-mobile flex-1 max-w-xs ml-auto px-6 py-3 bg-black text-white rounded-xl font-bold tracking-wide opacity-50 cursor-not-allowed pointer-events-none transition-opacity text-center" disabled>
+                Continuar →
+            </button>
+        </div>
         
         <!-- Hidden Inputs for Backend Compatibility -->
         <input type="hidden" name="service" id="hidden-service" required>
@@ -48,7 +58,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="mt-8 flex justify-center">
+            <div class="mt-8 hidden md:flex justify-center step-nav-desktop">
                 <button type="button" class="btn-next opacity-50 cursor-not-allowed px-8 py-4 bg-black text-white rounded-xl font-bold tracking-wide pointer-events-none transition-opacity" disabled>
                     Continuar →
                 </button>
@@ -99,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="mt-10 flex justify-between items-center border-t border-gray-100 pt-6">
+            <div class="mt-10 hidden md:flex justify-between items-center border-t border-gray-100 pt-6 step-nav-desktop">
                 <button type="button" class="btn-prev text-gray-500 font-medium hover:text-black transition-colors">← Volver</button>
                 <button type="button" class="btn-next px-8 py-4 bg-black text-white rounded-xl font-bold tracking-wide opacity-50 cursor-not-allowed pointer-events-none transition-opacity" disabled>
                     Último paso →
@@ -131,8 +141,8 @@
             
             <div class="mt-8 flex justify-between items-center border-t border-gray-100 pt-6">
                 <button type="button" class="btn-prev text-gray-500 font-medium hover:text-black transition-colors">← Volver</button>
-                <div class="flex gap-4">
-                    <button type="submit" class="px-8 py-4 rounded-xl bg-black text-white font-bold tracking-wide hover:bg-gray-900 transition-colors shadow-lg" data-track="lead_form_submit">
+                <div class="flex gap-4 w-full md:w-auto justify-end">
+                    <button type="submit" class="w-full md:w-auto px-8 py-4 rounded-xl bg-black text-white font-bold tracking-wide hover:bg-gray-900 transition-colors shadow-lg" data-track="lead_form_submit">
                         {{ __('messages.lead_form.submit_button') }}
                     </button>
                 </div>
@@ -171,17 +181,65 @@
         const hiddenBudget = document.getElementById('hidden-budget');
         const hiddenUrgency = document.getElementById('hidden-urgency');
 
+        const mobileNav = document.getElementById('lead-form-mobile-nav');
+        const mobileBtnPrev = document.getElementById('mobile-btn-prev');
+        const mobileBtnNext = document.getElementById('mobile-btn-next');
+        const nextLabels = ['Continuar →', 'Último paso →'];
+
+        function getActiveNextBtn() {
+            return steps[currentStep]?.querySelector('.btn-next') ?? null;
+        }
+
+        function syncMobileNav() {
+            if (!mobileNav) return;
+
+            const isLastStep = currentStep === steps.length - 1;
+            mobileNav.classList.toggle('hidden', isLastStep);
+
+            if (isLastStep) return;
+
+            mobileBtnNext.textContent = nextLabels[currentStep] ?? 'Continuar →';
+
+            const showPrev = currentStep > 0;
+            mobileBtnPrev.classList.toggle('invisible', !showPrev);
+            mobileBtnPrev.classList.toggle('pointer-events-none', !showPrev);
+
+            const desktopNext = getActiveNextBtn();
+            const stepReady = currentStep === 0
+                ? Boolean(hiddenService.value)
+                : Boolean(hiddenBudget.value && hiddenUrgency.value);
+
+            if (stepReady) {
+                enableNextBtn(desktopNext);
+                enableNextBtn(mobileBtnNext);
+            } else {
+                disableNextBtn(desktopNext);
+                disableNextBtn(mobileBtnNext);
+            }
+        }
+
+        function goNext() {
+            if (currentStep >= steps.length - 1) return;
+            const activeNext = getActiveNextBtn();
+            if (activeNext?.disabled) return;
+            currentStep++;
+            updateUI();
+        }
+
+        function goPrev() {
+            if (currentStep <= 0) return;
+            currentStep--;
+            updateUI();
+        }
+
         function updateUI() {
-            // Update Progress Bar
             progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
             titleEl.textContent = titles[currentStep];
 
-            // Transition Steps
             steps.forEach((step, index) => {
                 if (index === currentStep) {
                     step.classList.remove('opacity-0', 'translate-x-[100%]', '-translate-x-[100%]', 'pointer-events-none');
                     step.classList.add('opacity-100', 'translate-x-0');
-                    // Reset height of parent
                     setTimeout(() => { form.style.minHeight = step.offsetHeight + 50 + 'px'; }, 50);
                 } else if (index < currentStep) {
                     step.classList.remove('opacity-100', 'translate-x-0', 'translate-x-[100%]');
@@ -191,67 +249,69 @@
                     step.classList.add('opacity-0', 'translate-x-[100%]', 'pointer-events-none');
                 }
             });
+
+            syncMobileNav();
         }
 
-        // Selection Logic for Cards
         function setupSelection(cardsClass, hiddenInput, nextBtnOfStep) {
             const cards = document.querySelectorAll(`.${cardsClass}`);
             cards.forEach(card => {
                 card.addEventListener('click', () => {
-                    // Remove active state from all
                     cards.forEach(c => {
                         c.classList.remove('border-black', 'bg-gray-50', 'ring-2', 'ring-black');
                         c.classList.add('border-gray-100');
                     });
-                    // Add active state to clicked
                     card.classList.remove('border-gray-100');
                     card.classList.add('border-black', 'bg-gray-50', 'ring-2', 'ring-black');
-                    
-                    // Set value
+
                     hiddenInput.value = card.dataset.value;
-                    
-                    // Enable next button if conditions met
+
                     if (cardsClass === 'service-card' && hiddenService.value) {
                         enableNextBtn(nextBtnOfStep);
+                        enableNextBtn(mobileBtnNext);
+                        setTimeout(() => {
+                            if (currentStep === 0 && hiddenService.value) goNext();
+                        }, 400);
                     } else if (cardsClass !== 'service-card' && hiddenBudget.value && hiddenUrgency.value) {
                         enableNextBtn(nextBtnOfStep);
+                        enableNextBtn(mobileBtnNext);
+                        setTimeout(() => {
+                            if (currentStep === 1 && hiddenBudget.value && hiddenUrgency.value) goNext();
+                        }, 400);
                     }
                 });
             });
         }
 
         function enableNextBtn(btn) {
-            if(!btn) return;
+            if (!btn) return;
             btn.disabled = false;
             btn.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
             btn.classList.add('hover:bg-gray-800');
         }
 
-        // Setup Steps
+        function disableNextBtn(btn) {
+            if (!btn) return;
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+            btn.classList.remove('hover:bg-gray-800');
+        }
+
         setupSelection('service-card', hiddenService, steps[0].querySelector('.btn-next'));
         setupSelection('budget-card', hiddenBudget, steps[1].querySelector('.btn-next'));
         setupSelection('urgency-card', hiddenUrgency, steps[1].querySelector('.btn-next'));
 
-        // Navigation
         document.querySelectorAll('.btn-next').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    updateUI();
-                }
-            });
+            btn.addEventListener('click', goNext);
         });
 
         document.querySelectorAll('.btn-prev').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep > 0) {
-                    currentStep--;
-                    updateUI();
-                }
-            });
+            btn.addEventListener('click', goPrev);
         });
 
-        // Initialize height
+        mobileBtnNext?.addEventListener('click', goNext);
+        mobileBtnPrev?.addEventListener('click', goPrev);
+
         setTimeout(() => updateUI(), 100);
     });
 </script>
