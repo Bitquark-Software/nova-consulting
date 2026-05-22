@@ -14,6 +14,12 @@ return [
         'title' => 'Custom Software Development & IT Solutions',
         'subtitle' => 'At Nova Consulting, we create high-impact technological solutions to boost businesses in Tuxtla Gutierrez and throughout Mexico. We specialize in transforming complex ideas into robust, scalable, and results-oriented digital platforms.',
         'description' => 'From initial analysis and architecture design to final deployment and maintenance. We work side by side with your team to ensure every digital product adds real value and efficiency to your business model.',
+        'list' => [
+            'Web',
+            'Custom Software',
+            'IT Support',
+            'Consulting',
+        ],
     ],
     'common' => [
         'starting_at' => 'Starting at',

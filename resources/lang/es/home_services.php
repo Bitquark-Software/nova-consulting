@@ -14,6 +14,12 @@ return [
         'title' => 'Desarrollo de Software y Soluciones a la Medida',
         'subtitle' => 'En Nova Consulting creamos soluciones tecnológicas de alto impacto para impulsar empresas en Tuxtla Gutiérrez y todo México. Nos especializamos en transformar ideas complejas en plataformas digitales robustas, escalables y orientadas a resultados.',
         'description' => 'Desde el análisis inicial y diseño de arquitectura, hasta el despliegue final y mantenimiento. Trabajamos codo a codo con tu equipo para asegurar que cada producto digital aporte valor real y eficiencia a tu modelo de negocio.',
+        'list' => [
+            'Web',
+            'A la medida',
+            'Soporte Técnico',
+            'Consultoría',
+        ],
     ],
     'common' => [
         'starting_at' => 'Desde',

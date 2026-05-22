@@ -11,61 +11,23 @@
 <div id="magnetic-cursor" class="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-black pointer-events-none z-[100] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block"></div>
 <div id="magnetic-cursor-dot" class="fixed top-0 left-0 w-2 h-2 rounded-full bg-black pointer-events-none z-[100] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out hidden md:block"></div>
 
-<!-- HERO 200VH: Scroll Reveal Narrative -->
-<section class="relative h-[110vh] w-full bg-[#FAFAFA]" id="hero-scroll-container">
-    <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden px-6">
-        
-        <div class="relative w-full max-w-5xl h-auto min-h-[300px] flex items-center justify-center">
-            
-            <!-- STEP 1: Title -->
-            <div id="hero-step-1" class="absolute w-full flex flex-col items-center text-center">
-                <p class="text-sm md:text-base font-bold tracking-[0.25em] uppercase text-gray-500 mb-6">
-                    {{ __('home_services.hero.kicker') }}
-                </p>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-black tracking-tight leading-tight">
-                    {{ __('home_services.hero.title') }}
-                </h1>
-            </div>
-
-            <!-- STEP 2: Subtitle -->
-            <div id="hero-step-2" class="absolute w-full flex flex-col items-center text-center opacity-0 translate-y-24 pointer-events-none">
-                <p class="text-2xl md:text-4xl font-bold text-black tracking-tight leading-relaxed max-w-4xl">
-                    {{ __('home_services.hero.subtitle') }}
-                </p>
-            </div>
-
-            <!-- STEP 3: Description -->
-            <div id="hero-step-3" class="absolute w-full flex flex-col items-center text-center opacity-0 translate-y-24 pointer-events-none">
-                <p class="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl">
-                    {{ __('home_services.hero.description') }}
-                </p>
-            </div>
-
+<!-- HERO FULLSCREEN — tall track + sticky viewport (no GSAP pin spacer) -->
+<section class="home-lottie-scroll-track relative w-full bg-[#FAFAFA]" id="hero-section">
+    <div class="sticky top-0 left-0 w-screen h-dvh max-h-dvh overflow-hidden isolate">
+        <!-- Lottie fills entire viewport -->
+        <div class="home-lottie-fullbleed pointer-events-none">
+            <div id="lottie-mac-hero" class="w-full h-full lottie-scroll-pending"></div>
         </div>
 
-        <div id="hero-particles" class="absolute inset-0 pointer-events-none w-full h-full flex items-center justify-center opacity-100">
-            <!-- Code Particles -->
-            <div class="absolute top-[20%] left-[15%] text-2xl font-mono text-gray-300 font-bold opacity-60" style="animation: float 4s ease-in-out infinite;">&#123; &#125;</div>
-            <div class="absolute top-[60%] left-[10%] text-xl font-mono text-gray-300 font-bold opacity-40" style="animation: float 5s ease-in-out infinite reverse;">&lt;/&gt;</div>
-            <div class="absolute top-[30%] right-[20%] text-2xl font-mono text-gray-300 font-bold opacity-50" style="animation: float 6s ease-in-out infinite;">() =&gt;</div>
-            <div class="absolute top-[70%] right-[15%] text-3xl font-mono text-gray-300 font-bold opacity-30" style="animation: float 4.5s ease-in-out infinite reverse;">;</div>
-            <div class="absolute bottom-[20%] left-[30%] text-lg font-mono text-gray-300 font-bold opacity-40" style="animation: float 5.5s ease-in-out infinite;">~/</div>
-            <div class="absolute top-[15%] left-[60%] text-xl font-mono text-gray-300 font-bold opacity-50" style="animation: float 6.5s ease-in-out infinite reverse;">$</div>
-            <div class="absolute bottom-[30%] right-[30%] text-2xl font-mono text-gray-300 font-bold opacity-40" style="animation: float 7s ease-in-out infinite;">#</div>
-        </div>
+        <h1 id="hero-title" class="absolute top-[25%] left-10 md:left-12 text-3xl md:text-5xl font-extrabold text-black tracking-tight z-10 opacity-0 -translate-x-10">
+            Nova consulting
+        </h1>
 
-        <div id="hero-assets" class="absolute inset-0 pointer-events-none w-full h-full flex items-center justify-center opacity-0 scale-50 -z-10">
-            <!-- 3D elements or abstract shapes floating -->
-            <div class="absolute w-96 h-96 bg-gradient-to-tr from-gray-200 to-gray-300 rounded-full blur-3xl opacity-50 top-1/4 left-1/4"></div>
-            <div class="absolute w-80 h-80 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full blur-3xl opacity-50 bottom-1/4 right-1/4"></div>
-        </div>
-        
-        <div id="scroll-indicator" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-            <span class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-3">Scroll</span>
-            <div class="w-[1px] h-12 bg-gray-200 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1/2 bg-black" style="animation: slideDown 1.5s infinite;"></div>
-            </div>
-        </div>
+        <ul id="hero-list" class="absolute top-[calc(25%+4rem)] md:top-[calc(25%+5rem)] left-10 md:left-12 text-xl md:text-3xl font-bold text-gray-700 tracking-tight z-10 opacity-0 -translate-x-10 space-y-1">
+            @foreach(__('home_services.hero.list') as $item)
+                <li>• {{ $item }}</li>
+            @endforeach
+        </ul>
     </div>
 </section>
 
@@ -83,8 +45,16 @@
         $btnSecondary = 'border-black text-black hover:bg-black hover:text-white';
     @endphp
 
-    <section class="service-section relative py-24 w-full border-b border-gray-100 last:border-0 {{ $bgClass }}" id="service-{{ $service }}">
-        <div class="w-full flex items-center overflow-hidden px-6 lg:px-16">
+    <section class="service-section relative w-full border-b border-gray-100 last:border-0 {{ $bgClass }} @if(in_array($service, ['software', 'web'], true)) home-lottie-scroll-track py-0 @else py-24 @endif" id="service-{{ $service }}">
+        @if(in_array($service, ['software', 'web'], true))
+        <div class="sticky top-0 left-0 w-screen h-dvh max-h-dvh overflow-hidden isolate">
+            <div class="home-lottie-fullbleed pointer-events-none">
+                <div id="lottie-{{ $service }}-hero" class="w-full h-full lottie-scroll-pending"></div>
+            </div>
+            <div class="relative z-10 w-full h-dvh flex items-center overflow-hidden px-6 lg:px-16">
+        @else
+            <div class="w-full flex items-center overflow-hidden px-6 lg:px-16 relative z-10">
+        @endif
             <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 
                 <!-- Text Content -->
@@ -221,22 +191,30 @@
                             </div>
                         @else
                             <!-- Remote Support: Hand interacting with computer -->
-                            <div class="relative w-80 h-64 flex items-center justify-center remote-mockup">
-                                <!-- Clean Laptop -->
-                                <div class="absolute bottom-8 w-56 h-36 bg-gray-100 border-[6px] border-gray-800 rounded-t-xl flex flex-col shadow-lg">
-                                    <div class="flex-1 bg-white flex items-center justify-center">
-                                        <div class="w-16 h-16 rounded-full bg-blue-50 border-4 border-blue-100 flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-blue-500 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <div class="relative w-80 h-64 flex items-center justify-center">
+                                <div class="remote-mockup relative w-full h-full flex items-center justify-center">
+                                    <!-- Clean Laptop -->
+                                    <div class="absolute bottom-8 w-56 h-36 bg-gray-100 border-[6px] border-gray-800 rounded-t-xl flex flex-col shadow-lg">
+                                        <div class="flex-1 bg-white flex items-center justify-center">
+                                            <div class="w-16 h-16 rounded-full bg-blue-50 border-4 border-blue-100 flex items-center justify-center">
+                                                <svg class="w-8 h-8 text-blue-500 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                            </div>
                                         </div>
+                                        <div class="h-4 bg-gray-800 w-[120%] -ml-[10%] rounded-b-xl"></div>
                                     </div>
-                                    <div class="h-4 bg-gray-800 w-[120%] -ml-[10%] rounded-b-xl"></div>
                                 </div>
-                                
-                                <!-- 3D Hand Cursor -->
-                                <div class="absolute top-4 right-10 w-24 h-24 animate-[float_3s_ease-in-out_infinite]">
-                                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-2xl">
-                                        <!-- A stylized pointer/hand -->
-                                        <path d="M40 20 L40 60 L30 50 C25 45 15 50 20 60 L45 90 C50 95 60 95 70 85 L85 60 C90 50 85 40 75 40 L65 45 L65 30 C65 25 55 25 55 30 L55 40 L55 25 C55 20 45 20 45 25 L45 40 L45 20 C45 15 40 15 40 20 Z" fill="white" stroke="black" stroke-width="4" stroke-linejoin="round"/>
+
+                                <!-- Pointer hand (outside mockup so GSAP scale does not distort it) -->
+                                <div class="remote-hand pointer-events-none absolute top-2 right-6 w-20 h-20" aria-hidden="true">
+                                    <svg viewBox="0 0 72 72" class="w-full h-full drop-shadow-2xl">
+                                        <path
+                                            fill="#ffffff"
+                                            stroke="#171717"
+                                            stroke-width="2.5"
+                                            stroke-linejoin="round"
+                                            stroke-linecap="round"
+                                            d="M36 10c-3.3 0-6 2.7-6 6v18.2l-8.1-7.3c-4-3.6-10.4-1-10.4 4.6 0 1.6.5 3.1 1.3 4.4l19.5 27.5c3 4.2 7.8 6.9 13.1 6.9h11.4c8.2 0 14.8-6.6 14.8-14.8V38.4c0-3.7-3-6.7-6.7-6.7s-6.7 3-6.7 6.7v-2.7c0-3.7-3-6.7-6.7-6.7s-6.7 3-6.7 6.7V35c0-3.7-3-6.7-6.7-6.7s-6.7 3-6.7 6.7v16.4l-1.9-1.6c-2.4-2-6-.4-6 2.4v.4l.5.7c.9 1.2 2.2 1.9 3.6 1.9h2.1V16c0-3.3-2.7-6-6-6z"
+                                        />
                                     </svg>
                                 </div>
                             </div>
@@ -245,6 +223,9 @@
                 </div>
             </div>
         </div>
+        @if(in_array($service, ['software', 'web'], true))
+            </div>
+        @endif
     </section>
 @endforeach
 
@@ -253,6 +234,11 @@
 </div>
 
 <style>
+    /* Sticky scroll tracks require visible overflow on <main> */
+    main:has(#hero-section) {
+        overflow: visible;
+    }
+
     @keyframes slideDown {
         0% { transform: translateY(-100%); }
         100% { transform: translateY(200%); }
@@ -260,6 +246,11 @@
     @keyframes float {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-15px); }
+    }
+
+    .remote-hand {
+        animation: float 3s ease-in-out infinite;
+        will-change: transform;
     }
     
     body {
@@ -275,15 +266,191 @@
     .magnetic-btn {
         display: inline-block;
     }
+
+    /* Scroll track: 100vh sticky stage + extra scroll distance for Lottie scrub */
+    .home-lottie-scroll-track {
+        height: calc(100dvh + 2500px);
+    }
+
+    /* Full viewport bleed (100vw × 100dvh) */
+    .home-lottie-fullbleed {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        height: 100dvh;
+        transform: translateX(-50%);
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    #lottie-mac-hero,
+    #lottie-software-hero,
+    #lottie-web-hero {
+        width: 100%;
+        height: 100%;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+    #lottie-mac-hero canvas,
+    #lottie-software-hero canvas,
+    #lottie-web-hero canvas,
+    #lottie-mac-hero svg,
+    #lottie-software-hero svg,
+    #lottie-web-hero svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .lottie-scroll-pending {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .lottie-scroll-ready {
+        opacity: 1;
+    }
 </style>
 
 <!-- Load GSAP and ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Load Lottie Web Player -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
+
+        // Image-sequence Lotties must use whole frames only (no sub-frame blending)
+        if (typeof lottie.setSubframe === 'function') {
+            lottie.setSubframe(false);
+        }
+
+        const lottieRendererSettings = {
+            preserveAspectRatio: 'xMidYMid slice',
+            clearCanvas: false,
+            progressiveLoad: false,
+        };
+
+        function getLottieMaxFrame(anim) {
+            const data = anim.animationData;
+            if (data && data.op != null && data.ip != null) {
+                return Math.max(0, Math.floor(data.op - data.ip) - 1);
+            }
+            return Math.max(0, Math.floor(anim.totalFrames) - 1);
+        }
+
+        function seekLottieFrame(anim, frame, lastFrameRef, force = false) {
+            const maxFrame = getLottieMaxFrame(anim);
+            const target = Math.min(maxFrame, Math.max(0, Math.round(frame)));
+            if (!force && target === lastFrameRef.value) {
+                return;
+            }
+            lastFrameRef.value = target;
+            anim.goToAndStop(target, true);
+        }
+
+        function syncLottieToScrollProgress(anim, progress, lastFrameRef) {
+            const maxFrame = getLottieMaxFrame(anim);
+            seekLottieFrame(anim, progress * maxFrame, lastFrameRef);
+        }
+
+        function bindLottieToScroll(anim, containerEl, triggerSelector, onTimelineReady) {
+            const lastFrame = { value: -1 };
+            let domReady = false;
+            let imagesReady = false;
+            let initialized = false;
+            let scrollTriggerInstance = null;
+
+            const setup = () => {
+                if (!domReady || !imagesReady || initialized) {
+                    return;
+                }
+                initialized = true;
+
+                syncLottieToScrollProgress(anim, 0, lastFrame);
+                containerEl.classList.remove('lottie-scroll-pending');
+                containerEl.classList.add('lottie-scroll-ready');
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: triggerSelector,
+                        start: 'top top',
+                        end: 'bottom bottom',
+                        scrub: 0.5,
+                        invalidateOnRefresh: true,
+                        onUpdate: (self) => syncLottieToScrollProgress(anim, self.progress, lastFrame),
+                        onLeave: () => seekLottieFrame(anim, getLottieMaxFrame(anim), lastFrame, true),
+                        onEnterBack: (self) => syncLottieToScrollProgress(anim, self.progress, lastFrame),
+                    },
+                });
+                scrollTriggerInstance = tl.scrollTrigger;
+
+                const resizeLottie = () => {
+                    anim.resize();
+                    if (scrollTriggerInstance) {
+                        syncLottieToScrollProgress(anim, scrollTriggerInstance.progress, lastFrame);
+                    }
+                };
+                window.addEventListener('resize', resizeLottie);
+                ScrollTrigger.addEventListener('refreshInit', resizeLottie);
+
+                if (typeof onTimelineReady === 'function') {
+                    onTimelineReady(tl);
+                }
+
+                ScrollTrigger.refresh();
+            };
+
+            anim.addEventListener('DOMLoaded', () => {
+                domReady = true;
+                setup();
+            });
+            anim.addEventListener('loaded_images', () => {
+                imagesReady = true;
+                setup();
+            });
+            // Inline base64 assets sometimes skip loaded_images — don't block scroll scrub
+            setTimeout(() => {
+                if (!imagesReady) {
+                    imagesReady = true;
+                    setup();
+                }
+            }, 800);
+            anim.addEventListener('data_failed', () => {
+                containerEl.classList.remove('lottie-scroll-pending');
+            });
+        }
+
+        function loadScrollLottie(containerEl, path, triggerSelector, onTimelineReady) {
+            const anim = lottie.loadAnimation({
+                container: containerEl,
+                renderer: 'canvas',
+                loop: false,
+                autoplay: false,
+                path,
+                rendererSettings: lottieRendererSettings,
+            });
+            bindLottieToScroll(anim, containerEl, triggerSelector, onTimelineReady);
+            return anim;
+        }
+
+        // --- HERO LOTTIE ---
+        const heroLottieContainer = document.getElementById('lottie-mac-hero');
+        loadScrollLottie(heroLottieContainer, '/assets/lottie/optimized_hero_2.json', '#hero-section', (tl) => {
+            tl.to('#hero-title', {
+                opacity: 1,
+                x: 0,
+                duration: 0.2,
+                ease: 'power2.out',
+            }, 0.9);
+
+            tl.to('#hero-list', {
+                opacity: 1,
+                x: 0,
+                duration: 0.2,
+                ease: 'power2.out',
+            }, 0.95);
+        });
 
         // --- MAGNETIC CURSOR ---
         const cursor = document.getElementById('magnetic-cursor');
@@ -334,38 +501,14 @@
             });
         });
 
-        // --- HERO SCROLL REVEAL NARRATIVE ---
-        const heroTimeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#hero-scroll-container',
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: 1
-            }
-        });
 
-        heroTimeline
-            // Step 1 stays a bit, then moves UP and fades out
-            .to('#hero-step-1', { y: -100, opacity: 0, duration: 1 })
-            
-            // Step 2 comes up from below, stays, then moves UP and fades out
-            .to('#hero-step-2', { y: 0, opacity: 1, duration: 1 }, "-=0.5")
-            .to('#hero-assets', { opacity: 1, scale: 1, duration: 1 }, "-=1") // background assets appear
-            .to('#hero-step-2', { y: -100, opacity: 0, duration: 1 }, "+=0.5") // slight pause
-            
-            // Step 3 comes up from below, stays
-            .to('#hero-step-3', { y: 0, opacity: 1, duration: 1 }, "-=0.5")
-            
-            // At the end, everything fades out as you enter the next section
-            .to('#scroll-indicator', { opacity: 0, duration: 0.2 }, "-=1")
-            .to('#hero-step-3', { y: -100, opacity: 0, duration: 1 }, "+=0.5")
-            .to('#hero-particles', { opacity: 0, duration: 1 }, "-=1")
-            .to('#hero-assets', { opacity: 0, scale: 1.5, duration: 1 }, "-=1");
 
         // --- SERVICES SCROLL ANIMATIONS ---
         const serviceSections = document.querySelectorAll('.service-section');
         
         serviceSections.forEach((section, index) => {
+            if (section.id === 'service-software' || section.id === 'service-web') return;
+
             // Staggered text reveal
             const contentElements = section.querySelectorAll('.service-kicker, .service-title, .service-subtitle, .service-price, .service-features, .service-cta');
             
@@ -425,6 +568,40 @@
                 );
             }
         });
+
+        function initServiceLottieSection(sectionId, lottieContainerId, lottiePath, mockupSelector) {
+            const lottieContainer = document.getElementById(lottieContainerId);
+            if (!lottieContainer) return;
+
+            const section = document.getElementById(sectionId);
+            const kicker = section.querySelector('.service-kicker');
+            const title = section.querySelector('.service-title');
+            const subtitle = section.querySelector('.service-subtitle');
+            const features = section.querySelector('.service-features');
+            const cta = section.querySelector('.service-cta');
+            const visual = section.querySelector('.service-visual');
+            const mockup = section.querySelector(mockupSelector);
+
+            loadScrollLottie(lottieContainer, lottiePath, `#${sectionId}`, (tl) => {
+                tl.fromTo(kicker, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.15, ease: 'power2.out' }, 0.1);
+                tl.fromTo(title, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.15);
+                tl.fromTo(subtitle, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.25);
+                tl.fromTo(features, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.35);
+                tl.fromTo(cta, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.45);
+
+                if (visual) {
+                    tl.fromTo(visual, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.2);
+                }
+                if (mockup) {
+                    tl.fromTo(mockup, { scale: 0.9, y: 30 }, { scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 0.3);
+                }
+            });
+        }
+
+        initServiceLottieSection('service-software', 'lottie-software-hero', '/assets/lottie/custom_hero.json', '.software-mockup');
+        initServiceLottieSection('service-web', 'lottie-web-hero', '/assets/lottie/web_hero.json', '.web-mockup');
+
+        window.addEventListener('load', () => ScrollTrigger.refresh());
     });
 </script>
 @endsection
