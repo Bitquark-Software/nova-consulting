@@ -93,6 +93,44 @@
     </div>
 </section>
 
+<!-- Top customers — trust strip between hero and services (scroll-driven marquee) -->
+@php
+    $topCustomers = __('home_services.customers_banner.names');
+@endphp
+<section
+    id="customers-banner"
+    class="customers-banner relative w-full overflow-hidden bg-[#FAFAFA] text-black py-10 sm:py-14 border-y border-gray-100"
+    aria-labelledby="customers-banner-title"
+>
+    <div class="customers-banner__inner relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <p id="customers-banner-title" class="customers-banner__kicker text-center text-[0.65rem] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.28em] text-gray-500">
+            {{ __('home_services.customers_banner.kicker') }}
+        </p>
+    </div>
+
+    <div class="customers-marquee customers-marquee--primary mt-6 sm:mt-8" aria-hidden="true">
+        <div class="customers-marquee__track">
+            @foreach (array_merge($topCustomers, $topCustomers) as $name)
+                <span class="customers-marquee__item">
+                    <span class="customers-marquee__name">{{ $name }}</span>
+                    <span class="customers-marquee__sep" aria-hidden="true">•</span>
+                </span>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="customers-marquee customers-marquee--secondary mt-4 sm:mt-5" aria-hidden="true">
+        <div class="customers-marquee__track">
+            @foreach (array_merge(array_reverse($topCustomers), array_reverse($topCustomers)) as $name)
+                <span class="customers-marquee__item">
+                    <span class="customers-marquee__name customers-marquee__name--muted">{{ $name }}</span>
+                    <span class="customers-marquee__sep" aria-hidden="true">•</span>
+                </span>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 <!-- SERVICES SECTIONS -->
 @foreach ($services as $index => $service)
     @php
@@ -406,6 +444,67 @@
     body.hotsale-modal-open #magnetic-cursor-dot {
         opacity: 0;
         visibility: hidden;
+    }
+
+    .customers-banner {
+        isolation: isolate;
+    }
+
+    .customers-marquee {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .customers-marquee__track {
+        display: flex;
+        width: max-content;
+        will-change: transform;
+    }
+
+    .customers-marquee__item {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        padding-right: 2.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .customers-marquee__item {
+            padding-right: 4rem;
+        }
+    }
+
+    .customers-marquee__name {
+        font-size: clamp(1.35rem, 4.5vw, 2.75rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        white-space: nowrap;
+        color: rgb(0 0 0 / 0.88);
+    }
+
+    .customers-marquee__name--muted {
+        color: rgb(0 0 0 / 0.22);
+    }
+
+    .customers-marquee__sep {
+        margin-left: 2.5rem;
+        font-size: clamp(1rem, 3vw, 1.75rem);
+        color: rgb(0 0 0 / 0.12);
+        user-select: none;
+    }
+
+    @media (min-width: 640px) {
+        .customers-marquee__sep {
+            margin-left: 4rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .customers-marquee__track {
+            will-change: auto;
+        }
     }
 </style>
 

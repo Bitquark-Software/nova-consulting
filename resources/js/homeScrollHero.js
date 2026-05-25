@@ -296,6 +296,64 @@ function initMagneticCursor() {
     });
 }
 
+function initCustomersBanner() {
+    const section = document.getElementById('customers-banner');
+    if (!section) {
+        return;
+    }
+
+    const kicker = section.querySelector('.customers-banner__kicker');
+    const tracks = section.querySelectorAll('.customers-marquee__track');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (kicker) {
+        gsap.fromTo(
+            kicker,
+            { y: 20, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 88%',
+                    toggleActions: 'play none none reverse',
+                },
+            },
+        );
+    }
+
+    tracks.forEach((track, index) => {
+        const loopWidth = track.scrollWidth / 2;
+        if (!loopWidth) {
+            return;
+        }
+
+        const scrollLeft = index % 2 === 0;
+
+        if (reducedMotion) {
+            gsap.set(track, { x: scrollLeft ? -loopWidth * 0.2 : -loopWidth * 0.8 });
+            return;
+        }
+
+        gsap.fromTo(
+            track,
+            { x: scrollLeft ? 0 : -loopWidth },
+            {
+                x: scrollLeft ? -loopWidth : 0,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1.15,
+                },
+            },
+        );
+    });
+}
+
 function initServiceSections() {
     document.querySelectorAll('.service-section').forEach((section) => {
         if (section.id === 'service-software' || section.id === 'service-web') {
@@ -430,6 +488,7 @@ function initHomeScrollHero() {
     });
 
     initMagneticCursor();
+    initCustomersBanner();
     initServiceSections();
     initServiceLottieSection('service-software', 'lottie-software-hero', 'custom_hero', '.software-mockup');
     initServiceLottieSection('service-web', 'lottie-web-hero', 'web_hero', '.web-mockup');

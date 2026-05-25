@@ -21,6 +21,19 @@ return [
             'Consulting',
         ],
     ],
+    'customers_banner' => [
+        'kicker' => 'Trusted by leading teams',
+        'names' => [
+            'Creatico',
+            'Buró Municipal de Tuxtla Gutiérrez',
+            'Secretaría de Turismo de Chiapas',
+            'Acqua Lavanderías',
+            'Hotel Loma Real',
+            'Hannah Reforme Studio',
+            'Maranatha Tuxtla Gutiérrez',
+            'Rose Bridal Boutique',
+        ],
+    ],
     'hotsale_modal' => [
         'close' => 'Close promotion',
         'image_alt' => 'Hot Sale 2026 — 40% off your quote',

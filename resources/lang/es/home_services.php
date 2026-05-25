@@ -21,6 +21,19 @@ return [
             'Consultoría',
         ],
     ],
+    'customers_banner' => [
+        'kicker' => 'Empresas que confían en nosotros',
+        'names' => [
+            'Creatico',
+            'Buró Municipal de Tuxtla Gutiérrez',
+            'Secretaría de Turismo de Chiapas',
+            'Acqua Lavanderías',
+            'Hotel Loma Real',
+            'Hannah Reforme Studio',
+            'Maranatha Tuxtla Gutiérrez',
+            'Rose Bridal Boutique',
+        ],
+    ],
     'hotsale_modal' => [
         'close' => 'Cerrar promoción',
         'image_alt' => 'Hot Sale 2026 — 40% de descuento en cotización',
