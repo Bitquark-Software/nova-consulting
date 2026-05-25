@@ -1,0 +1,9 @@
+{
+  "id": "custom_hero",
+  "source": "custom_hero.json",
+  "frameCount": 255,
+  "width": 1920,
+  "height": 1080,
+  "ext": "jpg",
+  "fr": 50
+}

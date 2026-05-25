@@ -32,15 +32,15 @@
 @endphp
 <header
     id="marketing-site-header"
-    class="marketing-site-header fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-4 supports-[backdrop-filter]:isolate transition-[color] duration-200 ease-out"
+    class="marketing-site-header fixed top-0 inset-x-0 z-50 w-full max-w-full overflow-x-clip box-border px-2 sm:px-4 pt-[max(0.5rem,env(safe-area-inset-top))] sm:pt-4 supports-[backdrop-filter]:isolate transition-[color] duration-200 ease-out"
     data-marketing-site-header
     data-ga-section="{{ $navGaSection }}"
 >
     <nav
-        class="marketing-nav-glass max-w-6xl mx-auto"
+        class="marketing-nav-glass w-full min-w-0 max-w-6xl mx-auto"
         aria-label="{{ __('messages.nav.primary_aria') }}"
     >
-        <div class="flex items-center justify-between gap-2 sm:gap-3 min-w-0 px-3 sm:px-4 md:px-6 min-h-14 sm:min-h-[4.25rem] py-1.5 sm:py-0">
+        <div class="flex items-center justify-between gap-1.5 sm:gap-3 min-w-0 w-full px-2 sm:px-4 md:px-6 min-h-12 sm:min-h-[4.25rem] py-1 sm:py-0">
             <a
                 href="{{ route('home') }}"
                 class="marketing-site-header__logo-link shrink-0 min-w-0 flex items-center transition-transform duration-300 ease-out active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/25 focus-visible:ring-offset-2 rounded-md"
@@ -53,7 +53,7 @@
                     height="474"
                     decoding="async"
                     draggable="false"
-                    class="marketing-site-header__logo h-7 w-auto sm:h-8 md:h-9 lg:h-10 max-h-10 object-contain object-left transition-[filter] duration-200 ease-out"
+                    class="marketing-site-header__logo h-7 w-auto max-w-[min(46vw,9.5rem)] sm:max-w-none sm:h-8 md:h-9 lg:h-10 max-h-10 object-contain object-left transition-[filter] duration-200 ease-out"
                 />
             </a>
 
@@ -94,10 +94,10 @@
                 </ul>
             </div>
 
-            <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
+            <div class="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0 min-w-0">
                 <a
                     href="{{ url('/dashboard/login') }}"
-                    class="marketing-nav-glass-login inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                    class="marketing-nav-glass-login inline-flex items-center shrink-0 whitespace-nowrap px-3 sm:px-5 py-2 sm:py-2.5 text-[0.6875rem] sm:text-sm font-semibold rounded-full transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
                 >{{ __('messages.nav.login') }}</a>
             </div>
         </div>
@@ -105,11 +105,11 @@
 </header>
 
 <nav
-    class="marketing-tab-bar lg:hidden fixed left-0 right-0 bottom-0 z-50 pointer-events-none px-3 pb-[max(0.35rem,env(safe-area-inset-bottom))] pt-1"
+    class="marketing-tab-bar lg:hidden fixed inset-x-0 bottom-0 z-50 w-full max-w-full overflow-x-clip pointer-events-none px-2 pb-[max(0.2rem,env(safe-area-inset-bottom))] pt-0.5 box-border"
     aria-label="{{ __('messages.nav.tab_bar_aria') }}"
 >
-    <div class="marketing-tab-bar__dock mx-auto max-w-lg pointer-events-auto">
-        <div class="marketing-tab-bar__inner flex items-stretch justify-between gap-0.5 px-1 py-1">
+    <div class="marketing-tab-bar__dock mx-auto w-full min-w-0 max-w-lg pointer-events-auto">
+        <div class="marketing-tab-bar__inner flex items-stretch justify-between gap-0.5 px-0.5 py-0.5">
             @foreach ($marketingNavMobileTabs as $item)
                 @php
                     if (! empty($item['blog_hub'])) {
@@ -123,7 +123,7 @@
                     href="{{ route($item['route']) }}"
                     @if ($tabActive) aria-current="page" @endif
                     @if (! empty($item['track'])) data-track="{{ $item['track'] }}" @endif
-                    class="marketing-tab-bar__link flex flex-1 min-w-0 flex-col items-center justify-center gap-0.5 rounded-[1.05rem] px-1 py-1.5 text-[0.62rem] font-semibold leading-tight tracking-tight text-center transition-[color,transform,background,box-shadow] duration-200 ease-out outline-none focus-visible:ring-2 focus-visible:ring-black/20 focus-visible:ring-offset-2 active:scale-[0.97] sm:text-[0.65rem] @if ($tabActive) marketing-tab-bar__link--active @endif"
+                    class="marketing-tab-bar__link flex flex-1 min-w-0 flex-col items-center justify-center gap-0 rounded-[1.05rem] px-0.5 py-1 text-[0.58rem] font-semibold leading-tight tracking-tight text-center transition-[color,transform,background,box-shadow] duration-200 ease-out outline-none focus-visible:ring-2 focus-visible:ring-black/20 focus-visible:ring-offset-2 active:scale-[0.97] sm:gap-0.5 sm:px-1 sm:py-1.5 sm:text-[0.65rem] @if ($tabActive) marketing-tab-bar__link--active @endif"
                 >
                     @include('partials.marketing-tab-icon', ['name' => $item['icon'], 'class' => 'w-[1.35rem] h-[1.35rem] shrink-0'])
                     <span class="marketing-tab-bar__label truncate max-w-full">{{ $item['label'] }}</span>

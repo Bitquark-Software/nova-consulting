@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "lottie:extract": "node scripts/extract-lottie-frames.mjs"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -18,5 +19,8 @@
         "postcss": "^8.4.31",
         "tailwindcss": "^4.2.1",
         "vite": "^7.0.4"
+    },
+    "dependencies": {
+        "gsap": "^3.15.0"
     }
 }

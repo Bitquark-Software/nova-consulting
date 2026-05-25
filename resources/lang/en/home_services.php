@@ -21,6 +21,11 @@ return [
             'Consulting',
         ],
     ],
+    'hotsale_modal' => [
+        'close' => 'Close promotion',
+        'image_alt' => 'Hot Sale 2026 — 40% off your quote',
+        'whatsapp_message' => 'I would like a quote with 40% off',
+    ],
     'common' => [
         'starting_at' => 'Starting at',
         'primary_cta' => 'Get a Quote',

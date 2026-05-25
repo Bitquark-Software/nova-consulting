@@ -2,10 +2,62 @@
 
 @section('nav_ga_section', 'nav-home-segmented')
 
+@push('styles')
+<link rel="preload" href="/assets/lottie-frames/optimized_hero_2/poster.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="/assets/lottie-frames/optimized_hero_2/manifest.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="/assets/promos/HOTSALE2026.png" as="image">
+@endpush
+
 @section('content')
 @php
     $services = ['software', 'web', 'ecommerce', 'support', 'remote'];
+    $hotsaleWaUrl = 'https://wa.me/529611465703?text=' . urlencode(__('home_services.hotsale_modal.whatsapp_message'));
 @endphp
+
+<!-- Hot Sale promo modal (shown on page load) -->
+<div
+    id="hotsale-modal"
+    class="hotsale-modal hidden fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="hotsale-modal-title"
+    aria-hidden="true"
+>
+    <div class="hotsale-modal__backdrop absolute inset-0 bg-black/45 backdrop-blur-md" aria-hidden="true"></div>
+
+    <div class="hotsale-modal__panel relative z-10 w-full max-w-lg sm:max-w-2xl">
+        <button
+            type="button"
+            id="hotsale-modal-close"
+            class="hotsale-modal__close absolute -top-2 -right-2 sm:top-0 sm:right-0 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-lg ring-1 ring-black/10 transition hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            aria-label="{{ __('home_services.hotsale_modal.close') }}"
+        >
+            <span class="sr-only">{{ __('home_services.hotsale_modal.close') }}</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <h2 id="hotsale-modal-title" class="sr-only">{{ __('home_services.hotsale_modal.image_alt') }}</h2>
+
+        <a
+            href="{{ $hotsaleWaUrl }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hotsale-modal__link block cursor-pointer rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            data-track="hotsale_modal_whatsapp_click"
+        >
+            <img
+                src="/assets/promos/HOTSALE2026.png"
+                alt="{{ __('home_services.hotsale_modal.image_alt') }}"
+                width="800"
+                height="800"
+                class="w-full h-auto"
+                decoding="async"
+            >
+        </a>
+    </div>
+</div>
 
 <!-- Custom Cursor -->
 <div id="magnetic-cursor" class="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-black pointer-events-none z-[100] transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out hidden md:block"></div>
@@ -13,17 +65,27 @@
 
 <!-- HERO FULLSCREEN — tall track + sticky viewport (no GSAP pin spacer) -->
 <section class="home-lottie-scroll-track relative w-full bg-[#FAFAFA]" id="hero-section">
-    <div class="sticky top-0 left-0 w-screen h-dvh max-h-dvh overflow-hidden isolate">
+    <div class="sticky top-0 left-0 w-full h-dvh max-h-dvh overflow-hidden isolate">
         <!-- Lottie fills entire viewport -->
         <div class="home-lottie-fullbleed pointer-events-none">
+            <img
+                id="hero-lottie-poster"
+                src="/assets/lottie-frames/optimized_hero_2/poster.jpg"
+                alt=""
+                class="hero-lottie-poster absolute inset-0 h-full w-full object-cover"
+                width="1920"
+                height="1080"
+                fetchpriority="high"
+                decoding="async"
+            >
             <div id="lottie-mac-hero" class="w-full h-full lottie-scroll-pending"></div>
         </div>
 
-        <h1 id="hero-title" class="absolute top-[25%] left-10 md:left-12 text-3xl md:text-5xl font-extrabold text-black tracking-tight z-10 opacity-0 -translate-x-10">
+        <h1 id="hero-title" class="absolute top-[4.25rem] max-lg:top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[25%] left-4 sm:left-10 md:left-12 text-2xl sm:text-3xl md:text-5xl font-extrabold text-black tracking-tight z-10 opacity-0 -translate-x-10">
             Nova consulting
         </h1>
 
-        <ul id="hero-list" class="absolute top-[calc(25%+4rem)] md:top-[calc(25%+5rem)] left-10 md:left-12 text-xl md:text-3xl font-bold text-gray-700 tracking-tight z-10 opacity-0 -translate-x-10 space-y-1">
+        <ul id="hero-list" class="absolute top-[calc(4.25rem+2.25rem)] max-lg:top-[calc(3.5rem+2.25rem+env(safe-area-inset-top))] sm:top-[calc(25%+4rem)] md:top-[calc(25%+5rem)] left-4 sm:left-10 md:left-12 text-lg sm:text-xl md:text-3xl font-bold text-gray-700 tracking-tight z-10 opacity-0 -translate-x-10 space-y-0.5 sm:space-y-1">
             @foreach(__('home_services.hero.list') as $item)
                 <li>• {{ $item }}</li>
             @endforeach
@@ -45,51 +107,62 @@
         $btnSecondary = 'border-black text-black hover:bg-black hover:text-white';
     @endphp
 
-    <section class="service-section relative w-full border-b border-gray-100 last:border-0 {{ $bgClass }} @if(in_array($service, ['software', 'web'], true)) home-lottie-scroll-track py-0 @else py-24 @endif" id="service-{{ $service }}">
+    <section class="service-section relative w-full border-b border-gray-100 last:border-0 {{ $bgClass }} @if(in_array($service, ['software', 'web'], true)) home-lottie-scroll-track py-0 @else py-14 sm:py-24 @endif" id="service-{{ $service }}">
         @if(in_array($service, ['software', 'web'], true))
-        <div class="sticky top-0 left-0 w-screen h-dvh max-h-dvh overflow-hidden isolate">
+        <div class="sticky top-0 left-0 w-full h-dvh max-h-dvh overflow-hidden isolate">
             <div class="home-lottie-fullbleed pointer-events-none">
                 <div id="lottie-{{ $service }}-hero" class="w-full h-full lottie-scroll-pending"></div>
             </div>
-            <div class="relative z-10 w-full h-dvh flex items-center overflow-hidden px-6 lg:px-16">
+            <div class="relative z-10 w-full h-dvh flex max-lg:items-start max-lg:pt-[calc(3.5rem+env(safe-area-inset-top))] max-lg:pb-[calc(4.5rem+env(safe-area-inset-bottom))] items-center overflow-hidden px-4 sm:px-6 lg:px-16">
         @else
-            <div class="w-full flex items-center overflow-hidden px-6 lg:px-16 relative z-10">
+            <div class="w-full flex items-center overflow-hidden px-4 sm:px-6 lg:px-16 relative z-10">
         @endif
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
                 
                 <!-- Text Content -->
                 <div class="service-content flex flex-col {{ $index % 2 === 0 ? 'lg:order-1' : 'lg:order-2' }}">
-                    <p class="service-kicker text-sm uppercase tracking-[0.2em] font-bold opacity-0 text-gray-500 mb-4">
+                    @php
+                        $isLottieService = in_array($service, ['software', 'web'], true);
+                        $mobileTitleClass = $isLottieService
+                            ? 'text-[1.4rem] leading-[1.15]'
+                            : 'text-[1.65rem] leading-[1.2]';
+                        $mobileSubtitleClass = $isLottieService
+                            ? 'text-sm leading-snug'
+                            : 'text-[0.9375rem] leading-relaxed';
+                        $mobileFeatureTitleClass = $isLottieService ? 'text-sm' : 'text-[0.9375rem]';
+                        $mobileFeatureBodyClass = $isLottieService ? 'text-[0.6875rem]' : 'text-xs';
+                    @endphp
+                    <p class="service-kicker text-[0.65rem] sm:text-sm uppercase tracking-[0.12em] sm:tracking-[0.2em] font-bold opacity-0 text-gray-500 mb-2 sm:mb-4">
                         {{ __("home_services.$service.kicker") }}
                     </p>
-                    <h2 class="service-title text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight opacity-0 {{ $titleColor }}">
+                    <h2 class="service-title {{ $mobileTitleClass }} sm:text-4xl sm:leading-tight md:text-5xl lg:text-6xl font-bold text-balance opacity-0 {{ $titleColor }}">
                         {{ __("home_services.$service.title") }}
                     </h2>
-                    <p class="service-subtitle mt-6 text-lg md:text-xl opacity-0 {{ $textColor }}">
+                    <p class="service-subtitle mt-3 sm:mt-6 {{ $mobileSubtitleClass }} sm:text-lg md:text-xl opacity-0 {{ $textColor }}">
                         {{ __("home_services.$service.subtitle") }}
                     </p>
 
-                    <div class="service-features mt-10 grid gap-6 opacity-0">
+                    <div class="service-features mt-5 sm:mt-10 grid gap-3 sm:gap-6 opacity-0">
                         @foreach (array_slice(__('home_services.' . $service . '.sections'), 0, 2) as $item)
                             <div class="border-l-2 border-gray-300 pl-4">
-                                <h3 class="font-bold text-lg {{ $titleColor }}">{{ $item['title'] }}</h3>
-                                <p class="text-sm mt-1 {{ $textColor }}">{{ $item['body'] }}</p>
+                                <h3 class="font-bold {{ $mobileFeatureTitleClass }} sm:text-lg leading-snug {{ $titleColor }}">{{ $item['title'] }}</h3>
+                                <p class="{{ $mobileFeatureBodyClass }} sm:text-sm mt-1 leading-relaxed {{ $textColor }}">{{ $item['body'] }}</p>
                             </div>
                         @endforeach
                     </div>
                     
-                    <div class="service-cta mt-12 flex flex-wrap gap-4 opacity-0">
-                        <a href="{{ $quoteUrl }}" class="magnetic-btn px-8 py-4 rounded-full font-semibold transition-transform {{ $btnPrimary }}">
+                    <div class="service-cta mt-6 sm:mt-12 flex flex-wrap gap-2.5 sm:gap-4 opacity-0">
+                        <a href="{{ $quoteUrl }}" class="magnetic-btn px-8 py-4 rounded-full text-xs sm:text-base font-semibold transition-transform {{ $btnPrimary }}">
                             {{ __('home_services.common.primary_cta') }}
                         </a>
-                        <a target="_blank" href="{{ $waUrl }}" class="magnetic-btn px-8 py-4 rounded-full border font-semibold transition-all {{ $btnSecondary }}">
+                        <a target="_blank" href="{{ $waUrl }}" class="magnetic-btn px-8 py-4 rounded-full border text-xs sm:text-base font-semibold transition-all {{ $btnSecondary }}">
                             {{ __('home_services.common.secondary_cta') }}
                         </a>
                     </div>
                 </div>
 
                 <!-- Visual Content (Parallax/Sticky mix) -->
-                <div class="service-visual relative min-h-[400px] w-full rounded-3xl overflow-hidden {{ $index % 2 === 0 ? 'lg:order-2' : 'lg:order-1' }} bg-gray-50 border border-gray-200 flex items-center justify-center p-8">
+                <div class="service-visual relative min-h-[260px] sm:min-h-[400px] w-full rounded-2xl sm:rounded-3xl overflow-hidden {{ $index % 2 === 0 ? 'lg:order-2' : 'lg:order-1' }} bg-gray-50 border border-gray-200 flex items-center justify-center p-4 sm:p-8">
                     <!-- Abstract representation per service -->
                     <div class="visual-element w-full h-full flex items-center justify-center relative z-10">
                         @if($service === 'software')
@@ -105,7 +178,7 @@
                                     <div class="mx-auto text-xs text-gray-400 font-mono">App.js</div>
                                 </div>
                                 <!-- Code Content -->
-                                <div class="p-4 font-mono text-sm leading-relaxed text-gray-300 overflow-hidden">
+                                <div class="p-4 font-mono text-[0.65rem] sm:text-sm leading-relaxed text-gray-300 overflow-hidden">
                                     <div class="flex"><span class="text-purple-400 mr-2">import</span> { useState, useEffect } <span class="text-purple-400 mx-2">from</span> <span class="text-green-400">'react'</span>;</div>
                                     <div class="flex mt-2"><span class="text-purple-400 mr-2">export default function</span> <span class="text-yellow-300">NovaApp</span>() {</div>
                                     <div class="flex ml-4 mt-1"><span class="text-blue-400 mr-2">const</span> [system, setSystem] = <span class="text-yellow-300">useState</span>(<span class="text-green-400">'optimized'</span>);</div>
@@ -149,16 +222,16 @@
                                     </svg>
                                     <div class="absolute top-2 right-2 bg-black text-white text-[10px] font-bold px-2 py-1 rounded">PROMO</div>
                                 </div>
-                                <h4 class="font-bold text-gray-900">Laptop Pro M3</h4>
-                                <p class="text-xs text-gray-500 mt-1">Computadora de alto rendimiento</p>
+                                <h4 class="font-bold text-sm sm:text-base text-gray-900">Laptop Pro M3</h4>
+                                <p class="text-[0.65rem] sm:text-xs text-gray-500 mt-1">Computadora de alto rendimiento</p>
                                 <div class="mt-3 flex items-center justify-between">
-                                    <span class="font-bold text-lg text-black">$24,999</span>
+                                    <span class="font-bold text-base sm:text-lg text-black">$24,999</span>
                                     <div class="flex gap-1">
                                         <span class="w-2 h-2 rounded-full bg-gray-300"></span>
                                         <span class="w-2 h-2 rounded-full bg-gray-800"></span>
                                     </div>
                                 </div>
-                                <button class="mt-4 w-full bg-black text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                                <button class="mt-4 w-full bg-black text-white py-2.5 rounded-lg text-xs sm:text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
                                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                     Agregar al carrito
                                 </button>
@@ -272,14 +345,12 @@
         height: calc(100dvh + 2500px);
     }
 
-    /* Full viewport bleed (100vw × 100dvh) */
+    /* Full viewport bleed (avoid 100vw — it includes scrollbar width and causes horizontal overflow) */
     .home-lottie-fullbleed {
         position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100vw;
+        inset: 0;
+        width: 100%;
         height: 100dvh;
-        transform: translateX(-50%);
         z-index: 0;
         overflow: hidden;
     }
@@ -295,313 +366,82 @@
     #lottie-mac-hero canvas,
     #lottie-software-hero canvas,
     #lottie-web-hero canvas,
-    #lottie-mac-hero svg,
-    #lottie-software-hero svg,
-    #lottie-web-hero svg {
+    .scroll-frame-canvas {
         width: 100% !important;
         height: 100% !important;
+        display: block;
     }
+
+    .hero-lottie-poster {
+        z-index: 1;
+        transition: opacity 0.35s ease;
+    }
+    .hero-lottie-poster.hero-poster-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     .lottie-scroll-pending {
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.35s ease;
     }
     .lottie-scroll-ready {
         opacity: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hotsale-modal:not(.hidden) {
+        cursor: auto;
+    }
+    .hotsale-modal__close,
+    .hotsale-modal__link {
+        cursor: pointer;
+    }
+    body.hotsale-modal-open {
+        overflow: hidden;
+        cursor: auto;
+    }
+    body.hotsale-modal-open #magnetic-cursor,
+    body.hotsale-modal-open #magnetic-cursor-dot {
+        opacity: 0;
+        visibility: hidden;
     }
 </style>
 
-<!-- Load GSAP and ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<!-- Load Lottie Web Player -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-
+@push('body_end')
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        gsap.registerPlugin(ScrollTrigger);
+(function () {
+    var modal = document.getElementById('hotsale-modal');
+    var closeBtn = document.getElementById('hotsale-modal-close');
+    if (!modal || !closeBtn) return;
 
-        // Image-sequence Lotties must use whole frames only (no sub-frame blending)
-        if (typeof lottie.setSubframe === 'function') {
-            lottie.setSubframe(false);
-        }
+    function openModal() {
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('hotsale-modal-open');
+    }
 
-        const lottieRendererSettings = {
-            preserveAspectRatio: 'xMidYMid slice',
-            clearCanvas: false,
-            progressiveLoad: false,
-        };
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('hotsale-modal-open');
+    }
 
-        function getLottieMaxFrame(anim) {
-            const data = anim.animationData;
-            if (data && data.op != null && data.ip != null) {
-                return Math.max(0, Math.floor(data.op - data.ip) - 1);
-            }
-            return Math.max(0, Math.floor(anim.totalFrames) - 1);
-        }
+    closeBtn.addEventListener('click', closeModal);
 
-        function seekLottieFrame(anim, frame, lastFrameRef, force = false) {
-            const maxFrame = getLottieMaxFrame(anim);
-            const target = Math.min(maxFrame, Math.max(0, Math.round(frame)));
-            if (!force && target === lastFrameRef.value) {
-                return;
-            }
-            lastFrameRef.value = target;
-            anim.goToAndStop(target, true);
-        }
-
-        function syncLottieToScrollProgress(anim, progress, lastFrameRef) {
-            const maxFrame = getLottieMaxFrame(anim);
-            seekLottieFrame(anim, progress * maxFrame, lastFrameRef);
-        }
-
-        function bindLottieToScroll(anim, containerEl, triggerSelector, onTimelineReady) {
-            const lastFrame = { value: -1 };
-            let domReady = false;
-            let imagesReady = false;
-            let initialized = false;
-            let scrollTriggerInstance = null;
-
-            const setup = () => {
-                if (!domReady || !imagesReady || initialized) {
-                    return;
-                }
-                initialized = true;
-
-                syncLottieToScrollProgress(anim, 0, lastFrame);
-                containerEl.classList.remove('lottie-scroll-pending');
-                containerEl.classList.add('lottie-scroll-ready');
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: triggerSelector,
-                        start: 'top top',
-                        end: 'bottom bottom',
-                        scrub: 0.5,
-                        invalidateOnRefresh: true,
-                        onUpdate: (self) => syncLottieToScrollProgress(anim, self.progress, lastFrame),
-                        onLeave: () => seekLottieFrame(anim, getLottieMaxFrame(anim), lastFrame, true),
-                        onEnterBack: (self) => syncLottieToScrollProgress(anim, self.progress, lastFrame),
-                    },
-                });
-                scrollTriggerInstance = tl.scrollTrigger;
-
-                const resizeLottie = () => {
-                    anim.resize();
-                    if (scrollTriggerInstance) {
-                        syncLottieToScrollProgress(anim, scrollTriggerInstance.progress, lastFrame);
-                    }
-                };
-                window.addEventListener('resize', resizeLottie);
-                ScrollTrigger.addEventListener('refreshInit', resizeLottie);
-
-                if (typeof onTimelineReady === 'function') {
-                    onTimelineReady(tl);
-                }
-
-                ScrollTrigger.refresh();
-            };
-
-            anim.addEventListener('DOMLoaded', () => {
-                domReady = true;
-                setup();
-            });
-            anim.addEventListener('loaded_images', () => {
-                imagesReady = true;
-                setup();
-            });
-            // Inline base64 assets sometimes skip loaded_images — don't block scroll scrub
-            setTimeout(() => {
-                if (!imagesReady) {
-                    imagesReady = true;
-                    setup();
-                }
-            }, 800);
-            anim.addEventListener('data_failed', () => {
-                containerEl.classList.remove('lottie-scroll-pending');
-            });
-        }
-
-        function loadScrollLottie(containerEl, path, triggerSelector, onTimelineReady) {
-            const anim = lottie.loadAnimation({
-                container: containerEl,
-                renderer: 'canvas',
-                loop: false,
-                autoplay: false,
-                path,
-                rendererSettings: lottieRendererSettings,
-            });
-            bindLottieToScroll(anim, containerEl, triggerSelector, onTimelineReady);
-            return anim;
-        }
-
-        // --- HERO LOTTIE ---
-        const heroLottieContainer = document.getElementById('lottie-mac-hero');
-        loadScrollLottie(heroLottieContainer, '/assets/lottie/optimized_hero_2.json', '#hero-section', (tl) => {
-            tl.to('#hero-title', {
-                opacity: 1,
-                x: 0,
-                duration: 0.2,
-                ease: 'power2.out',
-            }, 0.9);
-
-            tl.to('#hero-list', {
-                opacity: 1,
-                x: 0,
-                duration: 0.2,
-                ease: 'power2.out',
-            }, 0.95);
-        });
-
-        // --- MAGNETIC CURSOR ---
-        const cursor = document.getElementById('magnetic-cursor');
-        const cursorDot = document.getElementById('magnetic-cursor-dot');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Instantly move the dot
-            gsap.set(cursorDot, { x: mouseX, y: mouseY });
-        });
-
-        // Smooth follow for the outer circle
-        gsap.ticker.add(() => {
-            cursorX += (mouseX - cursorX) * 0.15;
-            cursorY += (mouseY - cursorY) * 0.15;
-            gsap.set(cursor, { x: cursorX, y: cursorY });
-        });
-
-        // Magnetic effect on buttons/links
-        const magneticElements = document.querySelectorAll('.magnetic-btn, a, button');
-        magneticElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('active');
-                gsap.to(cursorDot, { scale: 0, duration: 0.2 });
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('active');
-                gsap.to(cursorDot, { scale: 1, duration: 0.2 });
-                gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-            });
-
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                gsap.to(el, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.5,
-                    ease: 'power2.out'
-                });
-            });
-        });
-
-
-
-        // --- SERVICES SCROLL ANIMATIONS ---
-        const serviceSections = document.querySelectorAll('.service-section');
-        
-        serviceSections.forEach((section, index) => {
-            if (section.id === 'service-software' || section.id === 'service-web') return;
-
-            // Staggered text reveal
-            const contentElements = section.querySelectorAll('.service-kicker, .service-title, .service-subtitle, .service-price, .service-features, .service-cta');
-            
-            // Use scrollTrigger for entering the section
-            gsap.fromTo(contentElements, 
-                { y: 50, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    stagger: 0.15,
-                    duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 70%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-
-            // Subtle Parallax effect on the visual container
-            const visual = section.querySelector('.service-visual');
-            if (visual) {
-                gsap.fromTo(visual, 
-                    { y: 50, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.2,
-                        ease: 'power2.out',
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 75%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            }
-
-            // Specific Mockup Animations inside the visual elements
-            const mockups = section.querySelectorAll('.software-mockup, .web-mockup, .ecommerce-mockup, .support-mockup, .remote-mockup');
-            if(mockups.length) {
-                gsap.fromTo(mockups,
-                    { scale: 0.9, y: 30 },
-                    {
-                        scale: 1,
-                        y: 0,
-                        duration: 1.5,
-                        stagger: 0.2,
-                        ease: 'expo.out',
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 60%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            }
-        });
-
-        function initServiceLottieSection(sectionId, lottieContainerId, lottiePath, mockupSelector) {
-            const lottieContainer = document.getElementById(lottieContainerId);
-            if (!lottieContainer) return;
-
-            const section = document.getElementById(sectionId);
-            const kicker = section.querySelector('.service-kicker');
-            const title = section.querySelector('.service-title');
-            const subtitle = section.querySelector('.service-subtitle');
-            const features = section.querySelector('.service-features');
-            const cta = section.querySelector('.service-cta');
-            const visual = section.querySelector('.service-visual');
-            const mockup = section.querySelector(mockupSelector);
-
-            loadScrollLottie(lottieContainer, lottiePath, `#${sectionId}`, (tl) => {
-                tl.fromTo(kicker, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.15, ease: 'power2.out' }, 0.1);
-                tl.fromTo(title, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.15);
-                tl.fromTo(subtitle, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.25);
-                tl.fromTo(features, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.35);
-                tl.fromTo(cta, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power2.out' }, 0.45);
-
-                if (visual) {
-                    tl.fromTo(visual, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.2);
-                }
-                if (mockup) {
-                    tl.fromTo(mockup, { scale: 0.9, y: 30 }, { scale: 1, y: 0, duration: 0.35, ease: 'expo.out' }, 0.3);
-                }
-            });
-        }
-
-        initServiceLottieSection('service-software', 'lottie-software-hero', '/assets/lottie/custom_hero.json', '.software-mockup');
-        initServiceLottieSection('service-web', 'lottie-web-hero', '/assets/lottie/web_hero.json', '.web-mockup');
-
-        window.addEventListener('load', () => ScrollTrigger.refresh());
+    modal.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
     });
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openModal);
+    } else {
+        openModal();
+    }
+})();
 </script>
+@endpush
+
+@vite(['resources/js/homeScrollHero.js'])
 @endsection

@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-D9QSVtEN.css",
+    "file": "assets/app-BdIf9rth.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,6 +19,12 @@
     "file": "assets/app-DUmol83g.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/homeScrollHero.js": {
+    "file": "assets/homeScrollHero-CHTMOgE6.js",
+    "name": "homeScrollHero",
+    "src": "resources/js/homeScrollHero.js",
     "isEntry": true
   }
 }

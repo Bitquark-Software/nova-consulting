@@ -21,6 +21,11 @@ return [
             'Consultoría',
         ],
     ],
+    'hotsale_modal' => [
+        'close' => 'Cerrar promoción',
+        'image_alt' => 'Hot Sale 2026 — 40% de descuento en cotización',
+        'whatsapp_message' => 'Quiero una cotización con el 40% de descuento',
+    ],
     'common' => [
         'starting_at' => 'Desde',
         'primary_cta' => 'Quiero cotizar',

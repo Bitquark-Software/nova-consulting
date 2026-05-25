@@ -36,7 +36,7 @@
         }
     </style>
     <body @class([
-        'font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white max-lg:pb-[calc(5.75rem+env(safe-area-inset-bottom))]',
+        'font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white overflow-x-clip max-lg:pb-[calc(4.75rem+env(safe-area-inset-bottom))]',
         trim($__env->yieldContent('marketing_body_class')),
     ])>
         @include('partials.marketing-nav', [

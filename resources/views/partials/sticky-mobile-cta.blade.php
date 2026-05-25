@@ -4,7 +4,7 @@
     id="sticky-marketing-fabs"
     @class([
         'fixed z-60 flex flex-col gap-3 bottom-[max(1rem,env(safe-area-inset-bottom))]',
-        'max-lg:bottom-[calc(1rem+4.5rem+env(safe-area-inset-bottom))]' => $marketingShowMobileTabBar,
+        'max-lg:bottom-[calc(1rem+4.25rem+env(safe-area-inset-bottom))]' => $marketingShowMobileTabBar,
     ])
     style="right: max(1rem, env(safe-area-inset-right));"
 >

@@ -164,6 +164,16 @@ body {
     }
 }
 
+/* Marketing chrome: prevent horizontal overflow on narrow viewports */
+.marketing-site-header,
+.marketing-tab-bar {
+    max-width: 100%;
+}
+
+.marketing-site-header__logo {
+    flex-shrink: 1;
+}
+
 /* —— Barra principal: sin fondo; solo logo + píldora + CTAs limpios —— */
 .marketing-nav-glass {
     background: transparent;
@@ -192,6 +202,7 @@ body {
 /* Mobile: liquid-glass dock tab bar */
 .marketing-tab-bar__dock {
     position: relative;
+    overflow: hidden;
     border-radius: 1.55rem;
     border: 1px solid rgb(255 255 255 / 0.52);
     background:
