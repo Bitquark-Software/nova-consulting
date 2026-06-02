@@ -272,10 +272,6 @@ function initMagneticCursor() {
     });
 
     document.querySelectorAll('.magnetic-btn, a, button').forEach((el) => {
-        if (el.closest('#hotsale-modal')) {
-            return;
-        }
-
         el.addEventListener('mouseenter', () => {
             cursor.classList.add('active');
             gsap.to(cursorDot, { scale: 0, duration: 0.2 });
@@ -294,6 +290,117 @@ function initMagneticCursor() {
             gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power2.out' });
         });
     });
+}
+
+const HERO_SCROLL_BASE_PX = 720;
+const HERO_SCROLL_HOLD_END = 640;
+
+function getHeroLineWeight(lineEl) {
+    const weight = parseFloat(lineEl.dataset.scrollWeight, 10);
+    return Number.isFinite(weight) && weight > 0 ? weight : 1;
+}
+
+function setHeroLineActive(lines, index) {
+    lines.forEach((line, i) => {
+        line.classList.toggle('is-active', i === index);
+        line.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+    });
+}
+
+function getHeroActiveIndex(lines, progress) {
+    const weights = lines.map(getHeroLineWeight);
+    const total = weights.reduce((sum, w) => sum + w, 0);
+    let cursor = 0;
+
+    for (let i = 0; i < lines.length; i++) {
+        cursor += weights[i] / total;
+        if (progress <= cursor || i === lines.length - 1) {
+            return i;
+        }
+    }
+
+    return lines.length - 1;
+}
+
+function initHeroScrollLines() {
+    const section = document.getElementById('hero-section');
+    const lines = gsap.utils.toArray('#hero-section .hero-line');
+    if (!section || !lines.length) {
+        return;
+    }
+
+    const weights = lines.map(getHeroLineWeight);
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+    const extraPx =
+        weights.reduce((sum, w) => sum + w * HERO_SCROLL_BASE_PX, 0) + HERO_SCROLL_HOLD_END;
+    section.style.setProperty('--hero-scroll-extra', `${Math.round(extraPx)}px`);
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion) {
+        gsap.set(lines, { opacity: 0, y: 0, visibility: 'hidden' });
+        const last = lines.length - 1;
+        gsap.set(lines[last], { opacity: 1, visibility: 'visible' });
+        setHeroLineActive(lines, last);
+        return;
+    }
+
+    gsap.set(lines, { opacity: 0, y: 32, visibility: 'hidden' });
+    setHeroLineActive(lines, -1);
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.65,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                setHeroLineActive(lines, getHeroActiveIndex(lines, self.progress));
+            },
+        },
+    });
+
+    let cursor = 0;
+
+    lines.forEach((line, i) => {
+        const portion = weights[i] / totalWeight;
+        const tIn = cursor;
+        const tEnterEnd = cursor + portion * 0.22;
+        const tOut = cursor + portion * 0.88;
+        cursor += portion;
+
+        tl.fromTo(
+            line,
+            { y: 36, opacity: 0, visibility: 'hidden' },
+            {
+                y: 0,
+                opacity: 1,
+                visibility: 'visible',
+                duration: tEnterEnd - tIn,
+                ease: 'power3.out',
+                immediateRender: false,
+            },
+            tIn,
+        );
+
+        if (i < lines.length - 1) {
+            tl.to(
+                line,
+                {
+                    y: -32,
+                    opacity: 0,
+                    visibility: 'hidden',
+                    duration: cursor - tOut,
+                    ease: 'power2.in',
+                    immediateRender: false,
+                },
+                tOut,
+            );
+        }
+    });
+
+    ScrollTrigger.refresh();
 }
 
 function initCustomersBanner() {
@@ -463,35 +570,11 @@ function initServiceLottieSection(sectionId, lottieContainerId, framesId, mockup
 }
 
 function initHomeScrollHero() {
-    const heroContainer = document.getElementById('lottie-mac-hero');
-    if (!heroContainer) {
-        return;
-    }
-
-    const heroPoster = document.getElementById('hero-lottie-poster');
-    const hidePoster = () => heroPoster?.classList.add('hero-poster-hidden');
-
-    mountScrollFrames(heroContainer, '/assets/lottie-frames/optimized_hero_2', '#hero-section', (tl) => {
-        hidePoster();
-        tl.to(
-            '#hero-title',
-            { opacity: 1, x: 0, duration: 0.2, ease: 'power2.out' },
-            0.9,
-        );
-        tl.to(
-            '#hero-list',
-            { opacity: 1, x: 0, duration: 0.2, ease: 'power2.out' },
-            0.95,
-        );
-    }).catch(() => {
-        heroContainer.classList.remove('lottie-scroll-pending');
-    });
-
+    initHeroScrollLines();
     initMagneticCursor();
     initCustomersBanner();
     initServiceSections();
     initServiceLottieSection('service-software', 'lottie-software-hero', 'custom_hero', '.software-mockup');
-    initServiceLottieSection('service-web', 'lottie-web-hero', 'web_hero', '.web-mockup');
 
     window.addEventListener('load', () => ScrollTrigger.refresh());
 }

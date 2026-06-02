@@ -20,6 +20,17 @@ return [
             'IT Support',
             'Consulting',
         ],
+        'sequence' => [
+            ['text' => 'Nova Consulting', 'variant' => 'brand', 'weight' => 1.1],
+            ['text' => 'Custom Software Development & IT Solutions', 'variant' => 'title', 'weight' => 1.5],
+            ['text' => 'High-impact technology for teams across Mexico.', 'variant' => 'lead', 'weight' => 1.4],
+            ['text' => 'From discovery and architecture to launch and long-term support.', 'variant' => 'lead', 'weight' => 1.5],
+            ['text' => 'Web experiences built to convert and scale.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Custom software shaped around how you operate.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'IT support when your in-house team needs backup.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Consulting to align roadmap, budget, and delivery.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Keep scrolling to explore how we work', 'variant' => 'cta', 'weight' => 1.3],
+        ],
     ],
     'customers_banner' => [
         'kicker' => 'Trusted by leading teams',

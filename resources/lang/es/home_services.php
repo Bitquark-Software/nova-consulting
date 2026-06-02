@@ -20,6 +20,17 @@ return [
             'Soporte Técnico',
             'Consultoría',
         ],
+        'sequence' => [
+            ['text' => 'Nova Consulting', 'variant' => 'brand', 'weight' => 1.1],
+            ['text' => 'Desarrollo de Software y Soluciones a la Medida', 'variant' => 'title', 'weight' => 1.5],
+            ['text' => 'Tecnología de alto impacto para equipos en todo México.', 'variant' => 'lead', 'weight' => 1.4],
+            ['text' => 'Del análisis y la arquitectura al lanzamiento y soporte a largo plazo.', 'variant' => 'lead', 'weight' => 1.5],
+            ['text' => 'Experiencias web hechas para convertir y escalar.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Software a la medida de cómo opera tu negocio.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Soporte técnico cuando tu equipo lo necesita.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Consultoría para alinear ruta, presupuesto y entrega.', 'variant' => 'service', 'weight' => 1.2],
+            ['text' => 'Sigue bajando para conocer cómo trabajamos', 'variant' => 'cta', 'weight' => 1.3],
+        ],
     ],
     'customers_banner' => [
         'kicker' => 'Empresas que confían en nosotros',
