@@ -16,7 +16,6 @@ return [
         ['path' => '/hiring-services', 'priority' => '0.70', 'lastmod' => '2026-04-08'],
         ['path' => '/blog', 'priority' => '0.82', 'lastmod' => '2026-04-08'],
         ['path' => '/blog/mano-de-obra-barata', 'priority' => '0.74', 'lastmod' => '2026-03-25'],
-        ['path' => '/blog/vibe-coding', 'priority' => '0.74', 'lastmod' => '2026-03-31'],
         ['path' => '/empresa-software-tuxtla-chiapas', 'priority' => '0.90', 'lastmod' => '2026-03-19'],
         ['path' => '/diseno-paginas-web-tuxtla-chiapas', 'priority' => '0.90', 'lastmod' => '2026-03-19'],
         ['path' => '/empresa-software-guadalajara', 'priority' => '0.90', 'lastmod' => '2026-03-19'],

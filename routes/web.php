@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\WebsiteQuoteController;
+use App\Livewire\Blog\Index as BlogIndex;
+use App\Livewire\Blog\Show as BlogShow;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/sitemap.xml', SitemapController::class);
@@ -45,17 +47,13 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/blog', function () {
-    return view('blog.index');
-})->name('blog.index');
+Route::get('/blog', BlogIndex::class)->name('blog.index');
 
 Route::get('/blog/mano-de-obra-barata', function () {
     return view('blog.mano-de-obra-barata');
 })->name('blog.cheap_labor');
 
-Route::get('/blog/vibe-coding', function () {
-    return view('blog.vibe-coding');
-})->name('blog.vibe_coding');
+Route::get('/blog/{post:slug}', BlogShow::class)->name('blog.show');
 
 Route::get('/contact', function () {
     return view('contact');

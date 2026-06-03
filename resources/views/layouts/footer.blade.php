@@ -56,7 +56,6 @@
                 <ul class="flex flex-wrap gap-x-2 gap-y-1" role="list">
                     <li><a href="{{ route('blog.index') }}" class="marketing-footer__link marketing-footer__link--strong">{{ __('messages.footer.blog_index') }}</a></li>
                     <li><a href="{{ route('blog.cheap_labor') }}" class="marketing-footer__link">{{ __('messages.footer.blog_cheap_labor') }}</a></li>
-                    <li><a href="{{ route('blog.vibe_coding') }}" class="marketing-footer__link">{{ __('messages.footer.blog_vibe_coding') }}</a></li>
                 </ul>
             </div>
 

@@ -48,9 +48,9 @@ return [
     ],
 
     'blog.index' => [
-        'title' => 'Blog, guides & software by city — Nova Consulting',
-        'description' => 'Articles, pricing guides, and city-focused pages from Nova Consulting: Tuxtla, Guadalajara, Monterrey, Mexico City, and Mérida. Professional content to plan your next digital product.',
-        'keywords' => 'software development blog, website pricing guides, software company guadalajara, monterrey developers, web development mexico',
+        'title' => 'Blog — Nova Consulting',
+        'description' => 'Editorial perspectives on software, design, and building digital products with clarity.',
+        'keywords' => 'software blog, development insights, nova consulting blog',
     ],
 
     'website_quote' => [

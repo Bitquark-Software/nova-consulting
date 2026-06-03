@@ -61,9 +61,9 @@ return [
     ],
 
     'blog.index' => [
-        'title' => 'Blog, guías y software por ciudad — Nova Consulting',
-        'description' => 'Artículos, guías con rangos orientativos y páginas locales de Nova Consulting: Tuxtla, Guadalajara, Monterrey, CDMX y Mérida. Contenido profesional para decidir tu próximo proyecto digital.',
-        'keywords' => 'blog desarrollo software, guías precios página web, empresa software guadalajara, software monterrey, desarrollo web méxico',
+        'title' => 'Blog — Nova Consulting',
+        'description' => 'Perspectivas editoriales sobre software, diseño y productos digitales con claridad.',
+        'keywords' => 'blog software, desarrollo, nova consulting blog',
     ],
 
     'website_quote' => [

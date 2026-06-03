@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-CvjS4Lqv.css",
+    "file": "assets/app-Cr8DYkBt.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -19,6 +19,12 @@
     "file": "assets/app-DUmol83g.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/blogVimCursor.js": {
+    "file": "assets/blogVimCursor-v_BwykgJ.js",
+    "name": "blogVimCursor",
+    "src": "resources/js/blogVimCursor.js",
     "isEntry": true
   },
   "resources/js/homeScrollHero.js": {

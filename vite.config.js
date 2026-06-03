@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/homeScrollHero.js',
+                'resources/js/blogVimCursor.js',
                 'resources/css/filament/admin/theme.css',
             ],
             refresh: true,
