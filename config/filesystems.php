@@ -33,7 +33,6 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app/private'),
-            'serve' => true,
             'throw' => false,
             'report' => false,
         ],
@@ -43,6 +42,8 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+            // Fallback when public/storage symlink is missing (e.g. fresh deploy).
+            'serve' => true,
             'throw' => false,
             'report' => false,
         ],

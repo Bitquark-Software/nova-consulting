@@ -241,7 +241,16 @@ class BlogPost extends Model
 
     public static function defaultCoverImageUrl(): string
     {
-        return asset(self::DEFAULT_COVER_ASSET);
+        return static::absoluteAssetUrl(asset(self::DEFAULT_COVER_ASSET));
+    }
+
+    public static function absoluteAssetUrl(string $url): string
+    {
+        if (preg_match('#^https?://#i', $url)) {
+            return $url;
+        }
+
+        return url($url);
     }
 
     public function getCoverImageUrlAttribute(): string
@@ -250,7 +259,12 @@ class BlogPost extends Model
             return static::defaultCoverImageUrl();
         }
 
-        return Storage::disk('public')->url($this->cover_image);
+        return static::absoluteAssetUrl(Storage::disk('public')->url($this->cover_image));
+    }
+
+    public function getOgImageUrlAttribute(): string
+    {
+        return $this->cover_image_url;
     }
 
     public function hasUploadedCoverImage(): bool

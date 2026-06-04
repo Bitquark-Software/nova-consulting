@@ -37,7 +37,8 @@ class Show extends Component
                         'description' => $this->post->effective_meta_description,
                         'type' => 'article',
                         'url' => $this->post->canonical_url,
-                        'image' => $this->post->cover_image_url,
+                        'image' => $this->post->og_image_url,
+                        'alt' => $this->post->title,
                     ],
                 ],
             ]);

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\BlogPost;
 use Illuminate\Support\Facades\Cache;
 
 class SeoService
@@ -27,7 +28,18 @@ class SeoService
 
     protected function cacheKey()
     {
-        return 'seo:'.$this->routeName.':'.$this->locale;
+        $overrideKey = $this->overrides === []
+            ? 'default'
+            : md5(json_encode($this->overrides));
+
+        return 'seo:'.$this->routeName.':'.$this->locale.':'.$overrideKey;
+    }
+
+    protected static function absoluteOgImageUrl(?string $image): string
+    {
+        $image = filled($image) ? $image : BlogPost::defaultCoverImageUrl();
+
+        return BlogPost::absoluteAssetUrl($image);
     }
 
     /**
@@ -73,14 +85,28 @@ class SeoService
                 'image' => asset('images/preview.png'),
             ];
 
-            // Apply overrides
-            $data = array_merge([
+            $defaults = [
                 'title' => $title,
                 'description' => $description,
                 'keywords' => $keywords,
                 'og' => $og,
                 'locale' => $this->locale,
-            ], $this->overrides);
+            ];
+
+            $overrides = $this->overrides;
+
+            if (isset($overrides['og']) && is_array($overrides['og'])) {
+                $defaults['og'] = array_merge($defaults['og'], $overrides['og']);
+                unset($overrides['og']);
+            }
+
+            $data = array_merge($defaults, $overrides);
+
+            if (! empty($data['canonical'])) {
+                $data['og']['url'] = $data['canonical'];
+            }
+
+            $data['og']['image'] = self::absoluteOgImageUrl($data['og']['image'] ?? null);
 
             // Structured data graph helps Google understand brand and sitelinks candidates.
             $data['jsonld'] = $this->generateJsonLdGraph($data);
@@ -388,12 +414,17 @@ class SeoService
         $out[] = '<meta property="og:description" content="'.e($data['og']['description']).'">';
         $out[] = '<meta property="og:type" content="'.e($data['og']['type']).'">';
         $out[] = '<meta property="og:url" content="'.e($data['og']['url']).'">';
-        $out[] = '<meta property="og:image" content="'.e($data['og']['image']).'">';
+        $ogImage = self::absoluteOgImageUrl($data['og']['image'] ?? null);
+        $out[] = '<meta property="og:image" content="'.e($ogImage).'">';
+        $out[] = '<meta property="og:image:secure_url" content="'.e($ogImage).'">';
+        if (! empty($data['og']['alt'])) {
+            $out[] = '<meta property="og:image:alt" content="'.e($data['og']['alt']).'">';
+        }
         $out[] = '<meta property="og:locale" content="'.e(str_replace('-', '_', app()->getLocale())).'">';
         $out[] = '<meta name="twitter:card" content="summary_large_image">';
         $out[] = '<meta name="twitter:title" content="'.e($data['og']['title']).'">';
         $out[] = '<meta name="twitter:description" content="'.e($data['og']['description']).'">';
-        $out[] = '<meta name="twitter:image" content="'.e($data['og']['image']).'">';
+        $out[] = '<meta name="twitter:image" content="'.e($ogImage).'">';
         $out[] = '<link rel="canonical" href="'.e($data['og']['url']).'">';
         $hreflang = $overrides['hreflang'] ?? null;
         if (is_array($hreflang) && (isset($hreflang['es']) || isset($hreflang['en']))) {

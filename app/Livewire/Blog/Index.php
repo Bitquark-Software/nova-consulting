@@ -49,6 +49,14 @@ class Index extends Component
                     'title' => __('blog.editorial.seo_title'),
                     'description' => __('blog.editorial.seo_description'),
                     'keywords' => __('blog.editorial.seo_keywords'),
+                    'og' => [
+                        'title' => __('blog.editorial.seo_title'),
+                        'description' => __('blog.editorial.seo_description'),
+                        'type' => 'website',
+                        'url' => route('blog.index'),
+                        'image' => BlogPost::defaultCoverImageUrl(),
+                        'alt' => __('blog.editorial.seo_title'),
+                    ],
                 ],
             ]);
     }
