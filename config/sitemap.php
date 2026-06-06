@@ -36,5 +36,7 @@ return [
         ['path' => '/how-much-does-a-landing-page-cost', 'priority' => '0.75', 'lastmod' => '2026-03-24'],
         ['path' => '/como-hacer-una-landing-page', 'priority' => '0.75', 'lastmod' => '2026-03-24'],
         ['path' => '/how-to-build-a-landing-page', 'priority' => '0.75', 'lastmod' => '2026-03-24'],
+        ['path' => '/invitaciones-digitales-boda', 'priority' => '0.88', 'lastmod' => '2026-06-04'],
+        ['path' => '/digital-wedding-invitations', 'priority' => '0.85', 'lastmod' => '2026-06-04'],
     ],
 ];

@@ -11,6 +11,7 @@ return [
             'cuanto_landing' => '¿Cuánto cuesta una landing page?',
             'como_landing' => 'Cómo hacer una landing page',
         ],
+        'wedding_invitations' => 'Invitaciones digitales para boda',
         'cities' => [
             'gdl' => 'Empresa de software en Guadalajara',
             'mty' => 'Empresa de software en Monterrey',
@@ -70,5 +71,17 @@ return [
         'title' => 'Cotizador de sitio web — Nova Consulting',
         'description' => 'Cotiza landing page, sitio corporativo o software a la medida con precios orientativos en MXN. Envío instantáneo al equipo.',
         'keywords' => 'cotizar página web, precio landing page, sitio corporativo méxico, cotizador web',
+    ],
+
+    'landing.wedding_invitations' => [
+        'title' => 'Invitaciones digitales para boda | Nova Invita — Nova Consulting',
+        'description' => 'Invitaciones de boda digitales con RSVP, mapas y galería. Diseño elegante, bilingüe y optimizado para WhatsApp.',
+        'keywords' => 'invitaciones digitales boda, invitación boda online, RSVP boda digital, invitaciones boda México',
+    ],
+
+    'landing.en.wedding_invitations' => [
+        'title' => 'Digital wedding invitations | Nova Invita — Nova Consulting',
+        'description' => 'Digital wedding invitations with RSVP, maps, and guest gallery. Elegant, bilingual, WhatsApp-ready.',
+        'keywords' => 'digital wedding invitations, online wedding invite, wedding RSVP website, wedding invitation Mexico',
     ],
 ];

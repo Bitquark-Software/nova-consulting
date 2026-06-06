@@ -1,6 +1,10 @@
 @php
     $seo_overrides = $seo_overrides ?? [];
     $htmlLang = $htmlLang ?? str_replace('_', '-', app()->getLocale());
+    $isWeddingInvitationsLanding = request()->routeIs('landing.wedding_invitations', 'landing.en.wedding_invitations');
+    $hideMarketingNav = $__env->hasSection('no_marketing_nav') || $isWeddingInvitationsLanding;
+    $hideStickyCta = $__env->hasSection('no_sticky_cta') || $isWeddingInvitationsLanding;
+    $hideSiteFooter = $__env->hasSection('no_site_footer');
 @endphp
 <!DOCTYPE html>
 <html lang="{{ $htmlLang }}">
@@ -39,9 +43,12 @@
         'font-sans antialiased bg-[#F2F2F2] text-[#2C2C2C] selection:bg-black selection:text-white overflow-x-clip max-lg:pb-[calc(4.75rem+env(safe-area-inset-bottom))]',
         trim($__env->yieldContent('marketing_body_class')),
     ])>
-        @include('partials.marketing-nav', [
-            'navGaSection' => trim($__env->yieldContent('nav_ga_section')) ?: 'nav-marketing',
-        ])
+        @if ($hideMarketingNav)
+        @else
+            @include('partials.marketing-nav', [
+                'navGaSection' => trim($__env->yieldContent('nav_ga_section')) ?: 'nav-marketing',
+            ])
+        @endif
 
         <main class="relative overflow-hidden">
             @hasSection('no_decorations')
@@ -55,12 +62,15 @@
             @endif
         </main>
 
-        @hasSection('no_sticky_cta')
+        @if ($hideStickyCta)
         @else
             @include('partials.sticky-mobile-cta', ['marketingShowMobileTabBar' => true])
         @endif
 
-        @include('layouts.footer')
+        @if ($hideSiteFooter)
+        @else
+            @include('layouts.footer')
+        @endif
 
         @stack('body_end')
     </body>

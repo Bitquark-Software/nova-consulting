@@ -11,6 +11,7 @@ return [
             'cuanto_landing' => 'How much does a landing page cost?',
             'como_landing' => 'How to build a landing page',
         ],
+        'wedding_invitations' => 'Digital wedding invitations',
         'cities' => [
             'gdl' => 'Software company in Guadalajara',
             'mty' => 'Software company in Monterrey',
@@ -69,5 +70,17 @@ return [
         'title' => 'IT recruitment for companies — Nova Consulting',
         'description' => 'Recruitment and technical screening so your company can hire candidates. Not a Nova job board: we recruit on your behalf; your business is the employer. Fee structured around successful hire.',
         'keywords' => 'it recruitment for companies, developer sourcing, technical hiring, recruit engineers, headhunting developers',
+    ],
+
+    'landing.wedding_invitations' => [
+        'title' => 'Invitaciones digitales para boda | Nova Invita — Nova Consulting',
+        'description' => 'Invitaciones de boda digitales con RSVP, mapas y galería. Diseño elegante, bilingüe y optimizado para WhatsApp.',
+        'keywords' => 'invitaciones digitales boda, invitación boda online, RSVP boda digital, invitaciones boda México',
+    ],
+
+    'landing.en.wedding_invitations' => [
+        'title' => 'Digital wedding invitations | Nova Invita — Nova Consulting',
+        'description' => 'Digital wedding invitations with RSVP, maps, and guest gallery. Elegant, bilingual, WhatsApp-ready.',
+        'keywords' => 'digital wedding invitations, online wedding invite, wedding RSVP website, wedding invitation Mexico',
     ],
 ];

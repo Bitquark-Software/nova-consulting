@@ -19,4 +19,12 @@ class LocalizedUrls
 
         return $path ? url($path) : url('/');
     }
+
+    public static function weddingInvitations(): string
+    {
+        $loc = app()->getLocale();
+        $path = config('wedding_invitations.paths.'.$loc);
+
+        return $path ? url($path) : url('/');
+    }
 }

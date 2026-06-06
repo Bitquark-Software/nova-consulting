@@ -179,6 +179,18 @@ Route::get('/software-company-merida', function () {
     return view('landings.city-software', ['city' => 'merida']);
 })->name('landing.en.software.merida');
 
+Route::get('/invitaciones-digitales-boda', function () {
+    app()->setLocale('es');
+
+    return view('landings.wedding-invitations');
+})->name('landing.wedding_invitations');
+
+Route::get('/digital-wedding-invitations', function () {
+    app()->setLocale('en');
+
+    return view('landings.wedding-invitations');
+})->name('landing.en.wedding_invitations');
+
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');

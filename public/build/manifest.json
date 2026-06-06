@@ -1,6 +1,10 @@
 {
+  "_ScrollTrigger-C8IefbVz.js": {
+    "file": "assets/ScrollTrigger-C8IefbVz.js",
+    "name": "ScrollTrigger"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-Cr8DYkBt.css",
+    "file": "assets/app-C5CsJ1fq.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -13,6 +17,14 @@
     "isEntry": true,
     "names": [
       "theme.css"
+    ]
+  },
+  "resources/css/wedding-invitations.css": {
+    "file": "assets/wedding-invitations-Bnd5P6rY.css",
+    "src": "resources/css/wedding-invitations.css",
+    "isEntry": true,
+    "names": [
+      "wedding-invitations.css"
     ]
   },
   "resources/js/app.js": {
@@ -28,9 +40,21 @@
     "isEntry": true
   },
   "resources/js/homeScrollHero.js": {
-    "file": "assets/homeScrollHero-CXC3hR4f.js",
+    "file": "assets/homeScrollHero-uoC5Y2n9.js",
     "name": "homeScrollHero",
     "src": "resources/js/homeScrollHero.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_ScrollTrigger-C8IefbVz.js"
+    ]
+  },
+  "resources/js/weddingInvitationsScroll.js": {
+    "file": "assets/weddingInvitationsScroll-BvDcfN3y.js",
+    "name": "weddingInvitationsScroll",
+    "src": "resources/js/weddingInvitationsScroll.js",
+    "isEntry": true,
+    "imports": [
+      "_ScrollTrigger-C8IefbVz.js"
+    ]
   }
 }

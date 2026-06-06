@@ -343,6 +343,15 @@ class SeoService
             ]);
         }
 
+        if (in_array($route, ['landing.wedding_invitations', 'landing.en.wedding_invitations'], true)) {
+            $path = config('wedding_invitations.paths.'.app()->getLocale());
+
+            return $this->breadcrumbSchema([
+                ['name' => __('seo.breadcrumb.home'), 'url' => $homeUrl],
+                ['name' => __('seo.breadcrumb.wedding_invitations'), 'url' => url($path)],
+            ]);
+        }
+
         $map = [
             'blog.index' => [
                 ['name' => __('seo.breadcrumb.home'), 'url' => $homeUrl],
