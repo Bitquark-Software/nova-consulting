@@ -1,6 +1,7 @@
 @php
     $cp = trans('messages.contact_page');
     $mapUrl = 'https://www.google.com/maps/search/?api=1&query='.urlencode($cp['map_query']);
+    $mapEmbedUrl = 'https://www.google.com/maps?q='.urlencode($cp['map_query']).'&hl='.(app()->getLocale() === 'en' ? 'en' : 'es').'&z=15&output=embed';
     $canonical = url('/contact');
     $htmlLang = app()->getLocale() === 'en' ? 'en' : 'es-MX';
     $seo_overrides = [
@@ -114,6 +115,17 @@
                             </a>
                         </div>
                     </div>
+                </div>
+
+                <div class="rounded-2xl border border-gray-200 overflow-hidden shadow-sm aspect-[4/3] sm:aspect-[16/9]">
+                    <iframe
+                        src="{{ $mapEmbedUrl }}"
+                        class="h-full w-full border-0"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="{{ $cp['map_query'] }}"
+                    ></iframe>
                 </div>
 
                 <div class="rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8">
