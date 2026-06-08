@@ -11,6 +11,7 @@ return [
             'cuanto_landing' => 'How much does a landing page cost?',
             'como_landing' => 'How to build a landing page',
         ],
+        'tuxtla_web_design' => 'Web design in Tuxtla Gutiérrez',
         'wedding_invitations' => 'Digital wedding invitations',
         'cities' => [
             'gdl' => 'Software company in Guadalajara',

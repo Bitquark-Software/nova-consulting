@@ -240,6 +240,7 @@ class SeoService
 
         $menuItems = [
             ['name' => 'Servicios', 'url' => url('/services')],
+            ['name' => 'Diseño web Tuxtla Gutiérrez', 'url' => url('/diseno-de-paginas-web-en-tuxtla-gutierrez')],
             ['name' => 'Blog', 'url' => url('/blog')],
             ['name' => 'Contacto', 'url' => url('/contact')],
             ['name' => 'Cotiza', 'url' => url('/cotizador-sitio-web')],
@@ -380,6 +381,11 @@ class SeoService
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'Blog', 'url' => url('/blog/mano-de-obra-barata')],
             ],
+            'blog.tuxtla_web_design' => [
+                ['name' => 'Inicio', 'url' => $homeUrl],
+                ['name' => 'Blog', 'url' => url('/blog')],
+                ['name' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'url' => url('/blog/diseno-paginas-web-tuxtla-gutierrez')],
+            ],
             'hiring_services' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
                 ['name' => 'Reclutamiento para empresas', 'url' => url('/hiring-services')],
@@ -390,7 +396,7 @@ class SeoService
             ],
             'landing.webdesign.tuxtla.chiapas' => [
                 ['name' => 'Inicio', 'url' => $homeUrl],
-                ['name' => 'Diseños de paginas web en Tuxtla Gutiérrez', 'url' => url('/diseno-paginas-web-tuxtla-chiapas')],
+                ['name' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'url' => url('/diseno-de-paginas-web-en-tuxtla-gutierrez')],
             ],
         ];
 

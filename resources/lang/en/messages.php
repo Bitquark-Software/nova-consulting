@@ -106,6 +106,10 @@ return [
         'software_mty' => 'Software in Monterrey',
         'software_cdmx' => 'Software in Mexico City',
         'software_merida' => 'Software in Mérida',
+        'local_tuxtla' => 'Tuxtla Gutiérrez',
+        'web_design_tuxtla' => 'Web design in Tuxtla Gutiérrez',
+        'software_tuxtla' => 'Software company in Tuxtla',
+        'website_quote' => 'Website quote wizard',
     ],
     'contact' => [
         'get_in_touch' => 'Get in Touch',
@@ -156,6 +160,7 @@ return [
         'explore_quote' => 'Detailed quote form',
         'explore_guides' => 'Pricing & landing guides',
         'explore_blog' => 'Guide: cheap software labor',
+        'explore_tuxtla_web' => 'Web design in Tuxtla Gutiérrez',
         'form_section_title' => 'Quick contact form',
         'form_section_sub' => 'If you prefer structured details, this form helps us reply faster with an initial proposal.',
         'faq_title' => 'Before you write',
@@ -427,6 +432,7 @@ return [
         'explore_title' => 'Useful links',
         'link_faq' => 'FAQ',
         'link_guides' => 'Pricing guides',
+        'link_tuxtla_web' => 'Web design in Tuxtla Gutiérrez',
     ],
 
     'faq_page' => [

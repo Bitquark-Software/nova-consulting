@@ -17,6 +17,8 @@
 - [Login](https://novaconsulting.com.mx/login): The login page allows registered users to access their accounts securely. It is designed for clients and partners who need to manage their projects, view updates, or communicate with Nova Consulting. This page is essential for maintaining a seamless user experience for ongoing clients.
 - [Register](https://novaconsulting.com.mx/register): This registration page enables new users to create an account with Nova Consulting. It outlines the necessary steps and information required to sign up, allowing potential clients to gain access to the company’s services and resources. This page is particularly beneficial for businesses looking to engage with Nova Consulting for the first time.
 - [Services](https://novaconsulting.com.mx/services): The services page details the various technology solutions offered by Nova Consulting, including custom software development and IT staffing. It outlines the specific services available, the methodologies employed, and the benefits of each offering. This page is crucial for businesses seeking tailored technology solutions to address their unique challenges and drive growth.
+- [Web design in Tuxtla Gutiérrez](https://novaconsulting.com.mx/diseno-de-paginas-web-en-tuxtla-gutierrez): Local landing page for businesses in Tuxtla and Chiapas who need professional websites built with a click-based quote wizard and local SEO.
+- [Blog · Web design guide Tuxtla](https://novaconsulting.com.mx/blog/diseno-paginas-web-tuxtla-gutierrez): Editorial guide covering how to create a website with clicks, local SEO, and pricing for Tuxtla Gutiérrez businesses.
 
 # llms.txt spec v1.0 — generated via https://llmstxtgenerator.org
 # Build-Hash: 3CAC-ADBB-ADDF

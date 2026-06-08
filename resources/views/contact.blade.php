@@ -243,6 +243,7 @@
                 <a href="{{ route('faq') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_faq">{{ $cp['explore_faq'] }}</a>
                 <a href="{{ route('website_quote') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_quote">{{ $cp['explore_quote'] }}</a>
                 <a href="{{ route('blog.cheap_labor') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_blog">{{ $cp['explore_blog'] }}</a>
+                <a href="{{ \App\Support\LocalizedUrls::tuxtlaWebDesign() }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_tuxtla_web">{{ $cp['explore_tuxtla_web'] }}</a>
                 <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="contact_explore_guides">{{ $cp['explore_guides'] }}</a>
             </div>
         </section>

@@ -27,4 +27,14 @@ class LocalizedUrls
 
         return $path ? url($path) : url('/');
     }
+
+    public static function tuxtlaWebDesign(): string
+    {
+        return url(config('tuxtla_web_design.path', '/diseno-de-paginas-web-en-tuxtla-gutierrez'));
+    }
+
+    public static function tuxtlaSoftware(): string
+    {
+        return url('/empresa-software-tuxtla-chiapas');
+    }
 }

@@ -14,7 +14,7 @@ return [
         'related_title' => 'Te puede interesar',
         'footer_services' => 'Ver servicios',
         'footer_contact' => 'Contacto',
-        'footer_tuxtla_web' => 'Diseño web en Tuxtla',
+        'footer_tuxtla_web' => 'Diseño de páginas web en Tuxtla Gutiérrez',
         'whatsapp_prefill' => 'Hola, leí la guía en novaconsulting.com.mx y quiero una propuesta: ',
     ],
 
@@ -57,7 +57,7 @@ return [
         'related' => [
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
             ['label' => '¿Qué es una landing page?', 'guide' => 'que_es_landing'],
-            ['label' => 'Diseños de paginas web en Tuxtla Gutiérrez', 'path' => '/diseno-paginas-web-tuxtla-chiapas'],
+            ['label' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'path' => '/diseno-de-paginas-web-en-tuxtla-gutierrez'],
         ],
         'lead_source' => 'guide-cuanto-pagina-web',
     ],
@@ -145,6 +145,7 @@ return [
         'related' => [
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
             ['label' => 'Cómo hacer una landing page', 'guide' => 'como_landing'],
+            ['label' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'path' => '/diseno-de-paginas-web-en-tuxtla-gutierrez'],
             ['label' => 'Cotizar proyecto', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-que-es-landing',
@@ -188,6 +189,7 @@ return [
         'related' => [
             ['label' => '¿Qué es una landing page?', 'guide' => 'que_es_landing'],
             ['label' => 'Cómo hacer una landing page', 'guide' => 'como_landing'],
+            ['label' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'path' => '/diseno-de-paginas-web-en-tuxtla-gutierrez'],
             ['label' => '¿Cuánto cuesta una página web?', 'guide' => 'cuanto_pagina_web'],
         ],
         'lead_source' => 'guide-cuanto-landing',
@@ -250,6 +252,7 @@ return [
         'related' => [
             ['label' => '¿Qué es una landing page?', 'guide' => 'que_es_landing'],
             ['label' => '¿Cuánto cuesta una landing page?', 'guide' => 'cuanto_landing'],
+            ['label' => 'Diseño de páginas web en Tuxtla Gutiérrez', 'path' => '/diseno-de-paginas-web-en-tuxtla-gutierrez'],
             ['label' => 'Cotizar con Nova Consulting', 'path' => '/cotizador-sitio-web'],
         ],
         'lead_source' => 'guide-como-landing',

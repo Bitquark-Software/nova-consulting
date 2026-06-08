@@ -106,6 +106,10 @@ return [
         'software_mty' => 'Software en Monterrey',
         'software_cdmx' => 'Software en Ciudad de México',
         'software_merida' => 'Software en Mérida',
+        'local_tuxtla' => 'Tuxtla Gutiérrez',
+        'web_design_tuxtla' => 'Diseño de páginas web en Tuxtla',
+        'software_tuxtla' => 'Empresa de software en Tuxtla',
+        'website_quote' => 'Cotizador de sitio web',
     ],
     'contact' => [
         'get_in_touch' => 'Ponte en Contacto',
@@ -156,6 +160,7 @@ return [
         'explore_quote' => 'Cotizar con formulario detallado',
         'explore_guides' => 'Guías de precios y landings',
         'explore_blog' => 'Guía: mano de obra barata',
+        'explore_tuxtla_web' => 'Diseño web en Tuxtla Gutiérrez',
         'form_section_title' => 'Formulario express',
         'form_section_sub' => 'Si prefieres dejar los datos estructurados, este formulario nos ayuda a responderte más rápido con una propuesta inicial.',
         'faq_title' => 'Antes de escribir',
@@ -426,6 +431,7 @@ return [
         'explore_title' => 'Enlaces útiles',
         'link_faq' => 'Preguntas frecuentes',
         'link_guides' => 'Guías de precios',
+        'link_tuxtla_web' => 'Diseño web en Tuxtla Gutiérrez',
     ],
 
     'faq_page' => [

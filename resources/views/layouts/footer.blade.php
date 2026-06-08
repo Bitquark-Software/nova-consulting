@@ -56,6 +56,18 @@
                 <ul class="flex flex-wrap gap-x-2 gap-y-1" role="list">
                     <li><a href="{{ route('blog.index') }}" class="marketing-footer__link marketing-footer__link--strong">{{ __('messages.footer.blog_index') }}</a></li>
                     <li><a href="{{ route('blog.cheap_labor') }}" class="marketing-footer__link">{{ __('messages.footer.blog_cheap_labor') }}</a></li>
+                    <li><a href="{{ route('blog.tuxtla_web_design') }}" class="marketing-footer__link">{{ __('messages.footer.web_design_tuxtla') }}</a></li>
+                </ul>
+            </div>
+
+            <div class="marketing-footer__divider my-10 sm:my-11" role="presentation" aria-hidden="true"></div>
+
+            <div>
+                <h2 class="marketing-footer__section-title">{{ __('messages.footer.local_tuxtla') }}</h2>
+                <ul class="flex flex-wrap gap-x-2 gap-y-1" role="list">
+                    <li><a href="{{ \App\Support\LocalizedUrls::tuxtlaWebDesign() }}" class="marketing-footer__link marketing-footer__link--strong">{{ __('messages.footer.web_design_tuxtla') }}</a></li>
+                    <li><a href="{{ \App\Support\LocalizedUrls::tuxtlaSoftware() }}" class="marketing-footer__link">{{ __('messages.footer.software_tuxtla') }}</a></li>
+                    <li><a href="{{ route('website_quote') }}" class="marketing-footer__link">{{ __('messages.footer.website_quote') }}</a></li>
                 </ul>
             </div>
 

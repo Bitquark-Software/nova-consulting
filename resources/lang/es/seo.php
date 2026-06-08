@@ -11,6 +11,7 @@ return [
             'cuanto_landing' => '¿Cuánto cuesta una landing page?',
             'como_landing' => 'Cómo hacer una landing page',
         ],
+        'tuxtla_web_design' => 'Diseño de páginas web en Tuxtla Gutiérrez',
         'wedding_invitations' => 'Invitaciones digitales para boda',
         'cities' => [
             'gdl' => 'Empresa de software en Guadalajara',
@@ -77,6 +78,12 @@ return [
         'title' => 'Invitaciones digitales para boda | Nova Invita — Nova Consulting',
         'description' => 'Invitaciones de boda digitales con RSVP, mapas y galería. Diseño elegante, bilingüe y optimizado para WhatsApp.',
         'keywords' => 'invitaciones digitales boda, invitación boda online, RSVP boda digital, invitaciones boda México',
+    ],
+
+    'landing.webdesign.tuxtla.chiapas' => [
+        'title' => 'Diseño de páginas web en Tuxtla Gutiérrez | Nova Consulting',
+        'description' => 'Diseño de páginas web en Tuxtla Gutiérrez, Chiapas. Arma tu sitio con clics en nuestro cotizador y publicamos con SEO local.',
+        'keywords' => 'diseño de paginas web en tuxtla gutierrez, diseño web tuxtla, paginas web chiapas, cotizar pagina web tuxtla',
     ],
 
     'landing.en.wedding_invitations' => [

@@ -53,6 +53,12 @@ Route::get('/blog/mano-de-obra-barata', function () {
     return view('blog.mano-de-obra-barata');
 })->name('blog.cheap_labor');
 
+Route::get('/blog/diseno-paginas-web-tuxtla-gutierrez', function () {
+    app()->setLocale('es');
+
+    return view('blog.diseno-paginas-web-tuxtla-gutierrez');
+})->name('blog.tuxtla_web_design');
+
 Route::get('/blog/{post:slug}', BlogShow::class)->name('blog.show');
 
 Route::get('/contact', function () {
@@ -127,8 +133,12 @@ Route::get('/empresa-software-tuxtla-chiapas', function () {
     return view('empresa-software-tuxtla-chiapas');
 })->name('landing.software.tuxtla.chiapas');
 
-Route::get('/diseno-paginas-web-tuxtla-chiapas', function () {
-    return view('diseno-paginas-web-tuxtla-chiapas');
+Route::permanentRedirect('/diseno-paginas-web-tuxtla-chiapas', '/diseno-de-paginas-web-en-tuxtla-gutierrez');
+
+Route::get('/diseno-de-paginas-web-en-tuxtla-gutierrez', function () {
+    app()->setLocale('es');
+
+    return view('landings.tuxtla-web-design');
 })->name('landing.webdesign.tuxtla.chiapas');
 
 Route::get('/empresa-software-guadalajara', function () {

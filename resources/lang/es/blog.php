@@ -161,6 +161,115 @@ return [
         'final_cta_quote' => 'Cotizar en línea',
     ],
 
+    'tuxtla_web_design_page' => [
+        'seo_title' => 'Diseño de páginas web en Tuxtla Gutiérrez: guía y cotizador por clics | Nova Consulting',
+        'seo_description' => 'Guía para empresas de Tuxtla y Chiapas: cómo crear tu página web con clics, qué incluye el SEO local y cuánto cuesta. Cotizador en línea y equipo en Avenida Chihuahua 1067.',
+        'seo_keywords' => 'diseño de paginas web en tuxtla gutierrez, diseño web tuxtla, crear pagina web chiapas, cotizar pagina web tuxtla, seo local tuxtla, agencia web chiapas',
+
+        'hero_badge' => 'Guía local · Tuxtla Gutiérrez, Chiapas',
+        'hero_title' => 'Diseño de páginas web en Tuxtla Gutiérrez: cómo armar la tuya con clics',
+        'hero_subtitle' => 'Si tu negocio está en Tuxtla o Chiapas y quieres aparecer en Google con una imagen profesional, esta guía resume el proceso: cotizador por clics, qué incluye el diseño y cómo optimizamos para búsquedas locales.',
+
+        'hero_cta_landing' => 'Página de diseño web en Tuxtla',
+        'hero_cta_quote' => 'Cotizador por clics',
+        'hero_cta_contact' => 'Hablar con Nova',
+
+        'toc_title' => 'En esta guía',
+        'toc' => [
+            ['id' => 'por-que', 'label' => 'Por qué importa en Tuxtla'],
+            ['id' => 'con-clics', 'label' => 'Crear tu sitio con clics'],
+            ['id' => 'seo-local', 'label' => 'SEO local en Chiapas'],
+            ['id' => 'tipos', 'label' => 'Qué tipo de página necesitas'],
+            ['id' => 'costos', 'label' => 'Cuánto cuesta'],
+        ],
+
+        'sections' => [
+            [
+                'id' => 'por-que',
+                'title' => 'Por qué tu negocio en Tuxtla Gutiérrez necesita una página web profesional',
+                'paragraphs' => [
+                    'En Tuxtla Gutiérrez y municipios cercanos, cada vez más clientes buscan en Google antes de llamar o escribir por WhatsApp. Si no apareces con una página clara — servicios, ubicación, formas de contacto — pierdes oportunidades frente a competidores que sí invirtieron en presencia digital.',
+                    'Una página web bien hecha no es solo “tener internet”: es tu vitrina 24/7, tu credencial de confianza y el canal donde capturas leads mientras duermes. Para negocios locales en Chiapas, combinar diseño profesional con SEO local marca la diferencia entre ser invisible y ser la primera opción.',
+                ],
+                'bullets' => [
+                    'Clientes buscan «diseño de páginas web en Tuxtla Gutiérrez» y servicios de tu giro en la zona.',
+                    'WhatsApp integrado convierte visitas en conversaciones reales.',
+                    'Google Maps y datos de contacto coherentes refuerzan confianza.',
+                ],
+            ],
+            [
+                'id' => 'con-clics',
+                'title' => 'Cómo crear tu página web con clics (sin adivinar precios)',
+                'paragraphs' => [
+                    'En Nova Consulting diseñamos un cotizador guiado para que armes el perfil de tu proyecto en minutos. No necesitas saber de tecnología: eliges tipo de sitio, secciones, funciones y estilo; el asistente construye un rango orientativo en MXN y envía tus datos a nuestro equipo en Tuxtla.',
+                    'Este flujo por clics reduce fricción: sabes qué estás pidiendo, cuánto podría costar y qué sigue después. Un asesor te contacta para afinar alcance, diseño y calendario de entrega.',
+                ],
+                'bullets' => [
+                    'Paso 1: elige landing, corporativo, catálogo o e-commerce.',
+                    'Paso 2: activa formularios, WhatsApp, galería, blog u otras secciones.',
+                    'Paso 3: indica si tienes logo, colores o referencias visuales.',
+                    'Paso 4: envía datos y recibe propuesta orientativa al instante.',
+                ],
+            ],
+            [
+                'id' => 'seo-local',
+                'title' => 'SEO local: aparecer cuando buscan en Tuxtla y Chiapas',
+                'paragraphs' => [
+                    'El diseño de páginas web en Tuxtla Gutiérrez debe incluir SEO desde la base: títulos y descripciones correctos, encabezados semánticos (H1, H2), velocidad de carga, versión móvil impecable y contenido que mencione tu zona de servicio de forma natural.',
+                    'También ayuda enlazar tu sitio con Google Business Profile, mantener NAP consistente (nombre, dirección, teléfono) y publicar contenido útil — guías, casos, preguntas frecuentes — que responda lo que buscan tus clientes locales.',
+                ],
+                'bullets' => [
+                    'Metadatos y estructura técnica incluidos en cada entrega.',
+                    'Contenido orientado a búsquedas de Tuxtla, San Cristóbal, Tapachula y Chiapas.',
+                    'Integración con mapas y botones de contacto visibles en móvil.',
+                ],
+            ],
+            [
+                'id' => 'tipos',
+                'title' => 'Qué tipo de página web conviene a tu negocio',
+                'paragraphs' => [
+                    'No todos los negocios necesitan lo mismo. Una landing page basta para campañas puntuales; un sitio corporativo de varias secciones funciona mejor si vendes servicios complejos; un catálogo o tienda ayuda si muestras productos con precios.',
+                    'En el cotizador por clics puedes comparar opciones sin compromiso. Si dudas, nuestro equipo en Tuxtla te orienta según tu industria y objetivo comercial.',
+                ],
+                'bullets' => [
+                    'Landing: una acción clara (cotizar, agendar, comprar).',
+                    'Corporativo: servicios, nosotros, contacto, blog opcional.',
+                    'Catálogo / tienda: productos, pedidos por WhatsApp o checkout.',
+                ],
+            ],
+            [
+                'id' => 'costos',
+                'title' => 'Cuánto cuesta diseñar una página web en Tuxtla Gutiérrez',
+                'paragraphs' => [
+                    'El precio depende del tipo de sitio, número de secciones, integraciones y si traes contenido listo o necesitas apoyo con textos e imágenes. Una landing optimizada suele ser la opción más accesible; un e-commerce completo requiere mayor inversión por flujos de pago y pruebas.',
+                    'Para rangos orientativos sin llamada previa, usa nuestro cotizador en línea. Negocios en Chiapas pueden aplicar 10% de descuento mencionando «DESCUENTO CHIAPAS» al contactarnos.',
+                ],
+            ],
+        ],
+
+        'faq_title' => 'Preguntas frecuentes',
+        'faqs' => [
+            [
+                'q' => '¿Puedo cotizar diseño web en Tuxtla sin llamar primero?',
+                'a' => 'Sí. El cotizador por clics te da un rango orientativo en minutos. Después un asesor de Tuxtla Gutiérrez te contacta para afinar detalles.',
+            ],
+            [
+                'q' => '¿Incluyen dominio y hosting?',
+                'a' => 'Se cotiza por separado o incluido según paquete. Lo definimos claramente en la propuesta para evitar sorpresas.',
+            ],
+            [
+                'q' => '¿Atienden solo Tuxtla Gutiérrez?',
+                'a' => 'Tenemos base en Tuxtla y atendemos todo Chiapas. También trabajamos remoto con clientes en otras ciudades de México.',
+            ],
+        ],
+
+        'final_title' => '¿Listo para tu página web en Tuxtla?',
+        'final_sub' => 'Entra a nuestra página de diseño web local o abre el cotizador por clics. Te acompañamos desde la primera idea hasta publicar con SEO.',
+        'final_cta_landing' => 'Ver servicio de diseño web',
+        'final_cta_quote' => 'Abrir cotizador',
+        'final_cta_contact' => 'Contacto',
+    ],
+
     'vibe_coding_page' => [
         'seo_title' => 'El arte de hacer vibe coding (y no romper tu producto) - Nova Consulting',
         'seo_description' => 'Guía práctica para construir con IA sin perder calidad. Te mostramos cómo impulsamos proyectos con vibe coding y cómo rescatamos sistemas vibecodeados que ya presentan errores.',

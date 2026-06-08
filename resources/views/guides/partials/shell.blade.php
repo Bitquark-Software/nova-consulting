@@ -126,7 +126,7 @@
         <div class="mt-12 flex flex-wrap gap-4 text-sm">
             <a href="{{ route('services') }}" class="font-semibold text-gray-600 hover:text-black transition-colors">{{ __('guides.shell.footer_services') }}</a>
             <a href="{{ route('contact') }}" class="font-semibold text-gray-600 hover:text-black transition-colors">{{ __('guides.shell.footer_contact') }}</a>
-            <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="font-semibold text-gray-600 hover:text-black transition-colors">{{ __('guides.shell.footer_tuxtla_web') }}</a>
+            <a href="{{ route('landing.webdesign.tuxtla.chiapas') }}" class="font-semibold text-gray-600 hover:text-black transition-colors">{{ __('guides.shell.footer_tuxtla_web') }}</a>
         </div>
     </div>
 

@@ -110,6 +110,23 @@
             </article>
         </section>
 
+        <section class="max-w-5xl mx-auto mt-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold">También diseñamos páginas web para empresas de Tuxtla</h2>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+                Además de software a medida, en Nova Consulting ofrecemos
+                <a href="{{ route('landing.webdesign.tuxtla.chiapas') }}" class="font-semibold underline hover:text-black">diseño de páginas web en Tuxtla Gutiérrez</a>
+                con cotizador por clics, SEO local y acompañamiento hasta la publicación.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="{{ route('landing.webdesign.tuxtla.chiapas') }}" class="px-5 py-2.5 rounded-md bg-[#2C2C2C] text-white font-medium text-sm" data-track="software_landing_cross_web">
+                    Ver diseño web en Tuxtla
+                </a>
+                <a href="{{ route('website_quote') }}" class="px-5 py-2.5 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium text-sm" data-track="software_landing_cross_quote">
+                    Cotizador por clics
+                </a>
+            </div>
+        </section>
+
         <section class="max-w-5xl mx-auto mt-16" data-ga-section="faq-software-chiapas">
             <h2 class="text-3xl font-bold text-center">FAQ sobre desarrollo de software en Tuxtla y Chiapas</h2>
             <div class="mt-6 space-y-4">

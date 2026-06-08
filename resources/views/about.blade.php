@@ -185,6 +185,7 @@
                 <a href="{{ route('faq') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_faq">{{ $ap['link_faq'] }}</a>
                 <a href="{{ \App\Support\LocalizedUrls::guide('cuanto_pagina_web') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_guides">{{ $ap['link_guides'] }}</a>
                 <a href="{{ route('website_quote') }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_quote">{{ $ap['cta_quote'] }}</a>
+                <a href="{{ \App\Support\LocalizedUrls::tuxtlaWebDesign() }}" class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gray-100 hover:bg-gray-200 transition-colors" data-track="about_explore_tuxtla_web">{{ $ap['link_tuxtla_web'] }}</a>
             </div>
         </section>
     </div>

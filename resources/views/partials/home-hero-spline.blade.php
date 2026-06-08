@@ -71,7 +71,7 @@
                 </p>
                 <div class="mt-3 flex flex-wrap gap-2">
                     <a href="{{ url('/empresa-software-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_software">{{ __('messages.new_branding.local_link_software') }}</a>
-                    <a href="{{ url('/diseno-paginas-web-tuxtla-chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_web">{{ __('messages.new_branding.local_link_web') }}</a>
+                    <a href="{{ route('landing.webdesign.tuxtla.chiapas') }}" class="rounded-full bg-gray-100 px-3 py-1.5 text-xs font-semibold transition-colors hover:bg-gray-200" data-track="home_internal_landing_web">{{ __('messages.new_branding.local_link_web') }}</a>
                 </div>
             </div>
             <div class="flex h-full min-h-[7rem] flex-col items-center justify-center rounded-xl border border-gray-800/20 bg-gradient-to-br from-[#2C2C2C] to-gray-800 p-4 text-white sm:min-h-0 sm:p-5" data-marketing-nav-contrast="dark">
