@@ -28,9 +28,9 @@ return [
     ],
 
     'home' => [
-        'title' => 'Páginas web y software en Tuxtla Gutiérrez, Chiapas | Nova Consulting',
-        'description' => 'Empresa de software en Tuxtla Gutiérrez, Chiapas. Diseñamos paginas web, sistemas a medida y soluciones digitales para empresas locales.',
-        'keywords' => 'empresas de software en tuxtla, empresas de software en chiapas, diseño de paginas web en tuxtla, diseño de paginas web en chiapas, desarrollo de software en tuxtla, agencia de software en chiapas',
+        'title' => 'Empresa de software y diseño web en Tuxtla Gutiérrez, Chiapas | Nova Consulting',
+        'description' => 'Nova Consulting: empresa de software y diseño de páginas web en Tuxtla Gutiérrez, Chiapas. Creamos sitios web con SEO local, landing pages, tiendas en línea y catálogos digitales; desarrollamos sistemas a medida, apps, automatizaciones y consultoría TI para PYMEs de Tuxtla, San Cristóbal de las Casas, Tapachula y todo el estado. Cotizador por clics, entrega acompañada y equipo local.',
+        'keywords' => 'empresa de software en tuxtla gutierrez, empresas de software en chiapas, diseño de paginas web en tuxtla, diseño de paginas web en chiapas, desarrollo de software en tuxtla, agencia de software en chiapas, desarrollo web tuxtla, sistemas a medida chiapas, landing page tuxtla, cotizar pagina web tuxtla, ecommerce chiapas, software a medida tuxtla gutierrez, nova consulting chiapas, paginas web empresas tuxtla',
     ],
 
     'services' => [
