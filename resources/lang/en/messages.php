@@ -96,6 +96,7 @@ return [
         'blog_index' => 'Blog hub',
         'blog_cheap_labor' => 'Guide: cheap software labor',
         'blog_vibe_coding' => 'Guide: vibe coding & AI',
+        'ai_app_publishing' => 'Publish your AI-built app',
         'careers' => 'Careers',
         'contact' => 'Contact',
         'faq' => 'F.A.Q',

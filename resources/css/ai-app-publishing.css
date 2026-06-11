@@ -1,0 +1,75 @@
+/* AI app publishing landing — scroll animation helpers */
+
+.aap-page {
+    background: #f2f2f2;
+    color: #2c2c2c;
+}
+
+.aap-hero-orb {
+    pointer-events: none;
+    border-radius: 9999px;
+    filter: blur(64px);
+    will-change: transform;
+}
+
+.aap-use-case-card,
+.aap-path-card,
+.aap-process-step {
+    will-change: transform, opacity;
+}
+
+.aap-marquee {
+    padding: 1.25rem 0;
+}
+
+@media (min-width: 768px) {
+    .aap-marquee {
+        padding: 1.75rem 0;
+    }
+}
+
+.aap-marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.aap-marquee-sequence {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding-right: 3rem;
+}
+
+.aap-marquee-item {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    padding-inline: 0.5em;
+    color: rgb(82 82 82 / 0.9);
+    white-space: nowrap;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.aap-marquee-sep {
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    letter-spacing: 0.5em;
+    padding-inline: 0.15em 0.65em;
+    color: rgb(0 0 0 / 0.2);
+    line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aap-hero-orb,
+    .aap-use-case-card,
+    .aap-path-card,
+    .aap-process-step,
+    .aap-marquee-track {
+        will-change: auto;
+    }
+
+    .aap-marquee-track {
+        transform: none !important;
+    }
+}

@@ -3,8 +3,16 @@
     "file": "assets/ScrollTrigger-C8IefbVz.js",
     "name": "ScrollTrigger"
   },
+  "resources/css/ai-app-publishing.css": {
+    "file": "assets/ai-app-publishing-ImPTXm7H.css",
+    "src": "resources/css/ai-app-publishing.css",
+    "isEntry": true,
+    "names": [
+      "ai-app-publishing.css"
+    ]
+  },
   "resources/css/app.css": {
-    "file": "assets/app-I_YdtF_e.css",
+    "file": "assets/app-BbyCqd8I.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
@@ -25,6 +33,15 @@
     "isEntry": true,
     "names": [
       "wedding-invitations.css"
+    ]
+  },
+  "resources/js/aiAppPublishingScroll.js": {
+    "file": "assets/aiAppPublishingScroll-C3WsPaJo.js",
+    "name": "aiAppPublishingScroll",
+    "src": "resources/js/aiAppPublishingScroll.js",
+    "isEntry": true,
+    "imports": [
+      "_ScrollTrigger-C8IefbVz.js"
     ]
   },
   "resources/js/app.js": {

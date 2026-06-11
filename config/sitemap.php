@@ -39,5 +39,7 @@ return [
         ['path' => '/how-to-build-a-landing-page', 'priority' => '0.75', 'lastmod' => '2026-03-24'],
         ['path' => '/invitaciones-digitales-boda', 'priority' => '0.88', 'lastmod' => '2026-06-04'],
         ['path' => '/digital-wedding-invitations', 'priority' => '0.85', 'lastmod' => '2026-06-04'],
+        ['path' => '/publicar-app-hecha-con-ia', 'priority' => '0.88', 'lastmod' => '2026-06-11'],
+        ['path' => '/publish-ai-built-app', 'priority' => '0.85', 'lastmod' => '2026-06-11'],
     ],
 ];

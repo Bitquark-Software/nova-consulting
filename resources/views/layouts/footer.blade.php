@@ -57,6 +57,7 @@
                     <li><a href="{{ route('blog.index') }}" class="marketing-footer__link marketing-footer__link--strong">{{ __('messages.footer.blog_index') }}</a></li>
                     <li><a href="{{ route('blog.cheap_labor') }}" class="marketing-footer__link">{{ __('messages.footer.blog_cheap_labor') }}</a></li>
                     <li><a href="{{ route('blog.tuxtla_web_design') }}" class="marketing-footer__link">{{ __('messages.footer.web_design_tuxtla') }}</a></li>
+                    <li><a href="{{ \App\Support\LocalizedUrls::aiAppPublishing() }}" class="marketing-footer__link">{{ __('messages.footer.ai_app_publishing') }}</a></li>
                 </ul>
             </div>
 

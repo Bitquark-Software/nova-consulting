@@ -201,6 +201,18 @@ Route::get('/digital-wedding-invitations', function () {
     return view('landings.wedding-invitations');
 })->name('landing.en.wedding_invitations');
 
+Route::get('/publicar-app-hecha-con-ia', function () {
+    app()->setLocale('es');
+
+    return view('landings.ai-app-publishing');
+})->name('landing.ai_app_publishing');
+
+Route::get('/publish-ai-built-app', function () {
+    app()->setLocale('en');
+
+    return view('landings.ai-app-publishing');
+})->name('landing.en.ai_app_publishing');
+
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');
