@@ -176,7 +176,7 @@ class SeoService
             'name' => 'Nova Consulting',
             'url' => $homeUrl,
             'logo' => asset('images/nova_consulting_logo.svg'),
-            'telephone' => '+52-961-146-5703',
+            'telephone' => '+52-961-201-0951',
             'email' => 'sales@novaconsulting.com',
             'priceRange' => '$MX',
             'address' => [

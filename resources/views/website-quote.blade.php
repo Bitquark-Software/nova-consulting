@@ -357,12 +357,12 @@
                 <p class="mt-6 text-2xl font-bold text-black" x-show="lastTotal > 0" x-text="'~ $' + formatMoney(lastTotal) + ' {{ __('website_quote.currency') }}'"></p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
                     <a
-                        href="tel:+529611465703"
+                        href="tel:+529612010951"
                         class="inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-full border-2 border-[#2C2C2C] font-semibold text-[#2C2C2C] hover:bg-gray-50 transition-colors"
                         data-track="website_quote_success_call"
-                    >{{ __('website_quote.success_call') }} · +52 961 146 5703</a>
+                    >{{ __('website_quote.success_call') }} · +52 961 201 0951</a>
                     <a
-                        href="https://wa.me/529611465703?text={{ rawurlencode('Hola Nova, acabo de enviar una cotización desde el cotizador web y quiero agilizar el proceso.') }}"
+                        href="https://wa.me/529612010951?text={{ rawurlencode('Hola Nova, acabo de enviar una cotización desde el cotizador web y quiero agilizar el proceso.') }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="inline-flex justify-center items-center px-6 py-3.5 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:shadow-lg transition-all"

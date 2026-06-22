@@ -148,7 +148,7 @@
                 </div>
             </div>
             <div class="mt-4 text-center">
-                <a href="tel:+529611465703" class="text-sm text-gray-500 hover:text-black transition-colors font-medium" data-track="lead_call_click">
+                <a href="tel:+529612010951" class="text-sm text-gray-500 hover:text-black transition-colors font-medium" data-track="lead_call_click">
                     O llámanos directamente: {{ __('messages.lead_form.call_button') }}
                 </a>
             </div>

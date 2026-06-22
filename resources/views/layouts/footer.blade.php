@@ -14,7 +14,7 @@
                         <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" rel="noopener noreferrer" class="marketing-footer__social" aria-label="TikTok">
                             <x-ri-tiktok-fill class="w-5 h-5" />
                         </a>
-                        <a href="https://wa.me/529611465703" target="_blank" rel="noopener noreferrer" class="marketing-footer__social" aria-label="WhatsApp">
+                        <a href="https://wa.me/529612010951" target="_blank" rel="noopener noreferrer" class="marketing-footer__social" aria-label="WhatsApp">
                             <x-ri-whatsapp-fill class="w-5 h-5" />
                         </a>
                     </div>

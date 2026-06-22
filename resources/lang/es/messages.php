@@ -82,7 +82,7 @@ return [
         'label_message' => 'Objetivo del proyecto',
         'placeholder_message' => 'Que quieres lograr con este proyecto?',
         'submit_button' => 'Enviar y hablar por WhatsApp',
-        'call_button' => 'O llamar al +52 961 146 5703',
+        'call_button' => 'O llamar al +52 961 201 0951',
     ],
     'footer' => [
         'services' => 'Servicios',

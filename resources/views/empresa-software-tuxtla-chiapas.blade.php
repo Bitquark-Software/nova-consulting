@@ -29,11 +29,11 @@
                 aumentar ventas y operar mejor con software a medida, integraciones y automatizacion.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-medium" data-track="landing_software_whatsapp_click">
+                <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-medium" data-track="landing_software_whatsapp_click">
                     Escribir por WhatsApp
                 </a>
-                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium" data-track="landing_software_phone_click">
-                    Llamar al +52 961 146 5703
+                <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium" data-track="landing_software_phone_click">
+                    Llamar al +52 961 201 0951
                 </a>
                 <a href="mailto:sales@novaconsulting.com.mx" class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium" data-track="landing_software_email_click">
                     Enviar correo
@@ -71,10 +71,10 @@
                 "DESCUENTO CHIAPAS" para aplicarlo en tu propuesta.
             </p>
             <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_software_whatsapp_click">
+                <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_software_whatsapp_click">
                     Reclamar 10% por WhatsApp
                 </a>
-                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_software_phone_click">
+                <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_software_phone_click">
                     Llamar ahora
                 </a>
             </div>
@@ -89,7 +89,7 @@
             </p>
             <ul class="mt-6 space-y-2 text-gray-700">
                 <li>Direccion: 1067 Chihuahua Avenue, Tuxtla Gutierrez, Chiapas 29020</li>
-                <li>Telefono: <a href="tel:+529611465703" class="underline">+52 961 146 5703</a></li>
+                <li>Telefono: <a href="tel:+529612010951" class="underline">+52 961 201 0951</a></li>
                 <li>Correo: <a href="mailto:sales@novaconsulting.com.mx" class="underline">sales@novaconsulting.com.mx</a></li>
             </ul>
         </section>

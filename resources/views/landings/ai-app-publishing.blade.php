@@ -27,7 +27,7 @@
     $waQuote = $loc === 'en'
         ? 'Hi! I built an app with AI and need help publishing it (web server, domain, or app stores).'
         : '¡Hola! Creé una app con IA y necesito ayuda para publicarla (servidor, dominio o tiendas de apps).';
-    $waQuoteUrl = 'https://wa.me/529611465703?text='.urlencode($waQuote);
+    $waQuoteUrl = 'https://wa.me/529612010951?text='.urlencode($waQuote);
 
     $serviceSchema = [
         '@context' => 'https://schema.org',

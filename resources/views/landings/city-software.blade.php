@@ -55,8 +55,8 @@
                     <h1 class="mt-3 text-4xl md:text-6xl font-bold leading-tight">{{ $c['h1'] }}</h1>
                     <p class="mt-5 text-lg text-gray-700 max-w-4xl">{{ $c['intro'] }}</p>
                     <div class="mt-7 flex flex-wrap gap-3">
-                        <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_contact') }}</a>
-                        <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ __('city_software.common.talk_advisor') }}</a>
+                        <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_contact') }}</a>
+                        <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ __('city_software.common.talk_advisor') }}</a>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@
                 <h2 class="mt-3 text-3xl font-bold">{{ $c['coupon']['title'] }}</h2>
                 <p class="mt-3 text-gray-300">{{ $c['coupon']['body'] }}</p>
                 <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold">{{ __('city_software.common.claim_whatsapp') }}</a>
-                    <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-white text-white font-semibold">{{ __('city_software.common.call_now') }}</a>
+                    <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-white text-black font-semibold">{{ __('city_software.common.claim_whatsapp') }}</a>
+                    <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-white text-white font-semibold">{{ __('city_software.common.call_now') }}</a>
                 </div>
             </div>
         </section>
@@ -80,8 +80,8 @@
                     <h1 class="mt-3 text-4xl md:text-6xl font-bold leading-tight">{{ $c['h1'] }}</h1>
                     <p class="mt-5 text-lg text-gray-700">{{ $c['intro'] }}</p>
                     <div class="mt-7 flex flex-wrap gap-3">
-                        <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_write') }}</a>
-                        <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ __('city_software.common.request_call') }}</a>
+                        <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_write') }}</a>
+                        <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ __('city_software.common.request_call') }}</a>
                     </div>
                 </div>
                 <div class="bg-[#2C2C2C] text-white rounded-3xl p-8 md:p-10 fx-pop">
@@ -118,8 +118,8 @@
                     <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight">{{ $c['h1'] }}</h1>
                     <p class="mt-5 text-gray-700 text-lg">{{ $c['intro'] }}</p>
                     <div class="mt-7 flex flex-wrap gap-3">
-                        <a href="https://wa.me/529611465703" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_talk') }}</a>
-                        <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ $c['secondary_cta'] ?? __('city_software.common.call_now') }}</a>
+                        <a href="https://wa.me/529612010951" target="_blank" class="px-6 py-3 rounded-md bg-[#2C2C2C] text-white font-semibold">{{ __('city_software.common.whatsapp_talk') }}</a>
+                        <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-[#2C2C2C] font-semibold">{{ $c['secondary_cta'] ?? __('city_software.common.call_now') }}</a>
                     </div>
                 </div>
                 <div class="fx-fade fx-lift">

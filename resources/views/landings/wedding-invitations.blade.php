@@ -31,8 +31,8 @@
     $waDemo = $loc === 'en'
         ? 'Hi! I would like to request a demo of Nova Invita digital wedding invitations.'
         : '¡Hola! Me gustaría solicitar una demo de Nova Invita (invitaciones digitales para boda).';
-    $waQuoteUrl = 'https://wa.me/529611465703?text='.urlencode($waQuote);
-    $waDemoUrl = 'https://wa.me/529611465703?text='.urlencode($waDemo);
+    $waQuoteUrl = 'https://wa.me/529612010951?text='.urlencode($waQuote);
+    $waDemoUrl = 'https://wa.me/529612010951?text='.urlencode($waDemo);
     $invitationPreviewUrl = asset('assets/invitations/digital wedding invitations.jpg');
 
     $serviceSchema = [

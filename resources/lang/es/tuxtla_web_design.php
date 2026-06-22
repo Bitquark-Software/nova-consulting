@@ -15,7 +15,7 @@ return [
         'subtitle' => 'Arma tu sitio web paso a paso con clics: elige tipo de página, funciones y estilo en nuestro cotizador. Recibes una propuesta orientativa al instante y un equipo local te acompaña hasta publicar con SEO.',
         'cta_quote' => 'Crear mi sitio con clics',
         'cta_whatsapp' => 'Cotizar por WhatsApp',
-        'cta_phone' => 'Llamar al +52 961 146 5703',
+        'cta_phone' => 'Llamar al +52 961 201 0951',
     ],
 
     'click_builder' => [
@@ -106,7 +106,7 @@ return [
         'title' => 'Estudio de diseño web en Tuxtla Gutiérrez',
         'body' => 'Somos Nova Consulting. Si buscas diseño de páginas web en Tuxtla Gutiérrez con acompañamiento real — desde el primer clic en el cotizador hasta ver resultados en Google — escríbenos.',
         'address' => 'Avenida Chihuahua 1067, Tuxtla Gutiérrez, Chiapas 29020',
-        'phone' => '+52 961 146 5703',
+        'phone' => '+52 961 201 0951',
         'email' => 'sales@novaconsulting.com.mx',
     ],
 

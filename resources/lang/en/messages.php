@@ -82,7 +82,7 @@ return [
         'label_message' => 'Project goal',
         'placeholder_message' => 'What do you want to achieve with this project?',
         'submit_button' => 'Send and chat on WhatsApp',
-        'call_button' => 'Or call +52 961 146 5703',
+        'call_button' => 'Or call +52 961 201 0951',
     ],
     'footer' => [
         'services' => 'Services',

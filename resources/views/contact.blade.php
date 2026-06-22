@@ -41,7 +41,7 @@
             </p>
             <div class="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
                 <a
-                    href="https://wa.me/529611465703?text={{ urlencode($cp['whatsapp_prefill']) }}"
+                    href="https://wa.me/529612010951?text={{ urlencode($cp['whatsapp_prefill']) }}"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex justify-center items-center w-full sm:w-auto min-w-[12rem] px-8 py-3.5 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
@@ -66,9 +66,9 @@
                     {{ $cp['cta_calendar'] }}
                 </a>
             </div>
-            <a href="tel:+529611465703" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors" data-track="contact_call_hero">
+            <a href="tel:+529612010951" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors" data-track="contact_call_hero">
                 <x-ri-phone-line class="w-4 h-4 shrink-0" />
-                {{ $cp['cta_call'] }} · +52 961 146 5703
+                {{ $cp['cta_call'] }} · +52 961 201 0951
             </a>
         </header>
 
@@ -90,12 +90,12 @@
                         <p class="mt-2 text-sm text-gray-600">{{ $cp['email_hint'] }}</p>
                     </a>
 
-                    <a href="tel:+529611465703" class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all" data-track="contact_card_phone">
+                    <a href="tel:+529612010951" class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all" data-track="contact_card_phone">
                         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gray-100 text-black group-hover:bg-black group-hover:text-white transition-colors">
                             <x-ri-phone-line class="w-5 h-5" />
                         </div>
                         <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-gray-500">{{ __('messages.contact.phone') }}</p>
-                        <p class="mt-1 font-semibold text-black">+52 961 146 5703</p>
+                        <p class="mt-1 font-semibold text-black">+52 961 201 0951</p>
                         <p class="mt-2 text-sm text-gray-600">{{ $cp['phone_hint'] }}</p>
                     </a>
                 </div>
@@ -171,7 +171,7 @@
                         <a href="https://www.tiktok.com/@novaconsultingmx?_r=1&_t=ZS-946rrstjlUC" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="TikTok" data-track="contact_social_tt">
                             <x-ri-tiktok-fill class="w-5 h-5" />
                         </a>
-                        <a href="https://wa.me/529611465703" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="WhatsApp" data-track="contact_social_wa">
+                        <a href="https://wa.me/529612010951" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#F2F2F2] flex items-center justify-center border border-gray-200 hover:border-black transition-colors" aria-label="WhatsApp" data-track="contact_social_wa">
                             <x-ri-whatsapp-fill class="w-5 h-5" />
                         </a>
                     </div>

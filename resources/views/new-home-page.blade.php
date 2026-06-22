@@ -88,7 +88,7 @@
 @foreach ($services as $index => $service)
     @php
         $quoteUrl = url('/cotizador-sitio-web?service=' . $service);
-        $waUrl = 'https://wa.me/529611465703?text=' . urlencode(__('home_services.selector.' . $service) . ' - ' . __('home_services.common.primary_cta'));
+        $waUrl = 'https://wa.me/529612010951?text=' . urlencode(__('home_services.selector.' . $service) . ' - ' . __('home_services.common.primary_cta'));
         
         // Use consistent clean background for all services
         $bgClass = 'bg-white text-black';

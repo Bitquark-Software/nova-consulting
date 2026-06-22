@@ -117,7 +117,7 @@ document.addEventListener('submit', (event) => {
         currency: 'MXN',
     });
 
-    const whatsappUrl = `https://wa.me/529611465703?text=${encodeURIComponent(payload)}`;
+    const whatsappUrl = `https://wa.me/529612010951?text=${encodeURIComponent(payload)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 });
 

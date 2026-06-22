@@ -28,7 +28,7 @@
             '@type' => 'LocalBusiness',
             'name' => 'Nova Consulting',
             'url' => url('/'),
-            'telephone' => '+52-961-146-5703',
+            'telephone' => '+52-961-201-0951',
             'address' => [
                 '@type' => 'PostalAddress',
                 'streetAddress' => 'Avenida Chihuahua 1067',
@@ -107,7 +107,7 @@
                     {{ $t['hero']['cta_quote'] }}
                 </a>
                 <a
-                    href="https://wa.me/529611465703?text={{ urlencode('Hola, quiero cotizar diseño de página web en Tuxtla Gutiérrez.') }}"
+                    href="https://wa.me/529612010951?text={{ urlencode('Hola, quiero cotizar diseño de página web en Tuxtla Gutiérrez.') }}"
                     target="_blank"
                     rel="noopener"
                     class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium"
@@ -116,7 +116,7 @@
                     {{ $t['hero']['cta_whatsapp'] }}
                 </a>
                 <a
-                    href="tel:+529611465703"
+                    href="tel:+529612010951"
                     class="px-6 py-3 rounded-md border border-[#2C2C2C] text-[#2C2C2C] font-medium"
                     data-track="landing_tuxtla_web_phone_click"
                 >
@@ -197,10 +197,10 @@
             <h2 class="mt-3 text-3xl md:text-4xl font-bold">{{ $t['promo']['title'] }}</h2>
             <p class="mt-4 text-gray-300 max-w-3xl mx-auto">{{ $t['promo']['body'] }}</p>
             <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/529611465703" target="_blank" rel="noopener" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_tuxtla_web_whatsapp">
+                <a href="https://wa.me/529612010951" target="_blank" rel="noopener" class="px-6 py-3 rounded-md bg-white text-black font-semibold" data-track="promo_tuxtla_web_whatsapp">
                     {{ $t['promo']['cta_whatsapp'] }}
                 </a>
-                <a href="tel:+529611465703" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_tuxtla_web_phone">
+                <a href="tel:+529612010951" class="px-6 py-3 rounded-md border border-white text-white font-semibold" data-track="promo_tuxtla_web_phone">
                     {{ $t['promo']['cta_phone'] }}
                 </a>
             </div>
@@ -212,7 +212,7 @@
             <p class="mt-4 text-gray-700 leading-relaxed">{{ $t['contact']['body'] }}</p>
             <ul class="mt-6 space-y-2 text-gray-700">
                 <li>{{ $t['contact']['address'] }}</li>
-                <li>Teléfono: <a href="tel:+529611465703" class="underline font-medium">{{ $t['contact']['phone'] }}</a></li>
+                <li>Teléfono: <a href="tel:+529612010951" class="underline font-medium">{{ $t['contact']['phone'] }}</a></li>
                 <li>Correo: <a href="mailto:{{ $t['contact']['email'] }}" class="underline font-medium">{{ $t['contact']['email'] }}</a></li>
             </ul>
         </section>
