@@ -19,6 +19,9 @@
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "w3wkj1p409");
         </script>
+
+
+        <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"a2ff2bd366138f95c914f879a1e5d9e8"})});</script>
         @endif
 
         <!-- Scripts -->
